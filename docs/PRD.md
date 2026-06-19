@@ -1,6 +1,6 @@
 # PEFEPrep — Product Requirements Document (PRD)
 
-> **Status:** Draft v0.1 · **Last updated:** 2026-06-19 · **Owner:** Yitzy
+> **Status:** Draft v0.2 · **Last updated:** 2026-06-19 · **Owner:** Yitzy
 > Living document — edit freely. Open decisions are tracked in §9.
 
 ---
@@ -212,9 +212,10 @@ The "set it and forget it" routine.
 **v0 (already live):** static frontend on GitHub Pages + auto-deploy on push to `main`;
 demo drill reading `data/questions.json`. This is the seam everything else snaps into.
 
-**Stack:** Frontend = static (GitHub Pages); upgrade to Vite + React when the app outgrows
-single pages. Backend = Supabase (Postgres/Auth). Automation = scheduled GitHub Action (or the
-Claude routine) calling the engine + ingest. Math = MathJax/KaTeX. Notifications = §9.
+**Stack (v1):** Frontend = static (GitHub Pages); **all user state in `localStorage`** (no backend
+yet) — upgrade to Vite + React as it grows. **Supabase (Postgres/Auth) arrives in v2** for
+cross-device sync. Automation = scheduled GitHub Action calling the engine + ingest + **email**.
+Math = MathJax/KaTeX.
 
 ---
 
@@ -222,26 +223,31 @@ Claude routine) calling the engine + ingest. Math = MathJax/KaTeX. Notifications
 
 - **v0 — Live shell ✅** *(done)* — domain, CD pipeline, demo drill, JSON seam.
 - **v1 — The daily loop (P0):** Today screen (F1), question player w/ hide-reveal + Handbook refs
-  (F2/F3), section progress (F5), settings (F7), and the daily automation that generates + publishes
-  + notifies (F8). Real FE Environmental content flowing in from the engine.
-- **v2 — Make it stick (P1):** Spaced repetition (F4), accounts + sync via Supabase (F9),
-  browse/search the bank (F6).
+  (F2/F3), section progress (F5), Leitner spaced repetition (F4), settings (F7), and daily
+  automation that generates + publishes + **emails** (F8). **Progress in `localStorage`.**
+  Real FE Environmental content flowing in from the engine.
+- **v2 — Make it stick (P1):** Accounts + cross-device sync via Supabase (F9, migrate local state),
+  browse/search the bank (F6), richer SRS tuning.
 - **v3 — Exam mode (P2):** timed full-length simulator (F10), cheat-sheet/notes pages (F11),
   readiness predictor tuning.
 - **post-exam:** generalize to other exams/disciplines; consider multi-user + monetization.
 
 ---
 
-## 9. Open Decisions (need Yitzy's input)
+## 9. Decisions
 
-1. **Notification channel (F8.4):** email · mobile push (installable PWA) · text/SMS · more than one?
-2. **Where the daily routine runs (F8.1):** keep it in the Claude cowork project · a scheduled
-   GitHub Action · another scheduler? (Affects how hands-off it is.)
-3. **Accounts now or later (F9):** single-user with browser storage for v1, or stand up Supabase
-   auth immediately for cross-device from day one?
-4. **Spaced-repetition algorithm (F4.1):** lightweight **Leitner boxes** (simple, transparent) vs
-   **SM-2** (Anki's algorithm, more tuned). Recommend starting Leitner, upgrade later.
-5. **Daily set composition (F1.2):** confirm the default new-vs-review mix (e.g., ~12 new + ~8 review?).
+**Locked — 2026-06-19:**
+1. **Notifications (F8.4):** ✅ **Email** to start — a morning email with a link to today's set.
+   (Phone push / SMS can be added later as optional channels.)
+2. **Accounts / sync (F9):** ✅ **Single-device for v1** — all user state (progress, streak,
+   Leitner SRS, settings) lives in browser **`localStorage`**. **Supabase + cross-device sync
+   is deferred to v2** (the schema already anticipates a "user," so it migrates cleanly).
+3. **Spaced repetition (F4.1):** ✅ **Leitner boxes** — simple, transparent buckets.
+
+**Still open (proposed defaults — confirm when we build that piece):**
+4. **Where the daily routine runs (F8.1):** *(proposed)* the Claude routine emits `questions.json`
+   to the Drive folder → a **scheduled GitHub Action** ingests it, publishes, and sends the email.
+5. **Daily mix (F1.2):** *(proposed)* ~**12 new + 8 review**, adjustable in Settings.
 
 ---
 
