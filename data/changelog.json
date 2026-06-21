@@ -1,7 +1,16 @@
 {
-  "version": "0.6.0",
+  "version": "0.7.0",
   "updated": "2026-06-21",
   "history": [
+    {
+      "version": "0.7.0",
+      "date": "2026-06-21",
+      "title": "Day 1 added — Days 1-4 fully loaded",
+      "changes": [
+        "Mathematics (Day 1, 18 questions) added — the bank now spans Days 1-4 (83 questions)",
+        "Demonstrates the daily routine in action: one new file (day01.json) + a manifest line, and Today, Bank, and Progress all updated with no code changes"
+      ]
+    },
     {
       "version": "0.6.0",
       "date": "2026-06-21",
