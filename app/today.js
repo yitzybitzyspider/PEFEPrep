@@ -1,25 +1,28 @@
-/* PEFEPrep — Daily Player (M1) on the shared store (M3 SRS, M4 settings).
- * Active-recall: see question -> optional pick -> Reveal -> solution + Handbook
- * ref -> self-grade. Every resolved question feeds PFP (Leitner + mastery + streak).
+/* PEFEPrep — Daily Player.
+ * Equations shown up front (solution hidden) · pick or recall · reveal answer ·
+ * unlock the worked solution step by step · searchable Handbook panel.
+ * Runs on the shared store (Leitner SRS + mastery + streak). KaTeX for math.
  */
 (function () {
   "use strict";
 
   var KEYS = ["A", "B", "C", "D", "E", "F"];
-  var ALL = [], QUESTIONS = [], idx = 0;
-  var session = {};            // qid -> { correct, topic }  (this session, for summary)
-  var resolved = {};           // qid -> true once recorded to the store
-  var view = { picked: null, revealed: false };
+  var ALL = [], QUESTIONS = [], HB = [], idx = 0;
+  var session = {}, resolved = {};
+  var view = { picked: null, revealed: false, stepsShown: 0 };
   var settings = PFP.getSettings();
 
   var $ = function (id) { return document.getElementById(id); };
   var pill = function (k, v) { return '<span class="pill"><b>' + v + "</b> · " + k + "</span>"; };
+  var math = function (el) { if (window.renderMath) window.renderMath(el); };
 
   async function init() {
     try {
-      var res = await fetch("./data/questions.json", { cache: "no-store" });
-      var data = await res.json();
-      ALL = data.questions || [];
+      var q = await (await fetch("./data/questions.json", { cache: "no-store" })).json();
+      ALL = q.questions || [];
+      try { HB = (await (await fetch("./data/handbook.json", { cache: "no-store" })).json()).entries || []; }
+      catch (e) { HB = []; }
+      wireHandbook();
       renderIntro();
     } catch (e) {
       $("introTitle").textContent = "Couldn’t load today’s set";
@@ -32,10 +35,8 @@
     settings = PFP.getSettings();
     QUESTIONS = PFP.buildDailySet(ALL);
     var done = PFP.isDoneToday();
-    var topics = Array.prototype.filter.call(
-      QUESTIONS.map(function (q) { return q.topic; }),
-      function (v, i, a) { return a.indexOf(v) === i; }
-    );
+    var topics = QUESTIONS.map(function (q) { return q.topic; })
+      .filter(function (v, i, a) { return a.indexOf(v) === i; });
 
     $("dateLabel").textContent = new Date().toLocaleDateString(undefined,
       { weekday: "long", month: "long", day: "numeric" });
@@ -54,7 +55,7 @@
     } else {
       $("introTitle").textContent = "Today’s set";
       $("introSub").textContent =
-        "Recall first, then reveal — and grade yourself honestly. That’s what makes it stick.";
+        "The equations are shown up front — work it yourself, then reveal the answer and unlock the solution one step at a time.";
       $("startBtn").textContent = "Start →";
     }
     show("intro");
@@ -62,19 +63,26 @@
 
   function start() {
     if (QUESTIONS.length === 0) QUESTIONS = PFP.buildDailySet(ALL);
-    idx = 0; session = {}; resolved = {}; view = { picked: null, revealed: false };
+    idx = 0; session = {}; resolved = {};
     show("player");
     renderQuestion();
   }
 
   function renderQuestion() {
     var q = QUESTIONS[idx];
-    view = { picked: null, revealed: false };
+    view = { picked: null, revealed: false, stepsShown: 0 };
 
     $("bar").style.width = (idx / QUESTIONS.length * 100) + "%";
     $("qcount").textContent = "Question " + (idx + 1) + " of " + QUESTIONS.length;
     $("qtopic").textContent = q.topic;
     $("stem").textContent = q.stem;
+    math($("stem"));
+
+    var eq = q.equations || [];
+    $("equations").innerHTML = eq.length
+      ? eq.map(function (e) { return '<div class="eq">' + e + "</div>"; }).join("")
+      : '<div class="eq" style="color:var(--muted);">—</div>';
+    math($("equations"));
 
     var opts = $("opts");
     opts.innerHTML = "";
@@ -87,11 +95,16 @@
       opts.appendChild(b);
     });
 
-    var fb = $("feedback");
-    fb.className = "feedback";
-    fb.innerHTML = "";
+    $("feedback").className = "feedback";
+    $("verdict").innerHTML = "";
+    $("steps").innerHTML = "";
+    $("refbox").innerHTML = "";
+    $("selfgrade").innerHTML = "";
     $("revealBtn").classList.remove("hide");
+    $("stepBtn").classList.add("hide");
     $("nextBtn").classList.add("hide");
+
+    renderHandbook();
   }
 
   function selectOption(i) {
@@ -124,42 +137,64 @@
       if (bi === view.picked && bi !== q.answer) b.classList.add("wrong");
     });
 
-    var head, selfgrade = "";
     if (view.picked === null) {
-      head = '<div class="verdict">Answer: ' + KEYS[q.answer] + "</div>";
-      selfgrade = '<div class="selfgrade"><span>Did you get it?</span>' +
+      $("verdict").className = "verdict";
+      $("verdict").innerHTML = "Answer: " + KEYS[q.answer];
+      $("selfgrade").innerHTML = '<div class="selfgrade"><span>Did you get it?</span>' +
         '<button class="sg" data-g="knew">I knew it</button>' +
         '<button class="sg" data-g="missed">I missed it</button></div>';
+      Array.prototype.forEach.call($("selfgrade").querySelectorAll(".sg"), function (b) {
+        b.onclick = function () { selfGrade(b.dataset.g); };
+      });
     } else {
       var ok = view.picked === q.answer;
-      head = '<div class="verdict ' + (ok ? "ok" : "no") + '">' +
-        (ok ? "✓ You got it" : "✗ Answer is " + KEYS[q.answer]) + "</div>";
+      $("verdict").className = "verdict " + (ok ? "ok" : "no");
+      $("verdict").innerHTML = ok ? "✓ You got it" : "✗ Answer is " + KEYS[q.answer];
       resolve(ok);
     }
 
     var refs = q.references ? '<div class="refs">Look up: ' + q.references + "</div>" : "";
-    var fb = $("feedback");
-    fb.innerHTML = head + "<div>" + q.solution + "</div>" + refs +
-      '<div class="ref">Handbook: ' + q.handbook + "</div>" + selfgrade;
-    fb.className = "feedback show";
-    Array.prototype.forEach.call(fb.querySelectorAll(".sg"), function (b) {
-      b.onclick = function () { selfGrade(b.dataset.g); };
-    });
+    $("refbox").innerHTML = refs + '<div class="ref">Handbook: ' + q.handbook + "</div>";
+    $("feedback").className = "feedback show";
 
+    var steps = q.steps || [];
+    if (steps.length) {
+      $("stepBtn").textContent = "Show step 1";
+      $("stepBtn").classList.remove("hide");
+    }
     $("revealBtn").classList.add("hide");
     $("nextBtn").classList.remove("hide");
+    math($("refbox"));
+  }
+
+  function showNextStep() {
+    var q = QUESTIONS[idx];
+    var steps = q.steps || [];
+    if (view.stepsShown >= steps.length) return;
+    var n = view.stepsShown;
+    var div = document.createElement("div");
+    div.className = "step";
+    div.innerHTML = '<span class="n">' + (n + 1) + ".</span>" + steps[n];
+    $("steps").appendChild(div);
+    math(div);
+    view.stepsShown++;
+    if (view.stepsShown >= steps.length) {
+      $("stepBtn").classList.add("hide");
+    } else {
+      $("stepBtn").textContent = "Show step " + (view.stepsShown + 1) + " of " + steps.length;
+    }
   }
 
   function selfGrade(g) {
     resolve(g === "knew");
-    Array.prototype.forEach.call($("feedback").querySelectorAll(".sg"), function (b) {
+    Array.prototype.forEach.call($("selfgrade").querySelectorAll(".sg"), function (b) {
       b.classList.toggle("on", b.dataset.g === g);
     });
   }
 
   function next() {
     var q = QUESTIONS[idx];
-    if (!resolved[q.id]) resolve(false); // skipped self-grade -> counts as a miss
+    if (!resolved[q.id]) resolve(false);
     idx++;
     if (idx >= QUESTIONS.length) finish();
     else renderQuestion();
@@ -197,6 +232,34 @@
     show("done");
   }
 
+  /* Handbook side panel */
+  function wireHandbook() {
+    var s = $("hbSearch");
+    if (s) s.oninput = function () { renderHandbook(s.value); };
+  }
+  function renderHandbook(query) {
+    var list = $("hbList");
+    if (!list) return;
+    var q = (query || "").toLowerCase().trim();
+    var rows;
+    if (q) {
+      rows = HB.filter(function (e) {
+        return (e.section + " " + e.eq + " " + (e.note || "") + " " + e.topic).toLowerCase().indexOf(q) >= 0;
+      });
+    } else {
+      var topic = QUESTIONS[idx] ? QUESTIONS[idx].topic : null;
+      var inTopic = HB.filter(function (e) { return e.topic === topic; });
+      var rest = HB.filter(function (e) { return e.topic !== topic; });
+      rows = inTopic.concat(rest);
+    }
+    list.innerHTML = rows.length ? rows.map(function (e) {
+      return '<div class="hbentry"><div class="hs">' + e.section + "</div>" +
+        '<div class="he">' + e.eq + "</div>" +
+        (e.note ? '<div class="hn">' + e.note + "</div>" : "") + "</div>";
+    }).join("") : '<div class="sub" style="font-size:13px;">No matches.</div>';
+    math(list);
+  }
+
   function show(which) {
     ["intro", "player", "done"].forEach(function (s) {
       $(s).classList.toggle("hide", s !== which);
@@ -206,12 +269,15 @@
 
   document.addEventListener("keydown", function (e) {
     if ($("player").classList.contains("hide")) return;
+    if (e.target && e.target.tagName === "INPUT") return; // don't hijack handbook search
     if (/^[1-9]$/.test(e.key)) {
       var i = Number(e.key) - 1;
       if (!view.revealed && QUESTIONS[idx] && i < QUESTIONS[idx].options.length) selectOption(i);
     } else if (e.key === " " || e.key.toLowerCase() === "r") {
       e.preventDefault();
       if (!view.revealed) reveal();
+    } else if (e.key.toLowerCase() === "s") {
+      if (view.revealed) showNextStep();
     } else if (e.key === "Enter") {
       if (view.revealed) next();
     }
@@ -220,6 +286,7 @@
   window.addEventListener("DOMContentLoaded", function () {
     $("startBtn").onclick = start;
     $("revealBtn").onclick = reveal;
+    $("stepBtn").onclick = showNextStep;
     $("nextBtn").onclick = next;
     $("againBtn").onclick = start;
     init();

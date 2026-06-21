@@ -1,0 +1,48 @@
+{
+  "version": "0.4.0",
+  "updated": "2026-06-20",
+  "history": [
+    {
+      "version": "0.4.0",
+      "date": "2026-06-20",
+      "title": "Equation breakdowns, step-by-step, Handbook panel",
+      "changes": [
+        "Relevant equations now shown up front on each question — solution stays hidden",
+        "Unlock the worked solution one step at a time",
+        "Searchable Handbook panel beside each question",
+        "Math renders properly now (KaTeX)",
+        "New Question Bank: browse, search, and filter every question by topic/mastery",
+        "Live version badge + this changelog"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-06-20",
+      "title": "Progress, spaced repetition, settings",
+      "changes": [
+        "Progress dashboard: per-section mastery, streak, days-to-exam, weakest sections",
+        "Leitner spaced repetition composes the daily set (due reviews + new)",
+        "Settings: daily size, new/review mix, reveal mode, SRS toggle, reset"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-06-19",
+      "title": "Daily player",
+      "changes": [
+        "Today's daily question set",
+        "Hide / reveal answers with self-grade",
+        "Daily streak"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-06-19",
+      "title": "Site live",
+      "changes": [
+        "pefeprep.com live on GitHub Pages with auto-deploy",
+        "HTTPS enabled"
+      ]
+    }
+  ]
+}

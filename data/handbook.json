@@ -1,0 +1,15 @@
+{
+  "note": "Searchable Handbook index — section names + key equations (facts/citations, not the copyrighted full text). Grows as the question bank grows; full Handbook text can load here later from the FE engine.",
+  "entries": [
+    { "section": "Continuity Equation", "topic": "Fluid Mechanics", "eq": "$Q = V\\,A$", "note": "Volumetric flow rate" },
+    { "section": "Reynolds Number", "topic": "Fluid Mechanics", "eq": "$\\mathrm{Re} = \\dfrac{V D}{\\nu} = \\dfrac{\\rho V D}{\\mu}$", "note": "Laminar Re<2100; turbulent Re>10^4" },
+    { "section": "Darcy-Weisbach Equation", "topic": "Fluid Mechanics", "eq": "$h_f = f\\,\\dfrac{L}{D}\\,\\dfrac{V^{2}}{2g}$", "note": "Pipe friction head loss" },
+    { "section": "Minor Losses", "topic": "Fluid Mechanics", "eq": "$h_f = C\\,\\dfrac{V^{2}}{2g}$", "note": "C = fitting loss coefficient (Handbook uses C, not K)" },
+    { "section": "Hydraulic Radius", "topic": "Fluid Mechanics", "eq": "$R_H = \\dfrac{A}{P}$", "note": "Full circular pipe: R = D/4" },
+    { "section": "Specific Weight", "topic": "Fluid Mechanics", "eq": "$\\gamma = \\rho\\,g$", "note": "Weight per unit volume" },
+    { "section": "Bernoulli / Energy Equation", "topic": "Fluid Mechanics", "eq": "$\\dfrac{p}{\\gamma} + \\dfrac{V^{2}}{2g} + z = \\text{const}$", "note": "Along a streamline, no losses" },
+    { "section": "Hazen-Williams", "topic": "Fluid Mechanics", "eq": "$V = k\\,C\\,R_H^{0.63}\\,S^{0.54}$", "note": "k = 0.849 (SI); C = HW coefficient" },
+    { "section": "Manning Equation", "topic": "Hydraulics", "eq": "$V = \\dfrac{k}{n}\\,R_H^{2/3}\\,S^{1/2}$", "note": "k = 1.0 (SI); open-channel flow" },
+    { "section": "Rational Method", "topic": "Surface Water", "eq": "$Q = C\\,i\\,A$", "note": "Peak runoff rate" }
+  ]
+}

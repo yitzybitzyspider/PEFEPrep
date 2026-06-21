@@ -137,6 +137,7 @@ window.PFP = (function () {
     var set = getSettings();
     return Math.max(0, Math.ceil((new Date(set.examDate + "T00:00:00") - new Date()) / 86400000));
   }
+  function getCard(id) { var s = load(); return (s.cards || {})[id] || null; }
   function resetAll() { localStorage.removeItem(STORE); }
 
   return {
@@ -145,6 +146,6 @@ window.PFP = (function () {
     recordResult: recordResult, buildDailySet: buildDailySet,
     sectionMastery: sectionMastery, completeDay: completeDay,
     getStreak: getStreak, isDoneToday: isDoneToday, getHistory: getHistory,
-    daysToExam: daysToExam, today: today, resetAll: resetAll
+    daysToExam: daysToExam, today: today, resetAll: resetAll, getCard: getCard
   };
 })();

@@ -128,3 +128,47 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:24px;}
 footer a{color:var(--accent2);text-decoration:none;}
 .trow{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:11px 0;font-size:14.5px;}
 .trow span:last-child{color:var(--muted);}
+
+/* equations box (shown up front, solution hidden) */
+.eqbox{background:rgba(76,139,245,.06);border:1px solid rgba(76,139,245,.25);border-radius:12px;padding:14px 16px;margin:10px 0 16px;}
+.eqbox h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent2);}
+.eqbox .eq{padding:5px 0;font-size:16px;}
+
+/* study grid: question + handbook panel */
+.studygrid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;}
+@media(min-width:920px){ .studygrid{grid-template-columns:1fr 290px;} }
+.hbpanel{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:16px;}
+@media(min-width:920px){ .hbpanel{position:sticky;top:24px;} }
+.hbpanel h4{margin:0 0 10px;font-size:13px;color:var(--ink);}
+.hbpanel input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:9px 11px;font-size:13.5px;margin-bottom:6px;}
+#hbList{max-height:62vh;overflow:auto;}
+.hbentry{border-top:1px solid var(--line);padding:9px 0;}
+.hbentry:first-of-type{border-top:none;}
+.hbentry .hs{font-size:12.5px;font-weight:600;color:var(--accent2);}
+.hbentry .he{font-size:15px;margin:3px 0;}
+.hbentry .hn{font-size:11.5px;color:var(--muted);}
+
+/* step-by-step unlock */
+.steps{margin-top:6px;}
+.steps .step{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;margin:9px 0;font-size:14.5px;line-height:1.55;}
+.steps .step .n{color:var(--accent);font-weight:700;margin-right:6px;}
+
+/* question bank (browse) */
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:12px;}
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;}
+.qstem{font-size:15.5px;line-height:1.5;margin-bottom:12px;}
+.qcard .reveal{padding:8px 14px;font-size:13.5px;}
+.qans{margin-top:12px;}
+.qans .sol{font-size:14px;line-height:1.55;margin-top:4px;}
+.bdg{font-size:11px;border-radius:999px;padding:3px 9px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;}
+.bdg.learning{color:var(--amber);border-color:rgba(245,166,35,.4);}
+.bdg.mastered{color:var(--good);border-color:rgba(62,207,142,.4);}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.filters select,.filters input{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:9px 11px;font-size:14px;}
+.filters input{flex:1;min-width:160px;}
+
+/* version badge + changelog */
+.verbadge{position:fixed;right:12px;bottom:12px;background:var(--card2);border:1px solid var(--line);color:var(--accent2);font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;text-decoration:none;z-index:50;opacity:.85;}
+.verbadge:hover{opacity:1;border-color:var(--accent2);}
+.chlist{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.6;}
+.chlist li{margin:3px 0;}
