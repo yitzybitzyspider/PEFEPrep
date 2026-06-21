@@ -11,9 +11,9 @@
 
   async function init() {
     try {
-      var Q = await (await fetch("./data/questions.json", { cache: "no-store" })).json();
+      var ALL = await PFPDATA.load();
       var S = await (await fetch("./data/schedule.json", { cache: "no-store" })).json();
-      render(Q.questions || [], S);
+      render(ALL, S);
     } catch (e) {
       $("bars").innerHTML = "<p class='sub'>Couldn’t load data: " + e + "</p>";
     }

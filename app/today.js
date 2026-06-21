@@ -18,8 +18,7 @@
 
   async function init() {
     try {
-      var q = await (await fetch("./data/questions.json", { cache: "no-store" })).json();
-      ALL = q.questions || [];
+      ALL = await PFPDATA.load();
       try { HB = (await (await fetch("./data/handbook.json", { cache: "no-store" })).json()).entries || []; }
       catch (e) { HB = []; }
       wireHandbook();

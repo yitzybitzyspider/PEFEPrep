@@ -1,7 +1,18 @@
 {
-  "version": "0.5.0",
+  "version": "0.6.0",
   "updated": "2026-06-21",
   "history": [
+    {
+      "version": "0.6.0",
+      "date": "2026-06-21",
+      "title": "Real questions Days 2-4 + daily-append structure",
+      "changes": [
+        "65 real questions now live: Fluid Mechanics I (20), Pipe Flow (21), Hydraulics (24)",
+        "New data model: one file per study day (data/days/dayNN.json) + manifest — adding a day auto-updates the whole app",
+        "Schedule dashboard fills in Days 2-4 as covered",
+        "Documented the FE engine → site daily routine (docs/engine-integration.md)"
+      ]
+    },
     {
       "version": "0.5.0",
       "date": "2026-06-21",

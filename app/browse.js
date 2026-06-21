@@ -9,9 +9,7 @@
 
   async function init() {
     try {
-      var res = await fetch("./data/questions.json", { cache: "no-store" });
-      var data = await res.json();
-      ALL = data.questions || [];
+      ALL = await PFPDATA.load();
       buildTopicFilter();
       wire();
       render();
