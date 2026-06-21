@@ -1,7 +1,19 @@
 {
-  "version": "0.4.0",
-  "updated": "2026-06-20",
+  "version": "0.5.0",
+  "updated": "2026-06-21",
   "history": [
+    {
+      "version": "0.5.0",
+      "date": "2026-06-21",
+      "title": "Real questions, schedule, equations panel",
+      "changes": [
+        "Real exam questions now loading from the FE engine (Day 2: 20 Fluid Mechanics questions), tagged by day/topic",
+        "Full equations list (40+ relations, Days 1-4) in the searchable Handbook panel",
+        "Equations are hidden by default now — reveal them as a hint; the worked solution still unlocks step by step",
+        "Progress dashboard is schedule-aware: coverage vs. the full 21-day plan, updates as days are added",
+        "Numeric-entry questions supported (recall + self-grade)"
+      ]
+    },
     {
       "version": "0.4.0",
       "date": "2026-06-20",

@@ -81,12 +81,14 @@
     var eq = q.equations || [];
     $("equations").innerHTML = eq.length
       ? eq.map(function (e) { return '<div class="eq">' + e + "</div>"; }).join("")
-      : '<div class="eq" style="color:var(--muted);">—</div>';
-    math($("equations"));
+      : '<div class="eq" style="color:var(--muted);">(no formulas listed)</div>';
+    $("equations").classList.add("hide");
+    $("eqBtn").classList.remove("hide");
+    $("eqBtn").textContent = "💡 Show relevant formulas";
 
     var opts = $("opts");
     opts.innerHTML = "";
-    q.options.forEach(function (text, i) {
+    (q.options || []).forEach(function (text, i) {
       var b = document.createElement("button");
       b.className = "opt";
       b.dataset.i = i;
@@ -125,21 +127,32 @@
     }
   }
 
+  function revealEquations() {
+    $("equations").classList.remove("hide");
+    math($("equations"));
+    $("eqBtn").classList.add("hide");
+  }
+
   function reveal() {
     if (view.revealed) return;
     view.revealed = true;
     var q = QUESTIONS[idx];
 
-    Array.prototype.forEach.call($("opts").children, function (b) {
-      b.disabled = true;
-      var bi = Number(b.dataset.i);
-      if (bi === q.answer) b.classList.add("correct");
-      if (bi === view.picked && bi !== q.answer) b.classList.add("wrong");
-    });
+    var hasOpts = Array.isArray(q.options) && q.options.length > 0;
+    var answerText = hasOpts ? (KEYS[q.answer] + ") " + q.options[q.answer]) : String(q.answer);
+
+    if (hasOpts) {
+      Array.prototype.forEach.call($("opts").children, function (b) {
+        b.disabled = true;
+        var bi = Number(b.dataset.i);
+        if (bi === q.answer) b.classList.add("correct");
+        if (bi === view.picked && bi !== q.answer) b.classList.add("wrong");
+      });
+    }
 
     if (view.picked === null) {
       $("verdict").className = "verdict";
-      $("verdict").innerHTML = "Answer: " + KEYS[q.answer];
+      $("verdict").innerHTML = "Answer: " + answerText;
       $("selfgrade").innerHTML = '<div class="selfgrade"><span>Did you get it?</span>' +
         '<button class="sg" data-g="knew">I knew it</button>' +
         '<button class="sg" data-g="missed">I missed it</button></div>';
@@ -149,7 +162,7 @@
     } else {
       var ok = view.picked === q.answer;
       $("verdict").className = "verdict " + (ok ? "ok" : "no");
-      $("verdict").innerHTML = ok ? "✓ You got it" : "✗ Answer is " + KEYS[q.answer];
+      $("verdict").innerHTML = ok ? "✓ You got it" : "✗ Answer is " + answerText;
       resolve(ok);
     }
 
@@ -157,9 +170,9 @@
     $("refbox").innerHTML = refs + '<div class="ref">Handbook: ' + q.handbook + "</div>";
     $("feedback").className = "feedback show";
 
-    var steps = q.steps || [];
-    if (steps.length) {
-      $("stepBtn").textContent = "Show step 1";
+    view.stepsArr = (q.steps && q.steps.length) ? q.steps : (q.solution ? [q.solution] : []);
+    if (view.stepsArr.length) {
+      $("stepBtn").textContent = view.stepsArr.length > 1 ? "Show step 1" : "Show worked solution";
       $("stepBtn").classList.remove("hide");
     }
     $("revealBtn").classList.add("hide");
@@ -168,20 +181,19 @@
   }
 
   function showNextStep() {
-    var q = QUESTIONS[idx];
-    var steps = q.steps || [];
-    if (view.stepsShown >= steps.length) return;
+    var arr = view.stepsArr || [];
+    if (view.stepsShown >= arr.length) return;
     var n = view.stepsShown;
     var div = document.createElement("div");
     div.className = "step";
-    div.innerHTML = '<span class="n">' + (n + 1) + ".</span>" + steps[n];
+    div.innerHTML = (arr.length > 1 ? '<span class="n">' + (n + 1) + ".</span>" : "") + arr[n];
     $("steps").appendChild(div);
     math(div);
     view.stepsShown++;
-    if (view.stepsShown >= steps.length) {
+    if (view.stepsShown >= arr.length) {
       $("stepBtn").classList.add("hide");
     } else {
-      $("stepBtn").textContent = "Show step " + (view.stepsShown + 1) + " of " + steps.length;
+      $("stepBtn").textContent = "Show step " + (view.stepsShown + 1) + " of " + arr.length;
     }
   }
 
@@ -247,9 +259,9 @@
         return (e.section + " " + e.eq + " " + (e.note || "") + " " + e.topic).toLowerCase().indexOf(q) >= 0;
       });
     } else {
-      var topic = QUESTIONS[idx] ? QUESTIONS[idx].topic : null;
-      var inTopic = HB.filter(function (e) { return e.topic === topic; });
-      var rest = HB.filter(function (e) { return e.topic !== topic; });
+      var topic = (QUESTIONS[idx] ? QUESTIONS[idx].topic : "") || "";
+      var inTopic = HB.filter(function (e) { return topic.indexOf(e.topic) >= 0; });
+      var rest = HB.filter(function (e) { return topic.indexOf(e.topic) < 0; });
       rows = inTopic.concat(rest);
     }
     list.innerHTML = rows.length ? rows.map(function (e) {
@@ -273,6 +285,8 @@
     if (/^[1-9]$/.test(e.key)) {
       var i = Number(e.key) - 1;
       if (!view.revealed && QUESTIONS[idx] && i < QUESTIONS[idx].options.length) selectOption(i);
+    } else if (e.key.toLowerCase() === "e") {
+      if (!view.revealed) revealEquations();
     } else if (e.key === " " || e.key.toLowerCase() === "r") {
       e.preventDefault();
       if (!view.revealed) reveal();
@@ -285,6 +299,7 @@
 
   window.addEventListener("DOMContentLoaded", function () {
     $("startBtn").onclick = start;
+    $("eqBtn").onclick = revealEquations;
     $("revealBtn").onclick = reveal;
     $("stepBtn").onclick = showNextStep;
     $("nextBtn").onclick = next;

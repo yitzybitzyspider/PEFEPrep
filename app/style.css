@@ -172,3 +172,16 @@ footer a{color:var(--accent2);text-decoration:none;}
 .verbadge:hover{opacity:1;border-color:var(--accent2);}
 .chlist{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.6;}
 .chlist li{margin:3px 0;}
+
+/* study schedule (dashboard) */
+.schrow{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding:10px 0;}
+.schrow:first-child{border-top:none;}
+.schday{font-size:11px;color:var(--muted);min-width:46px;font-weight:700;}
+.schmain{flex:1;min-width:0;}
+.schtopic{font-size:14.5px;}
+.schmeta{font-size:11.5px;color:var(--muted);}
+.schstat{font-size:12px;text-align:right;min-width:96px;white-space:nowrap;}
+.schrow.avail .schstat{color:var(--good);}
+.schrow.pending .schstat{color:var(--amber);}
+.schrow.upcoming{opacity:.55;}
+.schrow.upcoming .schstat{color:var(--muted);}

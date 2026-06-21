@@ -72,10 +72,11 @@
     var items = ALL.filter(matches);
     $("count").textContent = items.length + " of " + ALL.length + " questions";
     $("list").innerHTML = items.length ? items.map(function (q) {
-      var opts = q.options.map(function (t, j) {
+      var hasOpts = Array.isArray(q.options) && q.options.length;
+      var opts = hasOpts ? q.options.map(function (t, j) {
         return '<div class="opt' + (j === q.answer ? " correct" : "") + '"><span class="key">' +
           KEYS[j] + "</span><span>" + t + "</span></div>";
-      }).join("");
+      }).join("") : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>";
       var refs = q.references ? '<div class="refs">Look up: ' + q.references + "</div>" : "";
       var eqs = (q.equations && q.equations.length)
         ? '<div class="eqbox" style="margin:4px 0 12px;"><h4>Equations</h4>' +

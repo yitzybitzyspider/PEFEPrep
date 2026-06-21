@@ -1,0 +1,29 @@
+{
+  "exam": "FE Environmental",
+  "examDate": "2026-07-08",
+  "note": "Study schedule from the daily FE engine prompt. 'topic' days build the question bank; the dashboard tracks coverage + mastery against this plan.",
+  "days": [
+    { "day": 1, "date": "2026-06-17", "topic": "Mathematics", "type": "topic" },
+    { "day": 2, "date": "2026-06-18", "topic": "Fluid Mechanics I", "type": "topic" },
+    { "day": 3, "date": "2026-06-19", "topic": "Fluid Mechanics II / Pipe Flow", "type": "topic" },
+    { "day": 4, "date": "2026-06-20", "topic": "Hydraulics", "type": "topic" },
+    { "day": 5, "date": "2026-06-21", "topic": "Surface Water & Hydrology", "type": "topic" },
+    { "day": 6, "date": "2026-06-22", "topic": "Groundwater, Soils & Sediments", "type": "topic" },
+    { "day": 7, "date": "2026-06-23", "topic": "Water & Wastewater I", "type": "topic" },
+    { "day": 8, "date": "2026-06-24", "topic": "Water & Wastewater II", "type": "topic" },
+    { "day": 9, "date": "2026-06-25", "topic": "Environmental Chemistry", "type": "topic" },
+    { "day": 10, "date": "2026-06-26", "topic": "Fundamental Principles", "type": "topic" },
+    { "day": 11, "date": "2026-06-27", "topic": "Air Quality & Control", "type": "topic" },
+    { "day": 12, "date": "2026-06-28", "topic": "Solid & Hazardous Waste", "type": "topic" },
+    { "day": 13, "date": "2026-06-29", "topic": "Risk Assessment + Thermodynamics", "type": "topic" },
+    { "day": 14, "date": "2026-06-30", "topic": "Engineering Economics", "type": "topic" },
+    { "day": 15, "date": "2026-07-01", "topic": "Ethics & Energy/Environment", "type": "topic" },
+    { "day": 16, "date": "2026-07-02", "topic": "Probability & Statistics + Mixed", "type": "topic" },
+    { "day": 17, "date": "2026-07-03", "topic": "Full Practice Exam #1", "type": "exam" },
+    { "day": 18, "date": "2026-07-04", "topic": "Review Day", "type": "review" },
+    { "day": 19, "date": "2026-07-05", "topic": "Targeted Drills", "type": "drill" },
+    { "day": 20, "date": "2026-07-06", "topic": "Full Practice Exam #2", "type": "exam" },
+    { "day": 21, "date": "2026-07-07", "topic": "Taper + Logistics", "type": "taper" },
+    { "day": 22, "date": "2026-07-08", "topic": "EXAM DAY", "type": "exam-day" }
+  ]
+}
