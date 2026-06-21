@@ -4,105 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Today — PEFEPrep</title>
-  <meta name="description" content="Your daily FE Environmental set: recall, reveal, self-grade, and keep your streak." />
+  <meta name="description" content="Your daily FE Environmental set: recall, reveal, self-grade, keep your streak." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
-  <style>
-    :root{
-      --bg:#0b1220; --card:#121c2e; --card2:#0f1828; --ink:#e8eef7; --muted:#93a1b8;
-      --accent:#f5a623; --accent2:#4c8bf5; --good:#3ecf8e; --bad:#f76d6d;
-      --line:rgba(255,255,255,0.08);
-    }
-    *{box-sizing:border-box;}
-    html,body{margin:0;min-height:100%;}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:
-        radial-gradient(1100px 560px at 78% -12%, rgba(76,139,245,.16), transparent 60%),
-        radial-gradient(820px 480px at 8% 112%, rgba(245,166,35,.10), transparent 55%),
-        var(--bg);
-      color:var(--ink); margin:0; padding:24px;
-    }
-    .wrap{max-width:760px;margin:0 auto;}
-    header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
-    .brand{font-weight:800;letter-spacing:-.02em;font-size:22px;text-decoration:none;color:var(--ink);}
-    .brand span{color:var(--accent);}
-    .headmeta{display:flex;gap:8px;flex-wrap:wrap;}
-    .tag{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--muted);}
-    .tag.streak{color:var(--accent);border-color:rgba(245,166,35,.35);}
-    .tag.count{color:var(--accent2);border-color:rgba(76,139,245,.35);}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;}
-    h1{font-size:26px;margin:.1em 0 .35em;letter-spacing:-.01em;}
-    h2{font-size:19px;margin:.2em 0 .6em;}
-    p.sub{color:var(--muted);line-height:1.55;margin:.2em 0 1.2em;}
-    .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
-    .pill{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13px;color:var(--muted);}
-    .pill b{color:var(--ink);}
-    button{font:inherit;cursor:pointer;border:none;border-radius:12px;}
-    .btn-primary{background:var(--accent);color:#1a1205;font-weight:700;padding:13px 22px;font-size:15px;}
-    .btn-primary:hover{filter:brightness(1.06);}
-    .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);padding:11px 18px;font-weight:600;text-decoration:none;display:inline-block;}
-    .btn-ghost:hover{border-color:var(--accent2);}
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:20px;}
-    .progress{height:7px;background:var(--card2);border-radius:99px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);}
-    .progress>div{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));width:0;transition:width .3s ease;}
-    .qhead{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;margin-bottom:10px;}
-    .topic-tag{color:var(--accent2);font-weight:600;}
-    .stem{font-size:18px;line-height:1.5;margin:6px 0 18px;}
-    .opts{display:grid;gap:11px;}
-    .opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
-      background:var(--card2);border:1px solid var(--line);color:var(--ink);padding:14px 16px;font-size:15px;line-height:1.4;transition:.15s;border-radius:12px;}
-    .opt:hover:not(:disabled){border-color:var(--accent2);transform:translateY(-1px);}
-    .opt .key{font-weight:700;color:var(--muted);min-width:18px;}
-    .opt.selected{border-color:var(--accent);}
-    .opt.correct{border-color:var(--good);background:rgba(62,207,142,.10);}
-    .opt.correct .key{color:var(--good);}
-    .opt.wrong{border-color:var(--bad);background:rgba(247,109,109,.10);}
-    .opt.wrong .key{color:var(--bad);}
-    .opt:disabled{cursor:default;}
-    .feedback{margin-top:18px;border-radius:12px;padding:15px 17px;font-size:14.5px;line-height:1.55;border:1px solid var(--line);background:var(--card2);display:none;}
-    .feedback.show{display:block;}
-    .feedback .verdict{font-weight:700;margin-bottom:6px;}
-    .feedback .verdict.ok{color:var(--good);}
-    .feedback .verdict.no{color:var(--bad);}
-    .feedback .refs{color:var(--muted);font-size:13px;margin-top:8px;}
-    .feedback .ref{color:var(--muted);font-size:12.5px;margin-top:9px;font-style:italic;}
-    .selfgrade{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
-    .selfgrade span{color:var(--muted);font-size:13px;}
-    .sg{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;font-size:13.5px;font-weight:600;border-radius:9px;}
-    .sg:hover{border-color:var(--accent2);}
-    .sg.on[data-g="knew"]{border-color:var(--good);background:rgba(62,207,142,.12);color:var(--good);}
-    .sg.on[data-g="missed"]{border-color:var(--bad);background:rgba(247,109,109,.12);color:var(--bad);}
-    .hint{color:var(--muted);font-size:12px;margin-top:14px;text-align:center;}
-    .hint kbd{background:var(--card2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:11px;}
-    .scorebig{font-size:54px;font-weight:800;letter-spacing:-.02em;margin:14px 0 2px;}
-    .scorebig small{font-size:22px;color:var(--muted);font-weight:600;}
-    .trow{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:11px 0;font-size:14.5px;}
-    .trow span:last-child{color:var(--muted);}
-    .hide{display:none;}
-    footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:24px;}
-    footer a{color:var(--accent2);text-decoration:none;}
-  </style>
+  <link rel="stylesheet" href="./app/style.css" />
 </head>
 <body>
   <div class="wrap">
-    <header class="top">
+    <header class="appbar">
       <a class="brand" href="./index.html">PEFE<span>Prep</span></a>
-      <div class="headmeta">
-        <span class="tag count" id="countdown">—</span>
-        <span class="tag streak" id="streakChip">🔥 0 day streak</span>
-        <span class="tag">FE Environmental · Demo</span>
-      </div>
+      <nav class="navlinks">
+        <a href="./today.html" class="active">Today</a>
+        <a href="./progress.html">Progress</a>
+        <a href="./settings.html">Settings</a>
+      </nav>
     </header>
 
     <!-- INTRO -->
     <section id="intro" class="card">
+      <div class="headmeta" style="margin-bottom:14px;">
+        <span class="tag count" id="countdown">—</span>
+        <span class="tag streak" id="streakChip">🔥 0 day streak</span>
+        <span class="tag">FE Environmental · Demo</span>
+      </div>
       <div style="color:var(--muted);font-size:13px;margin-bottom:6px;" id="dateLabel"></div>
       <h1 id="introTitle">Today’s set</h1>
       <p class="sub" id="introSub"></p>
       <div class="meta-row" id="introMeta"></div>
       <div class="btn-row">
         <button class="btn-primary" id="startBtn">Start →</button>
-        <a class="btn-ghost" href="./index.html">Home</a>
+        <a class="btn-ghost" href="./progress.html">View progress</a>
       </div>
     </section>
 
@@ -125,7 +55,7 @@
 
     <!-- DONE -->
     <section id="done" class="card hide">
-      <span class="tag" style="color:var(--accent);border-color:rgba(245,166,35,.35);">Done for today</span>
+      <span class="tag streak" style="display:inline-block;">Done for today</span>
       <div class="scorebig"><span id="doneScore"></span><small id="doneTotal"></small></div>
       <p class="sub" id="doneMsg"></p>
       <div class="tag streak" id="doneStreak" style="display:inline-block;margin-bottom:16px;">🔥 0 day streak</div>
@@ -133,16 +63,17 @@
       <div id="doneTopics"></div>
       <div class="btn-row">
         <button class="btn-primary" id="againBtn">Review again</button>
-        <a class="btn-ghost" href="./index.html">Home</a>
+        <a class="btn-ghost" href="./progress.html">See progress</a>
       </div>
     </section>
 
     <footer>
-      Demo content for the daily-player build — your Handbook-verified FE&nbsp;Environmental set drops in here.
+      Demo content for the build — your Handbook-verified FE&nbsp;Environmental set drops in here.
       &nbsp;·&nbsp; <a href="./index.html">pefeprep.com</a>
     </footer>
   </div>
 
+  <script src="./app/store.js"></script>
   <script src="./app/today.js"></script>
 </body>
 </html>

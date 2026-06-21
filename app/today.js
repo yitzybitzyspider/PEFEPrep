@@ -1,45 +1,25 @@
-/* PEFEPrep — M1 Daily Player
- * Active-recall flow: see question → (optionally pick) → Reveal → solution +
- * Handbook ref → self-grade. Tracks score, streak, per-topic breakdown.
- * All state in localStorage (single-device, per PRD v1). No backend yet.
+/* PEFEPrep — Daily Player (M1) on the shared store (M3 SRS, M4 settings).
+ * Active-recall: see question -> optional pick -> Reveal -> solution + Handbook
+ * ref -> self-grade. Every resolved question feeds PFP (Leitner + mastery + streak).
  */
 (function () {
   "use strict";
 
-  var EXAM_DATE = new Date("2026-07-08T00:00:00");
-  var STORE = "pefeprep_v1";
   var KEYS = ["A", "B", "C", "D", "E", "F"];
-
-  var QUESTIONS = [];
-  var idx = 0;
-  var results = {};            // qid -> { id, picked, correct, selfGrade, topic }
+  var ALL = [], QUESTIONS = [], idx = 0;
+  var session = {};            // qid -> { correct, topic }  (this session, for summary)
+  var resolved = {};           // qid -> true once recorded to the store
   var view = { picked: null, revealed: false };
+  var settings = PFP.getSettings();
 
   var $ = function (id) { return document.getElementById(id); };
-  var todayStr = function () { return new Date().toISOString().slice(0, 10); };
   var pill = function (k, v) { return '<span class="pill"><b>' + v + "</b> · " + k + "</span>"; };
-
-  function loadState() {
-    try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; }
-  }
-  function saveState(s) { localStorage.setItem(STORE, JSON.stringify(s)); }
-
-  function daysToExam() {
-    return Math.max(0, Math.ceil((EXAM_DATE - new Date()) / 86400000));
-  }
-
-  function show(which) {
-    ["intro", "player", "done"].forEach(function (s) {
-      $(s).classList.toggle("hide", s !== which);
-    });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
 
   async function init() {
     try {
       var res = await fetch("./data/questions.json", { cache: "no-store" });
       var data = await res.json();
-      QUESTIONS = data.questions || [];
+      ALL = data.questions || [];
       renderIntro();
     } catch (e) {
       $("introTitle").textContent = "Couldn’t load today’s set";
@@ -49,35 +29,40 @@
   }
 
   function renderIntro() {
-    var st = loadState();
-    var doneToday = st.lastCompleted === todayStr();
-    var topic = QUESTIONS[0] ? QUESTIONS[0].topic : "Mixed";
+    settings = PFP.getSettings();
+    QUESTIONS = PFP.buildDailySet(ALL);
+    var done = PFP.isDoneToday();
+    var topics = Array.prototype.filter.call(
+      QUESTIONS.map(function (q) { return q.topic; }),
+      function (v, i, a) { return a.indexOf(v) === i; }
+    );
 
     $("dateLabel").textContent = new Date().toLocaleDateString(undefined,
       { weekday: "long", month: "long", day: "numeric" });
-    $("streakChip").textContent = "🔥 " + (st.streak || 0) + " day streak";
-    $("countdown").textContent = daysToExam() + " days to exam";
+    $("streakChip").textContent = "🔥 " + PFP.getStreak() + " day streak";
+    $("countdown").textContent = PFP.daysToExam() + " days to exam";
     $("introMeta").innerHTML =
       pill("Questions", QUESTIONS.length) +
-      pill("Focus", topic) +
-      pill("Mode", "Hide → reveal → self-grade");
+      pill("Focus", topics.length > 1 ? topics.length + " topics" : (topics[0] || "Mixed")) +
+      pill("Mode", settings.srs ? "Spaced repetition" : "Practice");
 
-    if (doneToday) {
+    if (done) {
       $("introTitle").textContent = "You’re done for today ✓";
-      $("introSub").textContent = "Nice work — " + (st.streak || 1) +
-        " day streak going. Come back tomorrow for a fresh set, or redo today’s to review.";
+      $("introSub").textContent = "Nice — " + PFP.getStreak() +
+        " day streak. Fresh set tomorrow, or redo today’s to review.";
       $("startBtn").textContent = "Redo today’s set";
     } else {
       $("introTitle").textContent = "Today’s set";
-      $("introSub").textContent = "Go one at a time. Try to recall the answer first, then reveal it — " +
-        "and grade yourself honestly. That’s what makes it stick.";
+      $("introSub").textContent =
+        "Recall first, then reveal — and grade yourself honestly. That’s what makes it stick.";
       $("startBtn").textContent = "Start →";
     }
     show("intro");
   }
 
   function start() {
-    idx = 0; results = {}; view = { picked: null, revealed: false };
+    if (QUESTIONS.length === 0) QUESTIONS = PFP.buildDailySet(ALL);
+    idx = 0; session = {}; resolved = {}; view = { picked: null, revealed: false };
     show("player");
     renderQuestion();
   }
@@ -115,6 +100,16 @@
     Array.prototype.forEach.call($("opts").children, function (b) {
       b.classList.toggle("selected", Number(b.dataset.i) === i);
     });
+    if (settings.revealMode === "auto") reveal();
+  }
+
+  function resolve(correct) {
+    var q = QUESTIONS[idx];
+    session[q.id] = { correct: correct, topic: q.topic };
+    if (!resolved[q.id]) {
+      resolved[q.id] = true;
+      if (settings.srs) PFP.recordResult(q.id, correct, q.topic);
+    }
   }
 
   function reveal() {
@@ -129,22 +124,20 @@
       if (bi === view.picked && bi !== q.answer) b.classList.add("wrong");
     });
 
-    var head;
+    var head, selfgrade = "";
     if (view.picked === null) {
       head = '<div class="verdict">Answer: ' + KEYS[q.answer] + "</div>";
+      selfgrade = '<div class="selfgrade"><span>Did you get it?</span>' +
+        '<button class="sg" data-g="knew">I knew it</button>' +
+        '<button class="sg" data-g="missed">I missed it</button></div>';
     } else {
       var ok = view.picked === q.answer;
       head = '<div class="verdict ' + (ok ? "ok" : "no") + '">' +
         (ok ? "✓ You got it" : "✗ Answer is " + KEYS[q.answer]) + "</div>";
+      resolve(ok);
     }
 
     var refs = q.references ? '<div class="refs">Look up: ' + q.references + "</div>" : "";
-    var selfgrade = view.picked === null
-      ? '<div class="selfgrade"><span>Did you get it?</span>' +
-        '<button class="sg" data-g="knew">I knew it</button>' +
-        '<button class="sg" data-g="missed">I missed it</button></div>'
-      : "";
-
     var fb = $("feedback");
     fb.innerHTML = head + "<div>" + q.solution + "</div>" + refs +
       '<div class="ref">Handbook: ' + q.handbook + "</div>" + selfgrade;
@@ -153,31 +146,20 @@
       b.onclick = function () { selfGrade(b.dataset.g); };
     });
 
-    record();
     $("revealBtn").classList.add("hide");
     $("nextBtn").classList.remove("hide");
-    if (typeof window.renderMath === "function") window.renderMath(fb);
-  }
-
-  function record() {
-    var q = QUESTIONS[idx];
-    var correct = view.picked === null ? null : (view.picked === q.answer);
-    results[q.id] = { id: q.id, picked: view.picked, correct: correct, topic: q.topic,
-                      selfGrade: results[q.id] ? results[q.id].selfGrade : null };
   }
 
   function selfGrade(g) {
-    var q = QUESTIONS[idx];
-    var r = results[q.id] || { id: q.id, topic: q.topic, picked: null };
-    r.selfGrade = g;
-    r.correct = (g === "knew");
-    results[q.id] = r;
+    resolve(g === "knew");
     Array.prototype.forEach.call($("feedback").querySelectorAll(".sg"), function (b) {
       b.classList.toggle("on", b.dataset.g === g);
     });
   }
 
   function next() {
+    var q = QUESTIONS[idx];
+    if (!resolved[q.id]) resolve(false); // skipped self-grade -> counts as a miss
     idx++;
     if (idx >= QUESTIONS.length) finish();
     else renderQuestion();
@@ -185,20 +167,10 @@
 
   function finish() {
     $("bar").style.width = "100%";
-    var recs = Object.keys(results).map(function (k) { return results[k]; });
+    var recs = Object.keys(session).map(function (k) { return session[k]; });
     var known = recs.filter(function (r) { return r.correct === true; }).length;
     var total = QUESTIONS.length;
-
-    var st = loadState();
-    var t = todayStr();
-    if (st.lastCompleted !== t) {
-      var y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-      st.streak = (st.lastCompleted === y) ? (st.streak || 0) + 1 : 1;
-      st.lastCompleted = t;
-    }
-    st.history = st.history || {};
-    st.history[t] = { known: known, total: total };
-    saveState(st);
+    var streak = PFP.completeDay(known, total);
 
     var pct = total ? Math.round(known / total * 100) : 0;
     $("doneScore").textContent = known;
@@ -208,7 +180,7 @@
       : pct >= 50
         ? pct + "% — solid. Review the misses, then run it again tomorrow."
         : pct + "% — keep at it; the misses are where the gains are.";
-    $("doneStreak").textContent = "🔥 " + st.streak + " day streak";
+    $("doneStreak").textContent = "🔥 " + streak + " day streak";
 
     var byTopic = {};
     recs.forEach(function (r) {
@@ -223,6 +195,13 @@
     }).join("");
 
     show("done");
+  }
+
+  function show(which) {
+    ["intro", "player", "done"].forEach(function (s) {
+      $(s).classList.toggle("hide", s !== which);
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   document.addEventListener("keydown", function (e) {
