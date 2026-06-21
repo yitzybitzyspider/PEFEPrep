@@ -1,7 +1,16 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "updated": "2026-06-21",
   "history": [
+    {
+      "version": "0.8.0",
+      "date": "2026-06-21",
+      "title": "Full current bank — 103 questions",
+      "changes": [
+        "Day 2 Set B added (20 more Fluid Mechanics questions) — the bank now holds all 103 questions from your study series so far",
+        "End-to-end routine confirmed: dropping one day file + a manifest line flows straight to the live site"
+      ]
+    },
     {
       "version": "0.7.0",
       "date": "2026-06-21",
