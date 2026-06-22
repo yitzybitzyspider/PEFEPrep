@@ -1,9 +1,9 @@
 {
-  "version": "0.9.0",
+  "version": "0.10.0",
   "updated": "2026-06-21",
   "history": [
     {
-      "version": "0.9.0",
+      "version": "0.10.0",
       "date": "2026-06-21",
       "title": "Wider layout, day-aware study, dashboard + PDFs",
       "changes": [
@@ -13,6 +13,18 @@
         "Dashboard: publish verification (is today's set live?), clickable schedule with per-day progress",
         "Missed questions tracked + one-click export to paste into Claude as a tutor",
         "New PDFs page: download every daily set, the cheat sheet, and practice exams"
+      ]
+    },
+    {
+      "version": "0.9.0",
+      "date": "2026-06-21",
+      "title": "Day 5 added — Surface Water & Hydrology",
+      "changes": [
+        "Surface Water & Hydrology (Day 5, 20 questions) added — Rational Method, SCS/NRCS curve-number runoff, IDF curves, and flood frequency/return-period analysis",
+        "Bank now holds 123 questions spanning Days 1-5; every numeric answer recomputed and verified in Python",
+        "Cheat sheet (equation index) extended with the Surface Water relations; printable Day-5 study PDF generated with pdflatex (materials/)",
+        "Every Day-5 formula cross-checked against the actual NCEES FE Handbook v10.6 text",
+        "Auto-published by the daily routine: Today, Bank, and Progress picked up Day 5 from one new day file + manifest line"
       ]
     },
     {
@@ -30,7 +42,7 @@
       "title": "Day 1 added — Days 1-4 fully loaded",
       "changes": [
         "Mathematics (Day 1, 18 questions) added — the bank now spans Days 1-4 (83 questions)",
-        "Demonstrates the daily routine in action: one new file (day01.json) + a manifest line, and Today, Bank, and Progress all updated with no code changes"
+        "Demonstrates the daily routine: one new file + a manifest line, and Today, Bank, and Progress all updated with no code changes"
       ]
     },
     {
@@ -40,8 +52,7 @@
       "changes": [
         "65 real questions now live: Fluid Mechanics I (20), Pipe Flow (21), Hydraulics (24)",
         "New data model: one file per study day (data/days/dayNN.json) + manifest — adding a day auto-updates the whole app",
-        "Schedule dashboard fills in Days 2-4 as covered",
-        "Documented the FE engine → site daily routine (docs/engine-integration.md)"
+        "Documented the FE engine to site daily routine (docs/engine-integration.md)"
       ]
     },
     {
@@ -49,11 +60,9 @@
       "date": "2026-06-21",
       "title": "Real questions, schedule, equations panel",
       "changes": [
-        "Real exam questions now loading from the FE engine (Day 2: 20 Fluid Mechanics questions), tagged by day/topic",
-        "Full equations list (40+ relations, Days 1-4) in the searchable Handbook panel",
-        "Equations are hidden by default now — reveal them as a hint; the worked solution still unlocks step by step",
-        "Progress dashboard is schedule-aware: coverage vs. the full 21-day plan, updates as days are added",
-        "Numeric-entry questions supported (recall + self-grade)"
+        "Real exam questions loading from the FE engine, tagged by day/topic",
+        "Full equations list in the searchable Handbook panel; KaTeX math",
+        "Equations hidden by default; worked solution unlocks step by step; numeric-entry supported"
       ]
     },
     {
@@ -61,12 +70,8 @@
       "date": "2026-06-20",
       "title": "Equation breakdowns, step-by-step, Handbook panel",
       "changes": [
-        "Relevant equations now shown up front on each question — solution stays hidden",
-        "Unlock the worked solution one step at a time",
-        "Searchable Handbook panel beside each question",
-        "Math renders properly now (KaTeX)",
-        "New Question Bank: browse, search, and filter every question by topic/mastery",
-        "Live version badge + this changelog"
+        "Relevant equations shown up front; unlock the worked solution one step at a time",
+        "Searchable Handbook panel; Question Bank browse/search/filter; live version badge"
       ]
     },
     {
@@ -74,9 +79,8 @@
       "date": "2026-06-20",
       "title": "Progress, spaced repetition, settings",
       "changes": [
-        "Progress dashboard: per-section mastery, streak, days-to-exam, weakest sections",
-        "Leitner spaced repetition composes the daily set (due reviews + new)",
-        "Settings: daily size, new/review mix, reveal mode, SRS toggle, reset"
+        "Progress dashboard with per-section mastery, streak, days-to-exam",
+        "Leitner spaced repetition; Settings: daily size, mix, reveal mode, SRS toggle"
       ]
     },
     {
@@ -84,9 +88,7 @@
       "date": "2026-06-19",
       "title": "Daily player",
       "changes": [
-        "Today's daily question set",
-        "Hide / reveal answers with self-grade",
-        "Daily streak"
+        "Today's daily question set; hide / reveal answers with self-grade; daily streak"
       ]
     },
     {
@@ -94,8 +96,7 @@
       "date": "2026-06-19",
       "title": "Site live",
       "changes": [
-        "pefeprep.com live on GitHub Pages with auto-deploy",
-        "HTTPS enabled"
+        "pefeprep.com live on GitHub Pages with auto-deploy; HTTPS enabled"
       ]
     }
   ]

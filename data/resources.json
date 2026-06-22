@@ -1,20 +1,21 @@
 {
-  "note": "Downloadable study PDFs. Links open from your Google Drive 'FE Environmental Exam Prep' folder (you're signed in). When the engine starts committing PDFs to the repo, swap the Drive id for a local url.",
+  "note": "Downloadable study PDFs, served from the repo's materials/ folder (committed by the daily engine). New days appear as they're generated.",
   "groups": [
     { "title": "Daily problem sets", "items": [
-      { "name": "Day 1 — Mathematics", "id": "1DAQiTS69G1h6VaqpiSttwQGBsEx-7dYk" },
-      { "name": "Day 2 — Fluid Mechanics I (Set A)", "id": "1V0GlnuLYvQT5aRT5LIRSq4YgriW5Y0Vn" },
-      { "name": "Day 2 — Fluid Mechanics I (Set B)", "id": "1kv1LZG5d5jOyrqZmuz3j0l7Wv2zZzZcW" },
-      { "name": "Day 3 — Fluid Mechanics II / Pipe Flow", "id": "1DkNCFyTjoS0aJ1CeG4l2-RlC1Lb6S4qt" },
-      { "name": "Day 4 — Hydraulics", "id": "1nB3X3-nbczW1wsOFxtKzxy6MpIirVNRG" }
+      { "name": "Day 1 — Mathematics", "url": "./materials/Day01_Mathematics_Jun17.pdf" },
+      { "name": "Day 2 — Fluid Mechanics I (Set A)", "url": "./materials/Day02_FluidMechanicsI_Jun18.pdf" },
+      { "name": "Day 2 — Fluid Mechanics I (Set B)", "url": "./materials/Day02_FluidMechanicsI_SetB_Jun18.pdf" },
+      { "name": "Day 3 — Fluid Mechanics II / Pipe Flow", "url": "./materials/Day03_FluidMechanicsII_Jun19.pdf" },
+      { "name": "Day 4 — Hydraulics", "url": "./materials/Day04_Hydraulics_Jun20.pdf" },
+      { "name": "Day 5 — Surface Water & Hydrology", "url": "./materials/FE_Day05_Surface_Water_Hydrology.pdf" }
     ]},
     { "title": "Cumulative reference", "items": [
-      { "name": "FE Cheat Sheet (cumulative formulas)", "id": "1kUvBxT3XYoHjk2P4zG4wA2SuE4nkdKTv" }
+      { "name": "FE Cheat Sheet (cumulative formulas)", "url": "./materials/FE_CheatSheet.pdf" }
     ]},
     { "title": "Practice exams & drills", "items": [
-      { "name": "Full Practice Exam #1", "id": "1iEMLCH6k_oVqhYZ3Azk19y2xId8kj9yP" },
-      { "name": "Full Practice Exam #2", "id": "16VIVM6rpf6xasoX4Y8-0HRuyd9_P2i0X" },
-      { "name": "Weak-Areas Drill (Day 1)", "id": "1tfVLLd-X6dULUyvvqwJMxjdX8qDZAttx" }
+      { "name": "Full Practice Exam #1", "url": "./materials/FE_Practice_Exam_1.pdf" },
+      { "name": "Full Practice Exam #2", "url": "./materials/FE_Practice_Exam_2.pdf" },
+      { "name": "Weak-Areas Drill (Day 1)", "url": "./materials/Drill_WeakAreas_Day1_Jun17.pdf" }
     ]}
   ]
 }

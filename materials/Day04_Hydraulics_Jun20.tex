@@ -1,0 +1,331 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+\definecolor{titleblue}{RGB}{20,72,120}
+\definecolor{accent}{RGB}{0,120,150}
+\definecolor{lightgray}{RGB}{120,120,120}
+\definecolor{boxbg}{RGB}{232,242,248}
+\definecolor{keybg}{RGB}{238,246,238}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\textcolor{titleblue}{Hydraulics --- Open-Channel Flow, Weirs, Orifices, Blowers}}
+\rhead{\small\textcolor{titleblue}{FE Environmental --- Day 4}}
+\cfoot{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\parindent}{0pt}
+
+% Handbook citation (gray, right aligned)
+\newcommand{\cit}[1]{\par\vspace{1pt}{\footnotesize\color{lightgray}\hfill Handbook: #1\par}}
+
+% 2x2 options grid -- the leading \par is mandatory.
+\newcommand{\opts}[4]{%
+\par\nobreak\vspace{3pt}%
+\noindent\begin{tabular}{@{}p{0.47\linewidth}p{0.47\linewidth}@{}}
+(A)~#1 & (B)~#2 \\[3pt]
+(C)~#3 & (D)~#4 \\
+\end{tabular}\par\vspace{3pt}}
+
+\begin{document}
+
+% ===== Title block =====
+\begin{center}
+\colorbox{titleblue}{%
+\begin{minipage}{0.95\linewidth}
+\vspace{8pt}\centering
+{\color{white}\LARGE\textbf{Day 4 --- Hydraulics}}\\[3pt]
+{\color{white}\large Open-Channel Flow, Critical Flow, Weirs, Orifices \& Blowers}\\[5pt]
+{\color{white}\normalsize\textbf{Comprehensive Problem Set}}\\[3pt]
+{\color{white}\small June 20, 2026 \quad$\bullet$\quad Concept Review + 24 Questions}
+\vspace{8pt}
+\end{minipage}}
+\end{center}
+\vspace{4pt}
+
+\noindent\colorbox{boxbg}{%
+\begin{minipage}{0.97\linewidth}
+\vspace{4pt}
+\textbf{Today's focus.} Uniform flow by Manning's equation; hydraulic radius/depth; specific energy and critical depth; the Froude number and sub/supercritical regimes; hydraulic jumps; flow measurement with weirs and orifices; tank draining; and blower power. \textbf{Instructions:} Work each problem on paper, write units at every step, then check the answer key and worked solutions. Use $g=9.81~\mathrm{m/s^2}$ ($32.2~\mathrm{ft/s^2}$) and the NCEES FE Reference Handbook (v10.6).
+\vspace{4pt}
+\end{minipage}}
+\vspace{6pt}
+
+% =========================================================
+\section*{\color{titleblue}Concept Review}
+
+\subsection*{1.\ Open-Channel Geometry \& Hydraulic Radius}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Hydraulic radius:} $R_H=\dfrac{A}{P}=\dfrac{\text{cross-sectional area of flow}}{\text{wetted perimeter}}$ --- the length scale for non-circular and open conduits.
+\item \textbf{Hydraulic diameter:} $D_H=\dfrac{4A}{P}=4R_H$. For a circular pipe flowing \emph{full}, $D_H=D$, so $R_H=\dfrac{D}{4}$ (note the factor-of-4 difference from $D_H$).
+\item \textbf{Top width and hydraulic depth:} $T$ = width of the free surface; $y_h=\dfrac{A}{T}$. The hydraulic depth $y_h$ (not the maximum depth) is used in the Froude number.
+\item \textbf{Rectangular channel} of width $b$ and flow depth $y$: $A=by$, $P=b+2y$, $T=b$, $R_H=\dfrac{by}{b+2y}$.
+\end{itemize}
+\cit{Fluid Mechanics --- Flow in Noncircular Conduits; Civil Engineering --- Open-Channel Flow}
+
+\subsection*{2.\ Manning's Equation (Uniform Flow)}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Discharge / velocity:} $\;Q=\dfrac{K}{n}A\,R_H^{2/3}S^{1/2}$,\qquad $v=\dfrac{K}{n}R_H^{2/3}S^{1/2}$.
+\item \textbf{Unit constant:} $K=1.486$ (USCS), $K=1.0$ (SI). $n$ = roughness coefficient; $S$ = channel (energy-grade-line) slope, $S=h_f/L$.
+\item \textbf{Uniform flow:} depth and velocity are constant along the reach, so the bed slope, water-surface slope, and energy slope are equal. This is the condition Manning's equation describes.
+\item \textbf{Sensitivities:} $Q\propto S^{1/2}$ and $Q\propto R_H^{2/3}$; a larger roughness $n$ \emph{lowers} $v$ and $Q$.
+\end{itemize}
+\cit{Civil Engineering --- Manning's Equation}
+
+\subsection*{3.\ Specific Energy \& Critical Depth}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Specific energy} (relative to the channel bottom): $\;E=\alpha\dfrac{v^2}{2g}+y=\alpha\dfrac{Q^2}{2gA^2}+y$, with kinetic-energy correction $\alpha\approx1.0$.
+\item For a given $Q$, $E$ is \emph{minimum} at the \textbf{critical depth} $y_c$. Two depths with the same $E$ are \textbf{alternate depths} (one sub-, one supercritical).
+\item \textbf{General critical condition:} $\;\dfrac{Q^2}{g}=\dfrac{A^3}{T}$.
+\item \textbf{Rectangular channel:} $\;y_c=\left(\dfrac{q^2}{g}\right)^{1/3}$, where unit discharge $q=\dfrac{Q}{B}$ and $B$ = channel width.
+\item Background (rectangular only, not stated explicitly in the Handbook): $E_{\min}=\tfrac{3}{2}y_c$.
+\end{itemize}
+\cit{Civil Engineering --- Specific Energy; Critical Depth}
+
+\subsection*{4.\ Froude Number \& Flow Regimes}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Froude number} (inertia/gravity): $\;Fr=\dfrac{v}{\sqrt{g\,y_h}}=\sqrt{\dfrac{Q^2T}{gA^3}}$, with $y_h=A/T$.
+\item \textbf{Subcritical} $Fr<1$ (deep, slow; disturbances travel upstream, control is downstream). \textbf{Critical} $Fr=1$. \textbf{Supercritical} $Fr>1$ (shallow, fast; control is upstream).
+\end{itemize}
+\cit{Civil Engineering --- Froude number}
+
+\subsection*{5.\ Hydraulic Jump}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item An abrupt \textbf{supercritical}\,$\rightarrow$\,\textbf{subcritical} transition that \emph{dissipates} energy (e.g., below a spillway or sluice gate).
+\item \textbf{Sequent (conjugate) depths:} $\;y_2=\dfrac{y_1}{2}\!\left(-1+\sqrt{1+8\,Fr_1^{2}}\right)$, where $y_1$ is the upstream supercritical depth.
+\item Momentum function $M=\dfrac{Q^2}{gA}+A\,h_c$ ($h_c$ = depth to the centroid) is conserved across the jump; sequent depths share the same $M$.
+\end{itemize}
+\cit{Civil Engineering --- Hydraulic Jump; Momentum Depth Diagram}
+
+\subsection*{6.\ Weirs (Flow Measurement)}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Rectangular, suppressed} (no end contractions): $\;Q=CLH^{3/2}$.
+\item \textbf{Rectangular, contracted}: $\;Q=C(L-0.2H)H^{3/2}$ --- end contractions reduce the effective crest length.
+\item \textbf{90$^{\circ}$ V-notch}: $\;Q=CH^{5/2}$.
+\item \textbf{Coefficients:} rectangular $C=3.33$ (USCS) / $1.84$ (SI); 90$^{\circ}$ V-notch $C=2.54$ (USCS) / $1.40$ (SI). $L$ = crest length, $H$ = head over the crest.
+\end{itemize}
+\cit{Civil Engineering --- Weir Formulas}
+
+\subsection*{7.\ Orifices (Flow Measurement \& Tank Draining)}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Free discharge to atmosphere:} $\;Q=CA_0\sqrt{2gh}$ ($h$ measured to the centroid of the opening).
+\item \textbf{Submerged orifice:} $\;Q=CA\sqrt{2g(h_1-h_2)}$ ($h_1-h_2$ = head difference between the two surfaces).
+\item \textbf{Discharge coefficient:} $C=C_cC_v$ (contraction $\times$ velocity). Sharp-edged $C\approx0.61$ ($C_c\approx0.62$, $C_v\approx0.98$).
+\item \textbf{Orifice meter (pipe):} $Q=CA_0\sqrt{2g\!\left(\dfrac{P_1}{\gamma}+z_1-\dfrac{P_2}{\gamma}-z_2\right)}$,\; $C=\dfrac{C_vC_c}{\sqrt{1-C_c^{2}(A_0/A_1)^2}}$.
+\item \textbf{Time to drain a tank:} $\;\Delta t=\dfrac{2(A_t/A_0)}{\sqrt{2g}}\!\left(h_1^{1/2}-h_2^{1/2}\right)$, with $A_t=\dfrac{\pi D_t^{2}}{4}$.
+\end{itemize}
+\cit{Fluid Mechanics --- Orifice Discharging Freely into Atmosphere; Submerged Orifice; Orifices}
+
+\subsection*{8.\ Blowers}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Power requirement:} $\;P_w=\dfrac{WRT_1}{C\,n\,e}\!\left[\left(\dfrac{P_2}{P_1}\right)^{0.283}-1\right]$.
+\item $C=550$ ft-lbf/(sec-hp) (USCS) or $29.7$ (SI); $W$ = weight flow of air (lb/sec); $R=53.3$ ft-lbf/(lb air-$^{\circ}$R); $T_1$ = absolute inlet temperature ($^{\circ}$R); $P_1,P_2$ = absolute inlet/outlet pressures; $n=(k-1)/k=0.283$ for air; $e$ = efficiency (typically $0.70$--$0.90$).
+\end{itemize}
+\cit{Fluid Mechanics --- Blowers}
+
+\subsection*{9.\ Hazen--Williams \& Flumes (notes)}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Hazen--Williams} (water, turbulent) also appears for open channels: $Q=k_1CAR_H^{0.63}S^{0.54}$, $k_1=1.318$ (USCS) / $0.849$ (SI); higher $C$ = smoother.
+\item \textbf{Flumes} (e.g., Parshall) measure flow by forcing critical flow at a throat. The FE Handbook gives \emph{no} flume rating equation, so any FE flume item is conceptual --- never compute a flume rating from a memorized formula. \textit{(not in Handbook)}
+\end{itemize}
+\cit{Civil Engineering --- Hazen-Williams Equation}
+
+\subsection*{10.\ Partial-Flow Circular Sewers, Culverts \& Channel Sections}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Hydraulic-element (partial-flow) graph for circular sewers} (Handbook): plots the ratios $\frac{v}{v_f}$, $\frac{Q}{Q_f}$, $\frac{A}{A_f}$, $\frac{R}{R_f}$ against relative depth $\frac{d}{D}$ (``$f$'' = full-pipe value). Use it for a partly full circular pipe instead of recomputing $R_H$ by hand.
+\item Key readings from that curve: maximum \emph{velocity} occurs near $d/D\approx0.81$ and maximum \emph{discharge} near $d/D\approx0.93$ --- a pipe carries slightly \emph{more} than its full-flow $Q$ just before flowing full.
+\item \textbf{Trapezoidal channel} (bottom width $b$, side slope $z$:1 = horizontal:vertical, depth $y$): $A=(b+zy)y$, $P=b+2y\sqrt{1+z^{2}}$, $T=b+2zy$. Combine with Manning and $R_H=A/P$.
+\item \textbf{Culverts.} \textit{(Not in the FE Handbook --- background only.)} Analyzed with energy and continuity: inlet control behaves like an orifice or weir, outlet control like full-pipe flow with friction and minor losses. Solve any FE culvert item with Manning, the energy equation, or the orifice relation --- never a memorized culvert nomograph.
+\end{itemize}
+\cit{Civil Engineering --- Hydraulic-Element (Partial Flow) Graph for Circular Sewers}
+
+\newpage
+% =========================================================
+\section*{\color{titleblue}Questions}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=8pt]
+
+\item A rectangular open channel is 3 m wide and carries water at a flow depth of 1 m. The hydraulic radius $R_H$ is most nearly:
+\opts{0.50 m}{0.60 m}{1.00 m}{3.00 m}
+
+\item A circular storm sewer of diameter $D$ flows completely full. Its hydraulic radius equals:
+\opts{$D/2$}{$D$}{$D/4$}{$D/8$}
+
+\item A rectangular channel ($b=3$ m, $y=1$ m) has $n=0.013$ and bed slope $S=0.001$. The uniform-flow velocity (SI Manning) is most nearly:
+\opts{0.86 m/s}{1.20 m/s}{1.73 m/s}{2.05 m/s}
+
+\item A rectangular channel 4 m wide flows 1.5 m deep with $n=0.015$ and $S=0.0009$. The discharge (SI Manning) is most nearly:
+\opts{6.5 m\textsuperscript{3}/s}{8.9 m\textsuperscript{3}/s}{13.4 m\textsuperscript{3}/s}{10.8 m\textsuperscript{3}/s}
+
+\item In Manning's equation, the unit constant $K$ for USCS units is:
+\opts{1.0}{1.318}{1.486}{0.849}
+
+\item Holding discharge, geometry, and slope constant, increasing the roughness coefficient $n$ causes the uniform-flow velocity to:
+\opts{increase}{decrease}{stay the same}{double}
+
+\item A rectangular channel carries a unit discharge $q=2.5~\mathrm{m^2/s}$ at a depth of 1.5 m. The specific energy ($\alpha=1.0$) is most nearly:
+\opts{1.64 m}{1.50 m}{1.78 m}{2.00 m}
+
+\item A rectangular channel 4 m wide carries $Q=10~\mathrm{m^3/s}$. The critical depth is most nearly:
+\opts{0.61 m}{1.10 m}{0.86 m}{1.25 m}
+
+\item At critical flow in an open channel:
+\opts{specific energy is maximum and $Fr=0$}{specific energy is minimum and $Fr=1$}{the velocity is zero}{the depth is maximum}
+
+\item Water flows 0.5 m deep at 3 m/s in a wide rectangular channel. The Froude number and regime are most nearly:
+\opts{0.74, subcritical}{1.35, supercritical}{1.35, subcritical}{0.74, supercritical}
+
+\item A flow with a Froude number of 0.6 is classified as:
+\opts{supercritical}{critical}{subcritical}{turbulent}
+
+\item ``Alternate depths'' are two different flow depths that share the same:
+\opts{discharge only}{specific energy}{momentum}{velocity}
+
+\item A hydraulic jump forms where the upstream depth is 0.4 m and $Fr_1=2.5$. The downstream (sequent) depth is most nearly:
+\opts{0.80 m}{1.00 m}{1.23 m}{1.60 m}
+
+\item A hydraulic jump occurs when flow transitions from:
+\opts{subcritical to supercritical, gaining energy}{supercritical to subcritical, dissipating energy}{laminar to turbulent flow}{uniform to nonuniform with no energy loss}
+
+\item A suppressed rectangular weir 5 ft long discharges under a head of 1 ft ($C=3.33$, USCS). The discharge is most nearly:
+\opts{11.1 cfs}{22.0 cfs}{33.3 cfs}{16.7 cfs}
+
+\item A 90$^{\circ}$ V-notch weir operates under a head of 0.8 ft ($C=2.54$, USCS). The discharge is most nearly:
+\opts{0.91 cfs}{2.03 cfs}{1.45 cfs}{2.54 cfs}
+
+\item \textbf{(Numeric entry)} A suppressed rectangular weir 2 m long operates under a head of 0.3 m. Using the SI weir coefficient $C=1.84$, determine the discharge $Q$ (in m\textsuperscript{3}/s).
+
+\item The discharge over a \emph{contracted} rectangular weir is given by:
+\opts{$Q=CLH^{3/2}$}{$Q=C(L-0.2H)H^{3/2}$}{$Q=CH^{5/2}$}{$Q=CA\sqrt{2gh}$}
+
+\item A sharp-edged orifice ($d=0.10$ m, $C=0.61$) discharges freely with 2 m of head above its center. The discharge is most nearly:
+\opts{0.015 m\textsuperscript{3}/s}{0.049 m\textsuperscript{3}/s}{0.060 m\textsuperscript{3}/s}{0.030 m\textsuperscript{3}/s}
+
+\item A submerged orifice ($A=0.05~\mathrm{m^2}$, $C=0.61$) operates under a 1.5 m difference between the upstream and downstream water surfaces. The discharge is most nearly:
+\opts{0.165 m\textsuperscript{3}/s}{0.083 m\textsuperscript{3}/s}{0.117 m\textsuperscript{3}/s}{0.235 m\textsuperscript{3}/s}
+
+\item \textbf{(Numeric entry)} A cylindrical tank 2 m in diameter drains through an orifice of area $0.01~\mathrm{m^2}$ in its base. Using the Handbook tank-draining relation (no discharge coefficient), find the time (in seconds) for the water level to fall from 4 m to 1 m above the orifice.
+
+\item A blower moves air ($W=2$ lb/sec, $R=53.3$ ft-lbf/lb-$^{\circ}$R) at an inlet temperature of 530\,$^{\circ}$R from $P_1=14.7$ psia to $P_2=18.7$ psia at efficiency $e=0.80$. Using the Handbook blower equation ($C=550$, $n=0.283$), the power requirement is most nearly:
+\opts{18 hp}{32 hp}{25 hp}{45 hp}
+
+\item According to the Handbook's hydraulic-element (partial-flow) graph for circular sewers, the \emph{maximum discharge} in a circular pipe occurs at a relative depth $d/D$ of approximately:
+\opts{0.50}{0.71}{0.93}{1.00}
+
+\item A trapezoidal channel has bottom width 3 m, side slopes 2H:1V ($z=2$), and flows 1 m deep with $n=0.025$ and $S=0.0016$. The discharge (SI Manning) is most nearly:
+\opts{4.3 m\textsuperscript{3}/s}{6.1 m\textsuperscript{3}/s}{7.8 m\textsuperscript{3}/s}{9.5 m\textsuperscript{3}/s}
+
+\end{enumerate}
+
+\newpage
+% =========================================================
+\section*{\color{titleblue}Answer Key}
+\vspace{4pt}
+\noindent\colorbox{keybg}{%
+\begin{minipage}{0.97\linewidth}
+\vspace{5pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{1.} B & \textbf{2.} C & \textbf{3.} C & \textbf{4.} D & \textbf{5.} C & \textbf{6.} B \\ \hline
+\textbf{7.} A & \textbf{8.} C & \textbf{9.} B & \textbf{10.} B & \textbf{11.} C & \textbf{12.} B \\ \hline
+\textbf{13.} C & \textbf{14.} B & \textbf{15.} D & \textbf{16.} C & \textbf{17.} 0.60 m\textsuperscript{3}/s & \textbf{18.} B \\ \hline
+\textbf{19.} D & \textbf{20.} A & \textbf{21.} $\approx$142 s & \textbf{22.} B & \textbf{23.} C & \textbf{24.} B \\ \hline
+\end{tabular}
+\end{center}
+\vspace{4pt}
+\end{minipage}}
+
+\vspace{10pt}
+% =========================================================
+\section*{\color{titleblue}Worked Solutions}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=9pt]
+
+\item $A=by=3(1)=3~\mathrm{m^2}$; $P=b+2y=3+2(1)=5$ m; $R_H=A/P=3/5=\mathbf{0.60~m}$.
+\cit{Flow in Noncircular Conduits}
+
+\item For any circular conduit flowing full, $A=\tfrac{\pi}{4}D^2$ and $P=\pi D$, so $R_H=\dfrac{\pi D^2/4}{\pi D}=\dfrac{D}{4}$. \textbf{(C)}
+\cit{Flow in Noncircular Conduits}
+
+\item $R_H=\dfrac{3(1)}{3+2}=0.60$ m. $v=\dfrac{1.0}{0.013}(0.60)^{2/3}(0.001)^{1/2}=76.9(0.711)(0.0316)=\mathbf{1.73~m/s}$.
+\cit{Manning's Equation}
+
+\item $A=4(1.5)=6~\mathrm{m^2}$, $P=4+2(1.5)=7$ m, $R_H=6/7=0.857$ m. $v=\dfrac{1.0}{0.015}(0.857)^{2/3}(0.0009)^{1/2}=66.7(0.902)(0.03)=1.80$ m/s. $Q=vA=1.80(6)=\mathbf{10.8~m^3/s}$.
+\cit{Manning's Equation}
+
+\item By definition in the Handbook, $K=1.486$ for USCS units and $1.0$ for SI units. \textbf{(C)}
+\cit{Manning's Equation}
+
+\item Manning gives $v=\dfrac{K}{n}R_H^{2/3}S^{1/2}$; $v\propto 1/n$, so larger $n$ \emph{decreases} velocity. \textbf{(B)}
+\cit{Manning's Equation}
+
+\item $v=q/y=2.5/1.5=1.667$ m/s. $E=y+\dfrac{v^2}{2g}=1.5+\dfrac{1.667^2}{2(9.81)}=1.5+0.142=\mathbf{1.64~m}$.
+\cit{Specific Energy}
+
+\item $q=Q/B=10/4=2.5~\mathrm{m^2/s}$. $y_c=\left(\dfrac{q^2}{g}\right)^{1/3}=\left(\dfrac{2.5^2}{9.81}\right)^{1/3}=(0.637)^{1/3}=\mathbf{0.86~m}$.
+\cit{Critical Depth}
+
+\item Critical flow is the state of \emph{minimum specific energy} for a given discharge, where $Fr=1$. \textbf{(B)}
+\cit{Critical Depth; Froude number}
+
+\item For a wide rectangular channel $y_h=y$, so $Fr=\dfrac{v}{\sqrt{g y}}=\dfrac{3}{\sqrt{9.81(0.5)}}=\dfrac{3}{2.215}=1.35>1\Rightarrow$ supercritical. \textbf{(B)}
+\cit{Froude number}
+
+\item $Fr=0.6<1$, so the flow is subcritical. \textbf{(C)}
+\cit{Froude number}
+
+\item Alternate depths are the two depths (one sub-, one supercritical) that yield the \emph{same specific energy} for a given $Q$. \textbf{(B)}
+\cit{Specific Energy Diagram}
+
+\item $y_2=\dfrac{y_1}{2}\!\left(-1+\sqrt{1+8Fr_1^2}\right)=\dfrac{0.4}{2}\!\left(-1+\sqrt{1+8(2.5)^2}\right)=0.2(-1+\sqrt{51})=0.2(6.141)=\mathbf{1.23~m}$.
+\cit{Hydraulic Jump}
+
+\item A hydraulic jump is a sudden supercritical-to-subcritical transition that \emph{dissipates} mechanical energy. \textbf{(B)}
+\cit{Hydraulic Jump}
+
+\item Suppressed rectangular weir: $Q=CLH^{3/2}=3.33(5)(1)^{3/2}=\mathbf{16.7~cfs}$. \textbf{(D)}
+\cit{Weir Formulas}
+
+\item 90$^{\circ}$ V-notch: $Q=CH^{5/2}=2.54(0.8)^{5/2}=2.54(0.572)=\mathbf{1.45~cfs}$. \textbf{(C)}
+\cit{Weir Formulas}
+
+\item Suppressed rectangular weir (SI): $Q=CLH^{3/2}=1.84(2)(0.3)^{3/2}=1.84(2)(0.164)=\mathbf{0.60~m^3/s}$.
+\cit{Weir Formulas}
+
+\item End contractions shorten the effective crest, giving $Q=C(L-0.2H)H^{3/2}$. \textbf{(B)}
+\cit{Weir Formulas}
+
+\item $A_0=\dfrac{\pi}{4}(0.10)^2=7.85\times10^{-3}~\mathrm{m^2}$. $Q=CA_0\sqrt{2gh}=0.61(7.85\times10^{-3})\sqrt{2(9.81)(2)}=0.61(7.85\times10^{-3})(6.26)=\mathbf{0.030~m^3/s}$. \textbf{(D)}
+\cit{Orifice Discharging Freely into Atmosphere}
+
+\item Submerged orifice: $Q=CA\sqrt{2g(h_1-h_2)}=0.61(0.05)\sqrt{2(9.81)(1.5)}=\mathbf{0.165~m^3/s}$. \textbf{(A)}
+\cit{Submerged Orifice Operating under Steady-Flow Conditions}
+
+\item $A_t=\dfrac{\pi}{4}(2)^2=3.142~\mathrm{m^2}$. $\Delta t=\dfrac{2(A_t/A_0)}{\sqrt{2g}}\!\left(h_1^{1/2}-h_2^{1/2}\right)=\dfrac{2(3.142/0.01)}{\sqrt{2(9.81)}}\!\left(\sqrt{4}-\sqrt{1}\right)=\dfrac{628.3}{4.429}(1)=\mathbf{142~s}$.
+\cit{Orifice Discharging Freely into Atmosphere (time to drain a tank)}
+
+\item $P_w=\dfrac{WRT_1}{Cne}\!\left[\left(\dfrac{P_2}{P_1}\right)^{0.283}-1\right]=\dfrac{2(53.3)(530)}{550(0.283)(0.80)}\!\left[\left(\dfrac{18.7}{14.7}\right)^{0.283}-1\right]=453.7(0.0705)=\mathbf{32~hp}$. \textbf{(B)}
+\cit{Blowers}
+
+\item From the hydraulic-element graph, the discharge ratio $Q/Q_f$ peaks at a relative depth of about $d/D\approx0.93$ (slightly above the full-flow value), not at $d/D=1.0$. \textbf{(C)}
+\cit{Hydraulic-Element (Partial Flow) Graph for Circular Sewers}
+
+\item Trapezoid: $A=(b+zy)y=(3+2\cdot1)(1)=5~\mathrm{m^2}$; $P=b+2y\sqrt{1+z^2}=3+2\sqrt{5}=7.47$ m; $R_H=5/7.47=0.669$ m. $v=\dfrac{1.0}{0.025}(0.669)^{2/3}(0.0016)^{1/2}=40(0.765)(0.04)=1.22$ m/s. $Q=vA=1.22(5)=\mathbf{6.1~m^3/s}$. \textbf{(B)}
+\cit{Manning's Equation}
+
+\end{enumerate}
+
+\vfill
+\begin{center}
+\textcolor{lightgray}{\footnotesize FE Environmental Exam Prep --- Day 4 of cumulative study series. All equations, coefficients, and citations verified against the NCEES FE Reference Handbook v10.6.}
+\end{center}
+
+\end{document}
