@@ -43,6 +43,16 @@ Schedule specials: **Jul 3 / Jul 6** → full 110-question practice exam instead
   Use the Handbook's exact notation (e.g. **capital `I`** in `Q = CIA`; `C` not `K`; `R = D/4`).
   Anything standard-but-not-printed-in-v10.6 (e.g. SI Rational `/360`, `T = 1/P`, IDF) must be
   **flagged as supplemental** in the `fidelityNote` and cheat sheet — don't imply it's Handbook-sourced.
+- **Closed-book solvability gate (per question):** the exam is closed-book except the Handbook, so
+  every question must be answerable on exam day using only one of: (i) a **Handbook formula**,
+  (ii) genuinely **fundamental knowledge** (e.g. return period `T = 1/P`, area-weighting, volume =
+  depth × area), or (iii) a relation **written into the question stem** (the way the real exam hands
+  you a chart or equation). If a question would otherwise require *recalling* a formula that is
+  neither in the Handbook nor fundamental (e.g. the SI Rational `/360` factor, SI curve-number
+  `25400/CN − 254`, a Talbot IDF with constants), **either state that relation in the stem or recast
+  to a Handbook-faithful unit system** (consistent SI — m/s, m² → m³/s — needs no magic factor).
+  Don't ship it as a pure memory test. **Tag each question** with a `source` field —
+  `"handbook"` | `"fundamental"` | `"in-stem"` — so the Handbook status is always explicit.
 
 ## Build environment notes
 - `pdflatex` (texlive-latex-base/recommended/fonts) and `poppler-utils` may need installing per
