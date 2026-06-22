@@ -66,7 +66,13 @@
     else { ctx.clearRect(0, 0, canvas.width, canvas.height); raf = null; }
   }
 
+  var NUDGES = {
+    quarter: ["🌱 25% of today's goal", "Good start — keep the momentum."],
+    half: ["💪 Halfway to your goal", "You're cruising — finish strong."]
+  };
+
   window.addEventListener("resize", resize);
   window.PFPToast = function (title, msg) { toast(title, msg); };
+  window.PFPNudge = function (kind) { var n = NUDGES[kind]; if (n) toast(n[0], n[1]); };
   window.PFPCelebrate = function (opts) { opts = opts || {}; toast(opts.title || "Nice!", opts.msg || ""); burst(); };
 })();

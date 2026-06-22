@@ -20,10 +20,10 @@
 
   function schedTopic(day) { var d = (SCHED.days || []).filter(function (x) { return x.day === day; })[0]; return d ? d.topic : "Day " + day; }
   function statusOf(q) { var c = PFP.getCard(q.id); if (!c) return "unseen"; if (c.box >= 4) return "mastered"; return "learning"; }
-  function missed(q) { var c = PFP.getCard(q.id); return !!(c && c.wrong > 0); }
+  function missed(q) { return PFP.lastOutcome(q.id) === false; }
   function wrongOf(q) { var c = PFP.getCard(q.id); return c ? c.wrong : 0; }
-  /* Right/wrong/new — matches the study navigator. */
-  function histStatus(q) { var c = PFP.getCard(q.id); if (!c || !c.seen) return "new"; if (c.wrong > 0) return "miss"; return "got"; }
+  /* Latest outcome — matches the study navigator. Marking Got/Missed flips it. */
+  function histStatus(q) { var o = PFP.lastOutcome(q.id); return o === null ? "new" : o ? "got" : "miss"; }
 
   function buildFilters() {
     var days = ALL.map(function (q) { return q.day; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).sort(function (a, b) { return a - b; });
@@ -76,9 +76,10 @@
     return true;
   }
 
-  /* Celebrate a daily-goal hit or any freshly-unlocked achievement after marking. */
+  /* Celebrate a daily-goal hit / milestone or any freshly-unlocked achievement after marking. */
   function afterMark(r) {
     if (r && r.goalJustMet && window.PFPCelebrate) PFPCelebrate({ title: "🎯 Daily goal hit!", msg: r.goal + " questions today · " + PFP.getStreak() + "-day streak 🔥" });
+    else if (r && r.milestone && window.PFPNudge) PFPNudge(r.milestone);
     if (PFP.checkAchievements) {
       PFP.checkAchievements(ALL).forEach(function (a, i) {
         setTimeout(function () { if (window.PFPCelebrate) PFPCelebrate({ title: a.icon + " " + a.title, msg: a.desc }); }, 700 + i * 850);

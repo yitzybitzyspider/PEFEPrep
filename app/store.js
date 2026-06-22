@@ -60,7 +60,8 @@ window.PFP = (function () {
 
   /* Record a result for a question: reschedule its Leitner card, log the attempt,
      count it toward today's goal, and bump the streak when the goal is reached.
-     Returns { goalJustMet, answered, goal }. */
+     Returns { goalJustMet, milestone, answered, goal }. milestone is
+     "quarter" | "half" | null (first time today's goal crosses 25% / 50%). */
   function recordResult(id, correct, topic) {
     var s = load();
     s.cards = s.cards || {};
@@ -69,6 +70,7 @@ window.PFP = (function () {
     if (topic) c.topic = topic;
     if (correct) { c.right++; c.box = Math.min((c.box || 0) + 1, 5); }
     else { c.wrong++; c.box = 1; }
+    c.lastCorrect = !!correct;
     c.due = addDays(today(), BOX_DAYS[c.box]);
     c.last = today();
     s.cards[id] = c;
@@ -79,17 +81,30 @@ window.PFP = (function () {
 
     s.daily = s.daily || {};
     var t = today();
-    var dd = s.daily[t] || { ids: {}, goalMet: false };
+    var dd = s.daily[t] || { ids: {}, goalMet: false, ms: {} };
+    dd.ms = dd.ms || {};
     dd.ids[id] = !!correct;
     var goal = Object.assign({}, DEFAULTS, s.settings || {}).dailyGoal;
     var answered = Object.keys(dd.ids).length;
-    var goalJustMet = false;
-    if (!dd.goalMet && answered >= goal) { dd.goalMet = true; goalJustMet = true; }
+    var ratio = goal ? answered / goal : 1;
+    var goalJustMet = false, milestone = null;
+    if (!dd.goalMet && answered >= goal) { dd.goalMet = true; goalJustMet = true; dd.ms.q = dd.ms.h = true; }
+    else if (!dd.ms.h && ratio >= 0.5) { dd.ms.h = true; dd.ms.q = true; milestone = "half"; }
+    else if (!dd.ms.q && ratio >= 0.25) { dd.ms.q = true; milestone = "quarter"; }
     s.daily[t] = dd;
     if (goalJustMet) streakTouch(s);
 
     save(s);
-    return { goalJustMet: goalJustMet, answered: answered, goal: goal };
+    return { goalJustMet: goalJustMet, milestone: milestone, answered: answered, goal: goal };
+  }
+
+  /* Latest outcome for a question: true (got), false (missed), null (unseen).
+     Falls back to the cumulative miss count for cards saved before lastCorrect. */
+  function lastOutcome(id) {
+    var c = (load().cards || {})[id];
+    if (!c || !c.seen) return null;
+    if (typeof c.lastCorrect === "boolean") return c.lastCorrect;
+    return c.wrong > 0 ? false : true;
   }
 
   /* Compose today's set: interleave due reviews + new, capped at dailySize. */
@@ -162,6 +177,7 @@ window.PFP = (function () {
     return s.streak || 0;
   }
   function notePerfectSet() { var s = load(); s.perfectSets = (s.perfectSets || 0) + 1; save(s); }
+  function notePracticeBeat() { var s = load(); s.practiceBeat = true; save(s); }
 
   function getStreak() { return load().streak || 0; }
   function getBestStreak() { return load().bestStreak || 0; }
@@ -213,7 +229,8 @@ window.PFP = (function () {
     { id: "section", icon: "🟢", title: "Section Cleared", desc: "Take a section to exam-ready (70%+).", test: function (m) { return m.green >= 1; } },
     { id: "five_sections", icon: "🏅", title: "Specialist", desc: "Get 5 sections exam-ready.", test: function (m) { return m.green >= 5; } },
     { id: "focus_30", icon: "⏱️", title: "Locked In", desc: "30 minutes of focused study in a day.", test: function (m) { return m.focusMax >= 30 * 60000; } },
-    { id: "comeback", icon: "🔁", title: "Comeback", desc: "Re-master everything you'd missed.", test: function (m) { return m.everMissed >= 5 && m.notMastered === 0; } }
+    { id: "comeback", icon: "🔁", title: "Comeback", desc: "Re-master everything you'd missed.", test: function (m) { return m.everMissed >= 5 && m.notMastered === 0; } },
+    { id: "mock", icon: "🏆", title: "Mock Master", desc: "Score 70%+ on a full practice exam.", test: function (m) { return m.practiceBeat; } }
   ];
 
   function metrics(all) {
@@ -229,7 +246,8 @@ window.PFP = (function () {
     var fm = 0, e = s.engagement || {}; Object.keys(e).forEach(function (k) { if (e[k].focusMs > fm) fm = e[k].focusMs; });
     return {
       goalEver: !!s.streakDay, best: s.bestStreak || 0, seen: seen, total: all ? all.length : 0,
-      perfect: s.perfectSets || 0, green: green, everMissed: everMissed, notMastered: notMastered, focusMax: fm
+      perfect: s.perfectSets || 0, green: green, everMissed: everMissed, notMastered: notMastered,
+      focusMax: fm, practiceBeat: !!s.practiceBeat
     };
   }
 
@@ -252,8 +270,8 @@ window.PFP = (function () {
   return {
     DEFAULTS: DEFAULTS,
     getSettings: getSettings, setSetting: setSetting,
-    recordResult: recordResult, buildDailySet: buildDailySet,
-    sectionMastery: sectionMastery, completeDay: completeDay, notePerfectSet: notePerfectSet,
+    recordResult: recordResult, buildDailySet: buildDailySet, lastOutcome: lastOutcome,
+    sectionMastery: sectionMastery, completeDay: completeDay, notePerfectSet: notePerfectSet, notePracticeBeat: notePracticeBeat,
     getStreak: getStreak, getBestStreak: getBestStreak, isDoneToday: isDoneToday, getHistory: getHistory,
     getDailyGoal: getDailyGoal, getAnsweredToday: getAnsweredToday, isGoalMetToday: isGoalMetToday,
     daysToExam: daysToExam, today: today, resetAll: resetAll, getCard: getCard,

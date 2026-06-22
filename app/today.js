@@ -42,7 +42,11 @@
     var d = (SCHED.days || []).filter(function (x) { return x.day === day; })[0];
     return d ? d.topic : "Day " + day;
   }
-  function isMissed(q) { var c = PFP.getCard(q.id); return !!(c && c.wrong > 0); }
+  function schedType(day) {
+    var d = (SCHED.days || []).filter(function (x) { return x.day === day; })[0];
+    return d ? d.type : "";
+  }
+  function isMissed(q) { return PFP.lastOutcome(q.id) === false; }
 
   function determineMode() {
     var p = new URLSearchParams(location.search);
@@ -120,10 +124,8 @@
   function navStatus(q) {
     var r = session[q.id];
     if (r) return r.correct ? "got" : "miss";
-    var c = PFP.getCard(q.id);
-    if (!c || !c.seen) return "new";
-    if (c.wrong > 0) return "miss";
-    return "got";
+    var o = PFP.lastOutcome(q.id);
+    return o === null ? "new" : o ? "got" : "miss";
   }
 
   function renderNav() {
@@ -207,6 +209,7 @@
       resolved[q.id] = true;
       var r = PFP.recordResult(q.id, correct, q.topic);
       if (r && r.goalJustMet && window.PFPCelebrate) PFPCelebrate({ title: "🎯 Daily goal hit!", msg: r.goal + " questions today · " + PFP.getStreak() + "-day streak 🔥" });
+      else if (r && r.milestone && window.PFPNudge) PFPNudge(r.milestone);
       celebrateNewAchievements();
     }
     renderNav();
@@ -304,6 +307,7 @@
       PFP.notePerfectSet();
       if (window.PFPCelebrate) PFPCelebrate({ title: "💯 Flawless!", msg: "Perfect score across " + total + " questions." });
     }
+    if (mode.kind === "day" && schedType(mode.day) === "exam" && total > 0 && known / total >= 0.7) PFP.notePracticeBeat();
     celebrateNewAchievements();
     streak = PFP.getStreak();
 
@@ -404,6 +408,17 @@
     else if (e.key.toLowerCase() === "e") { if (!view.revealed) revealEquations(); }
     else if (e.key.toLowerCase() === "s") { if (view.revealed) showNextStep(); }
     else if (e.key === "Enter") { if (view.revealed) next(); }
+  });
+
+  // Focus-mode lite: a gentle welcome-back when you return mid-session.
+  var lastBack = 0;
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState !== "visible") return;
+    if ($("player").classList.contains("hide")) return;
+    var now = Date.now();
+    if (now - lastBack < 60000) return;
+    lastBack = now;
+    if (window.PFPToast) PFPToast("👋 Welcome back", "Pick up where you left off — you've got this.");
   });
 
   window.addEventListener("DOMContentLoaded", function () {

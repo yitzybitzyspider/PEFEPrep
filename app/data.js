@@ -30,11 +30,11 @@ window.PFPDATA = (function () {
     cache = all;
     return all;
   }
-  // Markdown list of every question missed so far — paste into Claude as a tutor.
+  // Markdown list of questions you're still getting wrong — paste into Claude as a tutor.
   function missedExport() {
     var KEYS = ["A", "B", "C", "D", "E", "F"];
     var all = cache || [];
-    var missed = all.filter(function (q) { var c = PFP.getCard(q.id); return c && c.wrong > 0; });
+    var missed = all.filter(function (q) { return PFP.lastOutcome(q.id) === false; });
     var byTopic = {};
     missed.forEach(function (q) { (byTopic[q.topic] = byTopic[q.topic] || []).push(q); });
     var t = new Date().toISOString().slice(0, 10);

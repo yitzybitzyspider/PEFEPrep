@@ -1,7 +1,18 @@
 {
-  "version": "0.14.0",
+  "version": "0.15.0",
   "updated": "2026-06-22",
   "history": [
+    {
+      "version": "0.15.0",
+      "date": "2026-06-22",
+      "title": "Mark Got/Missed fixed + 25/50% nudges + welcome-back",
+      "changes": [
+        "Fixed: marking a question ✓ Got in the Bank now actually flips it from missed to got (status tracks your latest answer, not whether you ever missed it) and drops it from the Missed list",
+        "Encouraging nudges at 25% and 50% of your daily goal, on top of the goal-hit celebration",
+        "Gentle 'welcome back' when you return to a study session you left mid-set",
+        "New Mock Master badge for scoring 70%+ on a full practice exam (ready for the Jul 3 / Jul 6 practice days)"
+      ]
+    },
     {
       "version": "0.14.0",
       "date": "2026-06-22",
