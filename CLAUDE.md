@@ -31,6 +31,11 @@ Schedule specials: **Jul 3 / Jul 6** → full 110-question practice exam instead
 **Jul 8+** → stop; post a good-luck note.
 
 ## Verification — do not skip
+- **Exam-relevance (do this per question, every build):** map **each** question to a specific
+  FE Environmental knowledge-area subtopic in `reference/fe-environmental-spec.md` (e.g. "10.A —
+  frequency"). If a question maps to nothing on the spec, **cut it** — only ship questions that
+  matter for the exam. Spread the set across the day's KA subtopics rather than piling onto one,
+  and keep the SI+USCS mix. (Relevance is a separate gate from Handbook fidelity below — both must pass.)
 - **Recompute every numeric answer in `python3`** before authoring.
 - **Handbook fidelity:** the real NCEES FE Reference Handbook v10.6 lives in Google Drive
   (text extract file id `15oZdEEaXPVhYwSl2DvlFZntBSPmBzcnP`, PDF `1TwS6okS13YuzlV3Nq_QOxjlaV3SGwKot`).
