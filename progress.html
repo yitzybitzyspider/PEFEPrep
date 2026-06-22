@@ -6,7 +6,7 @@
   <title>Progress — PEFEPrep</title>
   <meta name="description" content="Readiness, per-section mastery, publish status, and your full study schedule." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
-  <link rel="stylesheet" href="./app/style.css?v=0.12.0" />
+  <link rel="stylesheet" href="./app/style.css?v=0.13.0" />
 </head>
 <body>
   <div class="wrap">
@@ -33,9 +33,35 @@
     </section>
 
     <section class="card">
+      <h2>Your study lists</h2>
+      <p class="sub">Cherry-pick questions into ★ My List from the Bank; your Missed list fills itself.</p>
+      <div class="listtiles">
+        <div class="listtile">
+          <div class="lt-top">★ <span id="ltStarCount">0</span> <small>saved</small></div>
+          <div class="lt-sub">My List — questions you starred to study together.</div>
+          <a class="reviewbtn" id="ltStarReview" href="./today.html?filter=starred">Review My List →</a>
+        </div>
+        <div class="listtile">
+          <div class="lt-top">✗ <span id="ltMissCount">0</span> <small>missed</small></div>
+          <div class="lt-sub">Everything you've gotten wrong — your weak spots.</div>
+          <div class="btn-row" style="margin-top:0;gap:8px;">
+            <a class="reviewbtn" id="ltMissReview" href="./today.html?filter=missed">Review misses →</a>
+            <button class="reviewbtn" id="exportBtn">⬇ Export for Claude</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
       <h2>Publish status</h2>
       <p class="sub">Confirms today's content actually went live.</p>
       <div id="publish"></div>
+    </section>
+
+    <section class="card">
+      <h2>Study calendar</h2>
+      <p class="sub">Your plan from first set to exam day. Green days are live — click any to review. Today is ringed.</p>
+      <div id="calendar"></div>
     </section>
 
     <section class="card">
@@ -56,11 +82,7 @@
 
     <section class="card">
       <h2>Focus &amp; review</h2>
-      <p class="sub" style="margin-bottom:16px;">Weakest sections you've started: <strong id="weak" style="color:var(--ink);"></strong></p>
-      <div class="btn-row" style="margin-top:0;">
-        <a class="btn-primary" href="./today.html?filter=missed" style="text-decoration:none;">Review my misses →</a>
-        <button class="btn-ghost" id="exportBtn">⬇ Export misses for Claude</button>
-      </div>
+      <p class="sub">Weakest sections you've started: <strong id="weak" style="color:var(--ink);"></strong></p>
       <h2 style="margin-top:22px;">Last 14 days</h2>
       <div class="heat" id="heat"></div>
     </section>
@@ -80,9 +102,9 @@
     </div>
   </div>
 
-  <script src="./app/store.js?v=0.12.0"></script>
-  <script src="./app/data.js?v=0.12.0"></script>
-  <script src="./app/progress.js?v=0.12.0"></script>
-  <script src="./app/version.js?v=0.12.0"></script>
+  <script src="./app/store.js?v=0.13.0"></script>
+  <script src="./app/data.js?v=0.13.0"></script>
+  <script src="./app/progress.js?v=0.13.0"></script>
+  <script src="./app/version.js?v=0.13.0"></script>
 </body>
 </html>

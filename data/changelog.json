@@ -1,7 +1,17 @@
 {
-  "version": "0.12.0",
+  "version": "0.13.0",
   "updated": "2026-06-22",
   "history": [
+    {
+      "version": "0.13.0",
+      "date": "2026-06-22",
+      "title": "Dashboard: study calendar + My List / Missed tiles",
+      "changes": [
+        "Study calendar on the dashboard — your whole plan from first set to exam day across the months, with live days in green (click any to review), pending in amber, upcoming dim, exams in red, and today ringed",
+        "‘Your study lists’ tiles: ★ My List and ✗ Missed counts with one-click review, plus export-for-Claude",
+        "Quick links wire straight into the study player on your saved or missed sets"
+      ]
+    },
     {
       "version": "0.12.0",
       "date": "2026-06-22",
