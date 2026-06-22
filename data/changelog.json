@@ -1,7 +1,19 @@
 {
-  "version": "0.11.0",
+  "version": "0.12.0",
   "updated": "2026-06-22",
   "history": [
+    {
+      "version": "0.12.0",
+      "date": "2026-06-22",
+      "title": "Bank: history dots, sorting, My List + mark got/missed",
+      "changes": [
+        "Every Bank card shows a history dot (green = got it, red = missed, grey = not seen yet) — the same read as the study navigator",
+        "Sort the bank by day, topic, missed-first, or most-missed",
+        "★ My List: star any question to build a custom set; 'Add these to My List' stars the whole current filter; review it with one click",
+        "Missed list fills itself automatically; both lists show live counts and open in the study interface",
+        "Mark a question ✓ Got or ✗ Missed straight from the card — for when you worked it on paper — and it updates your history, dots, and mastery"
+      ]
+    },
     {
       "version": "0.11.0",
       "date": "2026-06-22",

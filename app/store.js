@@ -140,12 +140,29 @@ window.PFP = (function () {
   function getCard(id) { var s = load(); return (s.cards || {})[id] || null; }
   function resetAll() { localStorage.removeItem(STORE); }
 
+  /* "My List" — questions you've starred to study together. */
+  function getStarred() { var s = load(); return Object.keys(s.starred || {}); }
+  function isStarred(id) { var s = load(); return !!(s.starred && s.starred[id]); }
+  function toggleStar(id) {
+    var s = load(); s.starred = s.starred || {};
+    if (s.starred[id]) delete s.starred[id]; else s.starred[id] = true;
+    save(s); return !!s.starred[id];
+  }
+  function setStar(id, on) {
+    var s = load(); s.starred = s.starred || {};
+    if (on) s.starred[id] = true; else delete s.starred[id];
+    save(s);
+  }
+  function starredCount() { return getStarred().length; }
+
   return {
     DEFAULTS: DEFAULTS,
     getSettings: getSettings, setSetting: setSetting,
     recordResult: recordResult, buildDailySet: buildDailySet,
     sectionMastery: sectionMastery, completeDay: completeDay,
     getStreak: getStreak, isDoneToday: isDoneToday, getHistory: getHistory,
-    daysToExam: daysToExam, today: today, resetAll: resetAll, getCard: getCard
+    daysToExam: daysToExam, today: today, resetAll: resetAll, getCard: getCard,
+    getStarred: getStarred, isStarred: isStarred, toggleStar: toggleStar,
+    setStar: setStar, starredCount: starredCount
   };
 })();

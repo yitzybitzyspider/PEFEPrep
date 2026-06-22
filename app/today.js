@@ -48,6 +48,7 @@
     var p = new URLSearchParams(location.search);
     var day = p.get("day"), topic = p.get("topic"), filter = p.get("filter");
     if (filter === "missed") { mode = { kind: "filter", filter: "missed", isDaily: false, title: "Review — questions you’ve missed", sub: "Everything you’ve gotten wrong, to drill again." }; return; }
+    if (filter === "starred") { mode = { kind: "filter", filter: "starred", isDaily: false, title: "Review — ★ My List", sub: "The questions you’ve saved to study together." }; return; }
     if (topic) { mode = { kind: "topic", topic: topic, isDaily: false, title: "Review — " + topic, sub: "All questions in this topic." }; return; }
     if (day) { var d = Number(day); mode = { kind: "day", day: d, isDaily: false, title: "Day " + d + " — " + schedTopic(d), sub: "All questions from this day." }; return; }
     if (p.get("all")) { mode = { kind: "all", isDaily: false, title: "Review — all questions", sub: "Every question in the bank." }; return; }
@@ -66,7 +67,10 @@
   }
 
   function setList() {
-    if (mode.kind === "filter") return ALL.filter(isMissed);
+    if (mode.kind === "filter") {
+      if (mode.filter === "starred") return ALL.filter(function (q) { return PFP.isStarred(q.id); });
+      return ALL.filter(isMissed);
+    }
     if (mode.kind === "topic") return ALL.filter(function (q) { return q.topic === mode.topic; });
     if (mode.kind === "day") return ALL.filter(function (q) { return q.day === mode.day; });
     return ALL.slice();
