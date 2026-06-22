@@ -90,6 +90,12 @@
     $("dateLabel").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
     $("streakChip").textContent = "🔥 " + PFP.getStreak() + " day streak";
     $("countdown").textContent = PFP.daysToExam() + " days to exam";
+    if ($("goalChip")) {
+      var ans = PFP.getAnsweredToday(), goal = PFP.getDailyGoal();
+      $("goalChip").textContent = (ans >= goal ? "✅ goal " : "🎯 ") + Math.min(ans, goal) + "/" + goal + " today";
+      $("goalChip").classList.toggle("goal-done", ans >= goal);
+    }
+    if ($("bestChip")) { var bs = PFP.getBestStreak(); $("bestChip").textContent = "🏆 best " + bs; $("bestChip").style.display = bs > 0 ? "" : "none"; }
     $("introTitle").textContent = mode.title;
     $("introSub").textContent = mode.sub + (PFP.isDoneToday() && mode.isDaily ? " You’ve already finished today — redo any time to review." : "");
     $("introMeta").innerHTML = pill("Questions", QUESTIONS.length) +
@@ -197,8 +203,21 @@
   function resolve(correct) {
     var q = QUESTIONS[idx];
     session[q.id] = { correct: correct, topic: q.topic };
-    if (!resolved[q.id]) { resolved[q.id] = true; if (settings.srs) PFP.recordResult(q.id, correct, q.topic); }
+    if (!resolved[q.id]) {
+      resolved[q.id] = true;
+      var r = PFP.recordResult(q.id, correct, q.topic);
+      if (r && r.goalJustMet && window.PFPCelebrate) PFPCelebrate({ title: "🎯 Daily goal hit!", msg: r.goal + " questions today · " + PFP.getStreak() + "-day streak 🔥" });
+      celebrateNewAchievements();
+    }
     renderNav();
+  }
+
+  function celebrateNewAchievements() {
+    if (!PFP.checkAchievements) return;
+    var newly = PFP.checkAchievements(ALL);
+    newly.forEach(function (a, i) {
+      setTimeout(function () { if (window.PFPCelebrate) PFPCelebrate({ title: a.icon + " " + a.title, msg: a.desc }); }, 700 + i * 850);
+    });
   }
 
   function reveal() {
@@ -281,6 +300,12 @@
     var total = QUESTIONS.length;
     var streak = PFP.getStreak();
     if (mode.isDaily) streak = PFP.completeDay(known, total);
+    if (total >= 10 && known === total) {
+      PFP.notePerfectSet();
+      if (window.PFPCelebrate) PFPCelebrate({ title: "💯 Flawless!", msg: "Perfect score across " + total + " questions." });
+    }
+    celebrateNewAchievements();
+    streak = PFP.getStreak();
 
     var pct = total ? Math.round(known / total * 100) : 0;
     $("doneScore").textContent = known;

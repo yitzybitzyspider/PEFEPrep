@@ -15,6 +15,7 @@
   function refresh() {
     var s = PFP.getSettings();
     $("dailySize").value = s.dailySize;
+    $("dailyGoal").value = s.dailyGoal;
     $("mixNew").value = s.mixNew;
     $("srs").checked = !!s.srs;
     setSeg("reveal", s.revealMode);
@@ -27,6 +28,10 @@
 
     $("dailySize").onchange = function (e) {
       PFP.setSetting("dailySize", clamp(parseInt(e.target.value, 10) || 20, 1, 200));
+      refresh();
+    };
+    $("dailyGoal").onchange = function (e) {
+      PFP.setSetting("dailyGoal", clamp(parseInt(e.target.value, 10) || 20, 1, 200));
       refresh();
     };
     $("mixNew").onchange = function (e) {

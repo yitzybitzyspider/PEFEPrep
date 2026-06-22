@@ -1,7 +1,19 @@
 {
-  "version": "0.13.0",
+  "version": "0.14.0",
   "updated": "2026-06-22",
   "history": [
+    {
+      "version": "0.14.0",
+      "date": "2026-06-22",
+      "title": "Gamification: daily goal, streak protection, badges, focus tracking",
+      "changes": [
+        "Daily goal with a progress ring; meeting it keeps your 🔥 streak — and one missed day a week is forgiven (grace day), with a 🏆 best-streak record",
+        "Achievements: 11 unlockable badges (streaks, sections cleared, perfect set, focus, comeback…) shown on the dashboard",
+        "Celebrations: confetti + encouraging toasts when you hit your goal, unlock a badge, or ace a set (respects reduced-motion)",
+        "Focus tracking: measures real engaged study time and how often you switch away — shown on the dashboard",
+        "Set your daily goal in Settings; results now always count toward streak, mastery, and the heatmap"
+      ]
+    },
     {
       "version": "0.13.0",
       "date": "2026-06-22",

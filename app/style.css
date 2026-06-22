@@ -30,6 +30,9 @@ body{
 .tag{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--muted);}
 .tag.streak{color:var(--accent);border-color:rgba(245,166,35,.35);}
 .tag.count{color:var(--accent2);border-color:rgba(76,139,245,.35);}
+.tag.goal{color:var(--accent2);border-color:rgba(76,139,245,.35);}
+.tag.goal.goal-done{color:var(--good);border-color:rgba(62,207,142,.45);}
+.tag.best{color:var(--amber);border-color:rgba(245,166,35,.35);}
 
 /* cards & type */
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;margin-bottom:18px;}
@@ -288,3 +291,37 @@ select.sel{background:var(--card2);border:1px solid var(--line);color:var(--ink)
 .modal textarea{width:100%;height:320px;background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;}
 .missrow{border-top:1px solid var(--line);padding:9px 0;font-size:13.5px;}
 .missrow .mq{color:var(--ink);} .missrow .ma{color:var(--muted);font-size:12.5px;margin-top:2px;}
+
+/* daily goal ring + streak/focus stats */
+.heat .d.full{background:var(--accent);border-color:var(--accent);}
+.goalwrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.goalring{flex:0 0 132px;width:132px;height:132px;}
+.ring{width:132px;height:132px;}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:8;}
+.ring-fg{fill:none;stroke:var(--accent2);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .6s ease;}
+.ring-fg.done{stroke:var(--good);}
+.ring-num{fill:var(--ink);font-size:19px;font-weight:800;text-anchor:middle;}
+.ring-lbl{fill:var(--muted);font-size:8.5px;text-anchor:middle;}
+.goalstats{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:14px;flex:1;min-width:240px;}
+.gstat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
+.gstat .gnum{font-size:24px;font-weight:800;color:var(--ink);}
+.gstat .gnum small{font-size:13px;font-weight:600;color:var(--muted);}
+.gstat .glbl{font-size:12px;color:var(--muted);margin-top:2px;}
+
+/* achievements */
+.achhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+.ach{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--card2);text-align:center;opacity:.5;}
+.ach.on{opacity:1;border-color:rgba(62,207,142,.4);background:rgba(62,207,142,.06);}
+.ach-ic{font-size:30px;line-height:1;filter:grayscale(1);}
+.ach.on .ach-ic{filter:none;}
+.ach-t{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:7px;}
+.ach-d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
+
+/* celebrations: toasts + confetti */
+.pfp-confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9998;}
+.pfp-toasts{position:fixed;left:0;right:0;top:18px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:9999;pointer-events:none;}
+.pfp-toast{background:var(--card);border:1px solid var(--accent2);border-radius:12px;padding:12px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center;opacity:0;transform:translateY(-12px);transition:opacity .3s ease,transform .3s ease;max-width:90vw;}
+.pfp-toast.in{opacity:1;transform:translateY(0);}
+.pfp-toast .pt-title{font-size:14.5px;font-weight:800;color:var(--ink);}
+.pfp-toast .pt-msg{font-size:12.5px;color:var(--muted);margin-top:2px;}

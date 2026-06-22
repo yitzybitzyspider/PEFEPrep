@@ -40,14 +40,52 @@
     var weak = topics.filter(function (k) { return m[k].seen > 0; }).slice(0, 3);
     $("weak").textContent = weak.length ? weak.join(" · ") : "Finish a session and your weakest sections show up here.";
 
+    renderGoal();
+    renderAchievements(ALL);
     renderLists(ALL);
     renderPublish(ALL, S);
     renderCalendar(ALL, S);
     renderSchedule(ALL, S);
 
     var hist = PFP.getHistory(), cells = [];
-    for (var i = 13; i >= 0; i--) { var dd = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10); cells.push('<div class="d' + (hist[dd] ? " on" : "") + '" title="' + dd + '"></div>'); }
+    for (var i = 13; i >= 0; i--) {
+      var dd = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+      var h = hist[dd], n = h && h.ids ? Object.keys(h.ids).length : 0;
+      cells.push('<div class="d' + (n > 0 ? " on" : "") + (h && h.goalMet ? " full" : "") + '" title="' + dd + (n ? " · " + n + " answered" : "") + '"></div>');
+    }
     $("heat").innerHTML = cells.join("");
+  }
+
+  function renderGoal() {
+    var ans = PFP.getAnsweredToday(), goal = PFP.getDailyGoal();
+    var done = ans >= goal, pct = goal ? Math.min(1, ans / goal) : 0;
+    var R = 42, C = 2 * Math.PI * R, off = C * (1 - pct);
+    $("goalRing").innerHTML =
+      '<svg viewBox="0 0 100 100" class="ring">' +
+        '<circle cx="50" cy="50" r="42" class="ring-bg"></circle>' +
+        '<circle cx="50" cy="50" r="42" class="ring-fg' + (done ? " done" : "") + '" transform="rotate(-90 50 50)" ' +
+          'stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>' +
+        '<text x="50" y="47" class="ring-num">' + Math.min(ans, goal) + "/" + goal + "</text>" +
+        '<text x="50" y="63" class="ring-lbl">' + (done ? "goal met 🎉" : "today") + "</text>" +
+      "</svg>";
+    $("streakBig").textContent = PFP.getStreak();
+    $("bestBig").textContent = PFP.getBestStreak();
+    $("focusToday").innerHTML = PFP.focusMinutesToday() + "<small>m</small>";
+    $("leavesToday").textContent = PFP.leavesToday();
+  }
+
+  function renderAchievements(ALL) {
+    PFP.checkAchievements(ALL).forEach(function (a, i) {
+      setTimeout(function () { if (window.PFPCelebrate) PFPCelebrate({ title: a.icon + " " + a.title, msg: a.desc }); }, 500 + i * 800);
+    });
+    var list = PFP.getAchievements();
+    $("achCount").textContent = list.filter(function (a) { return a.unlocked; }).length + " / " + list.length + " unlocked";
+    $("achGrid").innerHTML = list.map(function (a) {
+      return '<div class="ach' + (a.unlocked ? " on" : "") + '" title="' + a.desc + '">' +
+        '<div class="ach-ic">' + a.icon + "</div>" +
+        '<div class="ach-t">' + a.title + "</div>" +
+        '<div class="ach-d">' + (a.unlocked ? a.desc : "🔒 " + a.desc) + "</div></div>";
+    }).join("");
   }
 
   function byDayMap(ALL) { var b = {}; ALL.forEach(function (q) { (b[q.day] = b[q.day] || []).push(q); }); return b; }

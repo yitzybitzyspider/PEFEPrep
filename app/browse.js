@@ -76,6 +76,16 @@
     return true;
   }
 
+  /* Celebrate a daily-goal hit or any freshly-unlocked achievement after marking. */
+  function afterMark(r) {
+    if (r && r.goalJustMet && window.PFPCelebrate) PFPCelebrate({ title: "🎯 Daily goal hit!", msg: r.goal + " questions today · " + PFP.getStreak() + "-day streak 🔥" });
+    if (PFP.checkAchievements) {
+      PFP.checkAchievements(ALL).forEach(function (a, i) {
+        setTimeout(function () { if (window.PFPCelebrate) PFPCelebrate({ title: a.icon + " " + a.title, msg: a.desc }); }, 700 + i * 850);
+      });
+    }
+  }
+
   function rankMissedFirst(q) { var st = histStatus(q); return st === "miss" ? 0 : st === "new" ? 1 : 2; }
   function sortItems(items) {
     var arr = items.slice();
@@ -152,8 +162,8 @@
             return;
           }
           if (act === "star") PFP.toggleStar(q.id);
-          else if (act === "got") PFP.recordResult(q.id, true, q.topic);
-          else if (act === "miss") PFP.recordResult(q.id, false, q.topic);
+          else if (act === "got") afterMark(PFP.recordResult(q.id, true, q.topic));
+          else if (act === "miss") afterMark(PFP.recordResult(q.id, false, q.topic));
           decorate(card, q);
           updateCounts();
           // If the change drops the card out of the current filter, refresh the list.
