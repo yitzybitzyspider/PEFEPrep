@@ -38,7 +38,8 @@ has all of this data — it's just one more output format):
       "steps": ["$Q = CiA = ...$", "..."],  // worked solution, step by step
       "solution": "$Q = CiA = ...$",        // optional single-string fallback
       "handbook": "Surface Water — Rational Method",
-      "references": "Ctrl-F: Rational"
+      "references": "Ctrl-F: Rational",
+      "source": "handbook"                  // "handbook" | "fundamental" | "in-stem"
     }
   ]
 }
@@ -50,6 +51,10 @@ Rules:
 - Math goes in `$...$` (KaTeX). Use the Handbook's exact notation (C not K, etc.).
 - `equations` = the relevant formulas (hidden until the user asks). `steps` = the worked
   solution unlocked one step at a time. Provide one or both.
+- `source` = the question's Handbook status (closed-book solvability gate, see CLAUDE.md):
+  `"handbook"` (formula is printed in the NCEES FE Handbook v10.6), `"fundamental"` (assumed
+  knowledge, e.g. `T = 1/P`), or `"in-stem"` (the needed relation is stated in the question).
+  A question must be one of these three — never a memory test for a non-Handbook formula.
 
 ## Wiring the routine (pick one)
 
