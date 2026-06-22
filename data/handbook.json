@@ -43,6 +43,16 @@
     { "topic": "Hydraulics", "section": "Orifice Discharge (free / submerged)", "term": "Orifice", "eq": "$Q=CA_0\\sqrt{2gh}\\ (\\text{free}),\\quad Q=CA\\sqrt{2g\\,\\Delta h}\\ (\\text{submerged})$" },
     { "topic": "Hydraulics", "section": "Orifice Discharging Freely — tank drain", "term": "Drain", "eq": "$\\Delta t=\\dfrac{2\\,(A_t/A_0)}{\\sqrt{2g}}\\left(h_1^{1/2}-h_2^{1/2}\\right)$" },
     { "topic": "Hydraulics", "section": "Blowers", "term": "Blowers", "eq": "$P_w=\\dfrac{W R T_1}{C\\,n\\,e}\\left[\\left(\\dfrac{P_2}{P_1}\\right)^{0.283}-1\\right]$", "note": "C = 550 (US)" },
-    { "topic": "Hydraulics", "section": "Hydraulic-Element (Partial Flow) Graph", "term": "Hydraulic Elements", "eq": "$Q_{max}\\ \\text{at}\\ d/D\\approx0.93,\\quad v_{max}\\ \\text{at}\\ d/D\\approx0.81$" }
+    { "topic": "Hydraulics", "section": "Hydraulic-Element (Partial Flow) Graph", "term": "Hydraulic Elements", "eq": "$Q_{max}\\ \\text{at}\\ d/D\\approx0.93,\\quad v_{max}\\ \\text{at}\\ d/D\\approx0.81$" },
+
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Rational Formula", "term": "Rational Method", "eq": "$Q=CIA\\ (\\text{US: cfs, in/hr, acres})$", "note": "In Handbook (p.296, capital I). C dimensionless, 0<=C<=1; 1 in/hr over 1 acre ~ 1 cfs" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Rational Formula (SI, supplemental)", "term": "Rational Method SI", "eq": "$Q=\\dfrac{CIA}{360}\\ (\\text{SI: m}^3/\\text{s, mm/hr, ha})$", "note": "SUPPLEMENTAL — not in Handbook v10.6 (US form only); memorize" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Rational Formula", "term": "Composite Runoff Coefficient", "eq": "$C_{comp}=\\dfrac{\\sum C_i A_i}{\\sum A_i}$", "note": "Area-weighted; standard practice" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — NRCS/SCS Rainfall-Runoff", "term": "Curve Number", "eq": "$S=\\dfrac{1000}{CN}-10\\ (\\text{in})$", "note": "In Handbook (p.296, inches). Higher CN -> smaller S -> more runoff. SI $S=25400/CN-254$ mm is supplemental (not in Handbook)" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — NRCS/SCS Rainfall-Runoff", "term": "SCS Runoff Depth", "eq": "$Q=\\dfrac{(P-0.2S)^{2}}{P+0.8S}\\ \\ (P>0.2S)$", "note": "In Handbook (p.296). Q=0 when P<=0.2S; Q,P,S in inches. $I_a=0.2S$ implied (not stated separately)" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Runoff Volume", "term": "Runoff Volume", "eq": "$V=Q_{depth}\\times A$", "note": "US: depth(in)/12 x area(ac)=ac-ft. SI: depth(m) x area(m^2)=m^3" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Frequency Analysis (supplemental)", "term": "Return Period", "eq": "$T=\\dfrac{1}{P},\\quad P=\\dfrac{1}{T}$", "note": "SUPPLEMENTAL — not printed in Handbook v10.6. P = annual exceedance probability of the T-year event" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Frequency Analysis (supplemental)", "term": "Risk / Recurrence", "eq": "$R=1-\\left(1-\\dfrac{1}{T}\\right)^{n}$", "note": "SUPPLEMENTAL — not in Handbook v10.6. Probability of >=1 exceedance in n years" },
+    { "topic": "Surface Water & Hydrology", "section": "Surface Water — Rainfall and Runoff (IDF, supplemental)", "term": "IDF", "eq": "$I=\\dfrac{a}{(t_d+b)^{c}}$", "note": "SUPPLEMENTAL — not in Handbook v10.6. For fixed return period, intensity falls as duration rises" }
   ]
 }

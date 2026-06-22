@@ -1,0 +1,6 @@
+# LaTeX build intermediates (keep .tex sources and .pdf outputs)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

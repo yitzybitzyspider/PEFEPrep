@@ -8,7 +8,9 @@
       "title": "Day 5 added — Surface Water & Hydrology",
       "changes": [
         "Surface Water & Hydrology (Day 5, 20 questions) added — Rational Method, SCS/NRCS curve-number runoff, IDF curves, and flood frequency/return-period analysis",
-        "Bank now holds 123 questions spanning Days 1-5; every numeric answer recomputed and verified",
+        "Bank now holds 123 questions spanning Days 1-5; every numeric answer recomputed and verified in Python",
+        "Cheat sheet (equation index) extended with the Surface Water relations; printable Day-5 study PDF generated with pdflatex (materials/)",
+        "Every Day-5 formula cross-checked against the actual NCEES FE Handbook v10.6 text: Rational Q=CIA and the NRCS/SCS runoff equations match verbatim (notation corrected to the Handbook's capital I); the SI forms, return-period, risk, and IDF relations are flagged as supplemental (not printed in the Handbook)",
         "Today, Bank, and Progress all pick up Day 5 automatically from the one new day file + manifest line"
       ]
     },
