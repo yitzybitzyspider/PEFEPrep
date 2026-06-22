@@ -6,7 +6,7 @@
   <title>Study — PEFEPrep</title>
   <meta name="description" content="Review FE Environmental questions by day or topic: equations hidden, step-by-step solutions, Handbook on the side, misses tracked." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
-  <link rel="stylesheet" href="./app/style.css?v=0.10.0" />
+  <link rel="stylesheet" href="./app/style.css?v=0.11.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -47,10 +47,15 @@
     <!-- PLAYER -->
     <section id="player" class="card hide">
       <div class="progress"><div id="bar"></div></div>
+      <div class="studytools">
+        <button class="vtoggle on" id="toggleNav" aria-pressed="true" title="Show/hide the question list">📋 Questions</button>
+        <button class="vtoggle on" id="toggleHb" aria-pressed="true" title="Show/hide the Handbook">📖 Handbook</button>
+      </div>
       <div class="studygrid">
         <aside class="navcol">
           <div class="navpanel">
             <h4>Questions</h4>
+            <div class="navlegend" id="navLegend"></div>
             <div id="navList"></div>
           </div>
         </aside>
@@ -121,10 +126,10 @@
     </div>
   </div>
 
-  <script src="./app/math.js?v=0.10.0"></script>
-  <script src="./app/store.js?v=0.10.0"></script>
-  <script src="./app/data.js?v=0.10.0"></script>
-  <script src="./app/today.js?v=0.10.0"></script>
-  <script src="./app/version.js?v=0.10.0"></script>
+  <script src="./app/math.js?v=0.11.0"></script>
+  <script src="./app/store.js?v=0.11.0"></script>
+  <script src="./app/data.js?v=0.11.0"></script>
+  <script src="./app/today.js?v=0.11.0"></script>
+  <script src="./app/version.js?v=0.11.0"></script>
 </body>
 </html>

@@ -100,17 +100,36 @@
     if (!QUESTIONS.length) return;
     idx = 0; session = {}; resolved = {};
     show("player");
+    applyPanels();
     renderQuestion();
+  }
+
+  /* Per-question status for the navigator. The current session wins; otherwise
+     fall back to saved history so reopening a section shows what you got
+     right (green) and everything you've ever missed (red). */
+  function navStatus(q) {
+    var r = session[q.id];
+    if (r) return r.correct ? "got" : "miss";
+    var c = PFP.getCard(q.id);
+    if (!c || !c.seen) return "new";
+    if (c.wrong > 0) return "miss";
+    return "got";
   }
 
   function renderNav() {
     var nav = $("navList");
     if (!nav) return;
+    var counts = { got: 0, miss: 0, "new": 0 };
     nav.innerHTML = QUESTIONS.map(function (q, i) {
-      var r = session[q.id];
-      var cls = "navq" + (i === idx ? " cur" : "") + (r ? (r.correct ? " got" : " miss") : "");
+      var st = navStatus(q); counts[st]++;
+      var cls = "navq " + st + (i === idx ? " cur" : "");
       return '<div class="' + cls + '" data-i="' + i + '"><span class="dot"></span>Q' + (i + 1) + " · " + (q.concept || q.topic) + "</div>";
     }).join("");
+    var leg = $("navLegend");
+    if (leg) leg.innerHTML =
+      '<span class="lg got" title="Got right">✓ ' + counts.got + "</span>" +
+      '<span class="lg miss" title="Missed (drill these)">✗ ' + counts.miss + "</span>" +
+      '<span class="lg new" title="Not seen yet">○ ' + counts["new"] + "</span>";
     Array.prototype.forEach.call(nav.querySelectorAll(".navq"), function (el) {
       el.onclick = function () { idx = Number(el.dataset.i); renderQuestion(); };
     });
@@ -311,6 +330,25 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  /* ---- Show/hide the Questions + Handbook panels (remembered) ---- */
+  function panelPref(key, val) {
+    if (arguments.length === 2) {
+      try { localStorage.setItem("pfp_view_" + key, val ? "1" : "0"); } catch (e) {}
+      return val;
+    }
+    try { return localStorage.getItem("pfp_view_" + key) !== "0"; } catch (e) { return true; }
+  }
+  function applyPanels() {
+    var grid = document.querySelector(".studygrid");
+    if (!grid) return;
+    var showNav = panelPref("nav"), showHb = panelPref("hb");
+    grid.classList.toggle("hide-nav", !showNav);
+    grid.classList.toggle("hide-hb", !showHb);
+    var tn = $("toggleNav"), th = $("toggleHb");
+    if (tn) { tn.classList.toggle("on", showNav); tn.setAttribute("aria-pressed", showNav); }
+    if (th) { th.classList.toggle("on", showHb); th.setAttribute("aria-pressed", showHb); }
+  }
+
   /* Handbook side panel */
   function wireHandbook() { var s = $("hbSearch"); if (s) s.oninput = function () { renderHandbook(s.value); }; }
   function renderHandbook(query) {
@@ -346,6 +384,8 @@
     $("stepBtn").onclick = showNextStep;
     $("nextBtn").onclick = next;
     $("againBtn").onclick = function () { renderIntro(); };
+    if ($("toggleNav")) $("toggleNav").onclick = function () { panelPref("nav", !panelPref("nav")); applyPanels(); };
+    if ($("toggleHb")) $("toggleHb").onclick = function () { panelPref("hb", !panelPref("hb")); applyPanels(); };
     if ($("exportBtn")) $("exportBtn").onclick = openExport;
     if ($("exportClose")) $("exportClose").onclick = function () { $("exportModal").classList.add("hide"); };
     if ($("copyExport")) $("copyExport").onclick = function () {
