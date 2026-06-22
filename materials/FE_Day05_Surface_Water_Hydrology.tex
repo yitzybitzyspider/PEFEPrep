@@ -1,0 +1,324 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F6F8B}
+\definecolor{soft}{HTML}{555555}
+\definecolor{boxbg}{HTML}{F4F8FA}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\small\color{soft}FE Environmental \textemdash\ PEFEPrep}
+\rhead{\small\color{soft}\rightmark}
+\cfoot{\small\color{soft}\thepage}
+\newcommand{\correct}[1]{\textbf{#1}\;{\color{accent}$\checkmark$}}
+\newcommand{\optline}[2]{\par\noindent\hspace{1.2em}(#1)\hspace{0.6em}#2}
+
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{accent} Surface Water \& Hydrology}\\[4pt]
+{\large FE Environmental \textemdash\ Day 5}\\[2pt]
+{\color{soft} Study set \textbullet\ 2026-06-21 \textbullet\ 20 questions \textbullet\ every numeric answer recomputed in Python}
+\end{center}
+\vspace{6pt}\hrule\vspace{10pt}
+\markright{Surface Water \& Hydrology}
+\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ Per the NCEES FE Reference Handbook v10.6 (Civil Eng. $\rightarrow$ Hydrology/Water Resources, p. 296): The Rational Method $Q=CIA$ (US units; note the Handbook's capital $I$) and the NRCS/SCS rainfall-runoff equations $Q=(P-0.2S)^2/(P+0.8S)$ with $S=1000/CN-10$ (inches) are printed verbatim in the Handbook. The following are standard practice but are NOT printed in v10.6 --- memorize them: the SI Rational form ($/360$), the SI curve-number form $S=25400/CN-254$ (mm), the standalone $I_a=0.2S$, return period $T=1/P$, the risk formula $1-(1-1/T)^n$, and the IDF intensity equation.}\vspace{2pt}}}
+\vspace{10pt}
+\filbreak
+\textbf{\color{accent}Q1.}\quad {\small\color{soft}[D5-Q01 \textbullet\ MCQ \textbullet\ Rational Method (USCS)]}\par\vspace{2pt}
+A watershed has a drainage area of 200 acres, a runoff coefficient C = 0.65, and a design rainfall intensity of 2.5 in/hr. Using the Rational Method, the peak runoff rate is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q = CIA$ (USCS: $C$ dimensionless, $I$ in in/hr, $A$ in acres, $Q$ in ft\textsuperscript{3}/s)\par\vspace{3pt}
+\optline{A}{200 cfs}
+\optline{B}{278 cfs}
+\optline{C}{\correct{325 cfs}}
+\optline{D}{385 cfs}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $Q = CIA = 0.65 \times 2.5 \times 200 = 325\ \mathrm{cfs}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Rational Method}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q2.}\quad {\small\color{soft}[D5-Q02 \textbullet\ MCQ \textbullet\ Rational Method (SI)]}\par\vspace{2pt}
+A 40-ha urban watershed has a runoff coefficient C = 0.55 and a design intensity of 72 mm/hr. Using the SI Rational Method, the peak runoff rate is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q = \dfrac{CIA}{360}$ (SI: $I$ in mm/hr, $A$ in ha, $Q$ in m\textsuperscript{3}/s)\par\vspace{3pt}
+\optline{A}{2.2 m\textsuperscript{3}/s}
+\optline{B}{3.1 m\textsuperscript{3}/s}
+\optline{C}{\correct{4.4 m\textsuperscript{3}/s}}
+\optline{D}{5.8 m\textsuperscript{3}/s}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $Q = \dfrac{0.55 \times 72 \times 40}{360} = \dfrac{1584}{360} = 4.4\ \mathrm{m^3/s}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Rational Method}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q3.}\quad {\small\color{soft}[D5-Q03 \textbullet\ MCQ \textbullet\ SCS/NRCS: maximum potential retention S (USCS)]}\par\vspace{2pt}
+A watershed has a SCS Curve Number CN = 80. The maximum potential retention S (USCS) is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{1000}{CN} - 10$ (USCS, S in inches)\par\vspace{3pt}
+\optline{A}{1.5 in}
+\optline{B}{2.0 in}
+\optline{C}{\correct{2.5 in}}
+\optline{D}{3.0 in}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $S = \dfrac{1000}{80} - 10 = 12.5 - 10 = 2.5\ \mathrm{in}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q4.}\quad {\small\color{soft}[D5-Q04 \textbullet\ MCQ \textbullet\ SCS/NRCS: runoff depth (USCS)]}\par\vspace{2pt}
+A watershed with CN = 80 receives a total storm precipitation P = 4.0 in. Using the SCS method, the direct runoff depth Q is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{1000}{CN} - 10$ \quad $Q = \dfrac{(P - 0.2S)^{2}}{P + 0.8S}\quad(P > 0.2S)$\par\vspace{3pt}
+\optline{A}{1.5 in}
+\optline{B}{\correct{2.0 in}}
+\optline{C}{2.5 in}
+\optline{D}{3.0 in}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small $S = 2.5\ \mathrm{in};\quad I_a = 0.2(2.5) = 0.5\ \mathrm{in}$. $P > I_a$, so $Q = \dfrac{(4.0 - 0.5)^{2}}{4.0 + 0.8(2.5)} = \dfrac{12.25}{6.0} = 2.04\ \mathrm{in} \approx 2.0\ \mathrm{in}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q5.}\quad {\small\color{soft}[D5-Q05 \textbullet\ MCQ \textbullet\ SCS initial abstraction Ia]}\par\vspace{2pt}
+For a watershed with CN = 75, the SCS initial abstraction Ia (the precipitation that must fall before any runoff occurs) is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $I_a = 0.2S,\quad S = \dfrac{1000}{CN} - 10$\par\vspace{3pt}
+\optline{A}{0.33 in}
+\optline{B}{0.50 in}
+\optline{C}{\correct{0.67 in}}
+\optline{D}{1.00 in}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $S = \dfrac{1000}{75} - 10 = 3.33\ \mathrm{in};\quad I_a = 0.2(3.33) = 0.67\ \mathrm{in}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Initial Abstraction; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q6.}\quad {\small\color{soft}[D5-Q06 \textbullet\ MCQ \textbullet\ SCS method: zero-runoff condition]}\par\vspace{2pt}
+A watershed has CN = 75 (S = 3.33 in, Ia = 0.67 in). A storm produces only P = 0.5 in of precipitation. The direct runoff depth Q from this storm is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ If $P \le I_a = 0.2S$, then $Q = 0$\par\vspace{3pt}
+\optline{A}{\correct{0.00 in}}
+\optline{B}{0.08 in}
+\optline{C}{0.15 in}
+\optline{D}{0.50 in}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small $P = 0.5\ \mathrm{in} < I_a = 0.67\ \mathrm{in}$, so the entire precipitation is captured by initial abstraction and $Q = 0$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q7.}\quad {\small\color{soft}[D5-Q07 \textbullet\ MCQ \textbullet\ Return period to annual exceedance probability]}\par\vspace{2pt}
+The "50-year storm" has an annual exceedance probability (AEP) of:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = \dfrac{1}{T}$\par\vspace{3pt}
+\optline{A}{1\%}
+\optline{B}{\correct{2\%}}
+\optline{C}{5\%}
+\optline{D}{50\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small $P = \dfrac{1}{T} = \dfrac{1}{50} = 0.02 = 2\%$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Frequency Analysis \textbullet\ Ctrl-F: Recurrence Interval; Return Period}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q8.}\quad {\small\color{soft}[D5-Q08 \textbullet\ MCQ \textbullet\ Annual exceedance probability to return period]}\par\vspace{2pt}
+A design storm has an annual exceedance probability (AEP) of 1\%. Its return period T is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $T = \dfrac{1}{P}$\par\vspace{3pt}
+\optline{A}{1 yr}
+\optline{B}{10 yr}
+\optline{C}{\correct{100 yr}}
+\optline{D}{1000 yr}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $T = \dfrac{1}{P} = \dfrac{1}{0.01} = 100\ \mathrm{yr}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Frequency Analysis \textbullet\ Ctrl-F: Recurrence Interval; Return Period}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q9.}\quad {\small\color{soft}[D5-Q09 \textbullet\ MCQ \textbullet\ Risk: probability of at least one exceedance in n years]}\par\vspace{2pt}
+What is the probability that a 100-year storm will be equaled or exceeded at least once during a 50-year design life?\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P(\text{at least one exceedance in }n\text{ yr}) = 1 - \left(1 - \dfrac{1}{T}\right)^{n}$\par\vspace{3pt}
+\optline{A}{10.0\%}
+\optline{B}{29.3\%}
+\optline{C}{\correct{39.5\%}}
+\optline{D}{50.0\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $P = 1 - \left(1 - \dfrac{1}{100}\right)^{50} = 1 - (0.99)^{50} = 1 - 0.605 = 0.395 \approx 39.5\%$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Frequency Analysis \textbullet\ Ctrl-F: Risk; Recurrence}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q10.}\quad {\small\color{soft}[D5-Q10 \textbullet\ MCQ \textbullet\ Composite (area-weighted) runoff coefficient]}\par\vspace{2pt}
+A watershed consists of three sub-areas: 8 acres (C = 0.30), 6 acres (C = 0.70), and 6 acres (C = 0.90). The composite runoff coefficient C\_comp for use in the Rational Method is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C_{\text{comp}} = \dfrac{\sum C_i A_i}{\sum A_i}$\par\vspace{3pt}
+\optline{A}{0.52}
+\optline{B}{\correct{0.60}}
+\optline{C}{0.65}
+\optline{D}{0.72}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small $C_{\text{comp}} = \dfrac{0.30(8) + 0.70(6) + 0.90(6)}{8+6+6} = \dfrac{2.4+4.2+5.4}{20} = \dfrac{12.0}{20} = 0.60$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Rational Method; Composite}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q11.}\quad {\small\color{soft}[D5-Q11 \textbullet\ MCQ \textbullet\ Rational Method units check]}\par\vspace{2pt}
+In the USCS Rational Method equation Q = CIA, when C is dimensionless, I is in inches per hour, and A is in acres, the resulting Q has units of:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q = CIA$; $1\ \mathrm{in/hr} \times 1\ \mathrm{acre} \approx 1\ \mathrm{cfs}$\par\vspace{3pt}
+\optline{A}{gallons per minute}
+\optline{B}{acre-inches per hour}
+\optline{C}{\correct{ft\textsuperscript{3}/s (cfs)}}
+\optline{D}{ft/s}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small By the unit conversion $1\ \mathrm{in/hr} \times 1\ \mathrm{acre} = 1.0083\ \mathrm{cfs} \approx 1\ \mathrm{cfs}$, so $Q = CIA$ yields peak flow in ft\textsuperscript{3}/s (cfs) without any unit-conversion factor.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Rational Method}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q12.}\quad {\small\color{soft}[D5-Q12 \textbullet\ MCQ \textbullet\ IDF curve: intensity vs. duration]}\par\vspace{2pt}
+On an Intensity--Duration--Frequency (IDF) curve, for a fixed return period (e.g., 100-year), as the storm duration increases from 5 minutes to 24 hours, the design rainfall intensity:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ IDF: $i = \dfrac{a}{(t_d + b)^{c}}$ (typical empirical form)\par\vspace{3pt}
+\optline{A}{increases}
+\optline{B}{remains constant}
+\optline{C}{\correct{decreases}}
+\optline{D}{first increases then decreases}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small For a fixed return period, IDF curves show that intensity decreases as duration increases --- a 100-year, 5-min storm is far more intense than a 100-year, 24-hr storm. This is a fundamental property of all IDF curves.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rainfall and Runoff (IDF) \textbullet\ Ctrl-F: IDF; Intensity-Duration-Frequency}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q13.}\quad {\small\color{soft}[D5-Q13 \textbullet\ MCQ \textbullet\ SCS maximum potential retention S (SI)]}\par\vspace{2pt}
+A watershed has CN = 75. Using the SI version of the SCS equation, the maximum potential retention S is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{25400}{CN} - 254$ (SI, S in mm)\par\vspace{3pt}
+\optline{A}{63.5 mm}
+\optline{B}{\correct{84.7 mm}}
+\optline{C}{108.0 mm}
+\optline{D}{127.0 mm}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small $S = \dfrac{25400}{75} - 254 = 338.7 - 254 = 84.7\ \mathrm{mm}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q14.}\quad {\small\color{soft}[D5-Q14 \textbullet\ MCQ \textbullet\ SCS/NRCS runoff depth (SI)]}\par\vspace{2pt}
+A watershed with CN = 80 receives total storm precipitation P = 100 mm. Using the SI SCS method, the direct runoff depth Q is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{25400}{CN} - 254\ (\mathrm{mm})$ \quad $Q = \dfrac{(P - 0.2S)^{2}}{P + 0.8S}$\par\vspace{3pt}
+\optline{A}{35.0 mm}
+\optline{B}{44.0 mm}
+\optline{C}{\correct{50.5 mm}}
+\optline{D}{63.5 mm}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $S = \dfrac{25400}{80} - 254 = 63.5\ \mathrm{mm}$; $I_a = 0.2(63.5) = 12.7\ \mathrm{mm}$. $P > I_a$, so $Q = \dfrac{(100 - 12.7)^{2}}{100 + 0.8(63.5)} = \dfrac{(87.3)^{2}}{150.8} = \dfrac{7621}{150.8} = 50.5\ \mathrm{mm}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q15.}\quad {\small\color{soft}[D5-Q15 \textbullet\ MCQ \textbullet\ Runoff volume from SCS depth (USCS)]}\par\vspace{2pt}
+A 500-acre watershed with CN = 80 produces a direct runoff depth of Q = 2.04 in from a design storm. The total direct runoff volume is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $V = Q_{\text{depth}}\times A$ (convert depth in to ft: divide by 12)\par\vspace{3pt}
+\optline{A}{42 ac-ft}
+\optline{B}{\correct{85 ac-ft}}
+\optline{C}{125 ac-ft}
+\optline{D}{170 ac-ft}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small $V = \dfrac{2.04}{12}\ \mathrm{ft} \times 500\ \mathrm{acres} = 0.170 \times 500 = 85\ \mathrm{ac\text{-}ft}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Runoff Volume; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q16.}\quad {\small\color{soft}[D5-Q16 \textbullet\ MCQ \textbullet\ Effect of CN on runoff]}\par\vspace{2pt}
+For the same storm precipitation P, a watershed with CN = 90 will produce \_\_\_\_\_\_\_\_\_\_ direct runoff than one with CN = 70.\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{1000}{CN} - 10$; higher CN $\Rightarrow$ smaller S $\Rightarrow$ less retention\par\vspace{3pt}
+\optline{A}{less}
+\optline{B}{\correct{more}}
+\optline{C}{the same}
+\optline{D}{cannot be determined without knowing P}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Higher CN $\rightarrow$ smaller S $\rightarrow$ smaller initial abstraction $I_a = 0.2S$ $\rightarrow$ runoff begins sooner and the denominator in the SCS equation is smaller, yielding more runoff Q for the same P.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q17.}\quad {\small\color{soft}[D5-Q17 \textbullet\ MCQ \textbullet\ Runoff coefficient C --- physical meaning and range]}\par\vspace{2pt}
+In the Rational Method Q = CIA, the runoff coefficient C represents the fraction of rainfall that becomes direct runoff. Its physically valid range is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $0 \le C \le 1$\par\vspace{3pt}
+\optline{A}{$-$1 to +1}
+\optline{B}{\correct{0 to 1}}
+\optline{C}{0 to 10}
+\optline{D}{1 to 100}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small C is a dimensionless ratio (runoff/rainfall); it cannot exceed 1 (no more runoff than rain) and cannot be negative. Typical values: 0.10 (woods) to 0.95 (impervious pavement).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Runoff Coefficient; Rational}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q18.}\quad {\small\color{soft}[D5-Q18 \textbullet\ MCQ \textbullet\ Annual exceedance probability of the 25-year event]}\par\vspace{2pt}
+The annual exceedance probability (AEP) of the 25-year design storm is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{AEP} = \dfrac{1}{T}$\par\vspace{3pt}
+\optline{A}{1\%}
+\optline{B}{2\%}
+\optline{C}{\correct{4\%}}
+\optline{D}{25\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small $\text{AEP} = \dfrac{1}{T} = \dfrac{1}{25} = 0.04 = 4\%$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Frequency Analysis \textbullet\ Ctrl-F: Return Period; Recurrence Interval}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q19.}\quad {\small\color{soft}[D5-Q19 \textbullet\ Numeric \textbullet\ SCS runoff volume (SI)]}\par\vspace{2pt}
+A 200-ha watershed has CN = 75 and receives a total storm precipitation of P = 120 mm. Using the SI SCS method, determine the total direct runoff volume (in m\textsuperscript{3}).\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $S = \dfrac{25400}{CN} - 254\ (\mathrm{mm})$ \quad $Q = \dfrac{(P - 0.2S)^{2}}{P + 0.8S}$ (mm) \quad $V = Q \times A$ (convert mm to m, ha to m\textsuperscript{2})\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $\approx$ 113,000 m\textsuperscript{3}\par\vspace{2pt}
+{\small $S = \dfrac{25400}{75} - 254 = 84.7\ \mathrm{mm}$; $I_a = 0.2(84.7) = 16.9\ \mathrm{mm}$. $Q = \dfrac{(120-16.9)^{2}}{120 + 0.8(84.7)} = \dfrac{(103.1)^{2}}{187.7} = 56.6\ \mathrm{mm}$. $V = 0.0566\ \mathrm{m} \times 200 \times 10{,}000\ \mathrm{m^{2}} \approx 113{,}000\ \mathrm{m^{3}}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- SCS Runoff \textbullet\ Ctrl-F: Curve Number; SCS}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q20.}\quad {\small\color{soft}[D5-Q20 \textbullet\ Numeric \textbullet\ Rational Method peak discharge (USCS)]}\par\vspace{2pt}
+A 120-acre residential watershed has a composite runoff coefficient C = 0.45 and a 10-year, 1-hour rainfall intensity of 2.8 in/hr. Using the Rational Method, find the peak discharge Q (in cfs).\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q = CIA$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $\approx$ 151 cfs\par\vspace{2pt}
+{\small $Q = CIA = 0.45 \times 2.8 \times 120 = 151.2 \approx 151\ \mathrm{cfs}$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Surface Water --- Rational Method \textbullet\ Ctrl-F: Rational Method}\vspace{2pt}
+}}
+\vspace{9pt}
+\end{document}
