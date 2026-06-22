@@ -1,0 +1,20 @@
+{
+  "note": "Downloadable study PDFs. Links open from your Google Drive 'FE Environmental Exam Prep' folder (you're signed in). When the engine starts committing PDFs to the repo, swap the Drive id for a local url.",
+  "groups": [
+    { "title": "Daily problem sets", "items": [
+      { "name": "Day 1 — Mathematics", "id": "1DAQiTS69G1h6VaqpiSttwQGBsEx-7dYk" },
+      { "name": "Day 2 — Fluid Mechanics I (Set A)", "id": "1V0GlnuLYvQT5aRT5LIRSq4YgriW5Y0Vn" },
+      { "name": "Day 2 — Fluid Mechanics I (Set B)", "id": "1kv1LZG5d5jOyrqZmuz3j0l7Wv2zZzZcW" },
+      { "name": "Day 3 — Fluid Mechanics II / Pipe Flow", "id": "1DkNCFyTjoS0aJ1CeG4l2-RlC1Lb6S4qt" },
+      { "name": "Day 4 — Hydraulics", "id": "1nB3X3-nbczW1wsOFxtKzxy6MpIirVNRG" }
+    ]},
+    { "title": "Cumulative reference", "items": [
+      { "name": "FE Cheat Sheet (cumulative formulas)", "id": "1kUvBxT3XYoHjk2P4zG4wA2SuE4nkdKTv" }
+    ]},
+    { "title": "Practice exams & drills", "items": [
+      { "name": "Full Practice Exam #1", "id": "1iEMLCH6k_oVqhYZ3Azk19y2xId8kj9yP" },
+      { "name": "Full Practice Exam #2", "id": "16VIVM6rpf6xasoX4Y8-0HRuyd9_P2i0X" },
+      { "name": "Weak-Areas Drill (Day 1)", "id": "1tfVLLd-X6dULUyvvqwJMxjdX8qDZAttx" }
+    ]}
+  ]
+}

@@ -1,7 +1,20 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.0",
   "updated": "2026-06-21",
   "history": [
+    {
+      "version": "0.9.0",
+      "date": "2026-06-21",
+      "title": "Wider layout, day-aware study, dashboard + PDFs",
+      "changes": [
+        "Full-width, fluid layout that uses the whole screen",
+        "Today is day-aware — shows the correct day (falls back to the latest available) with a day picker to load any day's full set; plus a question navigator and smooth click-through",
+        "Bank: filter by day + topic + mastery; 'Review these →' opens the full study interface on any day, topic, or your misses",
+        "Dashboard: publish verification (is today's set live?), clickable schedule with per-day progress",
+        "Missed questions tracked + one-click export to paste into Claude as a tutor",
+        "New PDFs page: download every daily set, the cheat sheet, and practice exams"
+      ]
+    },
     {
       "version": "0.8.0",
       "date": "2026-06-21",

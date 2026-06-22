@@ -1,79 +1,128 @@
-/* PEFEPrep — Daily Player.
- * Equations shown up front (solution hidden) · pick or recall · reveal answer ·
- * unlock the worked solution step by step · searchable Handbook panel.
- * Runs on the shared store (Leitner SRS + mastery + streak). KaTeX for math.
+/* PEFEPrep — review/study player (Today + Bank + dashboard all open this).
+ * Set is chosen by URL params: ?day=N | ?topic=X | ?filter=missed | (default = current day).
+ * Equations hidden by default, reveal answer, unlock worked solution step by step,
+ * self-grade. Question navigator on the left, Handbook on the right. Tracks every
+ * miss; exports a markdown list to paste into Claude as a tutor.
  */
 (function () {
   "use strict";
 
   var KEYS = ["A", "B", "C", "D", "E", "F"];
-  var ALL = [], QUESTIONS = [], HB = [], idx = 0;
+  var ALL = [], SCHED = { days: [] }, HB = [], QUESTIONS = [], idx = 0;
   var session = {}, resolved = {};
-  var view = { picked: null, revealed: false, stepsShown: 0 };
+  var view = { picked: null, revealed: false, stepsShown: 0, stepsArr: [] };
   var settings = PFP.getSettings();
+  var mode = { kind: "day", day: null, isDaily: false, title: "", sub: "" };
 
   var $ = function (id) { return document.getElementById(id); };
   var pill = function (k, v) { return '<span class="pill"><b>' + v + "</b> · " + k + "</span>"; };
   var math = function (el) { if (window.renderMath) window.renderMath(el); };
+  var todayStr = function () { return new Date().toISOString().slice(0, 10); };
 
   async function init() {
     try {
       ALL = await PFPDATA.load();
-      try { HB = (await (await fetch("./data/handbook.json", { cache: "no-store" })).json()).entries || []; }
-      catch (e) { HB = []; }
+      try { SCHED = await (await fetch("./data/schedule.json", { cache: "no-store" })).json(); } catch (e) { SCHED = { days: [] }; }
+      try { HB = (await (await fetch("./data/handbook.json", { cache: "no-store" })).json()).entries || []; } catch (e) { HB = []; }
       wireHandbook();
+      determineMode();
       renderIntro();
     } catch (e) {
-      $("introTitle").textContent = "Couldn’t load today’s set";
+      $("introTitle").textContent = "Couldn’t load questions";
       $("introSub").textContent = String(e);
       show("intro");
     }
   }
 
+  function daysWithContent() {
+    var s = {}; ALL.forEach(function (q) { s[q.day] = true; });
+    return Object.keys(s).map(Number).sort(function (a, b) { return a - b; });
+  }
+  function schedTopic(day) {
+    var d = (SCHED.days || []).filter(function (x) { return x.day === day; })[0];
+    return d ? d.topic : "Day " + day;
+  }
+  function isMissed(q) { var c = PFP.getCard(q.id); return !!(c && c.wrong > 0); }
+
+  function determineMode() {
+    var p = new URLSearchParams(location.search);
+    var day = p.get("day"), topic = p.get("topic"), filter = p.get("filter");
+    if (filter === "missed") { mode = { kind: "filter", filter: "missed", isDaily: false, title: "Review — questions you’ve missed", sub: "Everything you’ve gotten wrong, to drill again." }; return; }
+    if (topic) { mode = { kind: "topic", topic: topic, isDaily: false, title: "Review — " + topic, sub: "All questions in this topic." }; return; }
+    if (day) { var d = Number(day); mode = { kind: "day", day: d, isDaily: false, title: "Day " + d + " — " + schedTopic(d), sub: "All questions from this day." }; return; }
+    if (p.get("all")) { mode = { kind: "all", isDaily: false, title: "Review — all questions", sub: "Every question in the bank." }; return; }
+    var info = currentDayInfo();
+    mode = { kind: "day", day: info.day, isDaily: info.isToday, title: "Day " + info.day + " — " + schedTopic(info.day), sub: info.note };
+  }
+
+  function currentDayInfo() {
+    var t = todayStr();
+    var withC = daysWithContent();
+    var sched = (SCHED.days || []).filter(function (x) { return x.date === t; })[0];
+    if (sched && withC.indexOf(sched.day) >= 0) return { day: sched.day, isToday: true, note: "Today’s scheduled set." };
+    var latest = withC.length ? withC[withC.length - 1] : 1;
+    if (sched) return { day: latest, isToday: false, note: "Today is Day " + sched.day + " (" + sched.topic + ") — not generated yet, so showing the latest available day." };
+    return { day: latest, isToday: false, note: "Showing the latest available day." };
+  }
+
+  function setList() {
+    if (mode.kind === "filter") return ALL.filter(isMissed);
+    if (mode.kind === "topic") return ALL.filter(function (q) { return q.topic === mode.topic; });
+    if (mode.kind === "day") return ALL.filter(function (q) { return q.day === mode.day; });
+    return ALL.slice();
+  }
+
   function renderIntro() {
     settings = PFP.getSettings();
-    QUESTIONS = PFP.buildDailySet(ALL);
-    var done = PFP.isDoneToday();
-    var topics = QUESTIONS.map(function (q) { return q.topic; })
-      .filter(function (v, i, a) { return a.indexOf(v) === i; });
+    QUESTIONS = setList();
 
-    $("dateLabel").textContent = new Date().toLocaleDateString(undefined,
-      { weekday: "long", month: "long", day: "numeric" });
+    var withC = daysWithContent();
+    var sel = $("daySelect");
+    sel.innerHTML = withC.map(function (d) {
+      return '<option value="' + d + '"' + (mode.kind === "day" && mode.day === d ? " selected" : "") + ">Day " + d + " — " + schedTopic(d) + "</option>";
+    }).join("");
+    sel.onchange = function () { location.href = "./today.html?day=" + sel.value; };
+
+    $("dateLabel").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
     $("streakChip").textContent = "🔥 " + PFP.getStreak() + " day streak";
     $("countdown").textContent = PFP.daysToExam() + " days to exam";
-    $("introMeta").innerHTML =
-      pill("Questions", QUESTIONS.length) +
-      pill("Focus", topics.length > 1 ? topics.length + " topics" : (topics[0] || "Mixed")) +
-      pill("Mode", settings.srs ? "Spaced repetition" : "Practice");
-
-    if (done) {
-      $("introTitle").textContent = "You’re done for today ✓";
-      $("introSub").textContent = "Nice — " + PFP.getStreak() +
-        " day streak. Fresh set tomorrow, or redo today’s to review.";
-      $("startBtn").textContent = "Redo today’s set";
-    } else {
-      $("introTitle").textContent = "Today’s set";
-      $("introSub").textContent =
-        "The equations are shown up front — work it yourself, then reveal the answer and unlock the solution one step at a time.";
-      $("startBtn").textContent = "Start →";
-    }
+    $("introTitle").textContent = mode.title;
+    $("introSub").textContent = mode.sub + (PFP.isDoneToday() && mode.isDaily ? " You’ve already finished today — redo any time to review." : "");
+    $("introMeta").innerHTML = pill("Questions", QUESTIONS.length) +
+      pill("Mode", mode.isDaily ? "Today" : (mode.kind === "filter" ? "Missed review" : "Review"));
+    $("startBtn").textContent = QUESTIONS.length ? "Start →" : "No questions yet";
+    $("startBtn").disabled = QUESTIONS.length === 0;
     show("intro");
   }
 
   function start() {
-    if (QUESTIONS.length === 0) QUESTIONS = PFP.buildDailySet(ALL);
+    QUESTIONS = setList();
+    if (!QUESTIONS.length) return;
     idx = 0; session = {}; resolved = {};
     show("player");
     renderQuestion();
   }
 
+  function renderNav() {
+    var nav = $("navList");
+    if (!nav) return;
+    nav.innerHTML = QUESTIONS.map(function (q, i) {
+      var r = session[q.id];
+      var cls = "navq" + (i === idx ? " cur" : "") + (r ? (r.correct ? " got" : " miss") : "");
+      return '<div class="' + cls + '" data-i="' + i + '"><span class="dot"></span>Q' + (i + 1) + " · " + (q.concept || q.topic) + "</div>";
+    }).join("");
+    Array.prototype.forEach.call(nav.querySelectorAll(".navq"), function (el) {
+      el.onclick = function () { idx = Number(el.dataset.i); renderQuestion(); };
+    });
+  }
+
   function renderQuestion() {
     var q = QUESTIONS[idx];
-    view = { picked: null, revealed: false, stepsShown: 0 };
+    view = { picked: null, revealed: false, stepsShown: 0, stepsArr: [] };
 
     $("bar").style.width = (idx / QUESTIONS.length * 100) + "%";
     $("qcount").textContent = "Question " + (idx + 1) + " of " + QUESTIONS.length;
-    $("qtopic").textContent = q.topic;
+    $("qtopic").textContent = "Day " + q.day + " · " + q.topic;
     $("stem").textContent = q.stem;
     math($("stem"));
 
@@ -89,22 +138,21 @@
     opts.innerHTML = "";
     (q.options || []).forEach(function (text, i) {
       var b = document.createElement("button");
-      b.className = "opt";
-      b.dataset.i = i;
+      b.className = "opt"; b.dataset.i = i;
       b.innerHTML = '<span class="key">' + KEYS[i] + "</span><span>" + text + "</span>";
       b.onclick = function () { selectOption(i); };
       opts.appendChild(b);
     });
 
     $("feedback").className = "feedback";
-    $("verdict").innerHTML = "";
-    $("steps").innerHTML = "";
-    $("refbox").innerHTML = "";
-    $("selfgrade").innerHTML = "";
+    $("verdict").innerHTML = ""; $("steps").innerHTML = ""; $("refbox").innerHTML = ""; $("selfgrade").innerHTML = "";
     $("revealBtn").classList.remove("hide");
     $("stepBtn").classList.add("hide");
+    $("nextBtn").classList.toggle("hide", false);
+    $("nextBtn").textContent = (idx === QUESTIONS.length - 1) ? "Finish" : "Next →";
     $("nextBtn").classList.add("hide");
 
+    renderNav();
     renderHandbook();
   }
 
@@ -117,26 +165,23 @@
     if (settings.revealMode === "auto") reveal();
   }
 
-  function resolve(correct) {
-    var q = QUESTIONS[idx];
-    session[q.id] = { correct: correct, topic: q.topic };
-    if (!resolved[q.id]) {
-      resolved[q.id] = true;
-      if (settings.srs) PFP.recordResult(q.id, correct, q.topic);
-    }
-  }
-
   function revealEquations() {
     $("equations").classList.remove("hide");
     math($("equations"));
     $("eqBtn").classList.add("hide");
   }
 
+  function resolve(correct) {
+    var q = QUESTIONS[idx];
+    session[q.id] = { correct: correct, topic: q.topic };
+    if (!resolved[q.id]) { resolved[q.id] = true; if (settings.srs) PFP.recordResult(q.id, correct, q.topic); }
+    renderNav();
+  }
+
   function reveal() {
     if (view.revealed) return;
     view.revealed = true;
     var q = QUESTIONS[idx];
-
     var hasOpts = Array.isArray(q.options) && q.options.length > 0;
     var answerText = hasOpts ? (KEYS[q.answer] + ") " + q.options[q.answer]) : String(q.answer);
 
@@ -153,8 +198,7 @@
       $("verdict").className = "verdict";
       $("verdict").innerHTML = "Answer: " + answerText;
       $("selfgrade").innerHTML = '<div class="selfgrade"><span>Did you get it?</span>' +
-        '<button class="sg" data-g="knew">I knew it</button>' +
-        '<button class="sg" data-g="missed">I missed it</button></div>';
+        '<button class="sg" data-g="knew">I knew it</button><button class="sg" data-g="missed">I missed it</button></div>';
       Array.prototype.forEach.call($("selfgrade").querySelectorAll(".sg"), function (b) {
         b.onclick = function () { selfGrade(b.dataset.g); };
       });
@@ -186,14 +230,10 @@
     var div = document.createElement("div");
     div.className = "step";
     div.innerHTML = (arr.length > 1 ? '<span class="n">' + (n + 1) + ".</span>" : "") + arr[n];
-    $("steps").appendChild(div);
-    math(div);
+    $("steps").appendChild(div); math(div);
     view.stepsShown++;
-    if (view.stepsShown >= arr.length) {
-      $("stepBtn").classList.add("hide");
-    } else {
-      $("stepBtn").textContent = "Show step " + (view.stepsShown + 1) + " of " + arr.length;
-    }
+    if (view.stepsShown >= arr.length) $("stepBtn").classList.add("hide");
+    else $("stepBtn").textContent = "Show step " + (view.stepsShown + 1) + " of " + arr.length;
   }
 
   function selfGrade(g) {
@@ -216,84 +256,87 @@
     var recs = Object.keys(session).map(function (k) { return session[k]; });
     var known = recs.filter(function (r) { return r.correct === true; }).length;
     var total = QUESTIONS.length;
-    var streak = PFP.completeDay(known, total);
+    var streak = PFP.getStreak();
+    if (mode.isDaily) streak = PFP.completeDay(known, total);
 
     var pct = total ? Math.round(known / total * 100) : 0;
     $("doneScore").textContent = known;
     $("doneTotal").textContent = " / " + total;
-    $("doneMsg").textContent = pct >= 80
-      ? pct + "% — strong session."
-      : pct >= 50
-        ? pct + "% — solid. Review the misses, then run it again tomorrow."
-        : pct + "% — keep at it; the misses are where the gains are.";
+    $("doneMsg").textContent = pct >= 80 ? pct + "% — strong." : pct >= 50 ? pct + "% — solid; review the misses below." : pct + "% — the misses below are where the gains are.";
     $("doneStreak").textContent = "🔥 " + streak + " day streak";
 
-    var byTopic = {};
-    recs.forEach(function (r) {
-      var k = r.topic || "—";
-      byTopic[k] = byTopic[k] || { c: 0, n: 0 };
-      byTopic[k].n++;
-      if (r.correct === true) byTopic[k].c++;
-    });
-    $("doneTopics").innerHTML = Object.keys(byTopic).map(function (k) {
-      var v = byTopic[k];
-      return '<div class="trow"><span>' + k + "</span><span>" + v.c + "/" + v.n + "</span></div>";
-    }).join("");
+    var miss = recs.filter(function (r) { return r.correct === false; });
+    var missQ = QUESTIONS.filter(function (q) { return session[q.id] && session[q.id].correct === false; });
+    $("doneTopics").innerHTML = "<h2>Missed this session (" + miss.length + ")</h2>" + (missQ.length
+      ? missQ.map(function (q) {
+        var hasOpts = Array.isArray(q.options) && q.options.length;
+        var ans = hasOpts ? (KEYS[q.answer] + ") " + q.options[q.answer]) : String(q.answer);
+        return '<div class="missrow"><div class="mq">' + q.stem + '</div><div class="ma">Correct: ' + ans + " · " + q.topic + "</div></div>";
+      }).join("")
+      : "<p class='sub' style='color:var(--good);'>Clean sweep — nothing missed. 🎯</p>");
 
     show("done");
   }
 
-  /* Handbook side panel */
-  function wireHandbook() {
-    var s = $("hbSearch");
-    if (s) s.oninput = function () { renderHandbook(s.value); };
-  }
-  function renderHandbook(query) {
-    var list = $("hbList");
-    if (!list) return;
-    var q = (query || "").toLowerCase().trim();
-    var rows;
-    if (q) {
-      rows = HB.filter(function (e) {
-        return (e.section + " " + e.eq + " " + (e.note || "") + " " + e.topic).toLowerCase().indexOf(q) >= 0;
+  /* ---- Missed export (paste into Claude as a tutor) ---- */
+  function buildExport() {
+    var missed = ALL.filter(isMissed);
+    var byTopic = {};
+    missed.forEach(function (q) { (byTopic[q.topic] = byTopic[q.topic] || []).push(q); });
+    var lines = ["# PEFEPrep — questions I've missed (" + todayStr() + ")",
+      "Total missed: " + missed.length,
+      "", "Use these as a tutoring session: explain each, then quiz me on the weak areas.", ""];
+    Object.keys(byTopic).forEach(function (t) {
+      lines.push("## " + t);
+      byTopic[t].forEach(function (q) {
+        var hasOpts = Array.isArray(q.options) && q.options.length;
+        var ans = hasOpts ? (KEYS[q.answer] + ") " + q.options[q.answer]) : String(q.answer);
+        var c = PFP.getCard(q.id);
+        lines.push("- [" + q.id + "] " + q.stem);
+        lines.push("    Correct: " + ans + "  |  Handbook: " + q.handbook + (c ? "  |  missed " + c.wrong + "x" : ""));
       });
-    } else {
+      lines.push("");
+    });
+    if (!missed.length) lines.push("_No missed questions yet — go get some wrong first!_");
+    return lines.join("\n");
+  }
+
+  function openExport() {
+    $("exportText").value = (window.PFPDATA && PFPDATA.missedExport) ? PFPDATA.missedExport() : buildExport();
+    $("exportModal").classList.remove("hide");
+  }
+
+  function show(which) {
+    ["intro", "player", "done"].forEach(function (s) { $(s).classList.toggle("hide", s !== which); });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /* Handbook side panel */
+  function wireHandbook() { var s = $("hbSearch"); if (s) s.oninput = function () { renderHandbook(s.value); }; }
+  function renderHandbook(query) {
+    var list = $("hbList"); if (!list) return;
+    var q = (query || "").toLowerCase().trim(), rows;
+    if (q) rows = HB.filter(function (e) { return (e.section + " " + e.eq + " " + (e.note || "") + " " + e.topic).toLowerCase().indexOf(q) >= 0; });
+    else {
       var topic = (QUESTIONS[idx] ? QUESTIONS[idx].topic : "") || "";
-      var inTopic = HB.filter(function (e) { return topic.indexOf(e.topic) >= 0; });
+      var inT = HB.filter(function (e) { return topic.indexOf(e.topic) >= 0; });
       var rest = HB.filter(function (e) { return topic.indexOf(e.topic) < 0; });
-      rows = inTopic.concat(rest);
+      rows = inT.concat(rest);
     }
     list.innerHTML = rows.length ? rows.map(function (e) {
-      return '<div class="hbentry"><div class="hs">' + e.section + "</div>" +
-        '<div class="he">' + e.eq + "</div>" +
-        (e.note ? '<div class="hn">' + e.note + "</div>" : "") + "</div>";
+      return '<div class="hbentry"><div class="hs">' + e.section + '</div><div class="he">' + e.eq + "</div>" + (e.note ? '<div class="hn">' + e.note + "</div>" : "") + "</div>";
     }).join("") : '<div class="sub" style="font-size:13px;">No matches.</div>';
     math(list);
   }
 
-  function show(which) {
-    ["intro", "player", "done"].forEach(function (s) {
-      $(s).classList.toggle("hide", s !== which);
-    });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   document.addEventListener("keydown", function (e) {
     if ($("player").classList.contains("hide")) return;
-    if (e.target && e.target.tagName === "INPUT") return; // don't hijack handbook search
-    if (/^[1-9]$/.test(e.key)) {
-      var i = Number(e.key) - 1;
-      if (!view.revealed && QUESTIONS[idx] && i < QUESTIONS[idx].options.length) selectOption(i);
-    } else if (e.key.toLowerCase() === "e") {
-      if (!view.revealed) revealEquations();
-    } else if (e.key === " " || e.key.toLowerCase() === "r") {
-      e.preventDefault();
-      if (!view.revealed) reveal();
-    } else if (e.key.toLowerCase() === "s") {
-      if (view.revealed) showNextStep();
-    } else if (e.key === "Enter") {
-      if (view.revealed) next();
-    }
+    if (e.target && e.target.tagName === "INPUT") return;
+    if (/^[1-9]$/.test(e.key)) { var i = Number(e.key) - 1; if (!view.revealed && QUESTIONS[idx] && i < (QUESTIONS[idx].options || []).length) selectOption(i); }
+    else if (e.key === " " || e.key.toLowerCase() === "r") { e.preventDefault(); if (!view.revealed) reveal(); }
+    else if (e.key.toLowerCase() === "e") { if (!view.revealed) revealEquations(); }
+    else if (e.key.toLowerCase() === "s") { if (view.revealed) showNextStep(); }
+    else if (e.key === "Enter") { if (view.revealed) next(); }
   });
 
   window.addEventListener("DOMContentLoaded", function () {
@@ -302,7 +345,15 @@
     $("revealBtn").onclick = reveal;
     $("stepBtn").onclick = showNextStep;
     $("nextBtn").onclick = next;
-    $("againBtn").onclick = start;
+    $("againBtn").onclick = function () { renderIntro(); };
+    if ($("exportBtn")) $("exportBtn").onclick = openExport;
+    if ($("exportClose")) $("exportClose").onclick = function () { $("exportModal").classList.add("hide"); };
+    if ($("copyExport")) $("copyExport").onclick = function () {
+      var ta = $("exportText"); ta.select();
+      try { navigator.clipboard.writeText(ta.value); } catch (e) { document.execCommand("copy"); }
+      $("copyExport").textContent = "Copied ✓";
+      setTimeout(function () { $("copyExport").textContent = "Copy"; }, 1500);
+    };
     init();
   });
 })();
