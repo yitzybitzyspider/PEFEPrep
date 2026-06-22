@@ -1,7 +1,19 @@
 {
-  "version": "0.15.0",
+  "version": "0.16.0",
   "updated": "2026-06-22",
   "history": [
+    {
+      "version": "0.16.0",
+      "date": "2026-06-22",
+      "title": "Day 6 added — Groundwater, Soils & Sediments",
+      "changes": [
+        "Groundwater, Soils & Sediments (Day 6, 20 questions) added — Darcy's Law, hydraulic conductivity tests, transmissivity, Dupuit unconfined well, Thiem confined well, specific capacity, retardation factor, vadose zone penetration",
+        "Bank now holds 143 questions spanning Days 1–6; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 9 new Groundwater equations; printable Day-6 study PDF generated with pdflatex (materials/)",
+        "All Day-6 formulas cross-checked against the NCEES FE Reference Handbook v10.6 text (pp. 297–299, 330)",
+        "KA 11 (8–12 exam questions) fully covered: subtopics A basic hydrogeology, B groundwater flow, C drawdown, D remediation — SI + USCS mix throughout"
+      ]
+    },
     {
       "version": "0.15.0",
       "date": "2026-06-22",

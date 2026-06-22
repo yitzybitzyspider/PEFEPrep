@@ -7,7 +7,8 @@
       { "name": "Day 2 — Fluid Mechanics I (Set B)", "url": "./materials/Day02_FluidMechanicsI_SetB_Jun18.pdf" },
       { "name": "Day 3 — Fluid Mechanics II / Pipe Flow", "url": "./materials/Day03_FluidMechanicsII_Jun19.pdf" },
       { "name": "Day 4 — Hydraulics", "url": "./materials/Day04_Hydraulics_Jun20.pdf" },
-      { "name": "Day 5 — Surface Water & Hydrology", "url": "./materials/FE_Day05_Surface_Water_Hydrology.pdf" }
+      { "name": "Day 5 — Surface Water & Hydrology", "url": "./materials/FE_Day05_Surface_Water_Hydrology.pdf" },
+      { "name": "Day 6 — Groundwater, Soils & Sediments", "url": "./materials/FE_Day06_Groundwater_Soils_Sediments.pdf" }
     ]},
     { "title": "Cumulative reference", "items": [
       { "name": "FE Cheat Sheet (cumulative formulas)", "url": "./materials/FE_CheatSheet.pdf" }
