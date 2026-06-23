@@ -40,12 +40,46 @@ UNI = {
     "ε": ("$\\varepsilon$", "\\varepsilon"),
     "∑": ("$\\sum$", "\\sum"),
     "→": ("$\\rightarrow$", "\\rightarrow"),
+    "⇌": ("$\\rightleftharpoons$", "\\rightleftharpoons"),
+    # superscripts
+    "⁰": ("\\textsuperscript{0}", "^{0}"),
+    "⁴": ("\\textsuperscript{4}", "^{4}"),
+    "⁵": ("\\textsuperscript{5}", "^{5}"),
+    "⁶": ("\\textsuperscript{6}", "^{6}"),
+    "⁷": ("\\textsuperscript{7}", "^{7}"),
+    "⁸": ("\\textsuperscript{8}", "^{8}"),
+    "⁹": ("\\textsuperscript{9}", "^{9}"),
+    "⁺": ("\\textsuperscript{+}", "^{+}"),
+    "⁻": ("\\textsuperscript{--}", "^{-}"),
+    # subscripts
+    "₀": ("\\textsubscript{0}", "_{0}"),
+    "₁": ("\\textsubscript{1}", "_{1}"),
+    "₂": ("\\textsubscript{2}", "_{2}"),
+    "₃": ("\\textsubscript{3}", "_{3}"),
+    "₄": ("\\textsubscript{4}", "_{4}"),
+    "₅": ("\\textsubscript{5}", "_{5}"),
+    "₆": ("\\textsubscript{6}", "_{6}"),
+    "₇": ("\\textsubscript{7}", "_{7}"),
+    "₈": ("\\textsubscript{8}", "_{8}"),
+    "₉": ("\\textsubscript{9}", "_{9}"),
+    "ₐ": ("\\textsubscript{a}", "_{a}"),
+    "ₑ": ("\\textsubscript{e}", "_{e}"),
+    "ₒ": ("\\textsubscript{o}", "_{o}"),
+    "ₚ": ("\\textsubscript{p}", "_{p}"),
+    "ₜ": ("\\textsubscript{t}", "_{t}"),
+    "ₙ": ("\\textsubscript{n}", "_{n}"),
+    "ₗ": ("\\textsubscript{l}", "_{l}"),
+    "ᵢ": ("\\textsubscript{i}", "_{i}"),
+    "ᵣ": ("\\textsubscript{r}", "_{r}"),
+    "ₓ": ("\\textsubscript{x}", "_{x}"),
+    # typographic
     "’": ("'", "'"),
+    "‘": ("'", "'"),
     "‘": ("'", "'"),
     "“": ("``", "``"),
     "”": ("''", "''"),
     " ": ("\\,", "\\,"),   # thin space
-    " ": ("~", "~"),        # nbsp
+    " ": ("~", "~"),  # nbsp
 }
 
 SPECIALS = {
