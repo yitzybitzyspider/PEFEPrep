@@ -1,7 +1,19 @@
 {
-  "version": "0.16.0",
-  "updated": "2026-06-22",
+  "version": "0.17.0",
+  "updated": "2026-06-23",
   "history": [
+    {
+      "version": "0.17.0",
+      "date": "2026-06-23",
+      "title": "Day 7 added — Water & Wastewater I",
+      "changes": [
+        "Water & Wastewater I (Day 7, 21 questions) added — hardness as CaCO3, BOD5 test, mass loading, CMFR reactor, clarifier overflow rate & HRT, Stokes' Law settling, CT disinfection, lime-soda softening, alum coagulation, BOD exertion, ultimate BOD, temperature correction, activated sludge MLSS, SVI, biotower fixed-film, sludge volume, aerobic digestion SRT, per capita BOD loading, water conservation",
+        "Bank now holds 164 questions spanning Days 1–7; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 15 new Water & Wastewater equations; printable Day-7 study PDF generated with pdflatex (materials/)",
+        "All Day-7 formulas cross-checked against the NCEES FE Reference Handbook v10.6 text (pp. 327–353)",
+        "KA 12 (12–18 exam questions) coverage begun: subtopics A–G all represented — SI + USCS mix throughout"
+      ]
+    },
     {
       "version": "0.16.0",
       "date": "2026-06-22",
