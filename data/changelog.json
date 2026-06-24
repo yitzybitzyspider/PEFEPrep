@@ -1,7 +1,19 @@
 {
-  "version": "0.17.0",
-  "updated": "2026-06-23",
+  "version": "0.18.0",
+  "updated": "2026-06-24",
   "history": [
+    {
+      "version": "0.18.0",
+      "date": "2026-06-24",
+      "title": "Day 8 added — Water & Wastewater II",
+      "changes": [
+        "Water & Wastewater II (Day 8, 20 questions) added — ThOD stoichiometry, BOD/COD biodegradability ratio, return sludge mass balance, WAS flow from SRT, primary TSS removal loading, secondary clarifier sizing, NRC recirculation factor, chlorine demand, lime-soda softening Reaction 4 concept and dose, PFR first-order, biotower with recycle, biotower temperature correction (θ=1.035), biological denitrification methanol dose, F:M ratio vs process type, anaerobic digestion gas production and SRT from design table, aerobic digestion O2 demand, annual potable water offset from reclaimed water, dual-distribution reuse fraction",
+        "Bank now holds 184 questions spanning Days 1–8; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 10 new Water & Wastewater II equations (RAS/WAS formulas, biotower with recycle, NRC factor F, methanol denitrification, AD/aerobic digestion criteria); printable Day-8 study PDF generated with pdflatex (materials/)",
+        "All Day-8 formulas cross-checked against NCEES FE Reference Handbook v10.6 text (pp. 327–353) via Google Drive subagent; confirmed Handbook coverage for each tagged formula",
+        "KA 12 (12–18 exam questions) continued: all 7 subtopics A–G represented — SI + USCS mix; Day 8 adds depth to biological processes (biotower recycle, denitrification, F:M, PFR) and sludge treatment (aerobic/anaerobic digestion design criteria)"
+      ]
+    },
     {
       "version": "0.17.0",
       "date": "2026-06-23",

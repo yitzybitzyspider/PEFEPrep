@@ -1,0 +1,442 @@
+{
+  "day": 8,
+  "date": "2026-06-24",
+  "topic": "Water & Wastewater II",
+  "fidelityNote": "All formulas cross-checked against NCEES FE Reference Handbook v10.6 (Environmental Engineering, pp. 327–353). Confirmed Handbook formulas: secondary clarifier mass balance $(Q_0+Q_R)X_A = Q_eX_e+Q_RX_r+Q_wX_w$ and SRT $\\theta_c = VX_A/(Q_wX_w+Q_eX_e)$ (p.339); biotower without recycle $S_e/S_0=e^{-kD/q^n}$ (p.340) and WITH recycle $S_e/S_a=e^{-kD/q^n}$ where $S_a=(S_0+RS_e)/(1+R)$ and $q=(1+R)Q/A$ (p.340); biotower temperature correction $k_T=k_{20}(1.035)^{T-20}$ (p.327); NRC recirculation factor $F=(1+R)/(1+R/10)^2$ (p.337); PFR/Batch first-order $C_t=C_0e^{-k\\theta}$ and CMFR $C_t=C_0/(1+k\\theta)$ (p.331 reactor table); methanol denitrification $C_m=2.47N_o+1.53N_l+0.87D_o$ (p.340 Handbook wastewater section); aerobic digestion design criteria (SRT, O$_2$ requirement 2.3 lb O$_2$/lb VSS destroyed, VSS reduction 40–50\\%) (p.341); anaerobic digestion design criteria (SRT 30–90 days standard-rate, 10–20 days high-rate; gas 0.50–0.55 m$^3$/kg VSS standard-rate, 0.60–0.65 m$^3$/kg VSS high-rate) (p.342); mass loading $M=C\\cdot Q\\times 8.34$ (p.327); secondary clarifier design OFR 400–700 gpd/ft$^2$ (following air-activated sludge, not extended aeration) (p.345). NOT in Handbook v10.6 (flagged as supplemental or in-stem where used): NBOD/nitrification rate formula; breakpoint chlorination curve; gravity thickener solids flux; rapid sand filter loading rate as printed formula. ThOD stoichiometry and chlorine demand arithmetic are tagged fundamental.",
+  "questions": [
+    {
+      "id": "D8-Q01",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Theoretical oxygen demand (ThOD) — glucose",
+      "stem": "The complete aerobic oxidation of glucose follows the stoichiometry: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O. A water sample contains 200 mg/L of glucose (MW = 180 g/mol; O₂ MW = 32 g/mol). The theoretical oxygen demand (ThOD) is most nearly:",
+      "equations": [
+        "$ThOD = C_{compound}\\times\\dfrac{\\text{mass O}_2\\text{ per mole compound}}{\\text{MW of compound}}$"
+      ],
+      "options": [
+        "143 mg/L O₂",
+        "192 mg/L O₂",
+        "213 mg/L O₂",
+        "267 mg/L O₂"
+      ],
+      "answer": 2,
+      "solution": "Mass of O$_2$ consumed per mole of glucose $= 6\\times32 = 192$ g/mol O$_2$.  Ratio $= 192/180 = 1.067$ g O$_2$/g glucose.  $ThOD = 200\\times1.067 = 213$ mg/L O$_2$. Option (B) is the molar O$_2$ mass (192) without converting to the per-gram-of-glucose basis. Option (A) uses only 4 mol O$_2$ per mole glucose instead of 6 ($200\\times128/180 = 142$). ThOD sets the upper bound; actual measured COD is $\\leq$ThOD because some fraction is not chemically oxidisable under COD test conditions.",
+      "handbook": "N/A — fundamental stoichiometry (balanced combustion reaction)",
+      "references": "Ctrl-F: COD; Oxygen Demand; Stoichiometry",
+      "source": "fundamental",
+      "spec": "12.A — characteristics"
+    },
+
+    {
+      "id": "D8-Q02",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "BOD₅:COD ratio — biodegradability assessment",
+      "stem": "A wastewater sample is tested and yields BOD₅ = 200 mg/L and COD = 350 mg/L. The BOD₅:COD ratio and the correct interpretation are:",
+      "equations": [
+        "$\\text{BOD}_5/COD\\ \\text{ratio} = \\dfrac{BOD_5\\ (\\mathrm{mg/L})}{COD\\ (\\mathrm{mg/L})}$"
+      ],
+      "options": [
+        "0.29 — poorly biodegradable; biological treatment unlikely to be effective",
+        "0.43 — borderline biodegradable; secondary treatment may be marginal",
+        "0.57 — readily biodegradable; biological treatment is well-suited",
+        "0.80 — fully oxidised; COD is lower than BOD₅"
+      ],
+      "answer": 2,
+      "solution": "$BOD_5/COD = 200/350 = 0.571\\approx0.57$. A ratio $\\geq 0.5$ indicates the wastewater is readily biodegradable and well-suited for biological treatment. A ratio $< 0.3$ suggests poorly biodegradable (industrial toxics/recalcitrant compounds). Note that $BOD_5/COD$ can never exceed 1.0 — if it appears to, it signals a measurement error. Option (A) uses 100/350 $\\approx$ 0.29 (wrong BOD value). Option (D) is impossible: BOD$_5 >$ COD would require more oxygen from biological oxidation than from chemical oxidation, which violates thermodynamic limits.",
+      "handbook": "N/A — fundamental concept",
+      "references": "Ctrl-F: COD; BOD; Biodegradability",
+      "source": "fundamental",
+      "spec": "12.A — characteristics"
+    },
+
+    {
+      "id": "D8-Q03",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Return activated sludge (RAS) flow rate — secondary clarifier mass balance",
+      "stem": "An activated-sludge system operates with a plant flow Q = 4.0 MGD, MLSS concentration X_A = 3{,}000 mg/L in the aeration basin, and return sludge concentration X_r = 12{,}000 mg/L. Assuming negligible effluent suspended solids (X_e ≈ 0), the return sludge flow rate Q_r in MGD is most nearly:",
+      "equations": [
+        "$\\text{Mass balance on secondary clarifier: }(Q_0+Q_R)X_A = Q_RX_r+Q_wX_w$",
+        "$\\dfrac{Q_R}{Q_0} \\approx \\dfrac{X_A}{X_r - X_A}\\quad (X_e\\approx 0,\\ Q_w\\ll Q_R)$"
+      ],
+      "options": [
+        "0.80 MGD",
+        "1.00 MGD",
+        "1.33 MGD",
+        "1.60 MGD"
+      ],
+      "answer": 2,
+      "solution": "From the clarifier mass balance with $X_e\\approx0$: $Q(X_A) = Q_R(X_r-X_A)$, so $Q_R = Q\\times X_A/(X_r-X_A) = 4.0\\times3{,}000/(12{,}000-3{,}000) = 4.0\\times3{,}000/9{,}000 = 4.0\\times0.333 = 1.33$ MGD. The recycle ratio $R = Q_R/Q = 1/3 \\approx 0.33$, within the typical range for conventional activated sludge (0.25–0.5). Option (B) uses $X_r$ alone in the denominator instead of $X_r-X_A$: $4.0\\times3{,}000/12{,}000 = 1.00$ MGD. Option (A) divides by $X_r+X_A = 15{,}000$: $4.0\\times3{,}000/15{,}000 = 0.80$ MGD.",
+      "handbook": "Environmental Engineering — Activated Sludge (secondary clarifier mass balance, p.339)",
+      "references": "Ctrl-F: Return Sludge; Mass Balance; Secondary Clarifier",
+      "source": "handbook",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D8-Q04",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Waste activated sludge (WAS) flow rate from SRT definition (SI)",
+      "stem": "An activated-sludge aeration basin has volume V = 2{,}500 m³, MLSS X_A = 3{,}000 mg/L, and operates at a target SRT θ_c = 10 days. The waste sludge concentration X_w = 12{,}000 mg/L. Neglecting effluent solids, determine the WAS flow rate Q_w in m³/day.",
+      "equations": [
+        "$\\theta_c = \\dfrac{V\\,X_A}{Q_w\\,X_w + Q_e\\,X_e}\\approx\\dfrac{V\\,X_A}{Q_w\\,X_w}\\quad(X_e\\approx 0)$",
+        "$Q_w = \\dfrac{V\\,X_A}{\\theta_c\\,X_w}$"
+      ],
+      "answer": "62.5 m³/day",
+      "solution": "$Q_w = V X_A/(\\theta_c X_w) = 2{,}500\\times3{,}000/(10\\times12{,}000) = 7{,}500{,}000/120{,}000 = 62.5\\ \\mathrm{m^3/day}$. This is equivalent to wasting the entire aeration basin in $V/Q_w = 2{,}500/62.5 = 40$ d — but the SRT is 10 d because $X_w = 4\\times X_A$ (sludge is concentrated before wasting). Verify: $\\theta_c = 2{,}500\\times3{,}000/(62.5\\times12{,}000) = 7{,}500{,}000/750{,}000 = 10$ d (verified).",
+      "handbook": "Environmental Engineering — Activated Sludge (SRT definition, p.339)",
+      "references": "Ctrl-F: Sludge Residence Time; SRT; Waste Sludge",
+      "source": "handbook",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D8-Q05",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "TSS mass removed in primary clarification (USCS)",
+      "stem": "A wastewater plant receives Q = 3.0 MGD with influent TSS = 240 mg/L. Primary clarification reduces TSS to 80 mg/L in the effluent. Using the Handbook unit-conversion factor, the dry mass of solids removed per day in the primary clarifier is most nearly:",
+      "equations": [
+        "$M\\ (\\mathrm{lb/day}) = \\Delta C\\ (\\mathrm{mg/L})\\times Q\\ (\\mathrm{MGD})\\times 8.34\\ [\\mathrm{lb\\cdot L/(mg\\cdot MG)}]$"
+      ],
+      "options": [
+        "400 lb/day",
+        "1{,}334 lb/day",
+        "4{,}003 lb/day",
+        "6{,}005 lb/day"
+      ],
+      "answer": 2,
+      "solution": "$\\Delta C = 240 - 80 = 160\\ \\mathrm{mg/L}$.  $M = 160\\times3.0\\times8.34 = 4{,}003\\ \\mathrm{lb/day}$. Option (A) uses $\\Delta C = 80$ (effluent SS only) and ignores the 8.34 factor: $80\\times3.0/2 = 120$... instead, option (A) arises from $\\Delta C\\times Q$ without 8.34: $160\\times3.0 = 480$ or from using 80 mg/L: $80\\times3.0\\times8.34 = 2{,}002 \\approx 2{,}000$. Option (D) uses the influent concentration $240$ mg/L instead of the removed fraction.",
+      "handbook": "Environmental Engineering — Mass Balance / Flow Rate (M = CQ × 8.34, p.327)",
+      "references": "Ctrl-F: lb/day; MGD; 8.34; TSS",
+      "source": "handbook",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D8-Q06",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Secondary clarifier sizing — overflow rate (USCS)",
+      "stem": "A secondary clarifier follows a conventional air-activated-sludge system (not extended aeration) treating Q = 5.0 MGD. Using the Handbook average design overflow rate for this basin type (600 gpd/ft² is the midpoint of the 400–700 gpd/ft² range), the required plan-view surface area in ft² is most nearly:",
+      "equations": [
+        "$A = \\dfrac{Q}{v_o}$"
+      ],
+      "options": [
+        "4{,}167 ft²",
+        "6{,}250 ft²",
+        "8{,}333 ft²",
+        "12{,}500 ft²"
+      ],
+      "answer": 2,
+      "solution": "$Q = 5.0\\ \\mathrm{MGD} = 5{,}000{,}000\\ \\mathrm{gpd}$.  $A = 5{,}000{,}000/600 = 8{,}333\\ \\mathrm{ft^2}$. The Handbook design-criteria table (p.345) gives overflow rates of 400–700 gpd/ft² (average) for secondary clarifiers following air-activated sludge (not extended aeration). Extended aeration secondary clarifiers use a lower range (200–400 gpd/ft²), so designing at 600 gpd/ft² for a conventional system is appropriate. Option (A) uses 1{,}200 gpd/ft² (the primary clarifier peak value): $5{,}000{,}000/1{,}200 = 4{,}167$ ft². Option (D) uses 400 gpd/ft² (extended aeration criterion): $5{,}000{,}000/400 = 12{,}500$ ft².",
+      "handbook": "Environmental Engineering — Design Criteria for Sedimentation Basins (table, p.345)",
+      "references": "Ctrl-F: Secondary Clarifier; Overflow Rate; Design Criteria",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D8-Q07",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "NRC trickling filter — recirculation factor F",
+      "stem": "A single-stage rock trickling filter operates with a recirculation ratio R = 2.0 (Q_r = 2Q). The National Research Council (NRC) recirculation factor F, which appears in the NRC efficiency equation, is most nearly:",
+      "equations": [
+        "$F = \\dfrac{1 + R}{\\left(1 + \\dfrac{R}{10}\\right)^{2}}$"
+      ],
+      "options": [
+        "1.44",
+        "2.08",
+        "2.50",
+        "3.00"
+      ],
+      "answer": 1,
+      "solution": "$F = (1+2.0)/(1+2.0/10)^2 = 3.0/(1.20)^2 = 3.0/1.44 = 2.08$. Option (A) is just the squared denominator $(1.2)^2 = 1.44$, forgetting the numerator. Option (C) omits the squaring: $(1+R)/(1+R/10) = 3.0/1.2 = 2.50$. Option (D) uses only the numerator $(1+R) = 3.0$, ignoring the denominator. As $R$ increases, $F$ increases (more recirculation improves effective treatment capacity), but with diminishing returns due to the $(1+R/10)^2$ denominator. The NRC efficiency equation uses $F$ to represent the benefit of recirculation on the BOD loading to the filter.",
+      "handbook": "Environmental Engineering — Trickling Filter (NRC recirculation factor, p.337)",
+      "references": "Ctrl-F: Recirculation Factor; NRC; Trickling Filter",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D8-Q08",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Chlorine demand — dose and residual",
+      "stem": "A water treatment plant applies a chlorine dose of 5.0 mg/L to disinfect filtered water. After the contact chamber, a free chlorine residual of 0.8 mg/L is measured. The chlorine demand of the water is:",
+      "equations": [
+        "$\\text{Chlorine demand} = \\text{Chlorine dose} - \\text{Chlorine residual}$"
+      ],
+      "options": [
+        "0.8 mg/L",
+        "3.8 mg/L",
+        "4.2 mg/L",
+        "5.8 mg/L"
+      ],
+      "answer": 2,
+      "solution": "$\\text{Demand} = 5.0 - 0.8 = 4.2\\ \\mathrm{mg/L}$. Chlorine demand represents the mass of chlorine consumed by reactions with organic matter, reduced inorganic species (Fe$^{2+}$, Mn$^{2+}$, H$_2$S, NH$_3$), and other chlorine-reactive compounds in the water before any residual appears. Option (A) is the residual alone. Option (D) is dose + residual (wrong direction — you do not add them). The residual must be maintained throughout the distribution system for continued disinfection; the $CT_{calc} = C\\times t_{10}$ calculation in the Handbook uses only the residual $C$, not the dose.",
+      "handbook": "N/A — fundamental concept (Handbook CT formula uses residual, not demand, p.351)",
+      "references": "Ctrl-F: Chlorine Demand; Residual; Dose",
+      "source": "fundamental",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D8-Q09",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Lime-soda softening — Reaction 4: magnesium carbonate hardness",
+      "stem": "In lime-soda softening, which of the following reactions (from the NCEES FE Reference Handbook) is used to remove magnesium carbonate (temporary) hardness?",
+      "equations": [],
+      "options": [
+        "Ca(HCO₃)₂ + Ca(OH)₂ → 2CaCO₃↓ + 2H₂O  [Reaction 2 — calcium carbonate hardness]",
+        "Mg(HCO₃)₂ + 2Ca(OH)₂ → Mg(OH)₂↓ + 2CaCO₃↓ + 2H₂O  [Reaction 4 — Mg carbonate hardness]",
+        "MgSO₄ + Ca(OH)₂ → Mg(OH)₂↓ + CaSO₄  [Reaction 5 — Mg non-carbonate, step 1]",
+        "CaSO₄ + Na₂CO₃ → CaCO₃↓ + Na₂SO₄  [Reaction 3 — Ca non-carbonate hardness]"
+      ],
+      "answer": 1,
+      "solution": "Option (B) is Handbook Reaction 4: magnesium carbonate (bicarbonate) hardness requires TWO moles of lime because $\\mathrm{Mg(HCO_3)_2}$ has two bicarbonate ions and because Mg$^{2+}$ itself requires one equivalent of lime to precipitate as Mg(OH)$_2$. The reaction yields two precipitates: Mg(OH)$_2$ (removing the Mg hardness) and 2 CaCO$_3$ (removing the bicarbonate alkalinity). Option (A) is Reaction 2 (calcium bicarbonate hardness — needs only one mole of lime). Option (C) is Reaction 5 step 1: Mg non-carbonate (permanent) hardness — uses lime to precipitate Mg(OH)$_2$ but leaves CaSO$_4$ (still hard); soda ash (Reaction 3) is then needed to complete the softening.",
+      "handbook": "Environmental Engineering — Lime-Soda Softening Equations (reactions 1–7, p.347)",
+      "references": "Ctrl-F: Lime-Soda Softening; Magnesium; Reaction 4",
+      "source": "handbook",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D8-Q10",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Lime dose for magnesium carbonate hardness removal (USCS)",
+      "stem": "A groundwater contains Mg(HCO₃)₂ at a concentration of 75 mg/L. Using the stoichiometry of Handbook Reaction 4 — Mg(HCO₃)₂ + 2Ca(OH)₂ → Mg(OH)₂↓ + 2CaCO₃↓ + 2H₂O — determine the theoretical lime Ca(OH)₂ dose required in mg/L. Use MW: Mg(HCO₃)₂ = 146.3 g/mol; Ca(OH)₂ = 74.1 g/mol.",
+      "equations": [
+        "$\\text{Ca(OH)}_2\\ \\text{dose} = C_{\\mathrm{Mg(HCO_3)_2}}\\times\\dfrac{2\\,MW_{\\mathrm{Ca(OH)_2}}}{MW_{\\mathrm{Mg(HCO_3)_2}}}$"
+      ],
+      "answer": "76 mg/L Ca(OH)₂",
+      "solution": "$\\text{Dose} = 75\\times(2\\times74.1/146.3) = 75\\times(148.2/146.3) = 75\\times1.013 = 76.0\\ \\mathrm{mg/L}$. The factor of 2 in the numerator reflects that Reaction 4 requires 2 mol lime per mole of Mg bicarbonate. If only 1 mol lime were assumed (forgetting the coefficient 2): $75\\times74.1/146.3 = 38.0$ mg/L — exactly half the correct answer. Note: MW of Mg(HCO$_3)_2 = 24.3+2(1+12+48) = 24.3+122 = 146.3$ g/mol; MW of Ca(OH)$_2 = 40.1+34 = 74.1$ g/mol. In practice, an excess above stoichiometric lime is added to drive the precipitation to completion (Le Chatelier) and to soften to below the solubility product of CaCO$_3$.",
+      "handbook": "Environmental Engineering — Lime-Soda Softening Equations (Reaction 4, p.347)",
+      "references": "Ctrl-F: Lime-Soda Softening; Lime Dose; Magnesium; Reaction 4",
+      "source": "handbook",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D8-Q11",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Plug-flow reactor (PFR) — first-order effluent concentration (SI)",
+      "stem": "A plug-flow reactor (PFR) treats a contaminated leachate. Influent concentration C₀ = 180 mg/L, first-order decay constant k = 0.18 day⁻¹, hydraulic residence time θ = 5 days. The steady-state effluent concentration is most nearly:",
+      "equations": [
+        "$C_t = C_0\\,e^{-k\\theta}\\quad (\\text{PFR or batch, first-order})$",
+        "$C_t = \\dfrac{C_0}{1+k\\theta}\\quad (\\text{CMFR, first-order})$"
+      ],
+      "options": [
+        "73 mg/L",
+        "95 mg/L",
+        "115 mg/L",
+        "150 mg/L"
+      ],
+      "answer": 0,
+      "solution": "$C_t = 180\\times e^{-0.18\\times5} = 180\\times e^{-0.90} = 180\\times0.4066 = 73.2\\ \\mathrm{mg/L}\\approx73\\ \\mathrm{mg/L}$. Option (B) is the CMFR result for the same conditions: $180/(1+0.18\\times5) = 180/1.90 = 94.7\\approx95\\ \\mathrm{mg/L}$. The PFR always achieves a lower effluent than the CMFR for identical $k$ and $\\theta$ — confirming the ranking CMFR < PFR in treatment efficiency for positive-order reactions. Option (D) applies the decay constant without multiplying by $\\theta$: $180\\times e^{-0.18} = 180\\times0.835 = 150\\ \\mathrm{mg/L}$, which corresponds to only 1 day of treatment.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters (PFR first-order, p.331)",
+      "references": "Ctrl-F: Plug Flow; PFR; First Order; Reactor",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D8-Q12",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Biotower with recycle — Se from Handbook formula (SI)",
+      "stem": "A biotower (modular plastic media, n = 0.5) treats municipal wastewater with influent BOD₅ S₀ = 150 mg/L. Without recycle, the hydraulic application rate is q = 0.25 m³/(m²·min); the system now operates with recycle ratio R = 1.0 (Q_r = Q). Other parameters: k = 0.06 min⁻¹ at 20°C, media depth D = 5 m. Using the Handbook biotower-with-recycle formula, determine the effluent BOD₅ Se (mg/L).",
+      "equations": [
+        "$\\dfrac{S_e}{S_a} = e^{-kD/q_T^{n}},\\quad S_a = \\dfrac{S_0+R\\,S_e}{1+R},\\quad q_T = \\dfrac{(1+R)\\,Q}{A}=(1+R)\\,q$",
+        "$\\Rightarrow S_e = \\dfrac{S_0\\,e^{-kD/q_T^n}}{1+R-R\\,e^{-kD/q_T^n}}$"
+      ],
+      "answer": "≈ 73 mg/L",
+      "solution": "$q_T = (1+1.0)\\times0.25 = 0.50\\ \\mathrm{m/min}$.  $q_T^{0.5} = \\sqrt{0.50} = 0.7071$.  $kD/q_T^n = 0.06\\times5/0.7071 = 0.30/0.7071 = 0.4243$.  $E = e^{-0.4243} = 0.6543$.  $S_e = 150\\times0.6543/(1+1.0-1.0\\times0.6543) = 98.15/1.3457 = 72.9\\approx73\\ \\mathrm{mg/L}$. Without recycle ($R=0$, $q_T=0.25$): $S_e = 150\\times e^{-0.06\\times5/0.5} = 150\\times e^{-0.60} = 150\\times0.5488 = 82.3\\ \\mathrm{mg/L}$. Adding recycle ($R=1$) reduces effluent BOD from 82 to 73 mg/L — a modest improvement — because recirculation increases $q_T$, which reduces per-pass efficiency, but also dilutes the incoming BOD.",
+      "handbook": "Environmental Engineering — Biotower with Recycle (Se/Sa formula, p.340)",
+      "references": "Ctrl-F: Biotower; Fixed-Film; Recycle; Se",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D8-Q13",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Biotower treatability constant — temperature correction (θ = 1.035)",
+      "stem": "The biotower treatability constant at 20°C is k₂₀ = 0.06 min⁻¹. Using the Handbook temperature correction for bio towers (θ = 1.035), the corrected constant k at 25°C is most nearly:",
+      "equations": [
+        "$k_T = k_{20}\\,\\theta^{T-20},\\quad \\theta = 1.035\\ (\\text{bio towers})$"
+      ],
+      "options": [
+        "0.060 min⁻¹  (no correction)",
+        "0.068 min⁻¹  (θ = 1.024, reaeration)",
+        "0.071 min⁻¹  (θ = 1.035, bio towers)",
+        "0.079 min⁻¹  (θ = 1.056, BOD kinetics 21–30°C)"
+      ],
+      "answer": 2,
+      "solution": "$k_{25} = 0.06\\times1.035^{(25-20)} = 0.06\\times1.035^5$.  $1.035^5 = 1.1877$.  $k_{25} = 0.06\\times1.1877 = 0.0713\\approx0.071\\ \\mathrm{min^{-1}}$. The Handbook lists four $\\theta$ values in the kinetic temperature correction table: BOD (4–20°C) = 1.135; BOD (21–30°C) = 1.056; reaeration = 1.024; bio towers = 1.035; trickling filters = 1.072. Choosing the correct $\\theta$ for the process type is the key exam skill. Option (B) uses the reaeration $\\theta = 1.024$: $0.06\\times1.024^5 = 0.067\\approx0.068$ min$^{-1}$. Option (D) uses BOD $\\theta = 1.056$: $0.06\\times1.056^5 = 0.079$ min$^{-1}$.",
+      "handbook": "Environmental Engineering — Kinetic Temperature Corrections (θ table, p.327)",
+      "references": "Ctrl-F: Temperature Correction; kT; Bio Towers; Theta",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D8-Q14",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Biological denitrification — methanol dose",
+      "stem": "A biological denitrification system receives secondary effluent with nitrate-nitrogen N₀ = 25 mg/L NO₃-N, nitrite-nitrogen N_l = 0 mg/L, and dissolved oxygen D₀ = 2.0 mg/L. Using the Handbook methanol requirement formula for denitrification of biologically treated wastewater, the required methanol concentration C_m in mg/L is most nearly:",
+      "equations": [
+        "$C_m = 2.47\\,N_o + 1.53\\,N_l + 0.87\\,D_o$"
+      ],
+      "options": [
+        "27.0 mg/L",
+        "61.8 mg/L",
+        "63.5 mg/L",
+        "66.6 mg/L"
+      ],
+      "answer": 2,
+      "solution": "$C_m = 2.47\\times25 + 1.53\\times0 + 0.87\\times2.0 = 61.75 + 0 + 1.74 = 63.49\\approx63.5\\ \\mathrm{mg/L}$. Option (A) ignores all coefficients: $25+0+2.0 = 27$ mg/L. Option (B) omits the DO contribution: $2.47\\times25 = 61.75\\approx61.8$ mg/L. Option (D) mistakenly uses $N_l = 2$ (sets it equal to DO value): $2.47\\times25+1.53\\times2+0.87\\times2 = 61.75+3.06+1.74 = 66.6$ mg/L. In denitrification, methanol serves as the electron donor and carbon source for heterotrophic bacteria reducing NO$_3^-$ → N$_2$ gas. The 0.87$D_o$ term accounts for the additional methanol needed to first consume the dissolved oxygen before anaerobic denitrification can proceed.",
+      "handbook": "Environmental Engineering — Methanol Requirement for Denitrification (p.340)",
+      "references": "Ctrl-F: Denitrification; Methanol; Nitrate",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D8-Q15",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Anaerobic digestion — F:M ratio identifies activated-sludge process",
+      "stem": "An activated-sludge aeration basin treats Q = 1.0 MGD with influent BOD₅ S₀ = 200 mg/L. The basin volume is V = 0.8 MG and MLSS concentration is 4{,}500 mg/L. Using the Handbook design table, the F:M ratio and the activated-sludge process type that best match these conditions are:",
+      "equations": [
+        "$F:M = \\dfrac{Q\\,S_0}{V\\,X_A}\\quad\\left[\\dfrac{\\mathrm{kg\\ BOD_5/day}}{\\mathrm{kg\\ MLSS}}\\right]$"
+      ],
+      "options": [
+        "F:M = 0.056 → Completely mixed (F:M 0.2–0.4)",
+        "F:M = 0.056 → Extended aeration (F:M 0.05–0.15)",
+        "F:M = 0.56 → Conventional/tapered aeration (F:M 0.2–0.4)",
+        "F:M = 0.56 → High-rate aeration (F:M 0.4–1.5)"
+      ],
+      "answer": 1,
+      "solution": "$F:M = (1.0\\times200)/(0.8\\times4{,}500) = 200/3{,}600 = 0.0556\\ \\mathrm{kg\\ BOD_5/(d\\cdot kg\\ MLSS)}$. From the Handbook activated-sludge design table (p.339): Extended aeration operates at F:M = 0.05–0.15, θ = 18–24 h, MLSS = 3{,}000–6{,}000 mg/L, θ_c = 20–30 d. The computed F:M = 0.056 falls in the extended aeration range. Extended aeration treats all endogenous decay products within the process and produces less excess sludge per unit BOD removed compared with conventional activated sludge. Option (A) uses the correct F:M value (0.056) but matches it to the completely mixed range (0.2–0.4), which is 4–7× higher. Options (C) and (D) are off by a factor of 10 (decimal error).",
+      "handbook": "Environmental Engineering — Activated Sludge Design Parameters (table, p.339)",
+      "references": "Ctrl-F: F:M ratio; Food to Microorganism; Activated Sludge; Extended Aeration",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D8-Q16",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Anaerobic digestion — biogas production range (Handbook design table)",
+      "stem": "According to the NCEES FE Reference Handbook design criteria table for anaerobic digesters, the typical gas production range for a HIGH-RATE anaerobic digester is:",
+      "equations": [],
+      "options": [
+        "0.20–0.35 m³ gas per kg VSS added",
+        "0.50–0.55 m³ gas per kg VSS added",
+        "0.60–0.65 m³ gas per kg VSS added",
+        "0.80–0.90 m³ gas per kg VSS added"
+      ],
+      "answer": 2,
+      "solution": "The Handbook anaerobic digester design criteria table (p.342) gives gas production of 0.60–0.65 m$^3$/kg VSS added for a HIGH-RATE digester and 0.50–0.55 m$^3$/kg VSS added for a STANDARD-RATE digester. The higher value for the high-rate system reflects more complete VS destruction from active mixing and temperature control. Option (B) is the standard-rate value — a common exam distractor. The gas is approximately 65% methane (CH$_4$) and 35% CO$_2$; methane has an energy content of about 35.8 MJ/m$^3$ (960 BTU/ft$^3$) and is recovered for plant energy use.",
+      "handbook": "Environmental Engineering — Anaerobic Digestion design criteria table (p.342)",
+      "references": "Ctrl-F: Anaerobic Digestion; Gas Production; VSS",
+      "source": "handbook",
+      "spec": "12.F — sludge treatment"
+    },
+
+    {
+      "id": "D8-Q17",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Anaerobic digestion — SRT for standard-rate system (Handbook design table)",
+      "stem": "According to the NCEES FE Reference Handbook design criteria for anaerobic digesters, the solids residence time (SRT) range for a STANDARD-RATE anaerobic digestion system is:",
+      "equations": [],
+      "options": [
+        "5–10 days",
+        "10–20 days",
+        "30–90 days",
+        "120–180 days"
+      ],
+      "answer": 2,
+      "solution": "The Handbook anaerobic digestion design criteria table specifies: standard-rate SRT = 30–90 days; high-rate SRT = 10–20 days. Standard-rate digesters are unheated, unmixed, and stratified — they require the long SRT to maintain adequate treatment despite variable temperature and short-circuiting. High-rate digesters are heated (35°C) and completely mixed, which allows far shorter SRT. Option (B) is the high-rate SRT range. Volatile solids reduction: standard-rate 35–50%; high-rate 45–55%. If the system SRT falls below the minimum, the methane-generating archaea — with their slow growth rates — are washed out and the digester acidifies (fails).",
+      "handbook": "Environmental Engineering — Anaerobic Digestion design criteria table (p.342)",
+      "references": "Ctrl-F: Anaerobic Digestion; Sludge Residence Time; Standard Rate; High Rate",
+      "source": "handbook",
+      "spec": "12.F — sludge treatment"
+    },
+
+    {
+      "id": "D8-Q18",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Aerobic digestion — daily oxygen demand (USCS)",
+      "stem": "An aerobic digestion system receives 500 lb/day of volatile suspended solids (VSS) and achieves 40% VSS reduction. Using the Handbook aerobic digestion design criteria (oxygen requirement ≈ 2.3 lb O₂ per lb of cell tissue destroyed), the daily oxygen demand for aerobic digestion is most nearly:",
+      "equations": [
+        "$O_2\\ (\\mathrm{lb/day}) = VSS_{destroyed}\\ (\\mathrm{lb/day})\\times 2.3\\ [\\mathrm{lb\\ O_2/lb\\ VSS}]$",
+        "$VSS_{destroyed} = VSS_{fed}\\times (\\text{\\%VSS reduction}/100)$"
+      ],
+      "answer": "460 lb O₂/day",
+      "solution": "$VSS_{destroyed} = 500\\times0.40 = 200\\ \\mathrm{lb/day}$.  $O_2 = 200\\times2.3 = 460\\ \\mathrm{lb\\ O_2/day}$. The Handbook aerobic digestion design table (p.341) lists oxygen requirements for cell tissue at approximately 2.3 lb O$_2$/lb VSS destroyed; for BOD$_5$ from primary sludge the requirement is lower (1.6–1.9 lb O$_2$/lb). Using 60\\% VSS reduction (double the problem value): $500\\times0.60\\times2.3 = 690$ lb/day. Using the BOD factor (1.8) instead of the cell tissue factor (2.3): $200\\times1.8 = 360$ lb/day.",
+      "handbook": "Environmental Engineering — Aerobic Digestion design criteria (O₂ requirement table, p.341)",
+      "references": "Ctrl-F: Aerobic Digestion; Oxygen Requirement; VSS",
+      "source": "handbook",
+      "spec": "12.F — sludge treatment"
+    },
+
+    {
+      "id": "D8-Q19",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Reclaimed water — annual potable water offset",
+      "stem": "A water reclamation facility produces 4.0 MGD of treated effluent year-round. Engineering analysis shows that 65% of this effluent meets the quality requirements for unrestricted reclaimed water use (landscape irrigation, industrial cooling, and toilet flushing), displacing potable water on a volume-for-volume basis. The annual volume of potable water displaced (in million gallons per year) is most nearly:",
+      "equations": [
+        "$V_{offset}\\ (\\mathrm{MG/yr}) = f\\times Q\\ (\\mathrm{MGD})\\times 365\\ \\mathrm{days/yr}$"
+      ],
+      "options": [
+        "365 million gallons/yr",
+        "520 million gallons/yr",
+        "950 million gallons/yr",
+        "1{,}460 million gallons/yr"
+      ],
+      "answer": 2,
+      "solution": "$V_{offset} = 0.65\\times4.0\\ \\mathrm{MGD}\\times365 = 949\\ \\mathrm{MG/yr}\\approx950\\ \\mathrm{MG/yr}$. Option (A) uses $Q = 1.0$ MGD (forgot the 65\\% factor and divided instead of multiplied: $1.0\\times365 = 365$). Option (B) uses 200 operating days/year instead of 365. Option (D) applies the full 4.0 MGD without the 65\\% quality constraint: $4.0\\times365 = 1{,}460$ MG/yr. Reclaimed water displacing potable supply is a cornerstone of water conservation under 12.G; at current typical water rates ($\\sim$\\$3–5/1{,}000$ gal) this offset represents $\\sim$\\$3–5 million/year in avoided potable water costs.",
+      "handbook": "N/A — fundamental volume calculation",
+      "references": "Ctrl-F: Reclaimed Water; Reuse; Conservation",
+      "source": "fundamental",
+      "spec": "12.G — conservation & reuse"
+    },
+
+    {
+      "id": "D8-Q20",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Dual-distribution water reuse — potable offset fraction",
+      "stem": "A city has a total water demand of 8.0 MGD. Seasonal irrigation demand is 2.0 MGD and non-potable indoor uses (toilet flushing, cooling tower makeup) total 1.5 MGD — all of which can be served by reclaimed water. The wastewater reclamation plant produces 6.0 MGD of treated effluent. What percentage of the city's total potable demand can be offset by reclaimed water?",
+      "equations": [
+        "$\\%\\ \\text{offset} = \\dfrac{Q_{reuse}}{Q_{total\\ demand}}\\times100$"
+      ],
+      "options": [
+        "25% (only irrigation counted)",
+        "44% (irrigation + non-potable indoor)",
+        "58% (divided by wastewater flow, not demand)",
+        "75% (all indoor + irrigation of total demand)"
+      ],
+      "answer": 1,
+      "solution": "$Q_{reuse} = 2.0 + 1.5 = 3.5\\ \\mathrm{MGD}$.  $\\% offset = 3.5/8.0\\times100 = 43.75\\%\\approx44\\%$. Note: the reclamation plant produces 6.0 MGD — more than enough to supply the 3.5 MGD reuse demand. Option (A) counts only the irrigation demand: $2.0/8.0 = 25\\%$. Option (C) divides by wastewater flow rather than total demand: $3.5/6.0 = 58\\%$. Dual-distribution systems (separate potable and reclaimed pipe networks) require significant capital investment but maximise potable water conservation. The SDWA (Safe Drinking Water Act) and state regulations govern water quality requirements for different end uses.",
+      "handbook": "N/A — fundamental volume fraction calculation",
+      "references": "Ctrl-F: Reclaimed Water; Dual Distribution; Reuse; Conservation",
+      "source": "fundamental",
+      "spec": "12.G — conservation & reuse"
+    }
+  ]
+}
