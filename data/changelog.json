@@ -1,7 +1,18 @@
 {
-  "version": "0.20.0",
+  "version": "0.20.1",
   "updated": "2026-06-25",
   "history": [
+    {
+      "version": "0.20.1",
+      "date": "2026-06-25",
+      "title": "Handbook page numbers on every static-bank question",
+      "changes": [
+        "Every question in the daily Bank (Days 1–9, 204 questions) now cites its exact NCEES FE Reference Handbook v10.6 page in the Handbook reference line — e.g. 'Manning's Equation (p. 303)', 'Reynolds Number (p. 186)', 'Lime-Soda Softening (p. 347)' — so you can jump straight to the formula on exam day",
+        "Pages were resolved against the real Handbook v10.6 (the searchable PDF used on the exam): each was cross-checked against the Handbook's own index and the section text, and disambiguated by chapter so look-alike terms land on the right page (e.g. open-channel Manning p. 303, not the pipe-flow reference)",
+        "The handful of questions answerable from fundamentals rather than a printed Handbook formula (simultaneous equations, Pascal's hydraulic press, return-period/flood-frequency T = 1/P) are now labeled 'fundamental' instead of being given a misleading page",
+        "Live Bank questions are unaffected by this change; this updates the static daily day-files only"
+      ]
+    },
     {
       "version": "0.20.0",
       "date": "2026-06-25",

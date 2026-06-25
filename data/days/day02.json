@@ -20,7 +20,7 @@
       ],
       "answer": 1,
       "solution": "$p = \\rho g h = (1000)(9.81)(6.0) = 58{,}860\\ \\mathrm{Pa} \\approx 58.9\\ \\mathrm{kPa}$.",
-      "handbook": "Fluid Mechanics — Pressure in a static liquid",
+      "handbook": "Fluid Mechanics — Pressure in a static liquid (p. 181)",
       "references": "Ctrl-F: Specific Weight"
     },
     {
@@ -40,7 +40,7 @@
       ],
       "answer": 1,
       "solution": "$p = SG\\,\\gamma_w h = (0.85)(9.81)(4.0) = 33.4\\ \\mathrm{kPa}$.",
-      "handbook": "Fluid Properties — specific gravity",
+      "handbook": "Fluid Properties — specific gravity (p. 181)",
       "references": "Ctrl-F: Specific Gravity"
     },
     {
@@ -60,7 +60,7 @@
       ],
       "answer": 1,
       "solution": "$h = \\dfrac{p}{\\gamma} = \\dfrac{200{,}000}{9810} = 20.4\\ \\mathrm{m}$ of water.",
-      "handbook": "Fluid Mechanics — pressure head, h = p/γ",
+      "handbook": "Fluid Mechanics — pressure head, h = p/γ (p. 181)",
       "references": "Ctrl-F: Pressure Head"
     },
     {
@@ -80,7 +80,7 @@
       ],
       "answer": 0,
       "solution": "$h = \\dfrac{p}{SG\\,\\gamma_w} = \\dfrac{101{,}300}{(13.6)(9810)} = 0.759\\ \\mathrm{m} \\approx 760\\ \\mathrm{mm\\ Hg}$.",
-      "handbook": "Fluid Mechanics — manometry",
+      "handbook": "Fluid Mechanics — manometry (p. 183)",
       "references": "Ctrl-F: Manometer"
     },
     {
@@ -100,7 +100,7 @@
       ],
       "answer": 2,
       "solution": "$p_{abs} = p_{atm} + p_{gauge} = 98 + 150 = 248\\ \\mathrm{kPa}$.",
-      "handbook": "Fluid Mechanics — absolute vs. gauge pressure",
+      "handbook": "Fluid Mechanics — absolute vs. gauge pressure (p. 181)",
       "references": "Ctrl-F: Gauge"
     },
     {
@@ -120,7 +120,7 @@
       ],
       "answer": 2,
       "solution": "$\\bar h = 1.5\\ \\mathrm{m},\\ A = 6\\ \\mathrm{m^2}$. $F_R = (1000)(9.81)(1.5)(6) = 88{,}290\\ \\mathrm{N} \\approx 88.3\\ \\mathrm{kN}$.",
-      "handbook": "Forces on Submerged Surfaces",
+      "handbook": "Forces on Submerged Surfaces (p. 184)",
       "references": "Ctrl-F: Center of Pressure"
     },
     {
@@ -140,7 +140,7 @@
       ],
       "answer": 1,
       "solution": "$I_{xc} = \\dfrac{(2)(3)^3}{12} = 4.5\\ \\mathrm{m^4};\\ y_{cp} = 1.5 + \\dfrac{4.5}{(1.5)(6)} = 2.00\\ \\mathrm{m}$.",
-      "handbook": "Center of Pressure",
+      "handbook": "Center of Pressure (p. 184)",
       "references": "Ctrl-F: Center of Pressure"
     },
     {
@@ -160,7 +160,7 @@
       ],
       "answer": 0,
       "solution": "$F_B = 50 - 30 = 20\\ \\mathrm{N};\\ V = \\dfrac{20}{(1000)(9.81)} = 2.04\\times10^{-3}\\ \\mathrm{m^3} = 2.04\\ \\mathrm{L}$.",
-      "handbook": "Archimedes' principle / buoyancy",
+      "handbook": "Archimedes' principle / buoyancy (p. 184)",
       "references": "Ctrl-F: Buoyancy"
     },
     {
@@ -174,7 +174,7 @@
       ],
       "answer": "19.6 L/s",
       "solution": "$A = \\dfrac{\\pi}{4}(0.10)^2 = 7.854\\times10^{-3}\\ \\mathrm{m^2};\\ Q = VA = (2.5)(7.854\\times10^{-3}) = 0.0196\\ \\mathrm{m^3/s} = 19.6\\ \\mathrm{L/s}$.",
-      "handbook": "Continuity Equation, Q = AV",
+      "handbook": "Continuity Equation, Q = AV (p. 185)",
       "references": "Ctrl-F: Continuity Equation"
     },
     {
@@ -194,7 +194,7 @@
       ],
       "answer": 2,
       "solution": "$V_2 = V_1\\left(\\dfrac{D_1}{D_2}\\right)^2 = (1.5)\\left(\\dfrac{200}{100}\\right)^2 = (1.5)(4) = 6.0\\ \\mathrm{m/s}$.",
-      "handbook": "Continuity Equation, A₁V₁ = A₂V₂",
+      "handbook": "Continuity Equation, A₁V₁ = A₂V₂ (p. 185)",
       "references": "Ctrl-F: Continuity Equation"
     },
     {
@@ -214,7 +214,7 @@
       ],
       "answer": 2,
       "solution": "$\\dot m = \\rho Q = (1000)(0.05) = 50\\ \\mathrm{kg/s}$.",
-      "handbook": "Continuity — mass flow rate",
+      "handbook": "Continuity — mass flow rate (p. 185)",
       "references": "Ctrl-F: Mass flow"
     },
     {
@@ -234,7 +234,7 @@
       ],
       "answer": 2,
       "solution": "$v = \\sqrt{2gh} = \\sqrt{2(9.81)(4.0)} = \\sqrt{78.48} = 8.86\\ \\mathrm{m/s}$.",
-      "handbook": "Bernoulli/Energy Equation — orifice discharge",
+      "handbook": "Bernoulli/Energy Equation — orifice discharge (p. 190)",
       "references": "Ctrl-F: Orifice"
     },
     {
@@ -254,7 +254,7 @@
       ],
       "answer": 1,
       "solution": "$V = \\sqrt{2g\\,\\Delta h} = \\sqrt{2(9.81)(0.50)} = \\sqrt{9.81} = 3.13\\ \\mathrm{m/s}$.",
-      "handbook": "Fluid Mechanics — pitot tube / stagnation pressure",
+      "handbook": "Fluid Mechanics — pitot tube / stagnation pressure (p. 200)",
       "references": "Ctrl-F: Pitot"
     },
     {
@@ -274,7 +274,7 @@
       ],
       "answer": 1,
       "solution": "$p_2 = 300{,}000 + \\tfrac{1}{2}(1000)(2^2 - 6^2) = 300{,}000 - 16{,}000 = 284\\ \\mathrm{kPa}$.",
-      "handbook": "Bernoulli Equation (energy along a streamline)",
+      "handbook": "Bernoulli Equation (energy along a streamline) (p. 185)",
       "references": "Ctrl-F: Bernoulli"
     },
     {
@@ -294,7 +294,7 @@
       ],
       "answer": 0,
       "solution": "Velocity equal, so kinetic terms cancel: $p_2 = 200{,}000 - (1000)(9.81)(5.0) = 150{,}950\\ \\mathrm{Pa} \\approx 151\\ \\mathrm{kPa}$.",
-      "handbook": "Bernoulli/Energy Equation — elevation head",
+      "handbook": "Bernoulli/Energy Equation — elevation head (p. 185)",
       "references": "Ctrl-F: Bernoulli"
     },
     {
@@ -308,7 +308,7 @@
       ],
       "answer": "1.0 × 10⁵",
       "solution": "$\\mathrm{Re} = \\dfrac{(1000)(2.0)(0.050)}{1.0\\times10^{-3}} = 1.0\\times10^{5}$ (turbulent).",
-      "handbook": "Reynolds Number, Re = ρVD/μ",
+      "handbook": "Reynolds Number, Re = ρVD/μ (p. 186)",
       "references": "Ctrl-F: Reynolds Number"
     },
     {
@@ -328,7 +328,7 @@
       ],
       "answer": 1,
       "solution": "$\\mathrm{Re} = \\dfrac{(0.80)(0.025)}{1.0\\times10^{-6}} = 20{,}000$.",
-      "handbook": "Reynolds Number, Re = VD/ν",
+      "handbook": "Reynolds Number, Re = VD/ν (p. 186)",
       "references": "Ctrl-F: Reynolds Number"
     },
     {
@@ -348,7 +348,7 @@
       ],
       "answer": 0,
       "solution": "By convention pipe flow is laminar for $\\mathrm{Re} < 2100$, transitional 2100–4000, turbulent above.",
-      "handbook": "Reynolds Number — flow regimes",
+      "handbook": "Reynolds Number — flow regimes (p. 186)",
       "references": "Ctrl-F: Reynolds Number"
     },
     {
@@ -368,7 +368,7 @@
       ],
       "answer": 2,
       "solution": "$f = \\dfrac{64}{\\mathrm{Re}} = \\dfrac{64}{1600} = 0.040$.",
-      "handbook": "Head Loss / Darcy friction factor (laminar)",
+      "handbook": "Head Loss / Darcy friction factor (laminar) (p. 187)",
       "references": "Ctrl-F: Friction Factor"
     },
     {
@@ -388,7 +388,7 @@
       ],
       "answer": 0,
       "solution": "A Newtonian fluid has shear stress linearly proportional to the velocity gradient, $\\tau = \\mu\\,\\dfrac{dv}{dy}$, with constant $\\mu$.",
-      "handbook": "Fluid Mechanics — Newtonian fluid / viscosity",
+      "handbook": "Fluid Mechanics — Newtonian fluid / viscosity (p. 181)",
       "references": "Ctrl-F: Newtonian"
     }
   ]

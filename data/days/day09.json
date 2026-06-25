@@ -127,7 +127,7 @@
       ],
       "answer": "≈ 2.3 mg/L as Ca²⁺",
       "solution": "Let $x = [\\mathrm{Ca}^{2+}] = [\\mathrm{CO_3}^{2-}]$ (equal stoichiometry). $x = \\sqrt{3.3\\times10^{-9}} = 5.74\\times10^{-5}$ mol/L. $[\\mathrm{Ca}^{2+}] = 5.74\\times10^{-5}\\ \\mathrm{mol/L}\\times40.1\\ \\mathrm{g/mol}\\times1000\\ \\mathrm{mg/g} = 2.30\\ \\mathrm{mg/L}$. In mg/L as CaCO₃: $5.74\\times10^{-5}\\times100.1\\times1000 = 5.75\\ \\mathrm{mg/L\\ as\\ CaCO_3}$. Common ion effect: if the water already contains $[\\mathrm{Ca}^{2+}] = 100$ mg/L (2.49 mmol/L), the equilibrium $[\\mathrm{CO_3}^{2-}] = K_{sp}/[\\mathrm{Ca}^{2+}] = 3.3\\times10^{-9}/2.49\\times10^{-3} = 1.33\\times10^{-6}$ mol/L — far less than the pure-water value; adding Ca²⁺ suppresses carbonate solubility. This is the thermodynamic basis of CaCO₃ precipitation in water softening and scale formation.",
-      "handbook": "Chemistry — Solubility Product (Ksp definition and table, NCEES FE Reference Handbook, Chemistry section)",
+      "handbook": "Chemistry — Solubility Product (Ksp definition and table, NCEES FE Reference Handbook, Chemistry section) (p. 86)",
       "references": "Ctrl-F: Ksp; Solubility Product; CaCO3; Calcium Carbonate",
       "source": "handbook",
       "spec": "6.A — stoichiometry/reactions"
@@ -326,7 +326,7 @@
       ],
       "answer": 0,
       "solution": "$C_{\\mathrm{gas}} = H_{cc}\\times C_{\\mathrm{liq}} = 0.35\\times8.0 = 2.8\\ \\mathrm{mg/L\\ (air)}$. Option (B) 8.35: adds $H_{cc}$ to $C_{liq}$ as if it were a concentration: $8.0 + 0.35 = 8.35$ (dimensionally incorrect — $H_{cc}$ is dimensionless). Option (C) 22.9: inverts — $C_{liq}/H_{cc} = 8.0/0.35 = 22.9$, treating the formula as $H_{cc} = C_{liq}/C_{gas}$ rather than $C_{gas}/C_{liq}$. Option (D) 0.044: $H_{cc}/C_{liq} = 0.35/8.0 = 0.044$ (takes a ratio the wrong way). Henry's Law in this form is used to assess whether a compound will volatilize from water ($H_{cc} > 0.01$ → significant volatilization; the compound here, at $H_{cc} = 0.35$, readily partitions into air). Air-stripping towers exploit high $H_{cc}$ to remove VOCs from groundwater.",
-      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless form, NCEES FE Reference Handbook Environmental Chemistry section)",
+      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless form, NCEES FE Reference Handbook Environmental Chemistry section) (p. 153)",
       "references": "Ctrl-F: Henry's Law; Hcc; Volatilization; VOC; Air Stripping",
       "source": "handbook",
       "spec": "6.D — multimedia equilibrium partitioning"
@@ -349,7 +349,7 @@
       ],
       "answer": 3,
       "solution": "Compound D (log $K_{ow} = 5.2$, $K_{ow} = 10^{5.2} = 158{,}000$) has the highest affinity for lipid (fat) relative to water — it partitions most strongly into biological tissue. General classification: log $K_{ow}$ < 1 → hydrophilic (little tendency to accumulate); 1–3 → moderately lipophilic; > 3–4 → bioaccumulation concern; > 5 → persistent bioaccumulative toxic (PBT) status and priority pollutant concern. Compounds A through D represent the range from polar/hydrophilic (A: e.g., glucose-like) to highly lipophilic (D: e.g., DDT, PCB congeners, PFAS). High $K_{ow}$ also means: (i) high $K_{oc}$ → strong sorption to soil organic carbon; (ii) low water solubility; (iii) tendency to partition to NAPL phases in contaminated sites. The BCF (bioconcentration factor) correlates with $K_{ow}$: log BCF $\\approx$ 0.85 log $K_{ow}$ − 0.70 (empirical, supplemental — not in Handbook).",
-      "handbook": "Environmental Engineering — K_ow table and definition (NCEES FE Reference Handbook, Environmental Chemistry section)",
+      "handbook": "Environmental Engineering — K_ow table and definition (NCEES FE Reference Handbook, Environmental Chemistry section) (p. 328)",
       "references": "Ctrl-F: Kow; Octanol-Water; Bioaccumulation; Lipophilic; Partition Coefficient",
       "source": "fundamental",
       "spec": "6.D — multimedia equilibrium partitioning"
@@ -413,7 +413,7 @@
       ],
       "answer": 2,
       "solution": "$m_{\\mathrm{air}} = M_0\\times\\dfrac{H_{cc}\\,V_a}{V_w + H_{cc}\\,V_a} = 45\\times\\dfrac{0.20\\times3.0}{1.5 + 0.20\\times3.0} = 45\\times\\dfrac{0.60}{1.5+0.60} = 45\\times\\dfrac{0.60}{2.10} = 45\\times0.2857 = 12.86\\approx12.9\\ \\mathrm{mg}$. Option (A) 7.5: assumes $V_a = V_w$: $45\\times H_{cc}/(1+H_{cc}) = 45\\times0.20/1.20 = 7.5$ (valid only for equal volumes). Option (B) 9.0: multiplies $H_{cc}\\times M_0 = 0.20\\times45 = 9.0$ — omits the equilibrium volume distribution. Option (D) 30.0: distributes by volume fraction with no Henry's Law: $V_a/(V_a+V_w)\\times M_0 = (3/4.5)\\times45 = 30$ (ignores the chemical preference for water when $H_{cc} < 1$). Mass in water: $45 - 12.9 = 32.1$ mg; check: $C_w = 32.1/1.5 = 21.4$ mg/ft³; $C_a = 12.9/3.0 = 4.30$ mg/ft³; $H_{cc} = 4.30/21.4 = 0.201\\approx0.20$✓.",
-      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless); mass balance is fundamental",
+      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless); mass balance is fundamental (p. 153)",
       "references": "Ctrl-F: Henry's Law; Air-Water Partition; Fugacity; VOC; Phase Distribution",
       "source": "in-stem",
       "spec": "6.D — multimedia equilibrium partitioning"
