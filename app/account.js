@@ -12,7 +12,7 @@
     }
     $("signedIn").style.display = "";
     $("who").textContent = "Signed in as " + (user.email || user.id);
-    if (window.PFPMigrate) PFPMigrate.banner($("migrateHost"));
+    if (window.PFPSync) PFPSync.status($("migrateHost"));
     var prof = await PFPUser.getProfile();
     var exam = (prof && prof.exam_date) || "2026-07-08"; // FE Environmental default
     $("examDate").value = exam;

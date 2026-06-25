@@ -8,7 +8,9 @@
 
   async function init() {
     var u = await PFPAuth.require(); if (!u) return;
-    if (window.PFPMigrate) PFPMigrate.banner(document.getElementById("migrateHost"), function () { location.reload(); });
+    // Pull the account's synced progress (and seed it from this device on first
+    // sign-in) before reading review_state, so the plan reflects it immediately.
+    if (window.PFPSync) { try { await PFPSync.start(); } catch (e) {} PFPSync.status(document.getElementById("migrateHost")); }
     var plan = await PFPUser.activePlan();
     if (!plan) { renderNoPlan(); return; }
     var areas = await PFP_SB.from("knowledge_areas").select("id,title");

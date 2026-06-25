@@ -1,7 +1,18 @@
 {
-  "version": "0.20.2",
+  "version": "0.20.3",
   "updated": "2026-06-25",
   "history": [
+    {
+      "version": "0.20.3",
+      "date": "2026-06-25",
+      "title": "Full cross-device sync — streak, stars & achievements included",
+      "changes": [
+        "Everything now follows your account across devices: spaced-repetition review state, attempt history, your daily streak, ⭐ My List stars, achievements, focus time, and settings — not just your plan reviews",
+        "How it works: your device keeps using fast local storage, but while you're signed in the site hydrates from your account on load and pushes changes back automatically (debounced, and on leaving the page) — sign in on a phone and laptop and they stay in lockstep",
+        "Two-way merge keeps the best of each device: the higher streak, the union of your stars and achievements, and the most-advanced review box per question, so nothing is lost when you study in more than one place",
+        "Backed by a new per-user state store in Supabase (RLS-protected); the one-time import banner is replaced by always-on sync that shows a live 'synced' status on Account and My Plan"
+      ]
+    },
     {
       "version": "0.20.2",
       "date": "2026-06-25",

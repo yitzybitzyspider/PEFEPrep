@@ -18,10 +18,18 @@ window.PFP = (function () {
   // Leitner box -> days until due. Box 0 = brand new.
   var BOX_DAYS = [0, 1, 3, 7, 16, 35];
 
+  var _notify = null;     // change hook for the optional cloud-sync layer (sync.js)
   function load() {
     try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; }
   }
-  function save(s) { localStorage.setItem(STORE, JSON.stringify(s)); }
+  function save(s) {
+    localStorage.setItem(STORE, JSON.stringify(s));
+    if (_notify) { try { _notify(); } catch (e) {} }
+  }
+  /* Raw-state access + change hook used by sync.js (no-ops when sync isn't loaded). */
+  function getState() { return load(); }
+  function replaceState(obj) { save(obj || {}); }
+  function onChange(cb) { _notify = cb; }
 
   function getSettings() {
     var s = load();
@@ -78,6 +86,8 @@ window.PFP = (function () {
     s.attempts = s.attempts || [];
     s.attempts.push({ id: id, correct: correct, topic: topic, date: today() });
     if (s.attempts.length > 2000) s.attempts = s.attempts.slice(-2000);
+    // monotonic total (slice-safe) used by the cloud-sync high-water mark
+    s.attemptsTotal = (s.attemptsTotal != null ? s.attemptsTotal + 1 : s.attempts.length);
 
     s.daily = s.daily || {};
     var t = today();
