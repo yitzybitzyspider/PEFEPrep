@@ -1,0 +1,445 @@
+{
+  "day": 9,
+  "date": "2026-06-25",
+  "topic": "Environmental Chemistry",
+  "fidelityNote": "Handbook formulas confirmed against NCEES FE Reference Handbook v10.6: Ksp definition and solubility product equilibrium (Chemistry section); first-order decay C_t = C_0·e^(−kt) and half-life t_{1/2} = 0.693/k (Mathematics — Differential Equations; also Reactor Design table p.331); zero-order integrated rate law [A]_t = [A]_0 − k_0·t (Reactor Design table p.331); dimensionless Henry's Law constant H_cc = C_gas/C_liq (Environmental Engineering section); retardation factor R = 1 + (ρ_b/n_e)·K_d, K_d = K_oc·f_oc (Environmental Engineering p.330); bioconcentration factor BCF = C_organism/C_water (Environmental Engineering p.328–329). Equivalent weight table (EW(HCO₃⁻)=61, EW(CaCO₃)=50) in Handbook Common Radicals table p.348 — alkalinity-as-CaCO₃ conversion derivable from EW concept (fundamental). NOT in Handbook v10.6: Henderson-Hasselbalch pH = pKa + log([A⁻]/[HA]) — formula supplied in Q03 stem (tagged in-stem, closed-book solvable); strong-acid/base pH (pH = −log[H⁺], pOH = −log[OH⁻], pH+pOH=14); ThOD stoichiometry (balanced combustion equation); zero-order half-life (derived in Q10 stem, in-stem); K_ow bioaccumulation threshold (regulatory, not in Handbook); degree of unsaturation formula; organic functional-group identification; PCE/TCE structural classification; contaminant velocity v_c = v_s/R (derived from R definition).",
+  "questions": [
+    {
+      "id": "D9-Q01",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "pH of a strong acid (HCl)",
+      "stem": "A laboratory sample of hydrochloric acid has a concentration of 2.5 × 10⁻³ mol/L. HCl is a strong acid that dissociates completely in water. The pH of this solution at 25°C is most nearly:",
+      "equations": [
+        "$\\mathrm{pH} = -\\log_{10}[\\mathrm{H}^+]\\quad (\\text{strong acid: } [\\mathrm{H}^+] = C_{acid})$"
+      ],
+      "options": [
+        "1.30",
+        "2.30",
+        "2.60",
+        "11.40"
+      ],
+      "answer": 2,
+      "solution": "$[\\mathrm{H}^+] = 2.5\\times10^{-3}$ mol/L.  $\\mathrm{pH} = -\\log_{10}(2.5\\times10^{-3}) = -(\\log_{10}2.5 + \\log_{10}10^{-3}) = -(0.398 - 3) = 2.60$. Option (A) 1.30: uses $[\\mathrm{H}^+] = 0.050$ M (a 20-fold error — likely misplacing the decimal). Option (B) 2.30: uses $[\\mathrm{H}^+] = 5.0\\times10^{-3}$ M (factor-of-2 error; $-\\log(5\\times10^{-3}) = 2.30$). Option (D) 11.40: computes pOH correctly (pOH $= 2.60$) but then takes $\\mathrm{pH} = 14-2.60$ as if the solution were basic — acid/base confusion. For a strong acid there is no pOH route; $\\mathrm{pH}$ is read directly from $[\\mathrm{H}^+]$.",
+      "handbook": "N/A — fundamental (pH = −log[H⁺], strong-acid complete dissociation)",
+      "references": "Ctrl-F: pH; Acid; Dissociation",
+      "source": "fundamental",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q02",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "pH of a strong base (NaOH) via pOH",
+      "stem": "A dilute NaOH solution has a concentration of 1.0 × 10⁻³ mol/L. NaOH dissociates completely, producing one OH⁻ per formula unit. Using Kw = 1.0 × 10⁻¹⁴ at 25°C, the pH of this solution is:",
+      "equations": [
+        "$K_w = [\\mathrm{H}^+][\\mathrm{OH}^-] = 1.0\\times10^{-14}$",
+        "$\\mathrm{pOH} = -\\log_{10}[\\mathrm{OH}^-],\\quad \\mathrm{pH} + \\mathrm{pOH} = 14$"
+      ],
+      "options": [
+        "3.0",
+        "4.0",
+        "11.0",
+        "13.0"
+      ],
+      "answer": 2,
+      "solution": "$[\\mathrm{OH}^-] = 1.0\\times10^{-3}$ mol/L. $\\mathrm{pOH} = -\\log_{10}(1.0\\times10^{-3}) = 3.0$. $\\mathrm{pH} = 14 - 3.0 = 11.0$. Option (A) 3.0: reports pOH as pH (forgetting to subtract from 14). Option (B) 4.0: uses $[\\mathrm{OH}^-] = 1.0\\times10^{-4}$ M (10-fold dilution error). Option (D) 13.0: uses $[\\mathrm{OH}^-] = 0.10$ M (100-fold concentration error). At pH 11, $[\\mathrm{H}^+] = 10^{-11}$ M — verify: $K_w = 10^{-11}\\times10^{-3} = 10^{-14}$ ✓.",
+      "handbook": "N/A — fundamental (Kw, pOH, pH+pOH=14)",
+      "references": "Ctrl-F: pOH; Kw; Strong Base; NaOH",
+      "source": "fundamental",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q03",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Henderson-Hasselbalch equation — buffer pH",
+      "stem": "A buffer solution contains 0.10 mol/L of sodium acetate (CH₃COO⁻) and 0.05 mol/L of acetic acid (CH₃COOH). The pKa of acetic acid is 4.74. Using the Henderson-Hasselbalch equation, the pH of this buffer is most nearly:",
+      "equations": [
+        "$\\mathrm{pH} = \\mathrm{p}K_a + \\log_{10}\\dfrac{[\\mathrm{A}^-]}{[\\mathrm{HA}]}$"
+      ],
+      "options": [
+        "4.44  (inverted ratio)",
+        "4.74  (pKa only — ratio term omitted)",
+        "5.04  (correct)",
+        "6.74  (ratio added instead of log of ratio)"
+      ],
+      "answer": 2,
+      "solution": "$\\mathrm{pH} = 4.74 + \\log_{10}(0.10/0.05) = 4.74 + \\log_{10}(2.0) = 4.74 + 0.301 = 5.04$. Option (A): inverts the ratio — $\\log(0.05/0.10) = \\log(0.5) = -0.301$, giving $4.74-0.30 = 4.44$. Option (B): ignores the log term entirely; pH = pKa only when $[\\mathrm{A}^-]=[\\mathrm{HA}]$ (ratio = 1, log = 0). Option (D): adds the ratio directly instead of taking its log: $4.74 + 2.0 = 6.74$ — the log is dimensionless and here equals 0.30, not 2.0. Buffers resist pH change most effectively within ±1 unit of pKa; at pH 5.04 the acetate buffer is in its effective range.",
+      "handbook": "N/A — Henderson-Hasselbalch is NOT in FE Reference Handbook v10.6; formula provided in question stem (in-stem, closed-book solvable)",
+      "references": "Ctrl-F: Henderson-Hasselbalch; Buffer; pKa; Acetic Acid",
+      "source": "in-stem",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q04",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Alkalinity as CaCO₃ from bicarbonate concentration",
+      "stem": "A groundwater sample is analyzed and found to contain 183 mg/L of bicarbonate (HCO₃⁻) as the sole contributor to alkalinity. Using equivalent weights EW(HCO₃⁻) = 61 g/eq and EW(CaCO₃) = 50 g/eq (from the Handbook Common Radicals table), express the total alkalinity in mg/L as CaCO₃.",
+      "equations": [
+        "$\\text{Alkalinity (mg/L as CaCO}_3) = C_{\\mathrm{HCO}_3^-}\\,(\\mathrm{mg/L})\\times\\dfrac{EW_{\\mathrm{CaCO}_3}}{EW_{\\mathrm{HCO}_3^-}} = C\\times\\dfrac{50}{61}$"
+      ],
+      "answer": "150 mg/L as CaCO₃",
+      "solution": "$\\text{Alkalinity} = 183\\times(50/61) = 183\\times0.8197 = 150.0\\ \\mathrm{mg/L\\ as\\ CaCO_3}$. The factor 50/61 converts from mg/L as HCO₃⁻ to mg/L as CaCO₃ — the universal water-chemistry reporting basis. EW(CaCO₃) = 100/2 = 50 g/eq (divalent); EW(HCO₃⁻) = 61/1 = 61 g/eq (monovalent). Alternatively: 183 mg/L ÷ 61 g/eq = 3.00 meq/L; 3.00 meq/L × 50 mg/meq = 150 mg/L as CaCO₃ (same result). If carbonate (CO₃²⁻) were also present, its contribution would be $C_{\\mathrm{CO}_3^{2-}}\\times(50/30)$ added to the HCO₃⁻ term (EW of CO₃²⁻ = 60/2 = 30 g/eq). Common error: dividing instead of multiplying the EW ratio gives $183\\times(61/50) = 223$ mg/L as CaCO₃ — an impossible result since alkalinity as CaCO₃ < mg/L of HCO₃⁻ (HCO₃⁻ is heavier per equivalent than CaCO₃).",
+      "handbook": "Water & Wastewater — Common Radicals table (EW(HCO₃⁻)=61, EW(CaCO₃)=50, p.348); EW-based conversion is standard analytical chemistry",
+      "references": "Ctrl-F: Alkalinity; Bicarbonate; CaCO3; Equivalent Weight",
+      "source": "fundamental",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q05",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Theoretical oxygen demand (ThOD) — acetone",
+      "stem": "Acetone (C₃H₆O, MW = 58 g/mol) is a common industrial solvent found in wastewater. Its complete aerobic oxidation follows: C₃H₆O + 4O₂ → 3CO₂ + 3H₂O. A wastewater sample contains 80 mg/L of acetone. The ThOD of this sample is most nearly:",
+      "equations": [
+        "$ThOD = C_{\\mathrm{compound}}\\,(\\mathrm{mg/L})\\times\\dfrac{\\nu\\,MW_{\\mathrm{O_2}}}{MW_{\\mathrm{compound}}}$",
+        "$\\nu = \\text{moles O}_2\\text{ consumed per mole of compound}$"
+      ],
+      "options": [
+        "128 mg/L O₂",
+        "155 mg/L O₂",
+        "177 mg/L O₂",
+        "221 mg/L O₂"
+      ],
+      "answer": 2,
+      "solution": "From the balanced equation, $\\nu = 4$ mol O$_2$/mol acetone. $ThOD = 80\\times(4\\times32/58) = 80\\times(128/58) = 80\\times2.207 = 176.6\\approx177\\ \\mathrm{mg/L\\ O_2}$. Verify the balance: C: $3=3$✓; H: $6=6$ (in 3H₂O)✓; O: $(1+8)=9 = (6+3)$✓. Option (A) 128: directly uses the O$_2$ mass per mole (4×32=128 g/mol) as if it were a concentration — dimensionally incorrect; the ratio 128/58 must be applied. Option (B) 155: substitutes MW(N₂) = 28 g/mol for MW(O₂) = 32 g/mol (a common error when working near nitrogen): $80\\times4\\times28/58 = 154.5\\approx155$. Option (D) 221: assumes 5 mol O$_2$ instead of 4: $80\\times5\\times32/58 = 220.7\\approx221$. The existing oxygen atom in acetone reduces the external O$_2$ demand relative to propane (C₃H₈ needs 5 mol O$_2$), hence 4 mol rather than 5.",
+      "handbook": "N/A — fundamental stoichiometry (balanced combustion equation)",
+      "references": "Ctrl-F: Theoretical Oxygen Demand; ThOD; COD; Stoichiometry",
+      "source": "fundamental",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q06",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Solubility product (Ksp) — equilibrium Ca²⁺ concentration",
+      "stem": "The solubility product of calcite (CaCO₃) at 25°C is Ksp = 3.3 × 10⁻⁹. In a closed system containing only CaCO₃ and pure water at equilibrium, and assuming no other calcium or carbonate sources, determine the equilibrium Ca²⁺ concentration in mg/L. Use MW(Ca) = 40.1 g/mol.",
+      "equations": [
+        "$\\mathrm{CaCO_3}(s) \\rightleftharpoons \\mathrm{Ca}^{2+} + \\mathrm{CO_3}^{2-}$",
+        "$K_{sp} = [\\mathrm{Ca}^{2+}][\\mathrm{CO_3}^{2-}] = x^{2}\\quad \\Rightarrow\\quad x = \\sqrt{K_{sp}}$"
+      ],
+      "answer": "≈ 2.3 mg/L as Ca²⁺",
+      "solution": "Let $x = [\\mathrm{Ca}^{2+}] = [\\mathrm{CO_3}^{2-}]$ (equal stoichiometry). $x = \\sqrt{3.3\\times10^{-9}} = 5.74\\times10^{-5}$ mol/L. $[\\mathrm{Ca}^{2+}] = 5.74\\times10^{-5}\\ \\mathrm{mol/L}\\times40.1\\ \\mathrm{g/mol}\\times1000\\ \\mathrm{mg/g} = 2.30\\ \\mathrm{mg/L}$. In mg/L as CaCO₃: $5.74\\times10^{-5}\\times100.1\\times1000 = 5.75\\ \\mathrm{mg/L\\ as\\ CaCO_3}$. Common ion effect: if the water already contains $[\\mathrm{Ca}^{2+}] = 100$ mg/L (2.49 mmol/L), the equilibrium $[\\mathrm{CO_3}^{2-}] = K_{sp}/[\\mathrm{Ca}^{2+}] = 3.3\\times10^{-9}/2.49\\times10^{-3} = 1.33\\times10^{-6}$ mol/L — far less than the pure-water value; adding Ca²⁺ suppresses carbonate solubility. This is the thermodynamic basis of CaCO₃ precipitation in water softening and scale formation.",
+      "handbook": "Chemistry — Solubility Product (Ksp definition and table, NCEES FE Reference Handbook, Chemistry section)",
+      "references": "Ctrl-F: Ksp; Solubility Product; CaCO3; Calcium Carbonate",
+      "source": "handbook",
+      "spec": "6.A — stoichiometry/reactions"
+    },
+
+    {
+      "id": "D9-Q07",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "First-order rate constant from half-life",
+      "stem": "A volatile organic compound (VOC) in a contaminated aquifer is observed to degrade via first-order natural attenuation. Field monitoring data show that the contaminant concentration decreases by 50% every 12 days. The first-order rate constant k is most nearly:",
+      "equations": [
+        "$t_{1/2} = \\dfrac{0.693}{k}\\quad\\Rightarrow\\quad k = \\dfrac{0.693}{t_{1/2}}$"
+      ],
+      "options": [
+        "0.029 day⁻¹",
+        "0.058 day⁻¹",
+        "0.083 day⁻¹",
+        "0.116 day⁻¹"
+      ],
+      "answer": 1,
+      "solution": "$k = 0.693/t_{1/2} = 0.693/12 = 0.05775\\approx0.058\\ \\mathrm{day^{-1}}$. Verify: $t_{1/2} = 0.693/0.058 = 11.9\\approx12\\ \\mathrm{days}$✓. Option (A) 0.029: uses $0.693/(2\\times12) = 0.0289$ — doubles the half-life in the denominator. Option (C) 0.083: uses $k = 1/t_{1/2} = 1/12 = 0.0833$ — applies a mean lifetime formula ($\\tau = 1/k$) instead of half-life ($t_{1/2} = 0.693/k$); the mean lifetime $\\tau = 1/k = 17.3$ d is the time for $e^{-1}\\approx37\\%$ remaining, not 50\\%. Option (D) 0.116: uses $k = 0.693/(t_{1/2}/2) = 2\\times0.058$ — halves the half-life, which would correspond to $t_{1/2} = 6$ d. Note: the 0.693 factor comes from $\\ln 2$; at exactly one half-life, $C = C_0 e^{-k t_{1/2}} = C_0/2$, so $k t_{1/2} = \\ln 2 = 0.693$.",
+      "handbook": "Mathematics — Differential Equations (t_{1/2} = 0.693/k for first-order decay, p.20 or near); confirmed in Reactor Design table (p.331)",
+      "references": "Ctrl-F: Half-Life; First Order; Rate Constant; Decay",
+      "source": "handbook",
+      "spec": "6.B — kinetics"
+    },
+
+    {
+      "id": "D9-Q08",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "First-order decay — time to reach cleanup target",
+      "stem": "A batch treatability study shows that naphthalene biodegrades via first-order kinetics with k = 0.15 day⁻¹. The initial concentration is C₀ = 100 mg/L. Determine the time required (in days) for the concentration to reach the remediation target of 5 mg/L.",
+      "equations": [
+        "$C_t = C_0\\,e^{-kt}\\quad\\Rightarrow\\quad t = \\dfrac{\\ln(C_0/C_t)}{k}$"
+      ],
+      "answer": "≈ 20 days",
+      "solution": "$t = \\ln(100/5)/0.15 = \\ln(20)/0.15 = 2.996/0.15 = 19.97\\approx20\\ \\mathrm{days}$. Verify: $C = 100\\times e^{-0.15\\times20} = 100\\times e^{-3.0} = 100\\times0.0498 = 4.98\\approx5.0$ mg/L✓. The ratio $C_0/C_t = 20 = 2^{4.32}$ corresponds to 4.32 half-lives ($t_{1/2} = 0.693/0.15 = 4.62$ days; $4.32\\times4.62 = 20.0$ d — consistent). Common errors: (i) using $t = (C_0-C_t)/k$ (zero-order formula): $(100-5)/0.15 = 633$ d — orders of magnitude wrong; (ii) forgetting $\\ln$ and writing $t = (C_0/C_t)/k = 20/0.15 = 133$ d — dimensionally inconsistent.",
+      "handbook": "Environmental Engineering — Reactor Design table, PFR/Batch first-order decay: C_t = C_0·e^(-kθ) (p.331)",
+      "references": "Ctrl-F: First Order; Biodegradation; Cleanup Target; Naphthalene",
+      "source": "handbook",
+      "spec": "6.B — kinetics"
+    },
+
+    {
+      "id": "D9-Q09",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Concentration remaining after multiple half-lives",
+      "stem": "A radioactive tracer used in an aquifer test has an initial activity concentration of C₀ = 500 µg/L and a physical half-life of t₁/₂ = 10 days. What is the concentration remaining after 20 days?",
+      "equations": [
+        "$C_t = C_0\\left(\\dfrac{1}{2}\\right)^{t/t_{1/2}} = C_0\\,e^{-kt},\\quad k=\\dfrac{0.693}{t_{1/2}}$"
+      ],
+      "options": [
+        "68 µg/L",
+        "125 µg/L",
+        "250 µg/L",
+        "375 µg/L"
+      ],
+      "answer": 1,
+      "solution": "$t/t_{1/2} = 20/10 = 2.0$ half-lives. $C = 500\\times(1/2)^2 = 500/4 = 125\\ \\mu\\mathrm{g/L}$. Each half-life halves the concentration: $500 \\xrightarrow{10\\,\\mathrm{d}} 250 \\xrightarrow{10\\,\\mathrm{d}} 125\\ \\mu\\mathrm{g/L}$. Option (A) 68: uses $k = 1/t_{1/2}$ (mean-lifetime formula): $500\\times e^{-(1/10)\\times20} = 500\\times e^{-2.0} = 67.7\\approx68\\ \\mu\\mathrm{g/L}$ (off by $1/\\ln 2 = 1.443$). Option (C) 250: applies only one half-life — misreads $t_{1/2}$ as 20 days or stops after step 1. Option (D) 375: subtracts $C_0/4 = 125$ from $C_0$ linearly: $500-125 = 375$ — a zero-order arithmetic error instead of geometric halving.",
+      "handbook": "Mathematics — Differential Equations (first-order decay, half-life, p.20)",
+      "references": "Ctrl-F: Half-Life; Decay; Radioactive Tracer; Aquifer",
+      "source": "handbook",
+      "spec": "6.B — kinetics"
+    },
+
+    {
+      "id": "D9-Q10",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Zero-order reaction — half-life depends on initial concentration",
+      "stem": "An oxidant in a chlorine-contact chamber degrades the target pathogen according to zero-order kinetics, with rate constant k₀ = 5 mg/L·day. The initial concentration is C₀ = 60 mg/L. For zero-order kinetics the integrated rate law is [A]_t = [A]₀ − k₀t. The half-life (time to reach C₀/2 = 30 mg/L) is most nearly:",
+      "equations": [
+        "$[\\mathrm{A}]_t = [\\mathrm{A}]_0 - k_0\\,t\\quad(\\text{zero-order})$",
+        "$t_{1/2}^{\\text{zero}} = \\dfrac{[\\mathrm{A}]_0}{2\\,k_0}$"
+      ],
+      "options": [
+        "0.14 day  (applies first-order formula with wrong units for k)",
+        "6 days  (correct zero-order half-life)",
+        "12 days  (uses C₀/k₀ instead of C₀/(2k₀))",
+        "30 days  (uses C₀/k₀ × half  — decimal error)"
+      ],
+      "answer": 1,
+      "solution": "At $t_{1/2}$: $[A]_0/2 = [A]_0 - k_0\\,t_{1/2}$. Solving: $t_{1/2} = [A]_0/(2k_0) = 60/(2\\times5) = 6\\ \\mathrm{days}$. Option (A) 0.14 d: blindly applies the first-order formula $t_{1/2} = 0.693/k$ with $k = 5$ (but 5 has units mg/L·day, not day⁻¹ — dimensionally incompatible with first-order). Option (C) 12 d: uses $C_0/k_0 = 60/5 = 12$ — forgets the factor of 2 (this is the time to full depletion, $[A] = 0$, not half-depletion). Option (D) 30 d: arithmetic confusion, perhaps $k_0 = 2$ mg/L·day (misreads 5 as 2) giving $60/4 = 15$ or uses $C_0/k_0 \\times (1/2) = 6$ (correct but then reports 30 from another mistake). Critical contrast: for a first-order reaction the half-life is INDEPENDENT of $C_0$; for zero-order, $t_{1/2}^{\\text{zero}} \\propto C_0$ — doubling the initial concentration doubles the zero-order half-life.",
+      "handbook": "Environmental Engineering / Chemistry — Reactor Design table (zero-order integrated rate law [A] = [A]₀ − k₀t, p.331)",
+      "references": "Ctrl-F: Zero-Order; Half-Life; Rate Law; Kinetics",
+      "source": "in-stem",
+      "spec": "6.B — kinetics"
+    },
+
+    {
+      "id": "D9-Q11",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Organic functional groups — identifying a carboxylic acid",
+      "stem": "Organic compounds are classified by their functional groups, which govern reactivity and fate in the environment. Which of the following molecules contains a carboxylic acid functional group (–COOH)?",
+      "equations": [],
+      "options": [
+        "CH₃OH  (methanol)",
+        "CH₃COOH  (acetic acid)",
+        "CH₃NH₂  (methylamine)",
+        "CH₃CHO  (acetaldehyde)"
+      ],
+      "answer": 1,
+      "solution": "Option (B) CH₃COOH (acetic acid) contains the carboxylic acid group −COOH, which consists of a carbonyl C=O and a hydroxyl −OH bonded to the same carbon. Carboxylic acids are weak acids (pKa ∼ 4–5); acetic acid pKa = 4.74. Option (A) CH₃OH (methanol): contains a hydroxyl −OH group → alcohol (not acidic unless deprotonated at pH > 15). Option (C) CH₃NH₂ (methylamine): contains −NH₂ → primary amine (acts as a BASE, pKb ∼ 3.4). Option (D) CH₃CHO (acetaldehyde): contains −CHO → aldehyde (carbonyl at the chain end, no OH); not acidic. Environmental relevance: carboxylic acids such as acetic, propionic, and butyric acids are key intermediates in anaerobic biodegradation; their accumulation signals a stressed digester. Acetic acid is also the primary substrate for methanogenic archaea.",
+      "handbook": "N/A — fundamental organic chemistry (functional group identification)",
+      "references": "Ctrl-F: Carboxylic Acid; Functional Group; Organic Chemistry",
+      "source": "fundamental",
+      "spec": "6.C — organic chemistry"
+    },
+
+    {
+      "id": "D9-Q12",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Degree of unsaturation (index of hydrogen deficiency)",
+      "stem": "Benzoic acid has the molecular formula C₇H₆O₂. Using the degree-of-unsaturation formula (oxygen and sulfur atoms are not counted), how many degrees of unsaturation does benzoic acid contain, and which structural features account for them?",
+      "equations": [
+        "$DoU = \\dfrac{2C + 2 - H + N}{2}\\quad (\\text{O and S not counted; each halogen replaces one H})$"
+      ],
+      "options": [
+        "DoU = 4 — benzene ring only (3 C=C bonds + 1 ring)",
+        "DoU = 5 — benzene ring (4) + C=O of carboxyl group (1)",
+        "DoU = 6 — benzene + two carbonyl groups",
+        "DoU = 3 — three double bonds, no ring counted"
+      ],
+      "answer": 1,
+      "solution": "$DoU = (2\\times7 + 2 - 6)/2 = (14+2-6)/2 = 10/2 = 5$. Structural breakdown: the benzene ring contributes 4 degrees (3 C=C double bonds + 1 ring closure); the carboxylic acid −COOH group contributes 1 degree (the C=O carbonyl). Total = 5. Option (A): counts only the benzene ring (DoU=4) and ignores the carboxyl C=O. Option (C): double-counts by assuming both the C=O and the O−H bond each add a degree (only the C=O counts). Option (D): counts 3 C=C bonds but ignores the ring, which adds 1 extra degree over an open-chain structure with the same number of double bonds. Practical use: DoU helps identify compound class — DoU=4 → likely aromatic; DoU≥1 → unsaturated or cyclic; DoU=0 → saturated (alkane or alcohol).",
+      "handbook": "N/A — fundamental organic chemistry (degree of unsaturation formula)",
+      "references": "Ctrl-F: Degree of Unsaturation; Index of Hydrogen Deficiency; Aromatic",
+      "source": "fundamental",
+      "spec": "6.C — organic chemistry"
+    },
+
+    {
+      "id": "D9-Q13",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Organic compound classes — identifying a saturated alkane by molecular formula",
+      "stem": "Alkanes are saturated hydrocarbons with the general formula CₙH₂ₙ₊₂ and zero degrees of unsaturation. Which of the following molecular formulas represents a saturated alkane?",
+      "equations": [
+        "$\\text{Alkane general formula: }C_nH_{2n+2}\\quad (n\\geq1)$"
+      ],
+      "options": [
+        "C₆H₆  (DoU = 4 — benzene, aromatic)",
+        "C₄H₈  (DoU = 1 — butene or cyclobutane)",
+        "C₅H₁₂  (DoU = 0 — pentane, saturated alkane)",
+        "C₃H₄  (DoU = 2 — propyne or allene)"
+      ],
+      "answer": 2,
+      "solution": "For $n=5$: $C_5H_{2(5)+2} = C_5H_{12}$ → DoU $= (2\\times5+2-12)/2 = 0$. Zero unsaturation confirms no double bonds or rings — this is pentane. Option (A) C₆H₆: $DoU = (12+2-6)/2 = 4$ → benzene (aromatic). Option (B) C₄H₈: $DoU = (8+2-8)/2 = 1$ → 1-butene (C=C) or cyclobutane (ring). Option (D) C₃H₄: $DoU = (6+2-4)/2 = 2$ → propyne (C≡C counts as DoU=2) or allene (two C=C). Environmental significance: simple alkanes in petroleum are hydrophobic (low water solubility), persist in soil, and are biodegraded aerobically by bacteria that use alkane monooxygenases. BTEX compounds (benzene, toluene, ethylbenzene, xylene) — all aromatic — are priority groundwater pollutants because of their higher water solubility and toxicity relative to straight-chain alkanes.",
+      "handbook": "N/A — fundamental organic chemistry (alkane formula, degree of unsaturation)",
+      "references": "Ctrl-F: Alkane; Saturated Hydrocarbon; Organic Chemistry; BTEX",
+      "source": "fundamental",
+      "spec": "6.C — organic chemistry"
+    },
+
+    {
+      "id": "D9-Q14",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Chlorinated solvents — PCE vs TCE molecular structure",
+      "stem": "Tetrachloroethylene (PCE, also called perchloroethylene) and trichloroethylene (TCE) are the two most commonly detected chlorinated solvents in contaminated groundwater at CERCLA (Superfund) sites. Which statement correctly describes their molecular formulas and a key structural difference?",
+      "equations": [],
+      "options": [
+        "PCE = C₂HCl₃ (one hydrogen); TCE = C₂Cl₄ (no hydrogen) — reversed assignment",
+        "PCE = C₂Cl₄ (no hydrogen atoms); TCE = C₂HCl₃ (one hydrogen atom)",
+        "Both PCE and TCE are single-carbon compounds (only one carbon per molecule)",
+        "PCE contains a C≡C triple bond; TCE contains a C=C double bond"
+      ],
+      "answer": 1,
+      "solution": "PCE = perCHLOROethylene = C₂Cl₄ (the 'per' prefix means fully halogenated — no remaining C−H bonds). TCE = TRIchloroethylene = C₂HCl₃ (three Cl, one H remaining on the double bond). Both contain a C=C double bond (alkene/chloroethylene structure). Option (A) reverses the assignment. Option (C) is wrong: both have two carbons (ethylene = 2-carbon backbone). Option (D) is wrong: neither has a triple bond; both are chloroethylenes with C=C. Environmental context: PCE → TCE → DCE (dichloroethylene) → vinyl chloride (VC) → ethylene is the reductive dechlorination pathway in anaerobic groundwater. VC is a known human carcinogen and is often the regulatory-driver compound at chlorinated-solvent plumes. PCE and TCE are both probable human carcinogens and are denser than water (DNAPLs — dense non-aqueous phase liquids), sinking to the bottom of aquifers.",
+      "handbook": "N/A — fundamental environmental organic chemistry (chlorinated solvent identification)",
+      "references": "Ctrl-F: PCE; TCE; Chlorinated Solvent; DNAPL; Reductive Dechlorination",
+      "source": "fundamental",
+      "spec": "6.C — organic chemistry"
+    },
+
+    {
+      "id": "D9-Q15",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Henry's Law (dimensionless) — equilibrium air-phase concentration",
+      "stem": "A volatile organic compound has a dimensionless Henry's Law constant H_cc = 0.35 (H_cc = C_gas / C_liq, concentrations in the same units) at 20°C. A contaminated water sample contains 8.0 mg/L of the compound. At equilibrium, the vapor-phase concentration above the water surface is most nearly:",
+      "equations": [
+        "$H_{cc} = \\dfrac{C_{\\mathrm{gas}}}{C_{\\mathrm{liq}}}\\quad(\\text{dimensionless; same mass/volume units both phases})$",
+        "$C_{\\mathrm{gas}} = H_{cc}\\times C_{\\mathrm{liq}}$"
+      ],
+      "options": [
+        "2.8 mg/L (air)",
+        "8.35 mg/L (air)",
+        "22.9 mg/L (air)",
+        "0.044 mg/L (air)"
+      ],
+      "answer": 0,
+      "solution": "$C_{\\mathrm{gas}} = H_{cc}\\times C_{\\mathrm{liq}} = 0.35\\times8.0 = 2.8\\ \\mathrm{mg/L\\ (air)}$. Option (B) 8.35: adds $H_{cc}$ to $C_{liq}$ as if it were a concentration: $8.0 + 0.35 = 8.35$ (dimensionally incorrect — $H_{cc}$ is dimensionless). Option (C) 22.9: inverts — $C_{liq}/H_{cc} = 8.0/0.35 = 22.9$, treating the formula as $H_{cc} = C_{liq}/C_{gas}$ rather than $C_{gas}/C_{liq}$. Option (D) 0.044: $H_{cc}/C_{liq} = 0.35/8.0 = 0.044$ (takes a ratio the wrong way). Henry's Law in this form is used to assess whether a compound will volatilize from water ($H_{cc} > 0.01$ → significant volatilization; the compound here, at $H_{cc} = 0.35$, readily partitions into air). Air-stripping towers exploit high $H_{cc}$ to remove VOCs from groundwater.",
+      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless form, NCEES FE Reference Handbook Environmental Chemistry section)",
+      "references": "Ctrl-F: Henry's Law; Hcc; Volatilization; VOC; Air Stripping",
+      "source": "handbook",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    },
+
+    {
+      "id": "D9-Q16",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Octanol-water partition coefficient (K_ow) — bioaccumulation potential",
+      "stem": "The octanol-water partition coefficient K_ow (K_ow = C_octanol / C_water at equilibrium) is a key predictor of a compound's tendency to partition into organic matter and lipid tissues. Four organic compounds have the following log K_ow values: compound A (−0.5), compound B (1.8), compound C (3.6), compound D (5.2). Which compound is MOST likely to bioaccumulate in the fatty tissues of aquatic organisms?",
+      "equations": [
+        "$K_{ow} = \\dfrac{C_{\\mathrm{octanol}}}{C_{\\mathrm{water}}}\\quad(\\text{higher }K_{ow} \\rightarrow \\text{more lipophilic})$"
+      ],
+      "options": [
+        "Compound A (log K_ow = −0.5) — very hydrophilic, stays in water",
+        "Compound B (log K_ow = 1.8) — slightly lipophilic, low bioaccumulation",
+        "Compound C (log K_ow = 3.6) — moderately lipophilic",
+        "Compound D (log K_ow = 5.2) — highly lipophilic, greatest bioaccumulation"
+      ],
+      "answer": 3,
+      "solution": "Compound D (log $K_{ow} = 5.2$, $K_{ow} = 10^{5.2} = 158{,}000$) has the highest affinity for lipid (fat) relative to water — it partitions most strongly into biological tissue. General classification: log $K_{ow}$ < 1 → hydrophilic (little tendency to accumulate); 1–3 → moderately lipophilic; > 3–4 → bioaccumulation concern; > 5 → persistent bioaccumulative toxic (PBT) status and priority pollutant concern. Compounds A through D represent the range from polar/hydrophilic (A: e.g., glucose-like) to highly lipophilic (D: e.g., DDT, PCB congeners, PFAS). High $K_{ow}$ also means: (i) high $K_{oc}$ → strong sorption to soil organic carbon; (ii) low water solubility; (iii) tendency to partition to NAPL phases in contaminated sites. The BCF (bioconcentration factor) correlates with $K_{ow}$: log BCF $\\approx$ 0.85 log $K_{ow}$ − 0.70 (empirical, supplemental — not in Handbook).",
+      "handbook": "Environmental Engineering — K_ow table and definition (NCEES FE Reference Handbook, Environmental Chemistry section)",
+      "references": "Ctrl-F: Kow; Octanol-Water; Bioaccumulation; Lipophilic; Partition Coefficient",
+      "source": "fundamental",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    },
+
+    {
+      "id": "D9-Q17",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Retardation factor from K_oc and soil properties (SI)",
+      "stem": "A dissolved organic contaminant in an unconfined aquifer has an organic-carbon partition coefficient K_oc = 200 mL/g. The aquifer matrix has: organic carbon fraction f_oc = 0.010, bulk density ρ_b = 1.6 g/cm³, and effective porosity n_e = 0.40. Calculate the retardation factor R. (Note: mL/g = cm³/g, so units are consistent with ρ_b in g/cm³.)",
+      "equations": [
+        "$R = 1 + \\dfrac{\\rho_b}{n_e}\\,K_d,\\quad K_d = K_{oc}\\,f_{oc}$"
+      ],
+      "answer": "R = 9.0",
+      "solution": "$K_d = K_{oc}\\times f_{oc} = 200\\times0.010 = 2.0\\ \\mathrm{mL/g = cm^3/g}$. $R = 1 + (\\rho_b/n_e)\\times K_d = 1 + (1.6/0.40)\\times2.0 = 1 + 4.0\\times2.0 = 1 + 8.0 = 9.0$. Interpretation: the contaminant travels at $1/9$ the seepage velocity of groundwater — for every 9 m the water moves, the contaminant front advances 1 m. Common errors: (i) forgetting to add 1: $R = 8.0$ (conservative tracer has $R=1$, not 0). (ii) Using $\\rho_b = 1.6$ lb/ft³ with $K_d$ in mL/g — must use consistent units. (iii) Confusing $K_{oc}$ with $K_{ow}$: $K_{oc} = 0.41\\times K_{ow}$ is an empirical relationship (supplemental, not in Handbook) — if $K_{ow}$ is given, the approximate relationship may be stated in-stem. This is the same Handbook formula used in groundwater remediation (Day 6) now applied from the environmental-chemistry multimedia partitioning perspective.",
+      "handbook": "Environmental Engineering — Retardation Factor (R = 1 + (ρb/ne)Kd, Kd = Koc·foc, p.330)",
+      "references": "Ctrl-F: Retardation Factor; Koc; Kd; Organic Carbon; Contaminant Transport",
+      "source": "handbook",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    },
+
+    {
+      "id": "D9-Q18",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Contaminant transport velocity — retardation factor (USCS)",
+      "stem": "An aquifer has a measured groundwater seepage velocity of 1.8 ft/day. A sorbing organic contaminant has a retardation factor R = 9.0 (calculated from K_oc and soil properties). The velocity at which the center of the contaminant plume advances is most nearly:",
+      "equations": [
+        "$v_c = \\dfrac{v_s}{R}\\quad(\\text{contaminant velocity} = \\text{seepage velocity}/R)$"
+      ],
+      "options": [
+        "0.20 ft/day",
+        "0.60 ft/day",
+        "1.8 ft/day",
+        "16.2 ft/day"
+      ],
+      "answer": 0,
+      "solution": "$v_c = v_s/R = 1.8/9.0 = 0.20\\ \\mathrm{ft/day}$. Option (B) 0.60: divides by $\\sqrt{R} = 3$: $1.8/3 = 0.60$ — a square-root error. Option (C) 1.8: ignores retardation ($R=1$ error) — this is the groundwater seepage velocity, not the contaminant velocity. Option (D) 16.2: multiplies instead of divides: $1.8\\times9.0 = 16.2$ — applies retardation in the wrong direction. The retardation factor physically means the groundwater moves 9 ft while the contaminant moves 1 ft. In cleanup planning: if a plume source is 1,800 ft from a receptor, groundwater arrives in $1800/1.8 = 1{,}000$ days while the contaminant plume front arrives in $1800/0.20 = 9{,}000$ days — demonstrating why natural attenuation timescales for sorbing organics can span decades.",
+      "handbook": "N/A — fundamental (contaminant velocity = seepage velocity / R, derived from R definition)",
+      "references": "Ctrl-F: Retardation Factor; Contaminant Velocity; Plume; Transport",
+      "source": "fundamental",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    },
+
+    {
+      "id": "D9-Q19",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Air-water equilibrium partition — fraction in each phase",
+      "stem": "A sealed remediation chamber contains 3.0 ft³ of contaminated air and 1.5 ft³ of contaminated water. A volatile organic compound is present at a total mass of M₀ = 45 mg distributed between the two phases. The dimensionless Henry's constant is H_cc = 0.20 (H_cc = C_air/C_water). At equilibrium, the mass of compound residing in the air phase is most nearly: [Hint: write the mass balance C_w·V_w + H_cc·C_w·V_a = M₀ and solve for C_w, then compute mass in air = H_cc·C_w·V_a.]",
+      "equations": [
+        "$C_w\\,V_w + H_{cc}\\,C_w\\,V_a = M_0\\quad\\Rightarrow\\quad C_w = \\dfrac{M_0}{V_w + H_{cc}\\,V_a}$",
+        "$m_{\\mathrm{air}} = H_{cc}\\,C_w\\,V_a = M_0\\times\\dfrac{H_{cc}\\,V_a}{V_w + H_{cc}\\,V_a}$"
+      ],
+      "options": [
+        "7.5 mg  (equal-volume assumption V_a = V_w)",
+        "9.0 mg  (takes H_cc × M₀ directly, ignoring volume ratio)",
+        "12.9 mg  (correct — accounts for V_a = 2V_w)",
+        "30.0 mg  (ignores H_cc, distributes by volume fraction only)"
+      ],
+      "answer": 2,
+      "solution": "$m_{\\mathrm{air}} = M_0\\times\\dfrac{H_{cc}\\,V_a}{V_w + H_{cc}\\,V_a} = 45\\times\\dfrac{0.20\\times3.0}{1.5 + 0.20\\times3.0} = 45\\times\\dfrac{0.60}{1.5+0.60} = 45\\times\\dfrac{0.60}{2.10} = 45\\times0.2857 = 12.86\\approx12.9\\ \\mathrm{mg}$. Option (A) 7.5: assumes $V_a = V_w$: $45\\times H_{cc}/(1+H_{cc}) = 45\\times0.20/1.20 = 7.5$ (valid only for equal volumes). Option (B) 9.0: multiplies $H_{cc}\\times M_0 = 0.20\\times45 = 9.0$ — omits the equilibrium volume distribution. Option (D) 30.0: distributes by volume fraction with no Henry's Law: $V_a/(V_a+V_w)\\times M_0 = (3/4.5)\\times45 = 30$ (ignores the chemical preference for water when $H_{cc} < 1$). Mass in water: $45 - 12.9 = 32.1$ mg; check: $C_w = 32.1/1.5 = 21.4$ mg/ft³; $C_a = 12.9/3.0 = 4.30$ mg/ft³; $H_{cc} = 4.30/21.4 = 0.201\\approx0.20$✓.",
+      "handbook": "Environmental Engineering — Henry's Law (H_cc = C_gas/C_liq, dimensionless); mass balance is fundamental",
+      "references": "Ctrl-F: Henry's Law; Air-Water Partition; Fugacity; VOC; Phase Distribution",
+      "source": "in-stem",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    },
+
+    {
+      "id": "D9-Q20",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Bioconcentration factor (BCF) — definition and bioaccumulation significance",
+      "stem": "A regulatory study samples bluegill sunfish from a river receiving an industrial discharge. The whole-body tissue concentration of a chlorinated compound is measured at 4,200 µg/kg (wet weight). The compound's concentration in the river water is 0.42 µg/L. Assuming fish tissue density ≈ 1 kg/L, the bioconcentration factor (BCF) and its environmental significance are:",
+      "equations": [
+        "$BCF = \\dfrac{C_{\\mathrm{organism}}\\ (\\mu\\mathrm{g/kg})}{C_{\\mathrm{water}}\\ (\\mu\\mathrm{g/L})}\\quad[\\mathrm{L/kg}]\\quad(\\text{same units: kg}\\approx\\mathrm{L\\ for\\ tissue})$"
+      ],
+      "options": [
+        "BCF = 0.0001 L/kg — compound preferentially stays in water",
+        "BCF = 1,000 L/kg — borderline bioaccumulation (10× error in C ratio)",
+        "BCF = 10,000 L/kg — significant bioaccumulation; compound exceeds EPA concern threshold",
+        "BCF = 100,000 L/kg — extreme bioaccumulation (100× error)"
+      ],
+      "answer": 2,
+      "solution": "$BCF = 4{,}200\\ (\\mu\\mathrm{g/kg}) / 0.42\\ (\\mu\\mathrm{g/L}) = 10{,}000\\ \\mathrm{L/kg}$. Option (A): inverts — $0.42/4{,}200 = 10^{-4}$. Option (B): decimal error (perhaps divides 4,200 by 4.2 instead of 0.42): $4{,}200/4.2 = 1{,}000$. Option (D): $4{,}200/0.042 = 100{,}000$ (misplaces decimal in water concentration). Interpretation: BCF $= 10{,}000 > 1{,}000$ → the EPA classifies compounds with BCF $\\geq 1{,}000$ as bioaccumulative (Tier 2 concern) and BCF $\\geq 5{,}000$ as highly bioaccumulative (potential PBT status). This compound concentrates in fish tissue at 10,000 times the water concentration — consistent with a log $K_{ow}\\approx 4.5$–5 compound (e.g., a heavier PCB congener). BCF differs from biomagnification factor (BMF), which describes concentration increase up a food chain (predator/prey), and from bioaccumulation factor (BAF), which includes dietary uptake.",
+      "handbook": "Environmental Engineering — Bioconcentration Factor BCF = C_organism/C_water (NCEES FE Reference Handbook, Environmental Engineering section, p.328–329)",
+      "references": "Ctrl-F: Bioconcentration Factor; BCF; Bioaccumulation; Kow; PBT",
+      "source": "handbook",
+      "spec": "6.D — multimedia equilibrium partitioning"
+    }
+  ]
+}

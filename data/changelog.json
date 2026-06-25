@@ -1,7 +1,19 @@
 {
-  "version": "0.18.0",
-  "updated": "2026-06-24",
+  "version": "0.19.0",
+  "updated": "2026-06-25",
   "history": [
+    {
+      "version": "0.19.0",
+      "date": "2026-06-25",
+      "title": "Day 9 added — Environmental Chemistry",
+      "changes": [
+        "Environmental Chemistry (Day 9, 20 questions) added — KA 6 subtopics A–D: stoichiometry/reactions (pH, pKa, Ksp, alkalinity, ThOD), kinetics (first-order decay, half-life, zero-order rate law), organic chemistry (functional groups, degree of unsaturation, alkane formula, chlorinated solvents PCE/TCE), multimedia equilibrium partitioning (Henry's Law, Kow, BCF, Koc, retardation factor, contaminant velocity)",
+        "Bank now holds 204 questions spanning Days 1–9; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 11 new Environmental Chemistry equations (pH, H-H buffer, alkalinity as CaCO3, Ksp, zero-order rate law, DoU, alkane formula, Henry's Law Hcc, Kow, BCF, Koc/Kd); printable Day-9 study PDF generated with pdflatex (materials/)",
+        "All Day-9 formulas cross-checked against NCEES FE Reference Handbook v10.6 via Google Drive subagent; confirmed: Ksp, first-order decay, zero-order rate law, Henry's Law Hcc, retardation factor R, BCF all in Handbook; Henderson-Hasselbalch NOT in Handbook (provided in Q03 stem, tagged in-stem)",
+        "KA 6 (7–11 exam questions) fully covered: all 4 subtopics A–D represented — SI + USCS mix (Q17 SI retardation, Q18 USCS ft/day transport, Q19 USCS ft³ volumes)"
+      ]
+    },
     {
       "version": "0.18.0",
       "date": "2026-06-24",
