@@ -1,0 +1,9 @@
+# Session scratch / temp working files — not part of the site
+scratchpad/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store
