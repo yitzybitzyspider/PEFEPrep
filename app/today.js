@@ -427,6 +427,7 @@
     $("revealBtn").onclick = reveal;
     $("stepBtn").onclick = showNextStep;
     $("nextBtn").onclick = next;
+    if ($("reportBtn")) $("reportBtn").onclick = function () { var q = QUESTIONS[idx]; if (q && window.PFPReport) PFPReport.open(q.id); };
     $("againBtn").onclick = function () { renderIntro(); };
     if ($("toggleNav")) $("toggleNav").onclick = function () { panelPref("nav", !panelPref("nav")); applyPanels(); };
     if ($("toggleHb")) $("toggleHb").onclick = function () { panelPref("hb", !panelPref("hb")); applyPanels(); };

@@ -112,9 +112,10 @@
     $("list").innerHTML = items.length ? items.map(function (q) {
       var st = histStatus(q), on = PFP.isStarred(q.id);
       var hasOpts = Array.isArray(q.options) && q.options.length;
-      var opts = hasOpts ? q.options.map(function (t, j) {
-        return '<div class="opt' + (j === q.answer ? " correct" : "") + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
-      }).join("") : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>";
+      var optsHtml = hasOpts ? '<div class="opts" style="margin:12px 0;">' + q.options.map(function (t, j) {
+        return '<div class="opt" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
+      }).join("") + "</div>" : "";
+      var numAns = hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>";
       var eqs = (q._eqs && q._eqs.length)
         ? '<div class="eqbox" style="margin:4px 0 12px;"><h4>Equations</h4>' + q._eqs.map(function (e) { return '<div class="eq">' + e + "</div>"; }).join("") + "</div>" : "";
       var src = q.source ? '<span class="srcbadge">' + (SRCLBL[q.source] || q.source) + "</span>" : "";
@@ -123,6 +124,7 @@
           '<span class="qstatus"><span class="dot ' + st + '"></span><span class="bdg ' + statusOf(q) + '">' + badgeLabel(q) + "</span></span></div>" +
         (q.concept ? '<div class="qconcept">' + q.concept + "</div>" : "") +
         '<div class="qstem">' + q.stem + "</div>" +
+        optsHtml +
         '<div class="qactions">' +
           '<button class="qact star' + (on ? " on" : "") + '" data-act="star">' + (on ? "★ Saved" : "☆ Save") + "</button>" +
           '<button class="qact mk-got' + (st === "got" ? " on" : "") + '" data-act="got">✓ Got it</button>' +
@@ -130,8 +132,7 @@
           '<button class="btn-ghost reveal" data-act="reveal">Show answer</button>' +
           '<button class="qact report" data-act="report" title="Report a problem with this question">⚑ Report</button>' +
         "</div>" +
-        '<div class="qans hide">' + eqs +
-          '<div class="opts" style="margin:12px 0;">' + opts + "</div>" +
+        '<div class="qans hide">' + eqs + numAns +
           '<div class="sol">' + (q.solution || "") + "</div>" +
           '<div class="ref">Handbook: ' + (q.handbook || "—") + ' · <span class="qid">' + q.id + "</span></div>" +
         "</div></div>";
@@ -147,6 +148,8 @@
             var ans = card.querySelector(".qans");
             var hidden = ans.classList.toggle("hide");
             b.textContent = hidden ? "Show answer" : "Hide answer";
+            var co = card.querySelector('.opt[data-j="' + q.answer + '"]');
+            if (co) co.classList.toggle("correct", !hidden);
             if (!hidden && window.renderMath) window.renderMath(ans);
             return;
           }
