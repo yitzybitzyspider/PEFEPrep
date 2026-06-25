@@ -1,7 +1,19 @@
 {
-  "version": "0.19.0",
+  "version": "0.20.0",
   "updated": "2026-06-25",
   "history": [
+    {
+      "version": "0.20.0",
+      "date": "2026-06-25",
+      "title": "Live Bank, accounts & training plans (Supabase platform)",
+      "changes": [
+        "Live Bank — a new database-backed question bank holding 762 Handbook-verified questions across all 15 FE Environmental knowledge areas, filterable by area, type, and source, served live from Supabase (the daily static day-sets stay separate and unchanged)",
+        "Accounts + personalized training plans: sign in with Google, pick a 2-week to 3-month plan that counts down to your exam date — covering every area in official exam proportions, with a weekly mini-exam and a final 110-question mock; per-question progress and spaced-repetition reviews save to your account",
+        "Report a question: flag any question for review (incorrect answer, typo, ambiguous wording, wrong equation/Handbook reference, off-topic, or free-text) from every question card — Live Bank, Bank, Today, and dashboard",
+        "Bank cards now show the question and options first; the correct answer and worked formula reveal only when you choose 'Show answer', so you can attempt the question first",
+        "The bank grew from the day-file sets to 762 questions by extracting and Handbook-verifying every FE Environmental practice problem and course-note across the source library"
+      ]
+    },
     {
       "version": "0.19.0",
       "date": "2026-06-25",
