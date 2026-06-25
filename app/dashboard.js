@@ -89,7 +89,7 @@
     }).join("") : "";
     return '<div class="qcard" data-i="' + i + '">' +
       '<div class="qtop"><span class="topic-tag">' + (KA[q.ka_id] || ("KA" + q.ka_id)) + "</span> " +
-        (isReview ? '<span class="srcbadge" style="background:#fef9c3;color:#854d0e;border:1px solid #fde68a;">↻ review</span> ' : "") +
+        (isReview ? '<span class="qtype" style="color:#ffd98a;border-color:rgba(245,166,35,.4);">↻ review</span> ' : "") +
         '<span class="qtype">' + q.type + "</span></div>" +
       (q.concept ? '<div class="qconcept" style="font-weight:600;margin:4px 0;">' + q.concept + "</div>" : "") +
       '<div class="qstem">' + q.stem + "</div>" +
@@ -120,8 +120,8 @@
           if (answered) return;
           var j = Number(o.dataset.j), correct = (j === q.answer);
           Array.prototype.forEach.call(card.querySelectorAll(".opt.pick"), function (x) { x.classList.remove("pick"); });
-          o.classList.add(correct ? "right" : "wrong");
-          if (!correct) { var rc = card.querySelectorAll(".opt")[q.answer]; if (rc) rc.classList.add("right"); }
+          o.classList.add(correct ? "correct" : "wrong");
+          if (!correct) { var rc = card.querySelectorAll(".opt")[q.answer]; if (rc) rc.classList.add("correct"); }
           var ans = card.querySelector(".qans"); ans.classList.remove("hide");
           if (window.renderMath) window.renderMath(ans);
           record(correct, j);
