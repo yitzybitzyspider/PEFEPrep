@@ -8,6 +8,7 @@
 
   async function init() {
     var u = await PFPAuth.require(); if (!u) return;
+    if (window.PFPMigrate) PFPMigrate.banner(document.getElementById("migrateHost"), function () { location.reload(); });
     var plan = await PFPUser.activePlan();
     if (!plan) { renderNoPlan(); return; }
     var areas = await PFP_SB.from("knowledge_areas").select("id,title");

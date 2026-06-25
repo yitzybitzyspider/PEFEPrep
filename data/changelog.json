@@ -1,7 +1,17 @@
 {
-  "version": "0.20.1",
+  "version": "0.20.2",
   "updated": "2026-06-25",
   "history": [
+    {
+      "version": "0.20.2",
+      "date": "2026-06-25",
+      "title": "Import your on-device progress into your account",
+      "changes": [
+        "New one-click 'Sync your on-device progress' banner on the Account and My Plan pages: when you sign in, any study progress saved on this device (spaced-repetition review state + attempt history) imports into your account so your synced plan and reviews pick up where you left off",
+        "Safe to run on any device — it only adds questions you haven't already started in your account and won't double-count attempts, so signing in on a second device can't clobber or inflate your stats",
+        "Your on-device exam date carries over to your account profile during the import"
+      ]
+    },
     {
       "version": "0.20.1",
       "date": "2026-06-25",
