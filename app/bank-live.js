@@ -128,6 +128,7 @@
           '<button class="qact mk-got' + (st === "got" ? " on" : "") + '" data-act="got">✓ Got it</button>' +
           '<button class="qact mk-miss' + (st === "miss" ? " on" : "") + '" data-act="miss">✗ Missed</button>' +
           '<button class="btn-ghost reveal" data-act="reveal">Show answer</button>' +
+          '<button class="qact report" data-act="report" title="Report a problem with this question">⚑ Report</button>' +
         "</div>" +
         '<div class="qans hide">' + eqs +
           '<div class="opts" style="margin:12px 0;">' + opts + "</div>" +
@@ -141,6 +142,7 @@
       Array.prototype.forEach.call(card.querySelectorAll(".qact, .reveal"), function (b) {
         b.onclick = function () {
           var act = b.dataset.act;
+          if (act === "report") { if (window.PFPReport) PFPReport.open(q.id); return; }
           if (act === "reveal") {
             var ans = card.querySelector(".qans");
             var hidden = ans.classList.toggle("hide");

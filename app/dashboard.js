@@ -88,9 +88,14 @@
       return '<div class="opt pick" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
     }).join("") : "";
     return '<div class="qcard" data-i="' + i + '">' +
-      '<div class="qtop"><span class="topic-tag">' + (KA[q.ka_id] || ("KA" + q.ka_id)) + "</span> " +
-        (isReview ? '<span class="qtype" style="color:#ffd98a;border-color:rgba(245,166,35,.4);">↻ review</span> ' : "") +
-        '<span class="qtype">' + q.type + "</span></div>" +
+      '<div class="qtop">' +
+        '<span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
+          '<span class="topic-tag">' + (KA[q.ka_id] || ("KA" + q.ka_id)) + "</span>" +
+          (isReview ? '<span class="qtype" style="color:#ffd98a;border-color:rgba(245,166,35,.4);">↻ review</span>' : "") +
+          '<span class="qtype">' + q.type + "</span>" +
+        "</span>" +
+        '<button class="qact qreport" type="button" title="Report a problem with this question">⚑ Report</button>' +
+      "</div>" +
       (q.concept ? '<div class="qconcept" style="font-weight:600;margin:4px 0;">' + q.concept + "</div>" : "") +
       '<div class="qstem">' + q.stem + "</div>" +
       (hasOpts ? '<div class="opts" style="margin:12px 0;">' + opts + "</div>"
@@ -106,6 +111,7 @@
   function wireCard(q, i, day, onDone) {
     var card = document.querySelector('.qcard[data-i="' + i + '"]');
     if (!card) return;
+    var rb = card.querySelector(".qreport"); if (rb) rb.onclick = function () { if (window.PFPReport) PFPReport.open(q.id); };
     var answered = false;
     var hasOpts = Array.isArray(q.options) && q.options.length;
     async function record(correct, chosen) {
