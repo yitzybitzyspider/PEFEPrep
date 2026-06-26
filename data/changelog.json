@@ -1,7 +1,19 @@
 {
-  "version": "0.21.0",
+  "version": "0.21.1",
   "updated": "2026-06-26",
   "history": [
+    {
+      "version": "0.21.1",
+      "date": "2026-06-26",
+      "title": "Fresh look — \"Daily Streak\" rebrand (PR #1)",
+      "changes": [
+        "New visual identity built from a 15-product competitive study (UWorld, Duolingo, Brilliant, Khan, PrepFE, PPI and more): a brighter, friendlier daily-habit look that leans into what makes us different — the streak + spaced-repetition habit loop no $1,500 FE course has",
+        "Light theme is now the default for easier long study sessions and dense Handbook/equation reading; the original navy dark theme is a one-tap toggle in the top bar (your choice is remembered, and first visit follows your device setting)",
+        "New type + color system: chunky Bricolage Grotesque headlines, highly-legible Plus Jakarta Sans body, JetBrains Mono for IDs and Handbook page refs; the wordmark now reads PEFE (amber) + Prep — every color pair checked for WCAG-AA contrast",
+        "Accessibility + mobile pass: visible keyboard focus rings, reduced-motion support, correct/incorrect shown with ✓/✗ glyphs (not color alone), 44px touch targets, and the top nav collapses to a thumb-friendly bottom tab bar on phones",
+        "Foundation only (PR #1): look, themes, accessibility and the mobile shell — no questions or data changed. Bigger layout upgrades (a 'where you stand' Today dashboard, per-distractor explanations, a custom test builder, a readiness score) are next, per docs/rebrand-research.md"
+      ]
+    },
     {
       "version": "0.21.0",
       "date": "2026-06-26",

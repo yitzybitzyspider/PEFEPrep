@@ -94,7 +94,7 @@
       '<div class="qtop">' +
         '<span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
           '<span class="topic-tag">' + (KA[q.ka_id] || ("KA" + q.ka_id)) + "</span>" +
-          (isReview ? '<span class="qtype" style="color:#ffd98a;border-color:rgba(245,166,35,.4);">↻ review</span>' : "") +
+          (isReview ? '<span class="qtype" style="color:var(--amber-warn);border-color:color-mix(in srgb,var(--amber-warn) 40%,transparent);">↻ review</span>' : "") +
           '<span class="qtype">' + q.type + "</span>" +
         "</span>" +
         '<button class="qact qreport" type="button" title="Report a problem with this question">⚑ Report</button>' +

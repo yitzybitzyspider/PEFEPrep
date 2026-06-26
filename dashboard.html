@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Plan — PEFEPrep</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
-  <link rel="stylesheet" href="./app/style.css?v=0.20.3" />
+  <link rel="stylesheet" href="./app/style.css?v=0.21.1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="./app/theme.js?v=0.21.1"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -13,11 +17,11 @@
     .hero{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
     .countbig{font-size:32px;font-weight:800;color:var(--accent);letter-spacing:-.02em;}
     .kindtag{display:inline-block;font-size:12px;font-weight:700;padding:3px 11px;border-radius:999px;}
-    .kind-study{background:rgba(76,139,245,.16);color:#bcd2ff;}
-    .kind-mini_exam{background:rgba(245,166,35,.18);color:#ffd98a;}
-    .kind-final_mock{background:rgba(247,109,109,.18);color:#ffb3b3;}
-    .kind-exam{background:rgba(62,207,142,.18);color:#9be9c4;}
-    .kind-review{background:rgba(245,166,35,.16);color:#ffd98a;}
+    .kind-study{background:color-mix(in srgb,var(--accent2) 15%,transparent);color:var(--accent2);}
+    .kind-mini_exam{background:color-mix(in srgb,var(--amber-warn) 16%,transparent);color:var(--amber-warn);}
+    .kind-final_mock{background:color-mix(in srgb,var(--bad) 15%,transparent);color:var(--bad);}
+    .kind-exam{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good);}
+    .kind-review{background:color-mix(in srgb,var(--amber-warn) 15%,transparent);color:var(--amber-warn);}
     .strip{display:flex;gap:3px;flex-wrap:wrap;margin-top:12px;}
     .scell{width:15px;height:15px;border-radius:4px;background:var(--card2);border:1px solid var(--line);}
     .scell.study{background:rgba(76,139,245,.35);border-color:transparent;}
@@ -51,11 +55,11 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="./app/math.js?v=0.20.3"></script>
-  <script src="./app/store.js?v=0.20.3"></script>
-  <script src="./app/sb.js?v=0.20.3"></script>
-  <script src="./app/report.js?v=0.20.3"></script>
-  <script src="./app/sync.js?v=0.20.3"></script>
-  <script src="./app/dashboard.js?v=0.20.3"></script>
+  <script src="./app/math.js?v=0.21.1"></script>
+  <script src="./app/store.js?v=0.21.1"></script>
+  <script src="./app/sb.js?v=0.21.1"></script>
+  <script src="./app/report.js?v=0.21.1"></script>
+  <script src="./app/sync.js?v=0.21.1"></script>
+  <script src="./app/dashboard.js?v=0.21.1"></script>
 </body>
 </html>
