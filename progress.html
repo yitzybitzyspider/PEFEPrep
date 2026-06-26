@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress — PEFEPrep</title>
+  <meta name="description" content="Readiness, per-section mastery, publish status, and your full study schedule." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
+  <link rel="stylesheet" href="./app/style.css?v=0.20.3" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="appbar">
+      <a class="brand" href="./index.html">PEFE<span>Prep</span></a>
+      <nav class="navlinks">
+        <a href="./today.html">Today</a>
+        <a href="./browse.html">Bank</a>
+        <a href="./resources.html">PDFs</a>
+        <a href="./progress.html" class="active">Progress</a>
+        <a href="./settings.html">Settings</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <h1>Your progress</h1>
+      <p class="sub">Mastery = coverage (how much you've seen) × depth (how well you remember it), from the spaced-repetition boxes.</p>
+      <div class="stat-grid">
+        <div class="stat"><div class="num" id="stReady">0%</div><div class="lbl">Exam readiness</div></div>
+        <div class="stat"><div class="num" id="stStreak">0</div><div class="lbl">Day streak 🔥</div></div>
+        <div class="stat"><div class="num" id="stDays">—</div><div class="lbl">Days to exam</div></div>
+        <div class="stat"><div class="num" id="stSeen">0 / 0</div><div class="lbl">Questions seen</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Daily goal &amp; focus</h2>
+      <p class="sub">Answer your daily goal to keep the streak alive — one missed day a week is forgiven.</p>
+      <div class="goalwrap">
+        <div id="goalRing" class="goalring"></div>
+        <div class="goalstats">
+          <div class="gstat"><div class="gnum" id="streakBig">0</div><div class="glbl">🔥 Current streak</div></div>
+          <div class="gstat"><div class="gnum" id="bestBig">0</div><div class="glbl">🏆 Best streak</div></div>
+          <div class="gstat"><div class="gnum" id="focusToday">0<small>m</small></div><div class="glbl">⏱️ Focused today</div></div>
+          <div class="gstat"><div class="gnum" id="leavesToday">0</div><div class="glbl">🚪 Times you left</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="achhead"><h2>Achievements</h2><span class="sub" id="achCount">0 / 0</span></div>
+      <div id="achGrid" class="achgrid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Your study lists</h2>
+      <p class="sub">Cherry-pick questions into ★ My List from the Bank; your Missed list fills itself.</p>
+      <div class="listtiles">
+        <div class="listtile">
+          <div class="lt-top">★ <span id="ltStarCount">0</span> <small>saved</small></div>
+          <div class="lt-sub">My List — questions you starred to study together.</div>
+          <a class="reviewbtn" id="ltStarReview" href="./today.html?filter=starred">Review My List →</a>
+        </div>
+        <div class="listtile">
+          <div class="lt-top">✗ <span id="ltMissCount">0</span> <small>missed</small></div>
+          <div class="lt-sub">Everything you've gotten wrong — your weak spots.</div>
+          <div class="btn-row" style="margin-top:0;gap:8px;">
+            <a class="reviewbtn" id="ltMissReview" href="./today.html?filter=missed">Review misses →</a>
+            <button class="reviewbtn" id="exportBtn">⬇ Export for Claude</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Publish status</h2>
+      <p class="sub">Confirms today's content actually went live.</p>
+      <div id="publish"></div>
+    </section>
+
+    <section class="card">
+      <h2>Study calendar</h2>
+      <p class="sub">Your plan from first set to exam day. Green days are live — click any to review. Today is ringed.</p>
+      <div id="calendar"></div>
+    </section>
+
+    <section class="card">
+      <h2>Section mastery</h2>
+      <div id="bars"></div>
+      <div class="legend">
+        <span><i class="dot-green"></i>Exam-ready (70%+)</span>
+        <span><i class="dot-amber"></i>Getting there (35–69%)</span>
+        <span><i class="dot-red"></i>Needs work (&lt;35%)</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Study schedule</h2>
+      <p class="sub">Where you are in the 21-day plan. Click any available day to review it. Fills in as each day is generated.</p>
+      <div id="scheduleList"></div>
+    </section>
+
+    <section class="card">
+      <h2>Focus &amp; review</h2>
+      <p class="sub">Weakest sections you've started: <strong id="weak" style="color:var(--ink);"></strong></p>
+      <h2 style="margin-top:22px;">Last 14 days</h2>
+      <div class="heat" id="heat"></div>
+    </section>
+
+    <footer>Progress is saved on this device. &nbsp;·&nbsp; <a href="./index.html">pefeprep.com</a></footer>
+  </div>
+
+  <div id="exportModal" class="modal hide">
+    <div class="box">
+      <h3>Your missed questions</h3>
+      <p class="sub" style="margin-bottom:10px;">Copy this and paste into Claude: “Be my FE tutor — work through these with me.”</p>
+      <textarea id="exportText" readonly></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" id="copyExport">Copy</button>
+        <button class="btn-ghost" id="exportClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app/store.js?v=0.20.3"></script>
+  <script src="./app/celebrate.js?v=0.20.3"></script>
+  <script src="./app/data.js?v=0.20.3"></script>
+  <script src="./app/progress.js?v=0.20.3"></script>
+  <script src="./app/version.js?v=0.20.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app/sb.js?v=0.20.3"></script>
+  <script src="./app/sync.js?v=0.20.3"></script>
+</body>
+</html>

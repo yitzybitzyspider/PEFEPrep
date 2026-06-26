@@ -1,0 +1,393 @@
+{
+  "day": 7,
+  "date": "2026-06-23",
+  "topic": "Water & Wastewater I",
+  "fidelityNote": "All formulas cross-checked against NCEES FE Reference Handbook v10.6 (Environmental Engineering, pp. 327–353). Confirmed Handbook formulas: BOD exertion $BOD_t = L_o(1-e^{-kt})$ (p.327); mass loading $M\\,(\\text{lb/day}) = C\\,(\\text{mg/L})\\times Q\\,(\\text{MGD})\\times 8.34$ (p.327); CMFR first-order $C_t = C_0/(1+k\\theta)$ (p.331 reactor table); clarifier overflow rate $v_o = Q/A$ and design-criteria table (pp.344–345); Stokes\\u2019 Law $v_t = g(\\rho_p-\\rho_f)d^2/(18\\mu)$ (p.346); CT disinfection $CT_{calc}=C\\times t_{10}$ with baffling-factor table (pp.351–352); lime-soda softening reactions 1–7 (p.347); alum coagulation reaction (p.347); BOD test $BOD = (D_1-D_2)/P$ (p.339); kinetic temperature correction $k_T = k_{20}\\theta^{T-20}$, $\\theta = 1.056$ for BOD at 21–30\\textdegree C (p.328); activated sludge $X_A = \\theta_c Y(S_0-S_e)/[\\theta(1+k_d\\theta_c)]$ and SVI (p.339); biotower fixed-film $S_e/S_0 = e^{-kD/q^n}$ (p.340); sludge volume $V = W_s/[(s/100)\\gamma S]$ (p.338); aerobic digestion SRT table (p.341). Hardness conversion uses the Common Radicals equivalent-weight table (p.348): EW(Ca$^{2+}$) = 20.0, EW(Mg$^{2+}$) = 12.2, EW(CaCO$_3$) = 50.0. Per capita values (100 gpcd, 0.20 lb BOD$_5$/person/day) in Q20 are SUPPLEMENTAL (not in Handbook v10.6) and are stated in the question stem (tagged in-stem).",
+  "questions": [
+    {
+      "id": "D7-Q01",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Total hardness as CaCO₃",
+      "stem": "A water sample contains Ca²⁺ = 60 mg/L and Mg²⁺ = 18 mg/L. Using the equivalent weights from the FE Handbook (EW of Ca²⁺ = 20.0 g/eq, Mg²⁺ = 12.2 g/eq, CaCO₃ = 50.0 g/eq), the total hardness expressed as mg/L CaCO₃ is most nearly:",
+      "equations": [
+        "$\\text{Hardness as CaCO}_3 = C_{ion}\\times \\dfrac{EW_{CaCO_3}}{EW_{ion}}$",
+        "$\\text{Total hardness} = \\text{Ca hardness} + \\text{Mg hardness}$"
+      ],
+      "options": ["74 mg/L", "150 mg/L", "187 mg/L", "224 mg/L"],
+      "answer": 3,
+      "solution": "Ca hardness $= 60\\times(50.0/20.0) = 60\\times 2.50 = 150.0\\ \\mathrm{mg/L\\ as\\ CaCO_3}$.  Mg hardness $= 18\\times(50.0/12.2) = 18\\times 4.098 = 73.8\\ \\mathrm{mg/L\\ as\\ CaCO_3}$.  Total $= 150.0 + 73.8 = 223.8 \\approx 224\\ \\mathrm{mg/L\\ as\\ CaCO_3}$. Option (A) is Mg hardness only; (B) is Ca hardness only; (C) uses the Mg atomic weight 24.3 as the EW instead of dividing by 2.",
+      "handbook": "Water and Wastewater — Common Radicals in Water (equivalent weight table) (p. 348)",
+      "references": "Ctrl-F: Common Radicals; Equivalent Weight; Hardness",
+      "source": "handbook",
+      "spec": "12.A — characteristics"
+    },
+
+    {
+      "id": "D7-Q02",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "BOD₅ test — unseeded dilution method",
+      "stem": "A BOD₅ test is run on unseeded, diluted wastewater. The initial dissolved-oxygen (DO) of the diluted sample is D₁ = 8.1 mg/L; after 5-day incubation at 20°C, D₂ = 2.4 mg/L. The dilution fraction is P = 0.05 (5 mL sample in 100 mL total). The BOD₅ of the wastewater is most nearly:",
+      "equations": [
+        "$BOD\\ (\\mathrm{mg/L}) = \\dfrac{D_1 - D_2}{P}$"
+      ],
+      "options": ["5.7 mg/L", "57 mg/L", "114 mg/L", "162 mg/L"],
+      "answer": 2,
+      "solution": "$BOD_5 = (D_1 - D_2)/P = (8.1 - 2.4)/0.05 = 5.7/0.05 = 114\\ \\mathrm{mg/L}$. Option (A) is $(D_1-D_2)$ without dividing by $P$; (B) uses $P = 0.10$ by mistake; (D) uses $D_1$ alone ($8.1/0.05 = 162$).",
+      "handbook": "Environmental Engineering — BOD Test Solution and Seeding Procedures (p. 339)",
+      "references": "Ctrl-F: BOD Test; Dilution",
+      "source": "handbook",
+      "spec": "12.A — characteristics"
+    },
+
+    {
+      "id": "D7-Q03",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Mass loading conversion — lb/day",
+      "stem": "A municipal wastewater treatment plant receives a flow of Q = 2.5 MGD with an influent BOD₅ concentration of 220 mg/L. The daily BOD₅ mass loading M in lb/day is most nearly:",
+      "equations": [
+        "$M\\ (\\mathrm{lb/day}) = C\\ (\\mathrm{mg/L})\\times Q\\ (\\mathrm{MGD})\\times 8.34\\ [\\mathrm{lb\\cdot L/(mg\\cdot MG)}]$"
+      ],
+      "options": ["550 lb/day", "2,294 lb/day", "4,587 lb/day", "9,174 lb/day"],
+      "answer": 2,
+      "solution": "$M = 220\\times 2.5\\times 8.34 = 4{,}587\\ \\mathrm{lb/day}$. Option (A) = $C\\times Q = 550$ (missing the 8.34 unit-conversion factor); (B) = half the correct value; (D) = double the correct value.",
+      "handbook": "Environmental Engineering — Mass Balance / Flow Rate (p. 327)",
+      "references": "Ctrl-F: lb/day; MGD; 8.34",
+      "source": "handbook",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D7-Q04",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "CMFR (CSTR) first-order effluent concentration",
+      "stem": "A completely mixed flow reactor (CMFR/CSTR) treats an industrial leachate. Influent concentration C₀ = 250 mg/L, first-order decay constant k = 0.20 day⁻¹, hydraulic residence time θ = 3 days. The steady-state effluent concentration is most nearly:",
+      "equations": [
+        "$C_t = \\dfrac{C_0}{1 + k\\theta}\\quad (\\text{CMFR, first-order})$",
+        "$C_t = C_0\\,e^{-k\\theta}\\quad (\\text{PFR or batch, first-order})$"
+      ],
+      "options": ["92 mg/L", "100 mg/L", "137 mg/L", "156 mg/L"],
+      "answer": 3,
+      "solution": "For a CMFR (ideally mixed reactor) with first-order decay: $C_t = C_0/(1+k\\theta) = 250/(1+0.20\\times3) = 250/1.60 = 156\\ \\mathrm{mg/L}$. Option (A) is a batch/PFR result at $t=5$ days ($250e^{-1.0}$); (B) uses a linear approximation $C_0(1-k\\theta) = 100$; (C) is the PFR/batch result at $\\theta=3$ days ($250e^{-0.6}=137$). The CMFR is always less efficient than a PFR for positive-order reactions, so the CMFR effluent (156 mg/L) is higher than the PFR effluent (137 mg/L).",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters (CMFR, first-order) (p. 331)",
+      "references": "Ctrl-F: CMFR; Steady-State; First Order",
+      "source": "handbook",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D7-Q05",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Clarifier surface overflow rate",
+      "stem": "A circular primary clarifier has a diameter of 80 ft and receives a flow of Q = 4.0 MGD. The surface overflow rate (SOR) in gpd/ft² is most nearly:",
+      "equations": [
+        "$v_o = \\dfrac{Q}{A_{surface}},\\quad A_{circle} = \\dfrac{\\pi D^2}{4}$"
+      ],
+      "options": ["200 gpd/ft²", "500 gpd/ft²", "796 gpd/ft²", "1,200 gpd/ft²"],
+      "answer": 2,
+      "solution": "$A = \\pi D^2/4 = \\pi(80)^2/4 = 5{,}027\\ \\mathrm{ft^2}$.  $Q = 4{,}000{,}000\\ \\mathrm{gpd}$.  $v_o = 4{,}000{,}000/5{,}027 = 796\\ \\mathrm{gpd/ft^2}$. This is within the Handbook primary-clarifier design range of 800–1{,}200 gpd/ft² (average). Option (A) uses $\\pi D^2$ without the $\\div 4$ factor, giving $A = 20{,}106\\ \\mathrm{ft^2}$ and SOR $\\approx 199$ gpd/ft².",
+      "handbook": "Environmental Engineering — Clarifier (Overflow Rate; Design Criteria table) (p. 345)",
+      "references": "Ctrl-F: Overflow Rate; Clarifier; Primary",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D7-Q06",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Hydraulic residence time in a settling tank",
+      "stem": "A rectangular settling basin has a volume V = 600 m³ and receives a flow Q = 1{,}200 m³/day. The hydraulic residence time θ in hours is:",
+      "equations": [
+        "$\\theta = \\dfrac{V}{Q}$"
+      ],
+      "options": ["0.5 hr", "6 hr", "12 hr", "24 hr"],
+      "answer": 2,
+      "solution": "$\\theta = V/Q = 600/1{,}200 = 0.50\\ \\mathrm{day} = 0.50\\times 24 = 12\\ \\mathrm{hr}$. The Handbook design table shows primary clarifiers typically have HRT of 2 hr, so 12 hr would indicate over-design or a different unit process.",
+      "handbook": "Environmental Engineering — Clarifier (Hydraulic Residence Time) (p. 345)",
+      "references": "Ctrl-F: Hydraulic Residence Time; Detention Time",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D7-Q07",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Stokes’ Law — particle settling velocity",
+      "stem": "Estimate the terminal settling velocity of a spherical silica particle (diameter d = 0.10 mm, particle density ρₚ = 2{,}650 kg/m³) settling in water at 20°C (ρf = 1{,}000 kg/m³, μ = 1.0×10⁻³ Pa·s). Stokes’ Law (laminar settling) applies. The terminal velocity vₜ is most nearly:",
+      "equations": [
+        "$v_t = \\dfrac{g(\\rho_p - \\rho_f)\\,d^{2}}{18\\mu}$"
+      ],
+      "options": ["4.5×10⁻⁴ m/s", "9.0×10⁻⁴ m/s", "4.5×10⁻³ m/s", "9.0×10⁻³ m/s"],
+      "answer": 3,
+      "solution": "$d = 0.10\\ \\mathrm{mm} = 1.0\\times10^{-4}\\ \\mathrm{m}$; $d^2 = 1.0\\times10^{-8}\\ \\mathrm{m^2}$.  $v_t = \\dfrac{9.81\\times(2{,}650-1{,}000)\\times 10^{-8}}{18\\times10^{-3}} = \\dfrac{9.81\\times1{,}650\\times10^{-8}}{0.018} = \\dfrac{1.619\\times10^{-4}}{0.018} = 9.0\\times10^{-3}\\ \\mathrm{m/s}$. Note: the exponent is $10^{-3}$, not $10^{-4}$ — the most common error is a powers-of-ten mistake in unit conversion.",
+      "handbook": "Environmental Engineering — Settling Equations (Stokes’ Law) (p. 346)",
+      "references": "Ctrl-F: Stokes\\u2019 Law; Settling Velocity; Terminal Velocity",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D7-Q08",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Primary clarifier — surface area design (USCS)",
+      "stem": "A 2.0-MGD wastewater plant must size its primary clarifier. Using the Handbook average design overflow rate for primary clarifiers (800 gpd/ft²), determine the required plan-view surface area A (in ft²).",
+      "equations": [
+        "$A = \\dfrac{Q}{v_o}$"
+      ],
+      "answer": "2,500 ft²",
+      "solution": "$Q = 2.0\\ \\mathrm{MGD} = 2{,}000{,}000\\ \\mathrm{gpd}$.  $A = Q/v_o = 2{,}000{,}000/800 = 2{,}500\\ \\mathrm{ft^2}$. The Handbook design criteria table gives 800–1{,}200 gpd/ft² (average) for primary clarifiers; 800 gpd/ft² is the conservative (lower-end) design value.",
+      "handbook": "Environmental Engineering — Clarifier (Design Criteria for Sedimentation Basins table) (p. 345)",
+      "references": "Ctrl-F: Primary Clarifier; Overflow Rate; Design Criteria",
+      "source": "handbook",
+      "spec": "12.C — physical processes"
+    },
+
+    {
+      "id": "D7-Q09",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "CT disinfection — contact-chamber design",
+      "stem": "A chlorine contact chamber has a hydraulic residence time θ = 30 min and a baffling factor BF = 0.5 (average baffling per the Handbook table). The chlorine residual measured at peak hourly flow is C = 1.5 mg/L. The calculated CT value (CTₐₐₗₐ) in mg·min/L is most nearly:",
+      "equations": [
+        "$CT_{calc} = C\\times t_{10}$",
+        "$t_{10} \\approx \\theta\\times BF$"
+      ],
+      "options": ["3.5 mg·min/L", "15 mg·min/L", "22.5 mg·min/L", "45 mg·min/L"],
+      "answer": 2,
+      "solution": "$t_{10} = \\theta\\times BF = 30\\times 0.5 = 15\\ \\mathrm{min}$.  $CT_{calc} = C\\times t_{10} = 1.5\\times15 = 22.5\\ \\mathrm{mg\\cdot min/L}$. Option (B) is $t_{10}$ alone (forgot to multiply by $C$); option (D) uses BF = 1.0 (perfect plug flow, $CT = 1.5\\times30 = 45$). A CT of 22.5 mg·min/L provides substantial Giardia inactivation credit at typical temperatures.",
+      "handbook": "Environmental Engineering — Disinfection (CT; Baffling Factors table) (p. 351)",
+      "references": "Ctrl-F: CT; Baffling Factor; Disinfection",
+      "source": "handbook",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D7-Q10",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Lime-soda softening — calcium carbonate hardness removal",
+      "stem": "In lime-soda softening, which of the following reactions is used to remove calcium carbonate hardness from water?",
+      "equations": [],
+      "options": [
+        "CO2 + Ca(OH)2 → CaCO3(s) + H2O  [reaction 1 — CO2 removal]",
+        "Ca(HCO3)2 + Ca(OH)2 → 2CaCO3(s) + 2H2O  [reaction 2 — calcium carbonate hardness]",
+        "CaSO4 + Na2CO3 → CaCO3(s) + 2Na⁺ + SO4²⁻  [reaction 3 — calcium non-carbonate hardness]",
+        "MgSO4 + Ca(OH)2 + Na2CO3 → CaCO3(s) + Mg(OH)2(s) + 2Na⁺ + SO4²⁻  [reaction 5 — Mg non-carbonate hardness]"
+      ],
+      "answer": 1,
+      "solution": "Option (B) is Handbook Reaction 2: calcium carbonate (temporary) hardness is removed by adding lime Ca(OH)2 to water containing calcium bicarbonate, precipitating CaCO3 and leaving only water. Option (A) removes dissolved CO2 (not hardness). Option (C) removes calcium non-carbonate (permanent) hardness using soda ash Na2CO3. Option (D) removes magnesium non-carbonate hardness using both lime and soda ash.",
+      "handbook": "Environmental Engineering — Lime-Soda Softening Equations (reactions 1–7) (p. 347)",
+      "references": "Ctrl-F: Lime-Soda Softening; Calcium Carbonate Hardness",
+      "source": "handbook",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D7-Q11",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Alum coagulation — reaction products in alkaline water",
+      "stem": "When aluminum sulfate (alum, Al₂(SO₄)₃) reacts with naturally alkaline water containing calcium bicarbonate Ca(HCO₃)₂, the reaction products are:",
+      "equations": [
+        "$\\mathrm{Al_2(SO_4)_3 + 3\\,Ca(HCO_3)_2 \\rightleftharpoons 2\\,Al(OH)_3 + 3\\,CaSO_4 + 6\\,CO_2}$"
+      ],
+      "options": [
+        "Al2(SO4)3 and Ca(HCO3)2 are regenerated — no net reaction",
+        "2Al(OH)3 (settling floc), 3CaSO4, and 6CO2",
+        "Al(OH)3 and CaCO3(s) only",
+        "Al(OH)3, CaCl2, and CO2  [ferric-chloride coagulation products]"
+      ],
+      "answer": 1,
+      "solution": "The Handbook coagulation reaction (reaction 1) gives products 2Al(OH)3 (the gelatinous floc that enmeshes particles), 3CaSO4 (remains in solution), and 6CO2 (released). Option (C) is incorrect — CaCO3 is a lime-soda softening product, not a coagulation product. Option (D) lists CaCl2, which would result from ferric chloride FeCl3 reacting with Ca(HCO3)2, not from alum.",
+      "handbook": "Environmental Engineering — Coagulation Equations (reaction 1: alum in natural alkaline water) (p. 348)",
+      "references": "Ctrl-F: Coagulation; Aluminum Sulfate; Alum",
+      "source": "handbook",
+      "spec": "12.D — chemical processes"
+    },
+
+    {
+      "id": "D7-Q12",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "BOD exertion at 5 days",
+      "stem": "A wastewater has an ultimate BOD (L₀) of 250 mg/L and a first-order BOD decay rate constant k = 0.20 day⁻¹ (base e). The 5-day BOD (BOD₅) — the amount of oxygen demand exerted by day 5 — is most nearly:",
+      "equations": [
+        "$BOD_t = L_o\\left(1 - e^{-kt}\\right)$"
+      ],
+      "options": ["50 mg/L", "92 mg/L", "158 mg/L", "250 mg/L"],
+      "answer": 2,
+      "solution": "$BOD_5 = 250\\times(1-e^{-0.20\\times5}) = 250\\times(1-e^{-1.0}) = 250\\times(1-0.368) = 250\\times0.632 = 158\\ \\mathrm{mg/L}$. Option (B) = $250\\times e^{-1} = 92$ is the BOD remaining (not yet exerted), the complement of the correct answer. Option (D) is the ultimate BOD $L_0$ itself, which is only approached asymptotically.",
+      "handbook": "Environmental Engineering — BOD Exertion (Microbial Kinetics) (p. 327)",
+      "references": "Ctrl-F: BOD Exertion; Ultimate BOD; Microbial Kinetics",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q13",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Ultimate BOD from a 5-day BOD measurement",
+      "stem": "A laboratory measurement gives BOD₅ = 185 mg/L at 20°C with a BOD rate constant k = 0.23 day⁻¹ (base e). Determine the ultimate BOD L₀ (in mg/L).",
+      "equations": [
+        "$L_o = \\dfrac{BOD_t}{1 - e^{-kt}}$"
+      ],
+      "answer": "≈ 271 mg/L",
+      "solution": "$L_o = \\dfrac{BOD_5}{1-e^{-k\\times5}} = \\dfrac{185}{1-e^{-0.23\\times5}} = \\dfrac{185}{1-e^{-1.15}}$.  $e^{-1.15} = 0.3166$, so $1-0.3166 = 0.6834$.  $L_o = 185/0.6834 = 270.7\\approx 271\\ \\mathrm{mg/L}$.",
+      "handbook": "Environmental Engineering — BOD Exertion (Microbial Kinetics) (p. 327)",
+      "references": "Ctrl-F: BOD Exertion; Ultimate BOD",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q14",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "BOD rate constant — kinetic temperature correction",
+      "stem": "The BOD rate constant at 20°C is k₂₀ = 0.15 day⁻¹. Using the Handbook temperature correction for BOD in the range 21–30°C (θ = 1.056), the corrected rate constant k at 25°C is most nearly:",
+      "equations": [
+        "$k_T = k_{20}\\,\\theta^{T-20}$",
+        "$\\theta = 1.056\\ (\\text{BOD, }T = 21\\text{–30\\textdegree C})$"
+      ],
+      "options": ["0.150 day⁻¹", "0.178 day⁻¹", "0.197 day⁻¹", "0.212 day⁻¹"],
+      "answer": 2,
+      "solution": "$k_{25} = 0.15\\times 1.056^{(25-20)} = 0.15\\times 1.056^5$.  $1.056^5 = 1.3132$.  $k_{25} = 0.15\\times1.3132 = 0.197\\ \\mathrm{day^{-1}}$. Option (A) = no correction applied; (B) uses bio-tower $\\theta = 1.035$ ($0.15\\times1.035^5 = 0.178$); (D) uses trickling-filter $\\theta = 1.072$ ($0.15\\times1.072^5 = 0.212$). The Handbook lists four separate $\\theta$ values — choosing the correct one (1.056 for BOD at 21–30\\textdegree C) is the key skill.",
+      "handbook": "Environmental Engineering — Kinetic Temperature Corrections (p. 327)",
+      "references": "Ctrl-F: Temperature Correction; kT; Theta",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q15",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Activated sludge — MLSS concentration (SI)",
+      "stem": "A conventional activated-sludge system treats municipal wastewater with the following design parameters: SRT θₐ = 10 days, yield Y = 0.60 kg VSS/kg BOD removed, influent BOD S₀ = 200 mg/L, effluent BOD Sₑ = 20 mg/L, endogenous decay kₙ = 0.05 day⁻¹, and hydraulic retention time θ = 8 hr. Determine the mixed-liquor suspended solids (MLSS) concentration X_A in mg/L.",
+      "equations": [
+        "$X_A = \\dfrac{\\theta_c\\,Y\\,(S_0 - S_e)}{\\theta\\,(1 + k_d\\,\\theta_c)}$"
+      ],
+      "answer": "≈ 2,160 mg/L",
+      "solution": "$\\theta = 8\\ \\mathrm{hr} = 8/24 = 0.3333\\ \\mathrm{day}$.  $S_0-S_e = 200-20 = 180\\ \\mathrm{mg/L}$.  $X_A = \\dfrac{10\\times0.60\\times180}{0.3333\\times(1+0.05\\times10)} = \\dfrac{1{,}080}{0.3333\\times1.50} = \\dfrac{1{,}080}{0.500} = 2{,}160\\ \\mathrm{mg/L}$. This is in the Handbook typical range for conventional activated sludge (1{,}500–3{,}000 mg/L MLSS).",
+      "handbook": "Environmental Engineering — Activated Sludge (XA formula) (p. 339)",
+      "references": "Ctrl-F: Activated Sludge; MLSS; SRT",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q16",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Sludge Volume Index (SVI)",
+      "stem": "A 30-minute settleability test on mixed-liquor from an activated-sludge aeration tank gives a settled-sludge volume of 300 mL/L. The MLSS concentration is 2{,}500 mg/L. The Sludge Volume Index (SVI) is most nearly:",
+      "equations": [
+        "$SVI = \\dfrac{\\text{Sludge volume after settling (mL/L)}\\times 1{,}000}{MLSS\\ (\\mathrm{mg/L})}$"
+      ],
+      "options": ["0.12 mL/g", "8.3 mL/g", "120 mL/g", "830 mL/g"],
+      "answer": 2,
+      "solution": "$SVI = (300\\times1{,}000)/2{,}500 = 120\\ \\mathrm{mL/g}$. SVI < 80 is excellent settling; 80–150 is acceptable; > 150 indicates poor settling (bulking). This sludge at SVI = 120 is settling satisfactorily. Option (A) is SV/MLSS without the ×1{,}000 factor (unit mismatch); (B) is MLSS/SV (inverted); (D) is $2{,}500/3 = 833$ (confused units).",
+      "handbook": "Environmental Engineering — Activated Sludge (Sludge Volume Index SVI) (p. 339)",
+      "references": "Ctrl-F: Sludge Volume Index; SVI; MLSS",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q17",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Biotower — fixed-film effluent BOD (without recycle, SI)",
+      "stem": "A biotower (plastic-media fixed-film reactor, no recycle) treats municipal wastewater with influent BOD S₀ = 200 mg/L. Treatability constant k = 0.06 min⁻¹ (at 20°C), media depth D = 5 m, hydraulic loading q = 0.25 m³/(m²·min), media coefficient n = 0.5 (modular plastic). The effluent BOD Sₑ is most nearly:",
+      "equations": [
+        "$\\dfrac{S_e}{S_0} = e^{-kD/q^n}$"
+      ],
+      "options": ["60 mg/L", "110 mg/L", "148 mg/L", "172 mg/L"],
+      "answer": 1,
+      "solution": "$q^n = 0.25^{0.5} = 0.500$.  $kD/q^n = (0.06\\times5)/0.500 = 0.30/0.500 = 0.60$.  $S_e = 200\\times e^{-0.60} = 200\\times0.549 = 109.8\\approx110\\ \\mathrm{mg/L}$. Option (A) uses $n=1$ (forgot the media exponent): $q^1 = 0.25$, $kD/q = 1.2$, $S_e = 200e^{-1.2} = 60\\ \\mathrm{mg/L}$. Option (C) ignores $q$ entirely: $S_e = 200e^{-kD} = 200e^{-0.3} = 148\\ \\mathrm{mg/L}$. The Handbook value $n = 0.5$ for modular plastic media is the critical parameter.",
+      "handbook": "Environmental Engineering — Biotower / Fixed-Film Equation without Recycle (p. 340)",
+      "references": "Ctrl-F: Biotower; Fixed-Film; Recycle",
+      "source": "handbook",
+      "spec": "12.E — biological processes"
+    },
+
+    {
+      "id": "D7-Q18",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Sludge volume from dry solids mass (SI)",
+      "stem": "A wastewater treatment plant produces 1{,}500 kg/day of dry sludge solids. The sludge has a solids content of s = 4% (by mass) and a specific gravity S = 1.02. Using the Handbook formula for sludge volume with γ (water density) = 1{,}000 kg/m³, the wet sludge volume produced per day is most nearly:",
+      "equations": [
+        "$V = \\dfrac{W_s}{(s/100)\\,\\gamma\\,S}$"
+      ],
+      "options": ["14.7 m³/day", "36.8 m³/day", "73.5 m³/day", "294 m³/day"],
+      "answer": 1,
+      "solution": "$V = \\dfrac{W_s}{(s/100)\\,\\gamma\\,S} = \\dfrac{1{,}500}{(4/100)\\times1{,}000\\times1.02} = \\dfrac{1{,}500}{40.8} = 36.8\\ \\mathrm{m^3/day}$. Option (A) uses s = 10%: $1{,}500/(0.10\\times1{,}020) = 14.7\\ \\mathrm{m^3/day}$. Option (C) uses s = 2%: $1{,}500/(0.02\\times1{,}020) = 73.5\\ \\mathrm{m^3/day}$. Option (D) uses s = 0.5% (extreme dilution). This formula converts dry-weight production to wet-sludge volume for design of thickening, storage, and hauling.",
+      "handbook": "Environmental Engineering — Specific Gravity for a Solids Slurry; Wastewater Treatment and Technologies (p. 338)",
+      "references": "Ctrl-F: Sludge Volume; Solids Content; Specific Gravity",
+      "source": "handbook",
+      "spec": "12.F — sludge treatment"
+    },
+
+    {
+      "id": "D7-Q19",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Aerobic digestion — minimum SRT at 15°C",
+      "stem": "According to the design criteria for aerobic digesters in the NCEES FE Reference Handbook, the minimum solids residence time (SRT) recommended for aerobic sludge digestion at a digester temperature of 15°C is:",
+      "equations": [],
+      "options": ["20 days", "40 days", "60 days", "90 days"],
+      "answer": 2,
+      "solution": "The Handbook aerobic digestion design-criteria table specifies: SRT ≥ 40 days at 20°C and SRT ≥ 60 days at 15°C. The longer SRT at lower temperature compensates for slower microbial activity. At temperatures below 15°C the SRT requirement increases further and aerobic digestion may become impractical. Option (B) (40 days) is the 20°C requirement.",
+      "handbook": "Environmental Engineering — Aerobic Digestion (Design Criteria table) (p. 341)",
+      "references": "Ctrl-F: Aerobic Digestion; Sludge Retention Time; SRT",
+      "source": "handbook",
+      "spec": "12.F — sludge treatment"
+    },
+
+    {
+      "id": "D7-Q20",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Per capita BOD loading — wastewater characterization (USCS)",
+      "stem": "A community of 25{,}000 people generates wastewater at a per-capita rate of 100 gallons per capita per day (gpcd) with a per-capita BOD₅ load of 0.20 lb/(person·day). Using the Handbook unit-conversion factor M (lb/day) = C (mg/L) × Q (MGD) × 8.34, determine the BOD₅ concentration C in the raw wastewater (mg/L).",
+      "equations": [
+        "$Q\\ (\\mathrm{MGD}) = \\dfrac{\\text{Population}\\times \\text{flow (gpcd)}}{1{,}000{,}000}$",
+        "$M\\ (\\mathrm{lb/day}) = \\text{Population}\\times \\text{per-capita BOD (lb/person/day)}$",
+        "$C = \\dfrac{M}{Q\\times 8.34}$"
+      ],
+      "answer": "≈ 240 mg/L",
+      "solution": "$Q = 25{,}000\\times100/1{,}000{,}000 = 2.50\\ \\mathrm{MGD}$.  $M = 25{,}000\\times0.20 = 5{,}000\\ \\mathrm{lb/day}$.  $C = M/(Q\\times8.34) = 5{,}000/(2.50\\times8.34) = 5{,}000/20.85 = 239.8\\approx240\\ \\mathrm{mg/L}$. Domestic raw wastewater typically runs 200–300 mg/L BOD₅; this result is characteristic.",
+      "handbook": "Environmental Engineering — Mass Balance / Flow Rate (M = CQ × 8.34) (p. 327)",
+      "references": "Ctrl-F: lb/day; MGD; 8.34; Per Capita",
+      "source": "in-stem",
+      "spec": "12.B — mass balance/loading"
+    },
+
+    {
+      "id": "D7-Q21",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Water conservation — per-capita demand reduction",
+      "stem": "A water-conservation program reduces per-capita water demand from 150 gpcd to 120 gpcd for a service population of 40{,}000 people. The daily water savings in million gallons per day (MGD) is:",
+      "equations": [
+        "$\\Delta Q = \\Delta\\text{(gpcd)}\\times\\text{Population}/1{,}000{,}000$"
+      ],
+      "options": ["0.030 MGD", "0.30 MGD", "1.2 MGD", "4.8 MGD"],
+      "answer": 2,
+      "solution": "$\\Delta\\text{(gpcd)} = 150-120 = 30\\ \\mathrm{gpcd}$.  $\\Delta Q = 30\\times40{,}000/1{,}000{,}000 = 1{,}200{,}000\\ \\mathrm{gpd} = 1.2\\ \\mathrm{MGD}$. Option (A) = 30 gpcd expressed in MGD without multiplying by population. Option (B) is off by a factor of 4 (perhaps divided by 10{,}000 instead of 1{,}000{,}000). This type of calculation is fundamental to planning infrastructure upgrades, demand forecasting, and justifying reuse projects.",
+      "handbook": "N/A — Conservation arithmetic; M = CQ relationship (Handbook p. 327)",
+      "references": "Ctrl-F: Per Capita; Demand; Conservation",
+      "source": "fundamental",
+      "spec": "12.G — conservation & reuse"
+    }
+  ]
+}

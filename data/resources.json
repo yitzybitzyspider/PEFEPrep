@@ -1,0 +1,22 @@
+{
+  "note": "Downloadable study PDFs, served from the repo's materials/ folder (committed by the daily engine). New days appear as they're generated.",
+  "groups": [
+    { "title": "Daily problem sets", "items": [
+      { "name": "Day 1 — Mathematics", "url": "./materials/Day01_Mathematics_Jun17.pdf" },
+      { "name": "Day 2 — Fluid Mechanics I (Set A)", "url": "./materials/Day02_FluidMechanicsI_Jun18.pdf" },
+      { "name": "Day 2 — Fluid Mechanics I (Set B)", "url": "./materials/Day02_FluidMechanicsI_SetB_Jun18.pdf" },
+      { "name": "Day 3 — Fluid Mechanics II / Pipe Flow", "url": "./materials/Day03_FluidMechanicsII_Jun19.pdf" },
+      { "name": "Day 4 — Hydraulics", "url": "./materials/Day04_Hydraulics_Jun20.pdf" },
+      { "name": "Day 5 — Surface Water & Hydrology", "url": "./materials/FE_Day05_Surface_Water_Hydrology.pdf" },
+      { "name": "Day 6 — Groundwater, Soils & Sediments", "url": "./materials/FE_Day06_Groundwater_Soils_Sediments.pdf" }
+    ]},
+    { "title": "Cumulative reference", "items": [
+      { "name": "FE Cheat Sheet (cumulative formulas)", "url": "./materials/FE_CheatSheet.pdf" }
+    ]},
+    { "title": "Practice exams & drills", "items": [
+      { "name": "Full Practice Exam #1", "url": "./materials/FE_Practice_Exam_1.pdf" },
+      { "name": "Full Practice Exam #2", "url": "./materials/FE_Practice_Exam_2.pdf" },
+      { "name": "Weak-Areas Drill (Day 1)", "url": "./materials/Drill_WeakAreas_Day1_Jun17.pdf" }
+    ]}
+  ]
+}

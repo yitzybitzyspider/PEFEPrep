@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEFEPrep — FE Environmental</title>
+  <meta name="description" content="Daily FE Environmental practice: spaced repetition, mastery tracking, Handbook-sourced questions." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
+  <link rel="stylesheet" href="./app/style.css?v=0.20.3" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="appbar">
+      <a class="brand" href="./index.html">PEFE<span>Prep</span></a>
+      <nav class="navlinks">
+        <a href="./today.html">Today</a>
+        <a href="./bank-live.html">✦ Live</a>
+        <a href="./dashboard.html">My Plan</a>
+        <a href="./browse.html">Bank</a>
+        <a href="./resources.html">PDFs</a>
+        <a href="./progress.html">Progress</a>
+        <a href="./settings.html">Settings</a>
+      </nav>
+    </header>
+
+    <section class="card" style="text-align:center;">
+      <div class="headmeta" style="justify-content:center;margin-bottom:18px;">
+        <span class="tag count" id="countdown">—</span>
+        <span class="tag streak" id="streakChip">🔥 0 day streak</span>
+      </div>
+      <h1 style="font-size:34px;">Ready to study?</h1>
+      <p class="sub" style="margin-left:auto;margin-right:auto;max-width:46ch;">
+        Your daily FE Environmental set — spaced repetition surfaces what you're forgetting,
+        and every answer is sourced from the NCEES Handbook.
+      </p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn-primary" href="./dashboard.html" style="text-decoration:none;">Get my training plan →</a>
+        <a class="btn-ghost" href="./today.html" style="text-decoration:none;">Quick daily set</a>
+      </div>
+      <p class="sub" style="margin-top:12px;font-size:12.5px;">Sign in to get a day-by-day plan that covers every exam area and counts down to your test date.</p>
+    </section>
+
+    <section class="card">
+      <div class="stat-grid">
+        <a class="stat" href="./today.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="num" style="font-size:20px;">📋 Today</div>
+          <div class="lbl">Your daily question set</div>
+        </a>
+        <a class="stat" href="./browse.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="num" style="font-size:20px;">📚 Bank</div>
+          <div class="lbl">Browse &amp; review every question</div>
+        </a>
+        <a class="stat" href="./bank-live.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="num" style="font-size:20px;">✦ Live Bank</div>
+          <div class="lbl">All 15 areas, served from Supabase</div>
+        </a>
+        <a class="stat" href="./progress.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="num" style="font-size:20px;">📈 Progress</div>
+          <div class="lbl">Section mastery &amp; streak</div>
+        </a>
+        <a class="stat" href="./settings.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="num" style="font-size:20px;">⚙️ Settings</div>
+          <div class="lbl">Tune your daily loop</div>
+        </a>
+      </div>
+    </section>
+
+    <footer>FE Environmental · exam July 8, 2026 &nbsp;·&nbsp; pefeprep.com</footer>
+  </div>
+
+  <script src="./app/store.js?v=0.20.3"></script>
+  <script src="./app/version.js?v=0.20.3"></script>
+  <script>
+    document.getElementById("countdown").textContent = PFP.daysToExam() + " days to exam";
+    document.getElementById("streakChip").textContent = "🔥 " + PFP.getStreak() + " day streak";
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app/sb.js?v=0.20.3"></script>
+  <script src="./app/sync.js?v=0.20.3"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice Drill — PEFEPrep</title>
+  <meta name="description" content="A timed-style FE Environmental practice drill: answer, score, and review what you missed." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
+  <style>
+    :root{
+      --bg:#0b1220; --card:#121c2e; --card2:#0f1828; --ink:#e8eef7; --muted:#93a1b8;
+      --accent:#f5a623; --accent2:#4c8bf5; --good:#3ecf8e; --bad:#f76d6d;
+      --line:rgba(255,255,255,0.08);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;min-height:100%;}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(1100px 560px at 78% -12%, rgba(76,139,245,.16), transparent 60%),
+        radial-gradient(820px 480px at 8% 112%, rgba(245,166,35,.10), transparent 55%),
+        var(--bg);
+      color:var(--ink); margin:0; padding:24px;
+    }
+    .wrap{max-width:760px;margin:0 auto;}
+    header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;}
+    .brand{font-weight:800;letter-spacing:-.02em;font-size:22px;text-decoration:none;color:var(--ink);}
+    .brand span{color:var(--accent);}
+    .chip{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+      border:1px solid rgba(245,166,35,.35);border-radius:999px;padding:5px 12px;}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;}
+    h1{font-size:26px;margin:.1em 0 .35em;letter-spacing:-.01em;}
+    h2{font-size:20px;margin:.2em 0 .5em;}
+    p.sub{color:var(--muted);line-height:1.55;margin:.2em 0 1.2em;}
+    .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+    .pill{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13px;color:var(--muted);}
+    .pill b{color:var(--ink);}
+    button{font:inherit;cursor:pointer;border:none;border-radius:12px;}
+    .btn-primary{background:var(--accent);color:#1a1205;font-weight:700;padding:13px 22px;font-size:15px;}
+    .btn-primary:hover{filter:brightness(1.06);}
+    .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);padding:11px 18px;font-weight:600;}
+    .btn-ghost:hover{border-color:var(--accent2);}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px;}
+    .progress{height:7px;background:var(--card2);border-radius:99px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);}
+    .progress>div{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));width:0;transition:width .3s ease;}
+    .qhead{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;margin-bottom:10px;}
+    .topic-tag{color:var(--accent2);font-weight:600;}
+    .stem{font-size:18px;line-height:1.5;margin:6px 0 18px;}
+    .opts{display:grid;gap:11px;}
+    .opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+      background:var(--card2);border:1px solid var(--line);color:var(--ink);padding:14px 16px;font-size:15px;line-height:1.4;transition:.15s;}
+    .opt:hover:not(:disabled){border-color:var(--accent2);transform:translateY(-1px);}
+    .opt .key{font-weight:700;color:var(--muted);min-width:18px;}
+    .opt.selected{border-color:var(--accent);}
+    .opt.correct{border-color:var(--good);background:rgba(62,207,142,.10);}
+    .opt.correct .key{color:var(--good);}
+    .opt.wrong{border-color:var(--bad);background:rgba(247,109,109,.10);}
+    .opt.wrong .key{color:var(--bad);}
+    .opt:disabled{cursor:default;}
+    .feedback{margin-top:18px;border-radius:12px;padding:15px 17px;font-size:14.5px;line-height:1.55;border:1px solid var(--line);background:var(--card2);display:none;}
+    .feedback.show{display:block;}
+    .feedback .verdict{font-weight:700;margin-bottom:6px;}
+    .feedback .verdict.ok{color:var(--good);}
+    .feedback .verdict.no{color:var(--bad);}
+    .feedback .ref{color:var(--muted);font-size:12.5px;margin-top:9px;font-style:italic;}
+    .scorebig{font-size:54px;font-weight:800;letter-spacing:-.02em;}
+    .scorebig small{font-size:22px;color:var(--muted);font-weight:600;}
+    .review-item{border-top:1px solid var(--line);padding:15px 0;}
+    .review-item .rq{font-size:15px;margin-bottom:6px;}
+    .review-item .ra{font-size:13.5px;color:var(--muted);}
+    .review-item .ra b{color:var(--good);}
+    .hide{display:none;}
+    footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:26px;}
+    footer a{color:var(--accent2);text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./index.html">PEFE<span>Prep</span></a>
+      <span class="chip">FE Environmental · Demo</span>
+    </header>
+
+    <!-- START -->
+    <section id="start" class="card">
+      <h1>Fluid Mechanics — Practice Drill</h1>
+      <p class="sub">A short demo of how drills work on PEFEPrep: answer one question at a time, get an instant Handbook-referenced explanation, then see your score and review every miss. Your best score is saved on this device.</p>
+      <div class="meta-row" id="startMeta"></div>
+      <div class="btn-row">
+        <button class="btn-primary" id="startBtn">Start drill →</button>
+        <span id="bestNote" style="color:var(--muted);font-size:13px;"></span>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="card hide">
+      <div class="progress"><div id="bar"></div></div>
+      <div class="qhead">
+        <span id="qcount"></span>
+        <span class="topic-tag" id="qtopic"></span>
+      </div>
+      <div class="stem" id="stem"></div>
+      <div class="opts" id="opts"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="btn-row">
+        <button class="btn-primary hide" id="nextBtn">Next →</button>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="card hide">
+      <span class="chip" style="border-color:var(--line);color:var(--muted);">Drill complete</span>
+      <div class="scorebig" style="margin:14px 0 2px;"><span id="scoreNum"></span><small id="scoreDen"></small></div>
+      <p class="sub" id="scoreMsg"></p>
+      <div id="review"></div>
+      <div class="btn-row">
+        <button class="btn-primary" id="retryBtn">Try again</button>
+        <a class="btn-ghost" href="./index.html" style="text-decoration:none;">Back home</a>
+      </div>
+    </section>
+
+    <footer>
+      Demo content for layout — the live bank will be the Handbook-verified FE&nbsp;Environmental questions.
+      &nbsp;·&nbsp; <a href="./index.html">pefeprep.com</a>
+    </footer>
+  </div>
+
+  <script>
+    const KEY_LETTERS = ["A","B","C","D","E","F"];
+    let QUESTIONS = [], idx = 0, score = 0, answered = false, misses = [];
+
+    const el = id => document.getElementById(id);
+
+    async function load(){
+      try{
+        const res = await fetch("./data/questions.json", {cache:"no-store"});
+        const data = await res.json();
+        QUESTIONS = data.questions || [];
+        const topic = QUESTIONS[0] ? QUESTIONS[0].topic : "Mixed";
+        el("startMeta").innerHTML =
+          pill("Questions", QUESTIONS.length) +
+          pill("Topic", topic) +
+          pill("Format", "Multiple choice") +
+          pill("Exam", (data.meta?.exam||"FE")+" "+(data.meta?.discipline||""));
+        const best = localStorage.getItem("pefeprep_best_fm");
+        if(best) el("bestNote").textContent = "Your best so far: " + best;
+      }catch(e){
+        el("start").innerHTML = "<h1>Couldn’t load questions</h1><p class='sub'>"+e+"</p>";
+      }
+    }
+    const pill = (k,v) => `<span class="pill"><b>${v}</b> · ${k}</span>`;
+
+    function start(){
+      idx = 0; score = 0; misses = [];
+      show("quiz"); render();
+    }
+
+    function render(){
+      answered = false;
+      const q = QUESTIONS[idx];
+      el("bar").style.width = (idx/QUESTIONS.length*100)+"%";
+      el("qcount").textContent = `Question ${idx+1} of ${QUESTIONS.length}`;
+      el("qtopic").textContent = q.topic;
+      el("stem").textContent = q.stem;
+      el("feedback").className = "feedback";
+      el("nextBtn").classList.add("hide");
+      const opts = el("opts"); opts.innerHTML = "";
+      q.options.forEach((text,i)=>{
+        const b = document.createElement("button");
+        b.className = "opt";
+        b.innerHTML = `<span class="key">${KEY_LETTERS[i]}</span><span>${text}</span>`;
+        b.onclick = () => choose(i,b);
+        opts.appendChild(b);
+      });
+    }
+
+    function choose(i, btn){
+      if(answered) return;
+      answered = true;
+      const q = QUESTIONS[idx];
+      const buttons = [...el("opts").children];
+      buttons.forEach((b,j)=>{
+        b.disabled = true;
+        if(j === q.answer) b.classList.add("correct");
+        if(j === i && i !== q.answer) b.classList.add("wrong");
+      });
+      const ok = (i === q.answer);
+      if(ok) score++;
+      else misses.push({q, picked:i});
+      const fb = el("feedback");
+      fb.className = "feedback show";
+      fb.innerHTML =
+        `<div class="verdict ${ok?'ok':'no'}">${ok?'✓ Correct':'✗ Not quite — answer is '+KEY_LETTERS[q.answer]}</div>`+
+        `<div>${q.solution}</div>`+
+        `<div class="ref">Handbook: ${q.handbook}</div>`;
+      el("nextBtn").classList.remove("hide");
+    }
+
+    function next(){
+      idx++;
+      if(idx >= QUESTIONS.length) finish();
+      else render();
+    }
+
+    function finish(){
+      el("bar").style.width = "100%";
+      show("results");
+      const pct = Math.round(score/QUESTIONS.length*100);
+      el("scoreNum").textContent = score;
+      el("scoreDen").textContent = " / " + QUESTIONS.length;
+      el("scoreMsg").textContent =
+        pct>=80 ? `Strong — ${pct}%. That’s in exam-ready territory for this topic.` :
+        pct>=50 ? `${pct}%. Solid base; review the misses below and run it again.` :
+                  `${pct}%. Early days — work the explanations below, then retry.`;
+      // save best
+      const prev = localStorage.getItem("pefeprep_best_fm");
+      const cur = `${score}/${QUESTIONS.length}`;
+      if(!prev || score > parseInt(prev)) localStorage.setItem("pefeprep_best_fm", cur);
+      // review
+      const r = el("review");
+      if(misses.length === 0){
+        r.innerHTML = `<p class="sub" style="color:var(--good);">Clean sweep — no misses. 🎯</p>`;
+      }else{
+        r.innerHTML = `<h2>Review your misses (${misses.length})</h2>` + misses.map(m=>`
+          <div class="review-item">
+            <div class="rq">${m.q.stem}</div>
+            <div class="ra">Correct: <b>${KEY_LETTERS[m.q.answer]}) ${m.q.options[m.q.answer]}</b><br>${m.q.solution}</div>
+          </div>`).join("");
+      }
+    }
+
+    function show(which){
+      ["start","quiz","results"].forEach(s => el(s).classList.toggle("hide", s !== which));
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    el("startBtn").onclick = start;
+    el("retryBtn").onclick = start;
+    el("nextBtn").onclick = next;
+    load();
+  </script>
+</body>
+</html>

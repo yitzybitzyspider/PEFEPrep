@@ -1,0 +1,262 @@
+{
+  "version": "0.21.0",
+  "updated": "2026-06-26",
+  "history": [
+    {
+      "version": "0.21.0",
+      "date": "2026-06-26",
+      "title": "Day 10 added — Fundamental Principles",
+      "changes": [
+        "Fundamental Principles (Day 10, 18 questions) added — KA 5 subtopics A–C: population projections & demand (linear/algebraic, geometric/log/exponential, percent, ratio-correlation, decreasing-rate-of-increase/saturation models); reactors (CMFR and PFR first-order HRT comparison, zero-order CMFR HRT, CMFR second-order effluent concentration, CMFR vs PFR efficiency comparison); materials science (engineering stress, true stress, Hooke's Law/Young's modulus SI and USCS, thermal deformation δt = αL(T−T0), thermal expansion strain ε = αΔT, fire hydrant rated capacity at 20 psi, fire hydrant discharge to atmosphere)",
+        "Bank now holds 222 questions spanning Days 1–10; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 15 new Fundamental Principles equations (all 5 population models, 4 reactor formulas, 4 materials science formulas, 2 fire hydrant NFPA 291 formulas); printable Day-10 study PDF to be generated with pdflatex",
+        "All Day-10 formulas cross-checked against NCEES FE Reference Handbook v10.6 via text extract (Google Drive): population projection equations p.334, CMFR/PFR steady-state reactor table pp.330–331, engineering/true stress and Hooke's Law p.121, thermal expansion coefficient p.127, thermal deformations p.131, fire hydrant NFPA 291 formulas pp.304–305",
+        "KA 5 (7–11 exam questions) fully covered: all 3 subtopics A (5 population models + 2 fire flow), B (4 reactor types/orders), C (6 materials science) — SI + USCS mix (Q13 USCS strain, Q17–18 USCS gpm/psi)"
+      ]
+    },
+    {
+      "version": "0.20.3",
+      "date": "2026-06-25",
+      "title": "Full cross-device sync — streak, stars & achievements included",
+      "changes": [
+        "Everything now follows your account across devices: spaced-repetition review state, attempt history, your daily streak, ⭐ My List stars, achievements, focus time, and settings — not just your plan reviews",
+        "How it works: your device keeps using fast local storage, but while you're signed in the site hydrates from your account on load and pushes changes back automatically (debounced, and on leaving the page) — sign in on a phone and laptop and they stay in lockstep",
+        "Two-way merge keeps the best of each device: the higher streak, the union of your stars and achievements, and the most-advanced review box per question, so nothing is lost when you study in more than one place",
+        "Backed by a new per-user state store in Supabase (RLS-protected); the one-time import banner is replaced by always-on sync that shows a live 'synced' status on Account and My Plan"
+      ]
+    },
+    {
+      "version": "0.20.2",
+      "date": "2026-06-25",
+      "title": "Import your on-device progress into your account",
+      "changes": [
+        "New one-click 'Sync your on-device progress' banner on the Account and My Plan pages: when you sign in, any study progress saved on this device (spaced-repetition review state + attempt history) imports into your account so your synced plan and reviews pick up where you left off",
+        "Safe to run on any device — it only adds questions you haven't already started in your account and won't double-count attempts, so signing in on a second device can't clobber or inflate your stats",
+        "Your on-device exam date carries over to your account profile during the import"
+      ]
+    },
+    {
+      "version": "0.20.1",
+      "date": "2026-06-25",
+      "title": "Handbook page numbers on every static-bank question",
+      "changes": [
+        "Every question in the daily Bank (Days 1–9, 204 questions) now cites its exact NCEES FE Reference Handbook v10.6 page in the Handbook reference line — e.g. 'Manning's Equation (p. 303)', 'Reynolds Number (p. 186)', 'Lime-Soda Softening (p. 347)' — so you can jump straight to the formula on exam day",
+        "Pages were resolved against the real Handbook v10.6 (the searchable PDF used on the exam): each was cross-checked against the Handbook's own index and the section text, and disambiguated by chapter so look-alike terms land on the right page (e.g. open-channel Manning p. 303, not the pipe-flow reference)",
+        "The handful of questions answerable from fundamentals rather than a printed Handbook formula (simultaneous equations, Pascal's hydraulic press, return-period/flood-frequency T = 1/P) are now labeled 'fundamental' instead of being given a misleading page",
+        "Live Bank questions are unaffected by this change; this updates the static daily day-files only"
+      ]
+    },
+    {
+      "version": "0.20.0",
+      "date": "2026-06-25",
+      "title": "Live Bank, accounts & training plans (Supabase platform)",
+      "changes": [
+        "Live Bank — a new database-backed question bank holding 762 Handbook-verified questions across all 15 FE Environmental knowledge areas, filterable by area, type, and source, served live from Supabase (the daily static day-sets stay separate and unchanged)",
+        "Accounts + personalized training plans: sign in with Google, pick a 2-week to 3-month plan that counts down to your exam date — covering every area in official exam proportions, with a weekly mini-exam and a final 110-question mock; per-question progress and spaced-repetition reviews save to your account",
+        "Report a question: flag any question for review (incorrect answer, typo, ambiguous wording, wrong equation/Handbook reference, off-topic, or free-text) from every question card — Live Bank, Bank, Today, and dashboard",
+        "Bank cards now show the question and options first; the correct answer and worked formula reveal only when you choose 'Show answer', so you can attempt the question first",
+        "The bank grew from the day-file sets to 762 questions by extracting and Handbook-verifying every FE Environmental practice problem and course-note across the source library"
+      ]
+    },
+    {
+      "version": "0.19.0",
+      "date": "2026-06-25",
+      "title": "Day 9 added — Environmental Chemistry",
+      "changes": [
+        "Environmental Chemistry (Day 9, 20 questions) added — KA 6 subtopics A–D: stoichiometry/reactions (pH, pKa, Ksp, alkalinity, ThOD), kinetics (first-order decay, half-life, zero-order rate law), organic chemistry (functional groups, degree of unsaturation, alkane formula, chlorinated solvents PCE/TCE), multimedia equilibrium partitioning (Henry's Law, Kow, BCF, Koc, retardation factor, contaminant velocity)",
+        "Bank now holds 204 questions spanning Days 1–9; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 11 new Environmental Chemistry equations (pH, H-H buffer, alkalinity as CaCO3, Ksp, zero-order rate law, DoU, alkane formula, Henry's Law Hcc, Kow, BCF, Koc/Kd); printable Day-9 study PDF generated with pdflatex (materials/)",
+        "All Day-9 formulas cross-checked against NCEES FE Reference Handbook v10.6 via Google Drive subagent; confirmed: Ksp, first-order decay, zero-order rate law, Henry's Law Hcc, retardation factor R, BCF all in Handbook; Henderson-Hasselbalch NOT in Handbook (provided in Q03 stem, tagged in-stem)",
+        "KA 6 (7–11 exam questions) fully covered: all 4 subtopics A–D represented — SI + USCS mix (Q17 SI retardation, Q18 USCS ft/day transport, Q19 USCS ft³ volumes)"
+      ]
+    },
+    {
+      "version": "0.18.0",
+      "date": "2026-06-24",
+      "title": "Day 8 added — Water & Wastewater II",
+      "changes": [
+        "Water & Wastewater II (Day 8, 20 questions) added — ThOD stoichiometry, BOD/COD biodegradability ratio, return sludge mass balance, WAS flow from SRT, primary TSS removal loading, secondary clarifier sizing, NRC recirculation factor, chlorine demand, lime-soda softening Reaction 4 concept and dose, PFR first-order, biotower with recycle, biotower temperature correction (θ=1.035), biological denitrification methanol dose, F:M ratio vs process type, anaerobic digestion gas production and SRT from design table, aerobic digestion O2 demand, annual potable water offset from reclaimed water, dual-distribution reuse fraction",
+        "Bank now holds 184 questions spanning Days 1–8; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 10 new Water & Wastewater II equations (RAS/WAS formulas, biotower with recycle, NRC factor F, methanol denitrification, AD/aerobic digestion criteria); printable Day-8 study PDF generated with pdflatex (materials/)",
+        "All Day-8 formulas cross-checked against NCEES FE Reference Handbook v10.6 text (pp. 327–353) via Google Drive subagent; confirmed Handbook coverage for each tagged formula",
+        "KA 12 (12–18 exam questions) continued: all 7 subtopics A–G represented — SI + USCS mix; Day 8 adds depth to biological processes (biotower recycle, denitrification, F:M, PFR) and sludge treatment (aerobic/anaerobic digestion design criteria)"
+      ]
+    },
+    {
+      "version": "0.17.0",
+      "date": "2026-06-23",
+      "title": "Day 7 added — Water & Wastewater I",
+      "changes": [
+        "Water & Wastewater I (Day 7, 21 questions) added — hardness as CaCO3, BOD5 test, mass loading, CMFR reactor, clarifier overflow rate & HRT, Stokes' Law settling, CT disinfection, lime-soda softening, alum coagulation, BOD exertion, ultimate BOD, temperature correction, activated sludge MLSS, SVI, biotower fixed-film, sludge volume, aerobic digestion SRT, per capita BOD loading, water conservation",
+        "Bank now holds 164 questions spanning Days 1–7; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 15 new Water & Wastewater equations; printable Day-7 study PDF generated with pdflatex (materials/)",
+        "All Day-7 formulas cross-checked against the NCEES FE Reference Handbook v10.6 text (pp. 327–353)",
+        "KA 12 (12–18 exam questions) coverage begun: subtopics A–G all represented — SI + USCS mix throughout"
+      ]
+    },
+    {
+      "version": "0.16.0",
+      "date": "2026-06-22",
+      "title": "Day 6 added — Groundwater, Soils & Sediments",
+      "changes": [
+        "Groundwater, Soils & Sediments (Day 6, 20 questions) added — Darcy's Law, hydraulic conductivity tests, transmissivity, Dupuit unconfined well, Thiem confined well, specific capacity, retardation factor, vadose zone penetration",
+        "Bank now holds 143 questions spanning Days 1–6; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 9 new Groundwater equations; printable Day-6 study PDF generated with pdflatex (materials/)",
+        "All Day-6 formulas cross-checked against the NCEES FE Reference Handbook v10.6 text (pp. 297–299, 330)",
+        "KA 11 (8–12 exam questions) fully covered: subtopics A basic hydrogeology, B groundwater flow, C drawdown, D remediation — SI + USCS mix throughout"
+      ]
+    },
+    {
+      "version": "0.15.0",
+      "date": "2026-06-22",
+      "title": "Mark Got/Missed fixed + 25/50% nudges + welcome-back",
+      "changes": [
+        "Fixed: marking a question ✓ Got in the Bank now actually flips it from missed to got (status tracks your latest answer, not whether you ever missed it) and drops it from the Missed list",
+        "Encouraging nudges at 25% and 50% of your daily goal, on top of the goal-hit celebration",
+        "Gentle 'welcome back' when you return to a study session you left mid-set",
+        "New Mock Master badge for scoring 70%+ on a full practice exam (ready for the Jul 3 / Jul 6 practice days)"
+      ]
+    },
+    {
+      "version": "0.14.0",
+      "date": "2026-06-22",
+      "title": "Gamification: daily goal, streak protection, badges, focus tracking",
+      "changes": [
+        "Daily goal with a progress ring; meeting it keeps your 🔥 streak — and one missed day a week is forgiven (grace day), with a 🏆 best-streak record",
+        "Achievements: 11 unlockable badges (streaks, sections cleared, perfect set, focus, comeback…) shown on the dashboard",
+        "Celebrations: confetti + encouraging toasts when you hit your goal, unlock a badge, or ace a set (respects reduced-motion)",
+        "Focus tracking: measures real engaged study time and how often you switch away — shown on the dashboard",
+        "Set your daily goal in Settings; results now always count toward streak, mastery, and the heatmap"
+      ]
+    },
+    {
+      "version": "0.13.0",
+      "date": "2026-06-22",
+      "title": "Dashboard: study calendar + My List / Missed tiles",
+      "changes": [
+        "Study calendar on the dashboard — your whole plan from first set to exam day across the months, with live days in green (click any to review), pending in amber, upcoming dim, exams in red, and today ringed",
+        "‘Your study lists’ tiles: ★ My List and ✗ Missed counts with one-click review, plus export-for-Claude",
+        "Quick links wire straight into the study player on your saved or missed sets"
+      ]
+    },
+    {
+      "version": "0.12.0",
+      "date": "2026-06-22",
+      "title": "Bank: history dots, sorting, My List + mark got/missed",
+      "changes": [
+        "Every Bank card shows a history dot (green = got it, red = missed, grey = not seen yet) — the same read as the study navigator",
+        "Sort the bank by day, topic, missed-first, or most-missed",
+        "★ My List: star any question to build a custom set; 'Add these to My List' stars the whole current filter; review it with one click",
+        "Missed list fills itself automatically; both lists show live counts and open in the study interface",
+        "Mark a question ✓ Got or ✗ Missed straight from the card — for when you worked it on paper — and it updates your history, dots, and mastery"
+      ]
+    },
+    {
+      "version": "0.11.0",
+      "date": "2026-06-22",
+      "title": "History-aware navigator + collapsible study panels",
+      "changes": [
+        "The question navigator now reflects your saved history: green = got it right, red = ever missed (drill these), grey = not seen yet — so reopening a section shows your progress, not a blank slate",
+        "Count legend at the top of the navigator (✓ got · ✗ missed · ○ new)",
+        "Show/hide the Questions panel and the Handbook from the study view; the question column reflows to fill the space and your choice is remembered"
+      ]
+    },
+    {
+      "version": "0.10.0",
+      "date": "2026-06-21",
+      "title": "Wider layout, day-aware study, dashboard + PDFs",
+      "changes": [
+        "Full-width, fluid layout that uses the whole screen",
+        "Today is day-aware — shows the correct day (falls back to the latest available) with a day picker to load any day's full set; plus a question navigator and smooth click-through",
+        "Bank: filter by day + topic + mastery; 'Review these →' opens the full study interface on any day, topic, or your misses",
+        "Dashboard: publish verification (is today's set live?), clickable schedule with per-day progress",
+        "Missed questions tracked + one-click export to paste into Claude as a tutor",
+        "New PDFs page: download every daily set, the cheat sheet, and practice exams"
+      ]
+    },
+    {
+      "version": "0.9.0",
+      "date": "2026-06-21",
+      "title": "Day 5 added — Surface Water & Hydrology",
+      "changes": [
+        "Surface Water & Hydrology (Day 5, 20 questions) added — Rational Method, SCS/NRCS curve-number runoff, IDF curves, and flood frequency/return-period analysis",
+        "Bank now holds 123 questions spanning Days 1-5; every numeric answer recomputed and verified in Python",
+        "Cheat sheet (equation index) extended with the Surface Water relations; printable Day-5 study PDF generated with pdflatex (materials/)",
+        "Every Day-5 formula cross-checked against the actual NCEES FE Handbook v10.6 text",
+        "Auto-published by the daily routine: Today, Bank, and Progress picked up Day 5 from one new day file + manifest line"
+      ]
+    },
+    {
+      "version": "0.8.0",
+      "date": "2026-06-21",
+      "title": "Full current bank — 103 questions",
+      "changes": [
+        "Day 2 Set B added (20 more Fluid Mechanics questions) — the bank now holds all 103 questions from your study series so far",
+        "End-to-end routine confirmed: dropping one day file + a manifest line flows straight to the live site"
+      ]
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-06-21",
+      "title": "Day 1 added — Days 1-4 fully loaded",
+      "changes": [
+        "Mathematics (Day 1, 18 questions) added — the bank now spans Days 1-4 (83 questions)",
+        "Demonstrates the daily routine: one new file + a manifest line, and Today, Bank, and Progress all updated with no code changes"
+      ]
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-06-21",
+      "title": "Real questions Days 2-4 + daily-append structure",
+      "changes": [
+        "65 real questions now live: Fluid Mechanics I (20), Pipe Flow (21), Hydraulics (24)",
+        "New data model: one file per study day (data/days/dayNN.json) + manifest — adding a day auto-updates the whole app",
+        "Documented the FE engine to site daily routine (docs/engine-integration.md)"
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-06-21",
+      "title": "Real questions, schedule, equations panel",
+      "changes": [
+        "Real exam questions loading from the FE engine, tagged by day/topic",
+        "Full equations list in the searchable Handbook panel; KaTeX math",
+        "Equations hidden by default; worked solution unlocks step by step; numeric-entry supported"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-06-20",
+      "title": "Equation breakdowns, step-by-step, Handbook panel",
+      "changes": [
+        "Relevant equations shown up front; unlock the worked solution one step at a time",
+        "Searchable Handbook panel; Question Bank browse/search/filter; live version badge"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-06-20",
+      "title": "Progress, spaced repetition, settings",
+      "changes": [
+        "Progress dashboard with per-section mastery, streak, days-to-exam",
+        "Leitner spaced repetition; Settings: daily size, mix, reveal mode, SRS toggle"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-06-19",
+      "title": "Daily player",
+      "changes": [
+        "Today's daily question set; hide / reveal answers with self-grade; daily streak"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-06-19",
+      "title": "Site live",
+      "changes": [
+        "pefeprep.com live on GitHub Pages with auto-deploy; HTTPS enabled"
+      ]
+    }
+  ]
+}
