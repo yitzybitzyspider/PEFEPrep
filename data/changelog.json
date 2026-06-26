@@ -1,7 +1,19 @@
 {
-  "version": "0.21.1",
+  "version": "0.21.2",
   "updated": "2026-06-26",
   "history": [
+    {
+      "version": "0.21.2",
+      "date": "2026-06-26",
+      "title": "Installable app, offline study & a reusable architecture",
+      "changes": [
+        "PEFEPrep is now an installable app (PWA): add it to your phone or desktop home screen and open straight into today's set — your browser will offer an Install prompt, and there's a one-tap update notice when a new version ships",
+        "Works offline: once you've opened the app, your daily study loop, the static bank, and your progress all run with no connection; new content syncs when you're back online (the Live Bank and plan still need a connection)",
+        "Findable & shareable: every page now has proper search/social preview cards (title, description, and a branded share image)",
+        "Under the hood: the codebase is now cleanly split into a reusable study engine and a single per-exam config file (app/config.js) — the foundation for spinning up the same daily-habit app for other exams down the road",
+        "New living docs for the project: docs/ARCHITECTURE.md (how it's built), docs/FEATURES.md (everything it does), and docs/NEW-EXAM-PLAYBOOK.md (how to reuse it for another exam)"
+      ]
+    },
     {
       "version": "0.21.1",
       "date": "2026-06-26",

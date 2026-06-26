@@ -4,6 +4,12 @@ PEFEPrep is a daily-habit FE/PE exam-prep site (first target: **FE Environmental
 exam **2026-07-08**). Product spec: `docs/PRD.md`. Engine→site seam: `docs/engine-integration.md`.
 **Live site: pefeprep.com** (GitHub Pages, auto-deploys on push to `main`).
 
+## Source of truth — read/update these
+- **`docs/ARCHITECTURE.md`** — how the system is built (layers, data model, flows, file map). Update it when you change how a layer works.
+- **`docs/FEATURES.md`** — the running feature registry. **Update the matching row in the same PR** whenever you ship/change/remove a feature.
+- **`docs/NEW-EXAM-PLAYBOOK.md`** — how to fork this engine for a different exam.
+- **`app/config.js` (`window.APP_CONFIG`)** is the per-exam "fork surface": exam id/name/**date**, brand/wordmark, tagline, handbook, and the knowledge-area list + weights. The engine reads from it (with fallbacks). **Never hard-code "FE Environmental" or the exam date in engine code** — read it from config so the codebase stays reusable across exams.
+
 ## The one rule that matters
 **Publish to `main` automatically.** The user just opens the website each day and the new
 set is there — there is **no manual merge/review gate**. After the day's set is generated and

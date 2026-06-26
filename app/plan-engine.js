@@ -8,8 +8,10 @@
  * (see app/sb.js dueReviews) — this file lays down the fixed coverage backbone. */
 (function () {
   "use strict";
-  // Midpoints of the NCEES FE-Environmental question-count ranges (sum ≈ 127, used as relative weights).
-  var WEIGHTS = { 1: 6.5, 2: 5, 3: 6.5, 4: 6.5, 5: 9, 6: 9, 7: 5, 8: 15, 9: 4, 10: 11.5, 11: 10, 12: 15, 13: 10, 14: 9, 15: 5 };
+  // Per-exam KA exam-weight proportions from app/config.js (FE-Environmental
+  // question-count midpoints, sum ≈ 127). Fallback keeps the engine working alone.
+  var WEIGHTS = (window.APP_CONFIG && window.APP_CONFIG.kaWeights) ||
+    { 1: 6.5, 2: 5, 3: 6.5, 4: 6.5, 5: 9, 6: 9, 7: 5, 8: 15, 9: 4, 10: 11.5, 11: 10, 12: 15, 13: 10, 14: 9, 15: 5 };
 
   function iso(d) { return d.toISOString().slice(0, 10); }
   function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }

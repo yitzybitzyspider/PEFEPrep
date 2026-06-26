@@ -13,7 +13,7 @@ window.PFP = (function () {
     dailyGoal: 20,        // questions/day to keep the streak alive
     srs: true,            // F4 spaced repetition on/off
     revealMode: "manual", // "manual" | "auto" (F2.2)
-    examDate: "2026-07-08"
+    examDate: (window.APP_CONFIG && window.APP_CONFIG.examDate) || "2026-07-08" // per-exam (app/config.js)
   };
   // Leitner box -> days until due. Box 0 = brand new.
   var BOX_DAYS = [0, 1, 3, 7, 16, 35];
