@@ -1,7 +1,19 @@
 {
-  "version": "0.20.3",
-  "updated": "2026-06-25",
+  "version": "0.21.0",
+  "updated": "2026-06-26",
   "history": [
+    {
+      "version": "0.21.0",
+      "date": "2026-06-26",
+      "title": "Day 10 added — Fundamental Principles",
+      "changes": [
+        "Fundamental Principles (Day 10, 18 questions) added — KA 5 subtopics A–C: population projections & demand (linear/algebraic, geometric/log/exponential, percent, ratio-correlation, decreasing-rate-of-increase/saturation models); reactors (CMFR and PFR first-order HRT comparison, zero-order CMFR HRT, CMFR second-order effluent concentration, CMFR vs PFR efficiency comparison); materials science (engineering stress, true stress, Hooke's Law/Young's modulus SI and USCS, thermal deformation δt = αL(T−T0), thermal expansion strain ε = αΔT, fire hydrant rated capacity at 20 psi, fire hydrant discharge to atmosphere)",
+        "Bank now holds 222 questions spanning Days 1–10; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 15 new Fundamental Principles equations (all 5 population models, 4 reactor formulas, 4 materials science formulas, 2 fire hydrant NFPA 291 formulas); printable Day-10 study PDF to be generated with pdflatex",
+        "All Day-10 formulas cross-checked against NCEES FE Reference Handbook v10.6 via text extract (Google Drive): population projection equations p.334, CMFR/PFR steady-state reactor table pp.330–331, engineering/true stress and Hooke's Law p.121, thermal expansion coefficient p.127, thermal deformations p.131, fire hydrant NFPA 291 formulas pp.304–305",
+        "KA 5 (7–11 exam questions) fully covered: all 3 subtopics A (5 population models + 2 fire flow), B (4 reactor types/orders), C (6 materials science) — SI + USCS mix (Q13 USCS strain, Q17–18 USCS gpm/psi)"
+      ]
+    },
     {
       "version": "0.20.3",
       "date": "2026-06-25",

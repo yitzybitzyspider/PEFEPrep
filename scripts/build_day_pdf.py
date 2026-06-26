@@ -137,16 +137,26 @@ def fix_math(s):
 
 
 def render(s):
-    """Render a mixed text/math string: split on $...$, escape text, keep math."""
+    """Render a mixed text/math string: split on $$...$$ and $...$, escape text, keep math.
+    $$...$$ is converted to displayed math \\[...\\]; $...$ stays inline.
+    """
     if s is None:
         return ""
-    parts = re.split(r"(\$[^$]*\$)", str(s))
+    # First handle $$...$$ display math (must come before single-$ split)
+    parts = re.split(r"(\$\$[^$]*(?:\$(?!\$)[^$]*)?\$\$)", str(s))
     res = []
     for p in parts:
-        if len(p) >= 2 and p.startswith("$") and p.endswith("$"):
-            res.append("$" + fix_math(p[1:-1]) + "$")
+        if p.startswith("$$") and p.endswith("$$") and len(p) >= 4:
+            inner = p[2:-2]
+            res.append("\\[" + fix_math(inner) + "\\]")
         else:
-            res.append(esc_text(p))
+            # Now handle inline $...$
+            subparts = re.split(r"(\$[^$]*\$)", p)
+            for sp in subparts:
+                if len(sp) >= 2 and sp.startswith("$") and sp.endswith("$"):
+                    res.append("$" + fix_math(sp[1:-1]) + "$")
+                else:
+                    res.append(esc_text(sp))
     return "".join(res)
 
 

@@ -1,0 +1,408 @@
+{
+  "day": 10,
+  "date": "2026-06-26",
+  "topic": "Fundamental Principles",
+  "fidelityNote": "All formulas confirmed against NCEES FE Reference Handbook v10.6. Population projection equations (p. 334): Linear Pt = P0 + k∆t, Geometric Pt = P0e^(k∆t), Percent Pt = P0(1+k)^n, Ratio-Correlation P2/P2R = P1/P1R, Decreasing-Rate-of-Increase Pt = P0+(S−P0)(1−e^(−k(t−t0))) — all five models verbatim. Steady-State Reactor Parameters table (p. 330–331): CMFR and PFR first-order, zero-order, and second-order retention times and effluent concentrations verbatim. Engineering stress σ = F/A0, true stress σT = F/A, Hooke's Law σ = Eε (p. 121). Thermal expansion coefficient ε = α∆T (p. 127 Materials Science). Thermal deformations δt = αL(T−To) (p. 131 Mechanics of Materials). Fire hydrant rated capacity QR = QF×(HR/HF)^0.54 and discharge Q = 29.8D²CdP^0.5 (p. 304–305, Civil Engineering, NFPA 291). NOT in Handbook v10.6 (supplemental): the term 'logistic growth' (Handbook calls it Decreasing-Rate-of-Increase Growth); 'arithmetic growth' (Handbook calls it Linear Projection = Algebraic Projection); 'geometric' appears only in the synonym list 'Log Growth = Exponential Growth = Geometric Growth' — all questions use Handbook nomenclature. The CMFR 2nd-order effluent formula Ct = (√(4kC0θ+1)−1)/(2kθ) is derived by solving the CMFR steady-state equation; the Handbook table gives the θ formula, from which Ct is algebraically equivalent — tagged as handbook. True stress formula σT = σ×(1+ε) for constant-volume plastic deformation is derivable from Handbook definitions (σT = F/A, σ = F/A0) but the combined form is not explicitly printed; Q14 gives both areas explicitly so students use σT = F/A directly (handbook). For USCS Q13: E = 29×10⁶ psi is a standard steel value not tabulated in Handbook — provided in the stem (tagged in-stem). Ratio-correlation: k = P2R/P1R (the constant) is rearranged from the Handbook form; the formula itself is in Handbook (tagged handbook).",
+  "questions": [
+    {
+      "id": "D10-Q01",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Population projection — linear (algebraic) model",
+      "stem": "A small city had a population of 25,000 in 2010. Using the linear (algebraic) projection model, the population in 2020 is most nearly:\n\nLinear Projection: Pt = P0 + k∆t\n\nThe growth rate k = 800 persons/year (determined from historical data).",
+      "equations": [
+        "$P_t = P_0 + k\\,\\Delta t$"
+      ],
+      "options": [
+        "30,000",
+        "31,000",
+        "33,000",
+        "35,000"
+      ],
+      "answer": 2,
+      "solution": "Using the linear projection formula: $P_t = P_0 + k\\Delta t = 25{,}000 + 800\\times10 = 25{,}000 + 8{,}000 = 33{,}000$.\n\nOption (A) 30,000: uses k = 500 persons/yr (too low). Option (B) 31,000: uses k = 600 persons/yr. Option (D) 35,000: uses k = 1,000 persons/yr (too high). The linear model assumes a constant annual increment — no compounding.",
+      "handbook": "Environmental Engineering — Population Projection Equations, Linear Projection = Algebraic Projection: Pt = P0 + k∆t (p. 334)",
+      "references": "Handbook p. 334 — Population Projection Equations",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q02",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Population projection — geometric (log/exponential) model",
+      "stem": "Census data for a municipality show a population of 50,000 in 2010 and 65,000 in 2020. Assuming geometric (log) growth:\n\nLog Growth = Exponential Growth = Geometric Growth: Pt = P0e^(k∆t)\n\nThe projected population in 2025 is most nearly:",
+      "equations": [
+        "$P_t = P_0 e^{k\\Delta t}$",
+        "$k = \\dfrac{\\ln(P_t / P_0)}{\\Delta t}$"
+      ],
+      "options": [
+        "70,000",
+        "72,000",
+        "74,000",
+        "76,000"
+      ],
+      "answer": 2,
+      "solution": "Step 1 — find k from the two census points (2010→2020, ∆t = 10 yr):\n$$k = \\frac{\\ln(65{,}000/50{,}000)}{10} = \\frac{\\ln(1.30)}{10} = \\frac{0.2624}{10} = 0.02624\\text{ yr}^{-1}$$\n\nStep 2 — project from 2020 to 2025 (∆t = 5 yr from 2020 base):\n$$P_{2025} = 65{,}000 \\times e^{0.02624\\times5} = 65{,}000 \\times e^{0.1312} = 65{,}000 \\times 1.1401 = 74{,}107$$\n\nOption (A) 70,000: misapplies k, uses only additive estimate. Option (B) 72,000: underestimates k. Option (D) 76,000: overestimates. The geometric model compounds continuously — larger populations grow faster each year.",
+      "handbook": "Environmental Engineering — Population Projection Equations, Log Growth = Exponential Growth = Geometric Growth: Pt = P0e^(k∆t) (p. 334)",
+      "references": "Handbook p. 334 — Population Projection Equations",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q03",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Population projection — percent (discrete) growth model",
+      "stem": "A growing town has a current population of 80,000. It is expected to grow at 2.5% per year. Using the percent growth model, the population after 8 years is most nearly:\n\nPercent Growth: Pt = P0(1 + k)^n",
+      "equations": [
+        "$P_t = P_0(1 + k)^n$"
+      ],
+      "options": [
+        "92,000",
+        "97,000",
+        "97,500",
+        "102,000"
+      ],
+      "answer": 2,
+      "solution": "$P_t = 80{,}000 \\times (1 + 0.025)^8 = 80{,}000 \\times (1.025)^8$.\n\n$(1.025)^8$: $(1.025)^2 = 1.0506$; $(1.025)^4 = 1.1038$; $(1.025)^8 = 1.2184$.\n\n$P_t = 80{,}000 \\times 1.2184 = 97{,}472 \\approx 97{,}500$.\n\nOption (A) 92,000: uses n = 5 instead of 8. Option (B) 97,000: rounds k incorrectly. Option (D) 102,000: misapplies k = 3%. The percent growth model is discrete (annual compounding), unlike the geometric model which compounds continuously.",
+      "handbook": "Environmental Engineering — Population Projection Equations, Percent Growth: Pt = P0(1+k)^n (p. 334)",
+      "references": "Handbook p. 334 — Population Projection Equations",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q04",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Population projection — ratio-and-correlation method",
+      "stem": "At the last census a city had a population of 40,000 and its surrounding metropolitan region had 500,000. In the new forecast, the region is projected to reach 620,000. Using the ratio-and-correlation method, the projected city population is most nearly:\n\nRatio and Correlation Growth: P2/P2R = P1/P1R",
+      "equations": [
+        "$\\dfrac{P_2}{P_{2R}} = \\dfrac{P_1}{P_{1R}}$"
+      ],
+      "options": [
+        "44,800",
+        "46,500",
+        "49,600",
+        "52,000"
+      ],
+      "answer": 2,
+      "solution": "The ratio-correlation method assumes the city's share of the regional population stays constant:\n$$P_2 = P_{2R} \\times \\frac{P_1}{P_{1R}} = 620{,}000 \\times \\frac{40{,}000}{500{,}000} = 620{,}000 \\times 0.080 = 49{,}600$$\n\nOption (A) 44,800: divides by 620 instead of multiplying by the ratio. Option (B) 46,500: uses ratio of 40/500 but applies to wrong base. Option (D) 52,000: inflates the ratio. The method scales the city in proportion to its region — useful when regional forecasts are more reliable than local ones.",
+      "handbook": "Environmental Engineering — Population Projection Equations, Ratio and Correlation Growth: P2/P2R = P1/P1R (p. 334)",
+      "references": "Handbook p. 334 — Population Projection Equations",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q05",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Population projection — decreasing-rate-of-increase (saturation) model",
+      "stem": "A city currently has a population of 30,000. Analysis of historical data indicates a saturation population S = 80,000 and a growth rate constant k = 0.10 yr⁻¹. Using the decreasing-rate-of-increase model, the population 15 years from now is most nearly:\n\nDecreasing-Rate-of-Increase Growth: Pt = P0 + (S − P0)(1 − e^(−k(t−t0)))",
+      "equations": [
+        "$P_t = P_0 + (S - P_0)\\left(1 - e^{-k(t-t_0)}\\right)$"
+      ],
+      "options": [
+        "58,000",
+        "64,000",
+        "68,800",
+        "76,000"
+      ],
+      "answer": 2,
+      "solution": "$P_t = 30{,}000 + (80{,}000 - 30{,}000)(1 - e^{-0.10 \\times 15})$\n$= 30{,}000 + 50{,}000\\,(1 - e^{-1.5})$\n$= 30{,}000 + 50{,}000\\,(1 - 0.2231)$\n$= 30{,}000 + 50{,}000 \\times 0.7769$\n$= 30{,}000 + 38{,}843 = 68{,}843 \\approx 68{,}800$.\n\nOption (A) 58,000: uses t = 10 yr instead of 15. Option (B) 64,000: uses k = 0.07. Option (D) 76,000: assumes nearly complete saturation (overestimates). This model captures the idea that growth slows as the population approaches its carrying capacity S.",
+      "handbook": "Environmental Engineering — Population Projection Equations, Decreasing-Rate-of-Increase Growth: Pt = P0 + (S−P0)(1−e^(−k(t−t0))) (p. 334)",
+      "references": "Handbook p. 334 — Population Projection Equations",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q06",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "CMFR — first-order reaction, retention time",
+      "stem": "A completely mixed flow reactor (CMFR) is used to treat an influent with concentration C0 = 200 mg/L. The treatment target is an effluent concentration Ct = 20 mg/L. The first-order rate constant is k = 0.5 d⁻¹. The required mean retention time θ is most nearly:\n\nFor a CMFR with first-order decay (r = −kC): θ = (C0/Ct − 1)/k",
+      "equations": [
+        "$\\theta = \\dfrac{C_0/C_t - 1}{k}$"
+      ],
+      "options": [
+        "4.6 d",
+        "9.0 d",
+        "18.0 d",
+        "36.0 d"
+      ],
+      "answer": 2,
+      "solution": "$\\theta = \\dfrac{C_0/C_t - 1}{k} = \\dfrac{200/20 - 1}{0.5} = \\dfrac{10 - 1}{0.5} = \\dfrac{9}{0.5} = 18.0$ d.\n\nOption (A) 4.6 d: this is the PFR retention time for the same removal (see Q07) — wrong reactor model applied. Option (B) 9.0 d: forgets to divide by k. Option (D) 36.0 d: doubles the answer (arithmetic error on the ratio). A CMFR is always less efficient than a PFR for the same kinetics because it operates at the effluent (lowest) concentration throughout.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters table, Ideal CMFR, First-Order: θ = (C0/Ct − 1)/k (p. 330–331)",
+      "references": "Handbook p. 330–331 — Steady-State Reactor Parameters (Constant Density Systems)",
+      "source": "handbook",
+      "spec": "5.B — reactors"
+    },
+    {
+      "id": "D10-Q07",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Plug-flow reactor (PFR) — first-order reaction, retention time",
+      "stem": "A plug-flow reactor (PFR) must achieve 90% removal of a contaminant with C0 = 200 mg/L and Ct = 20 mg/L. The first-order rate constant k = 0.5 d⁻¹. The required retention time θ is most nearly:\n\nFor an ideal PFR with first-order decay: θ = ln(C0/Ct)/k",
+      "equations": [
+        "$\\theta = \\dfrac{\\ln(C_0/C_t)}{k}$"
+      ],
+      "options": [
+        "2.3 d",
+        "4.6 d",
+        "9.0 d",
+        "18.0 d"
+      ],
+      "answer": 1,
+      "solution": "$\\theta = \\dfrac{\\ln(200/20)}{0.5} = \\dfrac{\\ln(10)}{0.5} = \\dfrac{2.303}{0.5} = 4.61$ d $\\approx 4.6$ d.\n\nOption (A) 2.3 d: ln(10)/1.0 — forgets to divide by k or uses k = 1 d⁻¹. Option (C) 9.0 d: applies CMFR numerator formula (C0/Ct−1 = 9) to PFR — wrong model. Option (D) 18.0 d: CMFR result. Comparison: the PFR achieves 90% removal in 4.6 d vs the CMFR's 18.0 d — a 3.9× advantage because the PFR maintains high driving-force concentration along the plug length.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters table, Ideal Plug Flow, First-Order: θ = ln(C0/Ct)/k (p. 330–331)",
+      "references": "Handbook p. 330–331 — Steady-State Reactor Parameters (Constant Density Systems)",
+      "source": "handbook",
+      "spec": "5.B — reactors"
+    },
+    {
+      "id": "D10-Q08",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "CMFR — zero-order reaction, retention time",
+      "stem": "A CMFR is operated with a zero-order reaction rate k = 10 mg/(L·d). The influent concentration is C0 = 100 mg/L and the target effluent is Ct = 40 mg/L. The required mean retention time θ is most nearly:\n\nFor a CMFR (and ideal batch and PFR) with zero-order decay (r = −k): θ = (C0 − Ct)/k",
+      "equations": [
+        "$\\theta = \\dfrac{C_0 - C_t}{k}$"
+      ],
+      "options": [
+        "4.0 d",
+        "6.0 d",
+        "10.0 d",
+        "14.0 d"
+      ],
+      "answer": 1,
+      "solution": "$\\theta = \\dfrac{C_0 - C_t}{k} = \\dfrac{100 - 40}{10} = \\dfrac{60}{10} = 6.0$ d.\n\nOption (A) 4.0 d: uses C0 − Ct = 40 instead of 60 (confuses Ct and the reduction). Option (C) 10.0 d: uses C0/k = 100/10 (ignores that we only need to reduce to 40, not to zero). Option (D) 14.0 d: arithmetic error. Note: for zero-order kinetics the CMFR, PFR, and batch all have the same retention time — unlike first-order kinetics where the PFR is more efficient.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters table, Ideal CMFR, Zero-Order: θ = (C0−Ct)/k (p. 330–331)",
+      "references": "Handbook p. 330–331 — Steady-State Reactor Parameters (Constant Density Systems)",
+      "source": "handbook",
+      "spec": "5.B — reactors"
+    },
+    {
+      "id": "D10-Q09",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "CMFR — second-order reaction, effluent concentration",
+      "stem": "A CMFR operates with a second-order decay reaction (r = −kC²) with rate constant k = 0.02 L/(mg·d) and a mean retention time θ = 5 d. The influent concentration is C0 = 50 mg/L. The effluent concentration Ct is most nearly:\n\nFor a CMFR with second-order decay: $C_t = \\dfrac{\\sqrt{4k C_0 \\theta + 1} - 1}{2k\\theta}$",
+      "equations": [
+        "$C_t = \\dfrac{\\sqrt{4k C_0 \\theta + 1} - 1}{2k\\theta}$"
+      ],
+      "options": [
+        "14.6 mg/L",
+        "17.9 mg/L",
+        "25.0 mg/L",
+        "35.7 mg/L"
+      ],
+      "answer": 1,
+      "solution": "$C_t = \\dfrac{\\sqrt{4(0.02)(50)(5)+1}-1}{2(0.02)(5)} = \\dfrac{\\sqrt{21}-1}{0.2} = \\dfrac{4.583-1}{0.2} = \\dfrac{3.583}{0.2} = 17.9$ mg/L.\n\nStep by step: $4kC_0\\theta = 4(0.02)(50)(5) = 20$; inner radical: $\\sqrt{21} = 4.583$; numerator: $4.583-1=3.583$; denominator: $2(0.02)(5)=0.2$; $C_t = 3.583/0.2 = 17.9$ mg/L.\n\nOption (A) 14.6 mg/L: uses incorrect radical expansion. Option (C) 25.0 mg/L: uses first-order formula $C_0/(1+k\\theta)$ with wrong k units. Option (D) 35.7 mg/L: neglects the subtraction of 1 in the numerator. The second-order CMFR requires solving a quadratic steady-state balance, yielding the formula above.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters table, Ideal CMFR, Second-Order: Ct formula (p. 330–331)",
+      "references": "Handbook p. 330–331 — Steady-State Reactor Parameters (Constant Density Systems)",
+      "source": "handbook",
+      "spec": "5.B — reactors"
+    },
+    {
+      "id": "D10-Q10",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "CMFR vs PFR — comparison for first-order removal",
+      "stem": "A treatment process must achieve 90% removal of a contaminant that degrades via first-order kinetics. Two reactor configurations are considered: an ideal CMFR and an ideal PFR, each with the same first-order rate constant k. Which statement best compares the required hydraulic retention times (θ)?",
+      "equations": [
+        "$\\theta_{\\text{CMFR}} = \\dfrac{C_0/C_t - 1}{k}$",
+        "$\\theta_{\\text{PFR}} = \\dfrac{\\ln(C_0/C_t)}{k}$"
+      ],
+      "options": [
+        "θ_CMFR < θ_PFR (CMFR is more efficient)",
+        "θ_CMFR ≈ θ_PFR (both reactors perform equally)",
+        "θ_CMFR ≈ 3.9 × θ_PFR (CMFR requires ~4× longer HRT)",
+        "θ_CMFR = 9 × θ_PFR (CMFR requires exactly 9× longer HRT)"
+      ],
+      "answer": 2,
+      "solution": "For 90% removal: $C_0/C_t = 10$.\n\n$\\theta_{\\text{CMFR}} = \\dfrac{10-1}{k} = \\dfrac{9}{k}$\n\n$\\theta_{\\text{PFR}} = \\dfrac{\\ln 10}{k} = \\dfrac{2.303}{k}$\n\nRatio: $\\theta_{\\text{CMFR}}/\\theta_{\\text{PFR}} = 9/2.303 = 3.91$\n\nOption (A): wrong — the CMFR is less efficient, not more, because it operates at the (lowest) effluent concentration throughout the entire volume. Option (B): wrong — they differ significantly for first-order kinetics. Option (D): $\\theta_{\\text{CMFR}} = 9/k$ and $\\theta_{\\text{PFR}} = \\ln(10)/k \\approx 2.3/k$, so the ratio is 3.9, not 9. The PFR advantage exists because it maintains a high concentration (high reaction rate) along the length of the reactor.",
+      "handbook": "Environmental Engineering — Steady-State Reactor Parameters table, Ideal CMFR and Ideal Plug Flow, First-Order (p. 330–331)",
+      "references": "Handbook p. 330–331 — Steady-State Reactor Parameters (Constant Density Systems)",
+      "source": "handbook",
+      "spec": "5.B — reactors"
+    },
+    {
+      "id": "D10-Q11",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Engineering stress — axial loading (SI)",
+      "stem": "A steel rod with an initial diameter of 20 mm carries an axial tensile load of 40 kN. The engineering stress in the rod is most nearly:\n\nEngineering stress: σ = F/A0",
+      "equations": [
+        "$\\sigma = \\dfrac{F}{A_0}$",
+        "$A_0 = \\dfrac{\\pi d^2}{4}$"
+      ],
+      "options": [
+        "63.7 MPa",
+        "100 MPa",
+        "127 MPa",
+        "159 MPa"
+      ],
+      "answer": 2,
+      "solution": "Initial cross-sectional area:\n$$A_0 = \\frac{\\pi (0.020)^2}{4} = \\frac{\\pi \\times 4 \\times 10^{-4}}{4} = 3.142 \\times 10^{-4}\\text{ m}^2$$\n\nEngineering stress:\n$$\\sigma = \\frac{F}{A_0} = \\frac{40{,}000\\text{ N}}{3.142 \\times 10^{-4}\\text{ m}^2} = 127.3 \\times 10^6\\text{ Pa} \\approx 127\\text{ MPa}$$\n\nOption (A) 63.7 MPa: uses diameter instead of radius in computing area (A = πD²/4 not πD²). Option (B) 100 MPa: error in unit conversion. Option (D) 159 MPa: uses r = 20 mm (full diameter as radius). Engineering stress always uses the original (undeformed) cross-sectional area A0.",
+      "handbook": "Materials Science/Structure of Matter — Engineering stress: σ = F/A0, where A0 = initial cross-sectional area (p. 121)",
+      "references": "Handbook p. 121 — Materials Science/Structure of Matter: Stress and Strain",
+      "source": "handbook",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q12",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Young's modulus — Hooke's Law (SI)",
+      "stem": "A specimen of aluminum alloy is subjected to a uniaxial tensile stress of 140 MPa, producing an elastic strain of 0.002 (dimensionless). The elastic modulus (Young's modulus) of the material is most nearly:\n\nHooke's Law: σ = Eε",
+      "equations": [
+        "$E = \\dfrac{\\sigma}{\\varepsilon}$"
+      ],
+      "options": [
+        "28 GPa",
+        "56 GPa",
+        "70 GPa",
+        "140 GPa"
+      ],
+      "answer": 2,
+      "solution": "$$E = \\frac{\\sigma}{\\varepsilon} = \\frac{140 \\times 10^6\\text{ Pa}}{0.002} = 70 \\times 10^9\\text{ Pa} = 70\\text{ GPa}$$\n\nThis is consistent with the elastic modulus of aluminum (~70 GPa).\n\nOption (A) 28 GPa: divides by 5 instead of 0.002 (misplaces decimal). Option (B) 56 GPa: arithmetic error. Option (D) 140 GPa: uses E = σ/ε but forgets to apply ε (divides by 1 instead of 0.002). Hooke's Law applies only in the elastic (linear) region of the stress-strain curve.",
+      "handbook": "Materials Science/Structure of Matter — Hooke's Law: σ = Eε, where E = elastic modulus (also called modulus, modulus of elasticity, Young's modulus) (p. 121)",
+      "references": "Handbook p. 121 — Materials Science/Structure of Matter: Elastic modulus (Young's modulus)",
+      "source": "handbook",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q13",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Hooke's Law — elastic strain from applied stress (USCS)",
+      "stem": "A structural steel member carries an axial stress of 29,000 psi. The steel has an elastic modulus E = 29 × 10⁶ psi (given). The elastic strain is most nearly:\n\nHooke's Law: σ = Eε",
+      "equations": [
+        "$\\varepsilon = \\dfrac{\\sigma}{E}$"
+      ],
+      "options": [
+        "0.0005",
+        "0.0010",
+        "0.0015",
+        "0.0020"
+      ],
+      "answer": 1,
+      "solution": "$$\\varepsilon = \\frac{\\sigma}{E} = \\frac{29{,}000\\text{ psi}}{29 \\times 10^6\\text{ psi}} = 1.0 \\times 10^{-3} = 0.0010$$\n\nOption (A) 0.0005: divides by 58 × 10⁶ (doubles E). Option (C) 0.0015: arithmetic error. Option (D) 0.0020: uses E = 14.5 × 10⁶ psi (half of correct value). At ε = 0.001, this steel is comfortably in the elastic range (yield strain for structural steel ≈ 0.001–0.002).",
+      "handbook": "Materials Science/Structure of Matter — Hooke's Law: σ = Eε (p. 121). E = 29×10⁶ psi for steel is provided in the stem.",
+      "references": "Handbook p. 121 — Hooke's Law σ = Eε; E value provided in stem",
+      "source": "in-stem",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q14",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "True stress vs engineering stress",
+      "stem": "A tensile test specimen has an initial cross-sectional area A0 = 200 mm² and is loaded with F = 30,000 N. At a point during plastic deformation, the actual (current) cross-sectional area has necked to A = 170 mm². The true stress at this point is most nearly:\n\nTrue stress: σT = F/A  |  Engineering stress: σ = F/A0",
+      "equations": [
+        "$\\sigma_T = \\dfrac{F}{A}$",
+        "$\\sigma = \\dfrac{F}{A_0}$"
+      ],
+      "options": [
+        "150.0 MPa (engineering stress — uses initial area)",
+        "164.7 MPa",
+        "176.5 MPa (true stress — uses actual area)",
+        "188.2 MPa"
+      ],
+      "answer": 2,
+      "solution": "True stress uses the actual (current) cross-sectional area:\n$$\\sigma_T = \\frac{F}{A} = \\frac{30{,}000\\text{ N}}{170 \\times 10^{-6}\\text{ m}^2} = 176.5 \\times 10^6\\text{ Pa} = 176.5\\text{ MPa}$$\n\nEngineering stress (for comparison):\n$$\\sigma = \\frac{F}{A_0} = \\frac{30{,}000}{200 \\times 10^{-6}} = 150.0\\text{ MPa}$$\n\nOption (A) 150 MPa: this is the engineering stress — uses undeformed A0. Option (B) 164.7 MPa: uses an intermediate area estimate. Option (D) 188.2 MPa: uses A = 160 mm² (too small). True stress exceeds engineering stress after yielding because the area decreases. Before yielding they are essentially equal.",
+      "handbook": "Materials Science/Structure of Matter — True stress: σT = F/A (actual area); Engineering stress: σ = F/A0 (initial area). 'True stress is load divided by actual cross-sectional area whereas engineering stress is load divided by the initial area.' (p. 121)",
+      "references": "Handbook p. 121 — Materials Science/Structure of Matter: True stress and Engineering stress",
+      "source": "handbook",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q15",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Thermal deformation — axial member (SI)",
+      "stem": "A structural steel member is 4.0 m long. It is heated from an initial temperature T0 = 20°C to a final temperature T = 80°C. The thermal expansion coefficient of steel is α = 12 × 10⁻⁶ /°C. The thermal deformation δt is most nearly:\n\nThermal Deformations: δt = αL(T − T0)",
+      "equations": [
+        "$\\delta_t = \\alpha L (T - T_0)$"
+      ],
+      "options": [
+        "1.4 mm",
+        "2.9 mm",
+        "3.6 mm",
+        "5.0 mm"
+      ],
+      "answer": 1,
+      "solution": "$$\\delta_t = \\alpha L(T - T_0) = (12 \\times 10^{-6}\\text{ /°C})(4.0\\text{ m})(80 - 20)\\text{ °C}$$\n$$= 12 \\times 10^{-6} \\times 4.0 \\times 60 = 2{,}880 \\times 10^{-6}\\text{ m} = 2.88\\text{ mm} \\approx 2.9\\text{ mm}$$\n\nOption (A) 1.4 mm: uses ∆T = 30°C (misreads ∆T = T − T0 as T/2). Option (C) 3.6 mm: uses ∆T = 75°C or L = 5 m. Option (D) 5.0 mm: uses α = 21 × 10⁻⁶ (incorrect for steel). The formula is in the Mechanics of Materials section; δt is positive for expansion (T > T0).",
+      "handbook": "Mechanics of Materials — Thermal Deformations: δt = αL(T − To), where δt = deformation caused by a change in temperature, α = temperature coefficient of expansion (p. 131)",
+      "references": "Handbook p. 131 — Mechanics of Materials: Thermal Deformations",
+      "source": "handbook",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q16",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Thermal expansion coefficient — strain from temperature change",
+      "stem": "The thermal expansion coefficient of an aluminum alloy is α = 23 × 10⁻⁶ /°C. A component is heated by ∆T = 50°C. The resulting thermal engineering strain ε is most nearly:\n\nThermal Properties: ε = α∆T",
+      "equations": [
+        "$\\varepsilon = \\alpha\\,\\Delta T$"
+      ],
+      "options": [
+        "0.00092",
+        "0.00115",
+        "0.00138",
+        "0.00160"
+      ],
+      "answer": 1,
+      "solution": "$$\\varepsilon = \\alpha\\,\\Delta T = (23 \\times 10^{-6}\\text{ /°C})(50\\text{ °C}) = 1{,}150 \\times 10^{-6} = 1.15 \\times 10^{-3} = 0.00115$$\n\nOption (A) 0.00092: uses α = 18.4 × 10⁻⁶ (value for a different material). Option (C) 0.00138: uses ∆T = 60°C. Option (D) 0.00160: uses α = 32 × 10⁻⁶. This formula gives the free thermal strain — the strain that would occur in an unconstrained member. If the member is restrained, a thermal stress σ = Eε = Eα∆T develops.",
+      "handbook": "Materials Science/Structure of Matter — Thermal Properties: 'The thermal expansion coefficient is the ratio of engineering strain to the change in temperature.' ε = α∆T (p. 127)",
+      "references": "Handbook p. 127 — Materials Science: Thermal Properties (thermal expansion coefficient)",
+      "source": "handbook",
+      "spec": "5.C — materials science"
+    },
+    {
+      "id": "D10-Q17",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Fire hydrant — rated capacity at 20 psi residual",
+      "stem": "During a fire hydrant flow test, the static pressure is PS = 80 psi and the residual pressure is PR = 45 psi at a total test flow of QF = 1,200 gpm. The rated capacity QR at 20 psi residual is most nearly:\n\nFire Hydrant Rated Capacity (NFPA 291):\nQR = QF × (HR/HF)^0.54\nwhere HR = PS − 20 and HF = PS − PR",
+      "equations": [
+        "$Q_R = Q_F \\times \\left(\\dfrac{H_R}{H_F}\\right)^{0.54}$"
+      ],
+      "options": [
+        "1,200 gpm",
+        "1,400 gpm",
+        "1,600 gpm",
+        "1,800 gpm"
+      ],
+      "answer": 2,
+      "solution": "$$H_R = P_S - 20 = 80 - 20 = 60\\text{ psi}$$\n$$H_F = P_S - P_R = 80 - 45 = 35\\text{ psi}$$\n$$Q_R = 1{,}200 \\times \\left(\\frac{60}{35}\\right)^{0.54} = 1{,}200 \\times (1.714)^{0.54}$$\n\n$(1.714)^{0.54}$: $\\ln(1.714) = 0.538$; $0.54 \\times 0.538 = 0.291$; $e^{0.291} = 1.338$.\n\n$$Q_R = 1{,}200 \\times 1.338 = 1{,}605\\text{ gpm} \\approx 1{,}600\\text{ gpm}$$\n\nOption (A) 1,200 gpm: the test flow — no extrapolation applied. Option (B) 1,400 gpm: underestimates the exponent or drops the 0.54. Option (D) 1,800 gpm: uses exponent 1.0 (linear extrapolation) instead of 0.54.",
+      "handbook": "Civil Engineering — Formula for Calculating Rated Capacity at 20 psi from Fire Hydrant: QR = QF × (HR/HF)^0.54, Source: NFPA Standard 291 (p. 304)",
+      "references": "Handbook p. 304 — Civil Engineering: Fire Hydrant Rated Capacity (NFPA 291)",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    },
+    {
+      "id": "D10-Q18",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Fire hydrant — discharge to atmosphere",
+      "stem": "A fire hydrant with a smooth, well-rounded outlet (Cd = 0.90) has an outlet diameter of 2.5 in. A pitot gauge reading at the nozzle indicates P = 36 psi. The flow rate discharged to the atmosphere is most nearly:\n\nFire Hydrant Discharging to Atmosphere (NFPA 291):\nQ = 29.8 D² Cd P^(1/2)",
+      "equations": [
+        "$Q = 29.8\\,D^2\\,C_d\\,P^{1/2}$"
+      ],
+      "options": [
+        "670 gpm",
+        "840 gpm",
+        "1,000 gpm",
+        "1,340 gpm"
+      ],
+      "answer": 2,
+      "solution": "$$Q = 29.8 \\times (2.5)^2 \\times 0.90 \\times \\sqrt{36}$$\n$$= 29.8 \\times 6.25 \\times 0.90 \\times 6.0$$\n$$= 29.8 \\times 6.25 = 186.25$$\n$$\\times\\, 0.90 = 167.6$$\n$$\\times\\, 6.0 = 1{,}006\\text{ gpm} \\approx 1{,}000\\text{ gpm}$$\n\nOption (A) 670 gpm: uses Cd = 0.60 (wrong coefficient) or misses the D² squaring. Option (B) 840 gpm: uses Cd = 0.75 (intermediate coefficient for a square-edged outlet). Option (D) 1,340 gpm: omits Cd (treats Cd = 1.0). The smooth, well-rounded outlet has Cd = 0.90; square-edged = 0.80; projecting into barrel = 0.70 (per NFPA 291 table in Handbook).",
+      "handbook": "Civil Engineering — Fire Hydrant Discharging to Atmosphere: Q = 29.8D²CdP^(1/2), Cd = 0.90 for smooth, well-rounded outlet (p. 304–305, NFPA 291)",
+      "references": "Handbook p. 304–305 — Civil Engineering: Fire Hydrant Discharging to Atmosphere (NFPA 291)",
+      "source": "handbook",
+      "spec": "5.A — population projections & demand"
+    }
+  ]
+}
