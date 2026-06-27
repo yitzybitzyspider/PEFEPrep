@@ -740,6 +740,118 @@
       "term": "Fire Hydrant Discharge to Atmosphere (NFPA 291)",
       "eq": "$Q = 29.8\\,D^2\\,C_d\\,P^{1/2}$",
       "note": "Handbook p.304–305. Q = gpm; D = outlet diameter (in.); P = pitot pressure (psi); Cd = 0.90/0.80/0.70 per outlet geometry."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Ambient Air Quality — Unit Conversion",
+      "term": "ppb ↔ µg/m³ Conversion",
+      "eq": "$C\\,(\\mu\\mathrm{g/m^3}) = C\\,(\\mathrm{ppb}) \\cdot \\dfrac{P \\cdot MW}{R \\cdot T}$",
+      "note": "Handbook p.317. P = pressure (atm); MW = molecular weight (g/mol); R = 82.06 cm³·atm/(mol·K); T = temperature (K). At 25°C, 1 atm: C(µg/m³) = C(ppb)×MW/24.45."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Atmospheric Modeling — Gaussian Dispersion",
+      "term": "Gaussian Plume Centerline Ground-Level Concentration",
+      "eq": "$C = \\dfrac{Q}{\\pi \\sigma_y \\sigma_z u} \\exp\\!\\left(-\\dfrac{H^2}{2\\sigma_z^2}\\right)$",
+      "note": "Handbook p.318. Valid at y=0, z=0 (centerline at ground). Q = emission rate (g/s); σy, σz = horizontal/vertical dispersion (m); u = wind speed (m/s); H = effective stack height (m). Terrain reflection term omitted."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Atmospheric Modeling — Gaussian Dispersion",
+      "term": "Maximum Ground-Level Concentration",
+      "eq": "$C_{\\max} = \\dfrac{Q}{\\pi \\sigma_y u}\\cdot\\dfrac{2}{eH^2}$ occurs when $\\sigma_z = H/\\sqrt{2}$",
+      "note": "Derived from Gaussian formula. e ≈ 2.718. σy evaluated at the downwind distance where σz = H/√2. Not printed separately in Handbook v10.6 — derive from p.318 formula (supplemental)."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Atmospheric Modeling — Stability",
+      "term": "Atmospheric Lapse Rate Stability Criterion",
+      "eq": "$\\Gamma > \\Gamma_{AD}$ unstable; $\\Gamma = \\Gamma_{AD}$ neutral; $\\Gamma < \\Gamma_{AD}$ stable. $\\Gamma_{AD} = 0.98\\,^\\circ\\mathrm{C}/100\\,\\mathrm{m}$",
+      "note": "Handbook p.319. Γ = actual (ambient) lapse rate; ΓAD = dry adiabatic lapse rate = 0.98°C/100 m. Pasquill-Gifford stability classes A–F also on p.319."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Particle Treatment — Cyclone",
+      "term": "Cyclone Number of Effective Turns",
+      "eq": "$N_e = \\dfrac{1}{H}\\!\\left(L_b + \\dfrac{L_c}{2}\\right)$",
+      "note": "Handbook p.322. H = inlet height (ft or m); Lb = length of body; Lc = length of cone. Ne is dimensionless."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Particle Treatment — Cyclone",
+      "term": "Cyclone 50% Cut Diameter",
+      "eq": "$d_{pc} = \\sqrt{\\dfrac{9\\,\\mu\\,H\\,W}{2\\,N_e\\,V_i\\,(\\rho_p - \\rho_g)}}$",
+      "note": "Handbook p.323. µ = gas viscosity; H = inlet height; W = inlet width; Ne = effective turns; Vi = inlet velocity; ρp−ρg = particle–gas density difference. Factor is 2, not π."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Particle Treatment — Cyclone",
+      "term": "Cyclone Fractional Collection Efficiency",
+      "eq": "$\\eta = \\dfrac{1}{1 + (d_{pc}/d_p)^2}$",
+      "note": "Handbook p.322. dpc = 50% cut diameter; dp = particle diameter. η → 1 for dp >> dpc."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Particle Treatment — Baghouse",
+      "term": "Baghouse Air-to-Cloth Ratio",
+      "eq": "$A/C = Q / A_{fabric}$, typical range: 1–3 m³/(min·m²) for pulse-jet/felt",
+      "note": "Handbook p.324. Q = volumetric gas flow; Afabric = total filter cloth area. Design ranges by fabric/cleaning type in Handbook table."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Particle Treatment — Electrostatic Precipitator",
+      "term": "ESP Deutsch-Anderson Efficiency",
+      "eq": "$\\eta = 1 - e^{-WA/Q}$",
+      "note": "Handbook p.325. W = drift (migration) velocity (m/s or ft/s); A = collection plate area (m² or ft²); Q = volumetric gas flow. η expressed as fraction."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Emissions",
+      "term": "Destruction and Removal Efficiency (DRE)",
+      "eq": "$\\mathrm{DRE} = \\dfrac{W_{in} - W_{out}}{W_{in}} \\times 100\\%$",
+      "note": "Handbook p.325. Win, Wout = mass feed rates of principal organic hazardous constituent (POHC) in/out."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Emissions",
+      "term": "Combustion Efficiency (CE)",
+      "eq": "$\\mathrm{CE} = \\dfrac{[\\mathrm{CO_2}]}{[\\mathrm{CO_2}] + [\\mathrm{CO}]} \\times 100\\%$",
+      "note": "Handbook p.325. Concentrations in same units (ppm or vol%). CE = 100% means no incomplete combustion products."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Gas Treatment — Rotary Kiln",
+      "term": "Rotary Kiln Residence Time (USCS)",
+      "eq": "$t = \\dfrac{2.28\\,(L/D)}{S \\cdot N}$",
+      "note": "Handbook p.325. t = residence time (min); L = kiln length (ft); D = diameter (ft); S = slope (in/ft); N = rotational speed (rpm). USCS units only."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Indoor Air Quality Modeling",
+      "term": "IAQ Steady-State Indoor Concentration",
+      "eq": "$C_{iss} = \\dfrac{A \\cdot C_o + S/V}{A + k}$, where $A = Q_{OA}/V$",
+      "note": "Handbook pp.325–326. Ciss = steady-state indoor conc. (µg/m³); Co = outdoor conc.; S = source strength (µg/s); V = room volume (m³); k = removal rate constant (s⁻¹); QOA = outdoor air flow (m³/s)."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Indoor Air Quality Modeling",
+      "term": "Outdoor Air Flow Rate (USCS)",
+      "eq": "$Q_{OA} \\approx \\dfrac{13{,}000\\,n}{C_{indoors} - C_{OA}}$",
+      "note": "Handbook p.326. QOA = outdoor air flow (cfm); n = number of occupants; Cindoors, COA = indoor/outdoor CO2 concentrations (ppm). USCS formula."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Indoor Air Quality Modeling",
+      "term": "Percent Outdoor Air (%OA)",
+      "eq": "$\\%OA = \\dfrac{C_{RA} - C_{SA}}{C_{RA} - C_{OA}} \\times 100$",
+      "note": "Handbook p.326. CRA = return air conc.; CSA = supply air conc.; COA = outdoor air conc. All in same units (ppm CO2 or µg/m³)."
+    },
+    {
+      "topic": "Air Quality & Control",
+      "section": "Indoor Air Quality Modeling",
+      "term": "Outdoor Air Changes per Hour",
+      "eq": "$N = \\dfrac{\\ln(C_i - C_o) - \\ln(C_a - C_o)}{h}$",
+      "note": "Handbook p.326. N = outdoor ACH (h⁻¹); Ci = initial indoor conc.; Ca = final indoor conc.; Co = outdoor conc.; h = elapsed time (h)."
     }
   ]
 }

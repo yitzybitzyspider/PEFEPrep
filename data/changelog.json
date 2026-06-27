@@ -1,7 +1,19 @@
 {
-  "version": "0.21.2",
-  "updated": "2026-06-26",
+  "version": "0.22.0",
+  "updated": "2026-06-27",
   "history": [
+    {
+      "version": "0.22.0",
+      "date": "2026-06-27",
+      "title": "Day 11 added — Air Quality & Control",
+      "changes": [
+        "Air Quality & Control (Day 11, 20 questions) added — KA 13 subtopics A–G: ambient/indoor air quality (ppb↔µg/m³ conversion), mass/energy balances (stack emission rate), emissions (DRE, CE), atmospheric modeling/meteorology (Gaussian dispersion, Pasquill-Gifford stability classes A–F, atmospheric lapse rate stability criterion, maximum ground-level concentration with σz=H/√2), gas treatment (rotary kiln residence time USCS, scrubber collection efficiency), particle treatment (cyclone number of effective turns Ne, cyclone 50% cut diameter dpc, cyclone fractional efficiency, ESP Deutsch-Anderson efficiency, baghouse air-to-cloth ratio), indoor air quality modeling (steady-state IAQ concentration Ciss, outdoor air flow QOA USCS cfm, percent outdoor air %OA, outdoor air ACH)",
+        "Bank now holds 242 questions spanning Days 1–11; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 16 new Air Quality equations (ppb conversion p.317, Gaussian dispersion p.318, lapse rate/stability p.319, cyclone Ne and dpc and η pp.322–323, baghouse A/C p.324, ESP/DRE/CE/kiln pp.325, IAQ Ciss/QOA/%OA/ACH pp.325–326); printable Day-11 study PDF generated with pdflatex (materials/)",
+        "All Day-11 formulas cross-checked against NCEES FE Reference Handbook v10.6 via Google Drive subagent; confirmed Handbook coverage for all tagged formulas; cyclone dpc formula confirmed includes both inlet height H and width W in numerator with factor 2 (not π) in denominator",
+        "KA 13 (8–12 exam questions) fully covered: all 7 subtopics A–G — SI + USCS mix (Q10 kiln in USCS in/ft/rpm/min, Q18 QOA in cfm)"
+      ]
+    },
     {
       "version": "0.21.2",
       "date": "2026-06-26",
