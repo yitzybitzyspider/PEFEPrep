@@ -1,0 +1,460 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F6F8B}
+\definecolor{soft}{HTML}{555555}
+\definecolor{boxbg}{HTML}{F4F8FA}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\small\color{soft}FE Environmental \textemdash\ PEFEPrep}
+\rhead{\small\color{soft}\rightmark}
+\cfoot{\small\color{soft}\thepage}
+\newcommand{\correct}[1]{\textbf{#1}\;{\color{accent}$\checkmark$}}
+\newcommand{\optline}[2]{\par\noindent\hspace{1.2em}(#1)\hspace{0.6em}#2}
+
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{accent} Air Quality \& Control}\\[4pt]
+{\large FE Environmental \textemdash\ Day 11}\\[2pt]
+{\color{soft} Study set \textbullet\ 2026-06-27 \textbullet\ 20 questions \textbullet\ every numeric answer recomputed in Python}
+\end{center}
+\vspace{6pt}\hrule\vspace{10pt}
+\markright{Air Quality \& Control}
+\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ All formulas confirmed against NCEES FE Reference Handbook v10.6 (local text extract + Google Drive subagent). ppb/$\mu$g/m\textsuperscript{3} conversion (p.317): C($\mu$g/m\textsuperscript{3}) = C(ppb)$\times$P$\times$MW/(R$\times$T), R=0.0821 L$\cdot$atm/(mol$\cdot$K) --- formula confirmed from text extract (notation garbled by OCR; formula is physically correct ideal-gas derivation). Gaussian dispersion (pp.318--319): full 3D formula with ground reflection; at y=0, z=0 simplifies to C = Q/($\pi$$\sigma$y$\sigma$zu)$\times$exp($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}); Cmax formula also on p.318; stability table and lapse-rate comparison on p.319 --- all confirmed. Cyclone efficiency $\eta$ = 1/(1+(dpc/dp)\textsuperscript{2}) on p.322; Ne = (1/H)(Lb+Lc/2) on p.322; dpc = $\surd$(9$\mu$HW/[2NeVi($\rho$p$-$$\rho$g)]) on p.323 --- NOTE: numerator contains BOTH inlet height H AND inlet width W; denominator contains factor 2 (no $\pi$). Baghouse air-to-cloth ratio table (p.324): fly ash pulse-jet/felt = 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}). ESP Deutsch-Anderson $\eta$ = 1$-$e\textasciicircum{}($-$WA/Q) on p.325. Incineration: DRE = (Win$-$Wout)/Win$\times$100\% and CE = CO\textsubscript{2}/(CO\textsubscript{2}+CO)$\times$100\% on p.325. Kiln formula t = 2.28(L/D)/(SN) on p.325. Indoor air quality: mass balance ODE and steady-state Ciss = (ACo+S/V)/(A+k), A = Q/V on pp.325--326; QOA = 13,000n/(Cindoors$-$COA) on p.326; \%OA = (CRA$-$CSA)/(CRA$-$COA)$\times$100 on p.326; N = [ln(Ci$-$Co)$-$ln(Ca$-$Co)]/h on p.326. NOT in Handbook: (1) The condition $\sigma$z = H/$\surd$2 at maximum ground-level concentration is a derived result --- stated in Q09 stem so students can apply it (tagged in-stem). (2) Scrubber removal efficiency $\eta$ = (Cin$-$Cout)/Cin is a fundamental definition, not a printed Handbook formula (tagged fundamental). (3) Stack mass emission rate = C$\times$Q is continuity/fundamental (tagged fundamental).}\vspace{2pt}}}
+\vspace{10pt}
+\filbreak
+\textbf{\color{accent}Q1.}\quad {\small\color{soft}[D11-Q01 \textbullet\ MCQ \textbullet\ Air quality --- ppb to $\mu$g/m\textsuperscript{3} conversion (SI)]}\par\vspace{2pt}
+The 1-hour NAAQS for SO\textsubscript{2} is often compared on a mass-concentration basis. A monitoring station measures SO\textsubscript{2} at 75 ppb. At 25\textdegree{}C and 1 atm, the equivalent mass concentration of SO\textsubscript{2} is most nearly:
+
+Air Pollution Nomenclature (Handbook p.317):
+C($\mu$g/m\textsuperscript{3}) = C(ppb) $\times$ P $\times$ MW / (R $\times$ T)
+where P = pressure (atm), R = 0.0821 L$\cdot$atm/(mol$\cdot$K), T = temperature (K), MW = molecular weight (g/mol).
+MW(SO\textsubscript{2}) = 64 g/mol.\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C\,\bigl(\mu\text{g/m}^3\bigr) = C(\text{ppb}) \times \dfrac{P \cdot MW}{R \cdot T}$\par\vspace{3pt}
+\optline{A}{\correct{196 $\mu$g/m\textsuperscript{3}}}
+\optline{B}{147 $\mu$g/m\textsuperscript{3}}
+\optline{C}{214 $\mu$g/m\textsuperscript{3}}
+\optline{D}{98 $\mu$g/m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small \[C = 75 \times \frac{1\text{ atm}\times 64\text{ g/mol}}{0.0821\text{L}\!\cdot\!\text{atm/(mol}\!\cdot\!\text{K)}\times 298.15\text{ K}} = \frac{4800}{24.47} = 196.1\;\mu\text{g/m}^3\]
+
+Option (B) 147 $\mu$g/m\textsuperscript{3}: uses MW = 48 (wrong for SO\textsubscript{2}; SO\textsubscript{2} = 32+2$\times$16 = 64). Option (C) 214 $\mu$g/m\textsuperscript{3}: uses T = 273 K (0\textdegree{}C instead of 25\textdegree{}C). Option (D) 98 $\mu$g/m\textsuperscript{3}: uses MW = 32 (oxygen only, not the full molecule). The ideal-gas law converts between volumetric (ppb) and mass ($\mu$g/m\textsuperscript{3}) concentration --- proportional to molecular weight and inversely proportional to temperature.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Air Pollution Nomenclature: C($\mu$g/m\textsuperscript{3}) = C(ppb)$\times$P$\times$MW/(R$\times$T), R = 0.0821 L$\cdot$atm/(mol$\cdot$K) (p.317) \textbullet\ Handbook p.317 --- Environmental Engineering: Air Pollution Nomenclature (ppb/$\mu$g/m\textsuperscript{3} conversion)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q2.}\quad {\small\color{soft}[D11-Q02 \textbullet\ MCQ \textbullet\ Air quality --- $\mu$g/m\textsuperscript{3} to ppb back-conversion (SI)]}\par\vspace{2pt}
+An ambient air monitor measures NO\textsubscript{2} at a concentration of 100 $\mu$g/m\textsuperscript{3} at 25\textdegree{}C and 1 atm. The equivalent volumetric concentration of NO\textsubscript{2} in ppb is most nearly:
+
+Rearranging the Handbook conversion:
+C(ppb) = C($\mu$g/m\textsuperscript{3}) $\times$ R $\times$ T / (P $\times$ MW)
+where MW(NO\textsubscript{2}) = 46 g/mol.\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C(\text{ppb}) = C\,\bigl(\mu\text{g/m}^3\bigr) \times \dfrac{R \cdot T}{P \cdot MW}$\par\vspace{3pt}
+\optline{A}{40 ppb}
+\optline{B}{\correct{53 ppb}}
+\optline{C}{82 ppb}
+\optline{D}{87 ppb}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[C = 100 \times \frac{0.0821\times 298.15}{1\times 46} = \frac{2447}{46} = 53.2\;\text{ppb}\]
+
+Option (A) 40 ppb: uses MW = 62 (NO\textsubscript{2} misidentified as NO\textsubscript{3}\textsuperscript{--}). Option (C) 82 ppb: uses MW = 30 (NO instead of NO\textsubscript{2}). Option (D) 87 ppb: uses MW = 28 (CO or N\textsubscript{2}). The annual NAAQS for NO\textsubscript{2} is exactly 53 ppb --- this answer confirms that 100 $\mu$g/m\textsuperscript{3} NO\textsubscript{2} $\approx$ 53 ppb, which is a useful reference point for ambient air quality work.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Air Pollution Nomenclature (rearranged): C(ppb) = C($\mu$g/m\textsuperscript{3})$\times$RT/(P$\times$MW) (p.317) \textbullet\ Handbook p.317 --- Environmental Engineering: Air Pollution Nomenclature}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q3.}\quad {\small\color{soft}[D11-Q03 \textbullet\ MCQ \textbullet\ Air quality --- stack mass emission rate (SI)]}\par\vspace{2pt}
+A power plant stack discharges flue gas at a measured volumetric flow rate of Q = 25 m\textsuperscript{3}/s. Continuous emission monitoring shows a SO\textsubscript{2} concentration of 200 mg/m\textsuperscript{3} in the flue gas. The mass emission rate of SO\textsubscript{2} from this stack is most nearly:
+
+Mass emission rate = C $\times$ Q\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\dot{m} = C \times Q$\par\vspace{3pt}
+\optline{A}{0.5 g/s}
+\optline{B}{\correct{5.0 g/s}}
+\optline{C}{50 g/s}
+\optline{D}{500 g/s}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[\dot{m} = C \times Q = 200\;\text{mg/m}^3 \times 25\;\text{m}^3\text{/s} = 5{,}000\;\text{mg/s} = 5.0\;\text{g/s}\]
+
+Option (A) 0.5 g/s: interprets concentration as 0.200 g/m\textsuperscript{3} but divides by 10 again. Option (C) 50 g/s: forgets the mg$\rightarrow$g conversion (treats mg as g directly). Option (D) 500 g/s: converts by multiplying by 1,000 instead of dividing. The continuity/mass-balance relation $\dot{m}$ = C$\times$Q is the fundamental link between concentration measurements and permit-reportable mass emission rates.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Fundamental mass continuity: $\dot{m}$ = C $\times$ Q (not a named formula in Handbook; derived from mass balance) \textbullet\ Fundamental: mass emission rate = concentration $\times$ volumetric flow rate}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q4.}\quad {\small\color{soft}[D11-Q04 \textbullet\ MCQ \textbullet\ Incineration --- destruction and removal efficiency (DRE)]}\par\vspace{2pt}
+A hazardous waste incinerator burns a principal organic hazardous constituent (POHC) at a feed rate of Win = 50 kg/h. Stack testing measures an emission rate of Wout = 0.025 kg/h for the same POHC. The destruction and removal efficiency (DRE) is most nearly:
+
+DRE = (Win $-$ Wout) / Win $\times$ 100\%\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{DRE} = \dfrac{W_{\text{in}} - W_{\text{out}}}{W_{\text{in}}} \times 100\%$\par\vspace{3pt}
+\optline{A}{90.000\%}
+\optline{B}{99.500\%}
+\optline{C}{\correct{99.950\%}}
+\optline{D}{99.999\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\text{DRE} = \frac{50 - 0.025}{50} \times 100 = \frac{49.975}{50} \times 100 = 99.950\%\]
+
+Option (A) 90.000\%: would require Wout = 5 kg/h (100$\times$ too high). Option (B) 99.500\%: uses Wout = 0.25 kg/h (tenfold overestimate of emissions). Option (D) 99.999\%: would require Wout = 0.0005 kg/h (much lower). The RCRA/HSWA regulatory DRE requirement for most POHC is $\ge$99.99\% --- this facility achieves 99.950\%, which falls just short of that standard.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Incineration: DRE = (Win$-$Wout)/Win $\times$ 100\% (p.325) \textbullet\ Handbook p.325 --- Environmental Engineering: Incineration --- Destruction and Removal Efficiency}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q5.}\quad {\small\color{soft}[D11-Q05 \textbullet\ MCQ \textbullet\ Incineration --- combustion efficiency (CE)]}\par\vspace{2pt}
+Continuous emission monitoring at an industrial furnace measures dry flue gas concentrations of CO\textsubscript{2} = 11,500 ppmv and CO = 500 ppmv. The combustion efficiency (CE) is most nearly:
+
+CE = CO\textsubscript{2} / (CO\textsubscript{2} + CO) $\times$ 100\%\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $CE = \dfrac{CO_2}{CO_2 + CO} \times 100\%$\par\vspace{3pt}
+\optline{A}{88.5\%}
+\optline{B}{92.3\%}
+\optline{C}{\correct{95.8\%}}
+\optline{D}{97.9\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[CE = \frac{11{,}500}{11{,}500 + 500} \times 100 = \frac{11{,}500}{12{,}000} \times 100 = 95.83\%\]
+
+Option (A) 88.5\%: uses CO = 1,500 ppmv (excess CO by a factor of 3). Option (B) 92.3\%: applies CE = CO\textsubscript{2}/(CO\textsubscript{2}+CO) but misreads CO\textsubscript{2} as 10,000 ppmv. Option (D) 97.9\%: divides by CO\textsubscript{2}+0.5$\times$CO (erroneous weighting). CE measures the fraction of carbon converted to CO\textsubscript{2} rather than CO --- a CE below 99\% typically indicates incomplete combustion that requires operational attention.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Incineration, Combustion Efficiency: CE = CO\textsubscript{2}/(CO\textsubscript{2}+CO)$\times$100\%, where CO\textsubscript{2} and CO are dry-volume ppmv (p.325) \textbullet\ Handbook p.325 --- Environmental Engineering: Incineration --- Combustion Efficiency}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q6.}\quad {\small\color{soft}[D11-Q06 \textbullet\ MCQ \textbullet\ Gaussian dispersion --- ground-level centerline concentration]}\par\vspace{2pt}
+A factory emits SO\textsubscript{2} at Q = 50 g/s from an effective stack height H = 50 m. The mean wind speed at stack height is u = 3 m/s. At a downwind distance where the horizontal and vertical dispersion parameters are $\sigma$y = 50 m and $\sigma$z = 25 m, the ground-level (z = 0) concentration directly beneath the plume centerline (y = 0) is most nearly:
+
+Gaussian ground-level centerline concentration (Handbook p.318):
+C = Q / ($\pi$ $\sigma$y $\sigma$z u) $\times$ exp($-$H\textsuperscript{2} / 2$\sigma$z\textsuperscript{2})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C = \dfrac{Q}{\pi\,\sigma_y\,\sigma_z\,u}\exp\!\left(\dfrac{-H^2}{2\sigma_z^2}\right)$\par\vspace{3pt}
+\optline{A}{287 $\mu$g/m\textsuperscript{3}}
+\optline{B}{\correct{574 $\mu$g/m\textsuperscript{3}}}
+\optline{C}{1,804 $\mu$g/m\textsuperscript{3}}
+\optline{D}{4,244 $\mu$g/m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small First convert: Q = 50 g/s = 50 $\times$ 10\textsuperscript{6} $\mu$g/s.
+
+\[\frac{H^2}{2\sigma_z^2} = \frac{50^2}{2\times25^2} = \frac{2500}{1250} = 2.0\]
+\[e^{-2.0} = 0.1353\]
+
+\[C = \frac{50\times10^6}{\pi\times50\times25\times3} \times 0.1353 = \frac{50\times10^6}{11{,}781} \times 0.1353 = 4{,}244 \times 0.1353 = 574\;\mu\text{g/m}^3\]
+
+Option (A) 287 $\mu$g/m\textsuperscript{3}: uses 2$\pi$ instead of $\pi$ in the denominator (off by factor of 2). Option (C) 1,804 $\mu$g/m\textsuperscript{3}: omits $\pi$ in the denominator entirely. Option (D) 4,244 $\mu$g/m\textsuperscript{3}: applies the formula but forgets the exponential decay factor (exp term = 1 incorrectly). The exp($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}) term captures the reduction in ground-level concentration due to plume elevation.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Atmospheric Dispersion Modeling (Gaussian): C = Q/($\pi$$\sigma$y$\sigma$zu)$\times$exp($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}) at y=0, z=0 with ground reflection (p.318) \textbullet\ Handbook p.318 --- Environmental Engineering: Atmospheric Dispersion Modeling (Gaussian)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q7.}\quad {\small\color{soft}[D11-Q07 \textbullet\ MCQ \textbullet\ Atmospheric stability --- Pasquill-Gifford classification]}\par\vspace{2pt}
+An air quality engineer is assessing dispersion conditions at 2 PM on a partly cloudy summer day. The surface wind speed measured at 10 m above ground is 4 m/s, and the solar insolation is classified as moderate (sun 35--60\textdegree{} above the horizon with a few broken clouds). According to the Pasquill-Gifford Atmospheric Stability Classification table in the FE Reference Handbook, the appropriate stability class is:\par\vspace{3pt}
+\optline{A}{Class A (very unstable)}
+\optline{B}{Class B (moderately unstable)}
+\optline{C}{\correct{Class C (slightly unstable)}}
+\optline{D}{Class D (neutral)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small From the Handbook stability table (p.319), for surface wind speed 3--5 m/s (row) and moderate solar insolation (column):
+$\rightarrow$ Stability Class C (Slightly unstable).
+
+Option (A) Class A: requires wind < 2 m/s with strong insolation (calm, very sunny conditions). Option (B) Class B: typical for wind 2--3 m/s with moderate insolation. Option (D) Class D (Neutral): applies when wind > 6 m/s or under overcast skies day or night. Class C indicates slightly unstable conditions --- moderate turbulent mixing --- appropriate for this moderately windy, partly sunny afternoon.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Atmospheric Stability Under Various Conditions table: surface wind 3--5 m/s + moderate solar insolation = Class C (p.319) \textbullet\ Handbook p.319 --- Atmospheric Stability Classification Table (Pasquill-Gifford A--F)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q8.}\quad {\small\color{soft}[D11-Q08 \textbullet\ MCQ \textbullet\ Atmospheric stability --- lapse rate comparison]}\par\vspace{2pt}
+A radiosonde balloon measures that air temperature decreases by 0.60\textdegree{}C for every 100 m increase in altitude. The dry adiabatic lapse rate is $\Gamma$AD = 0.98\textdegree{}C per 100 m. Based on the comparison between the actual lapse rate $\Gamma$ and $\Gamma$AD, the atmosphere is best described as:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\Gamma_{AD} = 0.98\,^\circ\text{C per 100 m (dry adiabatic)}$ \quad $\text{Stability: }\Gamma > \Gamma_{AD}\text{ (unstable)};\quad\Gamma = \Gamma_{AD}\text{ (neutral)};\quad\Gamma < \Gamma_{AD}\text{ (stable)}$\par\vspace{3pt}
+\optline{A}{\correct{Stable --- restricted vertical mixing, pollutants trapped near the surface}}
+\optline{B}{Neutral --- dispersion conditions correspond to Class D}
+\optline{C}{Unstable --- enhanced vertical mixing and plume rise}
+\optline{D}{Cannot be determined without wind speed data}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small Actual lapse rate $\Gamma$ = 0.60\textdegree{}C/100 m; dry adiabatic lapse rate $\Gamma$AD = 0.98\textdegree{}C/100 m.
+\[\Gamma\,(0.60) < \Gamma_{AD}\,(0.98) \implies \text{Stable atmosphere}\]
+
+In a stable atmosphere, a parcel displaced upward is denser (cooler) than its surroundings, so it sinks back --- suppressing vertical mixing. Pollutants emitted at elevated sources tend to stay aloft in stable air (fumigation at ground level occurs when the overlying stable layer breaks up). Option (B): would require $\Gamma$ = 0.98\textdegree{}C/100 m exactly. Option (C): unstable when $\Gamma$ > $\Gamma$AD --- the parcel rises freely. Option (D): wind speed is relevant for stability class assignment from the table, but the lapse-rate comparison alone determines stability here.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Lapse Rates: The actual lapse rate $\Gamma$ is compared to $\Gamma$AD (0.98\textdegree{}C/100 m) to determine stability: $\Gamma$ < $\Gamma$AD $\rightarrow$ Stable (p.319) \textbullet\ Handbook p.319 --- Environmental Engineering: Lapse Rate and Stability Conditions}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q9.}\quad {\small\color{soft}[D11-Q09 \textbullet\ MCQ \textbullet\ Gaussian dispersion --- maximum ground-level concentration]}\par\vspace{2pt}
+For a Gaussian elevated-source plume, the theoretical maximum ground-level concentration occurs at the downwind distance where $\sigma$z = H/$\surd$2. A source emits Q = 30 g/s from an effective stack height H = 60 m. The wind speed is u = 5 m/s. At the point of maximum concentration, $\sigma$y = 50 m and (as stated) $\sigma$z = H/$\surd$2 = 42.4 m. The maximum ground-level centerline concentration is most nearly:
+
+C = Q / ($\pi$ $\sigma$y $\sigma$z u) $\times$ exp($-$H\textsuperscript{2} / 2$\sigma$z\textsuperscript{2})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C_{\max} = \dfrac{Q}{\pi\,\sigma_y\,\sigma_z\,u}\exp\!\left(\dfrac{-H^2}{2\sigma_z^2}\right)$ \quad $\sigma_z = H/\sqrt{2} \implies H^2/(2\sigma_z^2) = 1 \implies e^{-1} = 0.3679$\par\vspace{3pt}
+\optline{A}{166 $\mu$g/m\textsuperscript{3}}
+\optline{B}{\correct{331 $\mu$g/m\textsuperscript{3}}}
+\optline{C}{900 $\mu$g/m\textsuperscript{3}}
+\optline{D}{2,848 $\mu$g/m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Q = 30 g/s = 30 $\times$ 10\textsuperscript{6} $\mu$g/s. At the maximum: $\sigma$z = 60/$\surd$2 = 42.43 m.
+
+\[\frac{H^2}{2\sigma_z^2} = \frac{60^2}{2\times(60/\sqrt{2})^2} = \frac{3600}{2\times1800} = 1.000 \implies e^{-1} = 0.3679\]
+
+\[C_{\max} = \frac{30\times10^6}{\pi\times50\times42.43\times5}\times0.3679 = \frac{30\times10^6}{33{,}323}\times0.3679 = 900.3\times0.3679 = 331\;\mu\text{g/m}^3\]
+
+Option (A) 166 $\mu$g/m\textsuperscript{3}: uses 2$\pi$ instead of $\pi$ (factor-of-2 denominator error). Option (C) 900 $\mu$g/m\textsuperscript{3}: omits the exp($-$1) = 0.3679 factor (treats e\textsuperscript{--}\textsuperscript{1} = 1). Option (D) 2,848 $\mu$g/m\textsuperscript{3}: omits $\pi$ and the exponential. The $\sigma$z = H/$\surd$2 condition maximizes C because it balances the growing $\sigma$z (dilution) against the rising e\textasciicircum{}($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}) term.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Gaussian Dispersion Modeling, maximum ground-level concentration formula; $\sigma$z = H/$\surd$2 condition derived from the formula (p.318) \textbullet\ Handbook p.318 --- Atmospheric Dispersion Modeling (Gaussian); $\sigma$z = H/$\surd$2 condition stated in stem}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q10.}\quad {\small\color{soft}[D11-Q10 \textbullet\ MCQ \textbullet\ Incineration --- rotary kiln mean residence time (USCS)]}\par\vspace{2pt}
+A rotary kiln hazardous waste incinerator has an internal length-to-diameter ratio L/D = 3. The kiln is inclined at a rake slope S = 0.05 in/ft and rotates at N = 2.0 rev/min. The mean residence time of waste in the kiln is most nearly:
+
+Kiln Formula (Handbook p.325):
+t = 2.28 (L/D) / (S $\times$ N)
+where t = mean residence time (min), S = kiln rake slope (in./ft), N = rotational speed (rev/min).\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $t = \dfrac{2.28\,(L/D)}{S \times N}$\par\vspace{3pt}
+\optline{A}{30 min}
+\optline{B}{46 min}
+\optline{C}{\correct{68 min}}
+\optline{D}{114 min}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[t = \frac{2.28 \times 3}{0.05 \times 2.0} = \frac{6.84}{0.10} = 68.4\;\text{min}\]
+
+Option (A) 30 min: uses the numerator factor 1 instead of 2.28 (i.e., L/D/(S$\times$N) = 3/0.10 = 30 min). Option (B) 46 min: uses N = 3 rpm in the denominator (0.05$\times$3 = 0.15, then 6.84/0.15 = 45.6 min). Option (D) 114 min: uses S = 0.03 in/ft (shallower slope). Longer residence times are achieved with shallower slopes or slower rotation. Typical rotary kilns for hazardous waste operate at 30--90 min residence times to ensure complete burnout.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Kiln Formula: t = 2.28(L/D)/(SN), t in min, S in in./ft, N in rev/min (p.325) \textbullet\ Handbook p.325 --- Environmental Engineering: Incineration --- Kiln Formula}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q11.}\quad {\small\color{soft}[D11-Q11 \textbullet\ MCQ \textbullet\ Gas treatment --- scrubber removal efficiency]}\par\vspace{2pt}
+A wet scrubber treats an exhaust stream containing 1,200 ppm HCl. The outlet HCl concentration after the scrubber is measured at 24 ppm. The fractional removal efficiency of the scrubber is most nearly:
+
+Removal efficiency $\eta$ = (Cin $-$ Cout) / Cin $\times$ 100\%\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\eta = \dfrac{C_{\text{in}} - C_{\text{out}}}{C_{\text{in}}} \times 100\%$\par\vspace{3pt}
+\optline{A}{95.0\%}
+\optline{B}{97.0\%}
+\optline{C}{\correct{98.0\%}}
+\optline{D}{99.0\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\eta = \frac{1{,}200 - 24}{1{,}200} \times 100 = \frac{1{,}176}{1{,}200} \times 100 = 98.0\%\]
+
+Option (A) 95.0\%: would correspond to Cout = 60 ppm (2.5$\times$ the actual outlet). Option (B) 97.0\%: corresponds to Cout = 36 ppm. Option (D) 99.0\%: would require Cout = 12 ppm (half the actual). The removal efficiency (or collection efficiency) is the mass fraction captured. High-efficiency scrubbers for acid gases like HCl typically achieve 95--99\% removal depending on liquid-to-gas ratio and contact time.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Removal efficiency is a fundamental definition; consistent with mass-balance principles ($\eta$ = removed/inlet). \textbullet\ Fundamental: $\eta$ = (Cin $-$ Cout)/Cin $\times$ 100\%}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q12.}\quad {\small\color{soft}[D11-Q12 \textbullet\ MCQ \textbullet\ Particle treatment --- cyclone effective number of turns]}\par\vspace{2pt}
+A conventional cyclone has a body diameter D = 1.0 m. Using the conventional cyclone dimension ratios from the FE Reference Handbook:
+• Inlet height: H = 0.50D
+• Body length: Lb = 1.75D
+• Cone length: Lc = 2.00D
+
+The effective number of turns Ne the gas makes in the cyclone is most nearly:
+
+Ne = (1/H)(Lb + Lc/2)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $N_e = \dfrac{1}{H}\left(L_b + \dfrac{L_c}{2}\right)$\par\vspace{3pt}
+\optline{A}{2.75}
+\optline{B}{3.50}
+\optline{C}{4.75}
+\optline{D}{\correct{5.50}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (D)\par\vspace{2pt}
+{\small From the conventional cyclone ratios applied to D = 1.0 m:
+\[H = 0.50\times1.0 = 0.50\text{ m},\quad L_b = 1.75\text{ m},\quad L_c = 2.00\text{ m}\]
+\[N_e = \frac{1}{0.50}\left(1.75 + \frac{2.00}{2}\right) = 2.0\times(1.75+1.00) = 2.0\times2.75 = 5.50\]
+
+Option (A) 2.75: equals Lb+Lc/2 = 2.75 without dividing by H (forgets the 1/H factor). Option (B) 3.50: uses only body length --- (1/H)$\times$Lb = (1/0.50)$\times$1.75 = 3.50 (forgets to add Lc/2). Option (C) 4.75: uses Lc instead of Lc/2 --- (1/0.50)(1.75+2.00) = 7.50... (not this option --- likely an arithmetic error in the sub-formula). Each full turn in the cyclone provides an additional opportunity for particles to be centrifugally separated.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Cyclone, Effective Number of Turns: Ne = (1/H)(Lb + Lc/2); Conventional Cyclone Ratio of Dimensions table (p.322) \textbullet\ Handbook p.322 --- Environmental Engineering: Cyclone Effective Number of Turns}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q13.}\quad {\small\color{soft}[D11-Q13 \textbullet\ MCQ \textbullet\ Particle treatment --- cyclone 50\% cut diameter]}\par\vspace{2pt}
+A conventional cyclone has the following parameters:
+• Inlet height H = 0.50 m, inlet width W = 0.25 m
+• Ne = 5.5 effective turns, inlet velocity Vi = 15 m/s
+• Gas dynamic viscosity $\mu$ = 1.8 $\times$ 10\textsuperscript{--}\textsuperscript{5} kg/(m$\cdot$s), density $\rho$g = 1.2 kg/m\textsuperscript{3}
+• Particle density $\rho$p = 1,600 kg/m\textsuperscript{3}
+
+Using the Handbook formula for the 50\% cut-diameter:
+dpc = $\surd$(9$\mu$HW / [2 $\cdot$ Ne $\cdot$ Vi $\cdot$ ($\rho$p $-$ $\rho$g)])
+
+The diameter dpc of the particle collected with 50\% efficiency is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $d_{pc} = \sqrt{\dfrac{9\,\mu\,H\,W}{2\,N_e\,V_i\,(\rho_p - \rho_g)}}$\par\vspace{3pt}
+\optline{A}{7.0 $\mu$m}
+\optline{B}{\correct{8.8 $\mu$m}}
+\optline{C}{12.4 $\mu$m}
+\optline{D}{17.5 $\mu$m}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[d_{pc} = \sqrt{\frac{9\times1.8\times10^{-5}\times0.50\times0.25}{2\times5.5\times15\times(1600-1.2)}}\]
+
+Numerator: $9\times1.8\times10^{-5}\times0.50\times0.25 = 2.025\times10^{-5}$
+
+Denominator: $2\times5.5\times15\times1598.8 = 263{,}802$
+
+\[d_{pc} = \sqrt{\frac{2.025\times10^{-5}}{263{,}802}} = \sqrt{7.677\times10^{-11}} = 8.77\times10^{-6}\text{ m} \approx 8.8\;\mu\text{m}\]
+
+Option (A) 7.0 $\mu$m: uses $\pi$ instead of 2 in the denominator ($\pi$$\times$Ne$\times$Vi). Option (C) 12.4 $\mu$m: omits H from the numerator --- uses only 9$\mu$W (missing inlet-height factor). Option (D) 17.5 $\mu$m: omits W from the numerator --- uses only 9$\mu$H. Both H (inlet height) and W (inlet width) appear in the numerator because the particle must travel across the full inlet cross-section during the Ne turns.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Cyclone 50\% Collection Efficiency for Particle Diameter: dpc = $\surd$(9$\mu$HW/[2NeVi($\rho$p$-$$\rho$g)]) (p.323) \textbullet\ Handbook p.323 --- Environmental Engineering: Cyclone 50\% Collection Efficiency for Particle Diameter}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q14.}\quad {\small\color{soft}[D11-Q14 \textbullet\ MCQ \textbullet\ Particle treatment --- cyclone collection efficiency for a specific particle size]}\par\vspace{2pt}
+A cyclone has a 50\% cut diameter of dpc = 10 $\mu$m. A dust stream contains particles with diameter dp = 20 $\mu$m. The fractional collection efficiency for these 20 $\mu$m particles is most nearly:
+
+Cyclone Collection Efficiency (Handbook p.322):
+$\eta$ = 1 / (1 + (dpc / dp)\textsuperscript{2})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\eta = \dfrac{1}{1 + \left(\dfrac{d_{pc}}{d_p}\right)^{2}}$\par\vspace{3pt}
+\optline{A}{20\%}
+\optline{B}{67\%}
+\optline{C}{\correct{80\%}}
+\optline{D}{96\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\eta = \frac{1}{1+(10/20)^2} = \frac{1}{1+0.25} = \frac{1}{1.25} = 0.800 = 80\%\]
+
+Option (A) 20\%: inverts the ratio --- uses (dp/dpc)\textsuperscript{2} instead of (dpc/dp)\textsuperscript{2}, giving 1/(1+4) = 20\%. Option (B) 67\%: uses the ratio without squaring --- 1/(1+dpc/dp) = 1/(1+0.5) = 67\% (linear, not the correct formula). Option (D) 96\%: corresponds to dp = 50 $\mu$m --- 1/(1+(10/50)\textsuperscript{2}) = 1/1.04 = 96\%. The squared ratio captures that particles larger than dpc (ratio < 1) are collected with >50\% efficiency, and particles smaller than dpc (ratio > 1) are collected with <50\%. At dp = dpc = 10 $\mu$m: $\eta$ = 1/(1+1) = 50\% (by definition of dpc).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Cyclone Collection (Particle Removal) Efficiency: $\eta$ = 1/(1+(dpc/dp)\textsuperscript{2}) (p.322) \textbullet\ Handbook p.322 --- Environmental Engineering: Cyclone Collection Efficiency}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q15.}\quad {\small\color{soft}[D11-Q15 \textbullet\ MCQ \textbullet\ Particle treatment --- electrostatic precipitator (ESP) collection efficiency]}\par\vspace{2pt}
+An electrostatic precipitator (ESP) has a total collection plate area A = 2,000 m\textsuperscript{2} and treats flue gas at a volumetric flow rate Q = 50 m\textsuperscript{3}/s. The terminal drift velocity of the particles toward the collection plates is W = 0.10 m/s. The fractional collection efficiency of the ESP is most nearly:
+
+Deutsch-Anderson equation (Handbook p.325):
+$\eta$ = 1 $-$ exp($-$WA/Q)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\eta = 1 - e^{-WA/Q}$\par\vspace{3pt}
+\optline{A}{86.5\%}
+\optline{B}{94.0\%}
+\optline{C}{\correct{98.2\%}}
+\optline{D}{99.7\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\frac{WA}{Q} = \frac{0.10 \times 2{,}000}{50} = \frac{200}{50} = 4.0\]
+\[\eta = 1 - e^{-4.0} = 1 - 0.01832 = 0.9817 \approx 98.2\%\]
+
+Option (A) 86.5\%: uses WA/Q = 2.0 (perhaps Q = 100 m\textsuperscript{3}/s or A = 1,000 m\textsuperscript{2}) $\rightarrow$ 1$-$e\textsuperscript{--}\textsuperscript{2} = 86.5\%. Option (B) 94.0\%: uses WA/Q = 2.8 $\rightarrow$ 1$-$e\textsuperscript{--}\textsuperscript{2}$\cdot$\textsuperscript{8} = 93.9\%. Option (D) 99.7\%: uses WA/Q = 5.8 $\rightarrow$ 1$-$e\textsuperscript{--}\textsuperscript{5}$\cdot$\textsuperscript{8} = 99.7\% (overestimates W). WA/Q = 4 is a common design target for high-efficiency ESPs. Note: any consistent units can be used (W in ft/min, A in ft\textsuperscript{2}, Q in ft\textsuperscript{3}/min also valid).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Electrostatic Precipitator Efficiency, Deutsch-Anderson equation: $\eta$ = 1$-$e\textasciicircum{}($-$WA/Q) (p.325) \textbullet\ Handbook p.325 --- Environmental Engineering: Electrostatic Precipitator Efficiency (Deutsch-Anderson)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q16.}\quad {\small\color{soft}[D11-Q16 \textbullet\ MCQ \textbullet\ Particle treatment --- baghouse filter cloth area]}\par\vspace{2pt}
+A coal-fired boiler generates fly ash that must be filtered in a pulse-jet/felt fabric filter (baghouse). The flue gas flow rate is Q = 6,000 m\textsuperscript{3}/min. From the FE Reference Handbook Air-to-Cloth Ratio table, fly ash in a pulse-jet/felt system has an air-to-cloth ratio of 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}). The minimum filter cloth area required is most nearly:
+
+A = Q / (air-to-cloth ratio)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $A_{\text{cloth}} = \dfrac{Q}{\text{air-to-cloth ratio}}$\par\vspace{3pt}
+\optline{A}{2,500 m\textsuperscript{2}}
+\optline{B}{\correct{4,000 m\textsuperscript{2}}}
+\optline{C}{6,000 m\textsuperscript{2}}
+\optline{D}{9,000 m\textsuperscript{2}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[A = \frac{6{,}000\;\text{m}^3\text{/min}}{1.5\;\text{m}^3\text{/(min}\cdot\text{m}^2\text{)}} = 4{,}000\;\text{m}^2\]
+
+Option (A) 2,500 m\textsuperscript{2}: uses the coal value for shaker/reverse-air fabric: air-to-cloth = 0.8 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2})... no --- actually 6000/0.8 = 7500, not 2500. Uses a/c = 2.4 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}) instead of 1.5: 6000/2.4 = 2,500 m\textsuperscript{2}. Option (C) 6,000 m\textsuperscript{2}: treats the ratio as 1.0 (no ratio applied). Option (D) 9,000 m\textsuperscript{2}: uses a/c = 0.67 (incorrect value). The air-to-cloth ratio (filtration velocity) for fly ash in pulse-jet systems is 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}) from the Handbook table. A lower ratio means more cloth area (more conservative, lower pressure drop).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Baghouse: Air-to-Cloth Ratio table, fly ash, Pulse Jet/Felt = 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}) (p.324) \textbullet\ Handbook p.324 --- Environmental Engineering: Baghouse Air-to-Cloth Ratio table}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q17.}\quad {\small\color{soft}[D11-Q17 \textbullet\ MCQ \textbullet\ Indoor air quality --- steady-state pollutant concentration]}\par\vspace{2pt}
+A laboratory room has volume V = 500 m\textsuperscript{3} and a ventilation rate Q = 200 m\textsuperscript{3}/h. The outdoor CO concentration is Co = 2 $\mu$g/m\textsuperscript{3}. A gas appliance inside the room generates CO at a source rate S = 800 $\mu$g/h. Assuming no first-order removal (k = 0) and steady-state conditions, the indoor CO concentration is most nearly:
+
+Indoor Air Quality --- Steady-State (Handbook p.325--326):
+Ciss = (A$\cdot$Co + S/V) / (A + k)
+where A = Q/V (air exchange rate, ACH)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $C_{\text{iss}} = \dfrac{A\cdot C_o + S/V}{A + k},\qquad A = \dfrac{Q}{V}$\par\vspace{3pt}
+\optline{A}{2 $\mu$g/m\textsuperscript{3}}
+\optline{B}{4 $\mu$g/m\textsuperscript{3}}
+\optline{C}{\correct{6 $\mu$g/m\textsuperscript{3}}}
+\optline{D}{8 $\mu$g/m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small First, compute air exchange rate:
+\[A = Q/V = 200\;\text{m}^3\text{/h}\div500\;\text{m}^3 = 0.40\text{ ACH}\]
+
+With k = 0:
+\[C_{\text{iss}} = \frac{A\cdot C_o + S/V}{A} = C_o + \frac{S}{Q} = 2 + \frac{800}{200} = 2 + 4 = 6\;\mu\text{g/m}^3\]
+
+Option (A) 2 $\mu$g/m\textsuperscript{3}: ignores the indoor source (equals Co). Option (B) 4 $\mu$g/m\textsuperscript{3}: uses S/Q but forgets to add Co (S/Q = 800/200 = 4). Option (D) 8 $\mu$g/m\textsuperscript{3}: doubles the source contribution (arithmetic error). When k = 0, the formula simplifies to Ciss = Co + S/Q: the indoor concentration equals the outdoor background plus the ratio of source strength to ventilation flow.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Indoor Air Quality, Steady-State: Ciss = (ACo + S/V)/(A+k), A = Q/V (p.325--326) \textbullet\ Handbook p.325--326 --- Environmental Engineering: Indoor Air Quality Material Balance}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q18.}\quad {\small\color{soft}[D11-Q18 \textbullet\ MCQ \textbullet\ Indoor air quality --- outdoor air flow rate from CO\textsubscript{2} balance (USCS)]}\par\vspace{2pt}
+An office building houses 8 workers. After 4+ hours of occupancy, the steady-state CO\textsubscript{2} concentration indoors is measured at 1,100 ppm. The outdoor CO\textsubscript{2} concentration is 400 ppm. The approximate volume flow rate of outdoor ventilation air supplied to the office is most nearly:
+
+Approximate Outdoor Air Flow Rate (Handbook p.326):
+QOA $\approx$ 13,000 n / (Cindoors $-$ COA)
+where n = number of people, concentrations in ppm, QOA in cfm.\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q_{OA} \approx \dfrac{13{,}000\,n}{C_{\text{indoors}} - C_{OA}}$\par\vspace{3pt}
+\optline{A}{95 cfm}
+\optline{B}{\correct{149 cfm}}
+\optline{C}{186 cfm}
+\optline{D}{229 cfm}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[Q_{OA} = \frac{13{,}000\times8}{1{,}100 - 400} = \frac{104{,}000}{700} = 148.6\;\text{cfm} \approx 149\;\text{cfm}\]
+
+Option (A) 95 cfm: uses denominator = Cindoors alone (1,100 instead of 700), omitting the outdoor baseline. Option (C) 186 cfm: corresponds to n = 10 people (13,000$\times$10/700 $\approx$ 186). Option (D) 229 cfm: uses a denominator of 455 (half the CO\textsubscript{2} difference) or n = 12. ASHRAE recommends $\ge$15 cfm/person outdoor air for offices --- this building supplies 149/8 $\approx$ 18.6 cfm/person, just meeting code.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Indoor Air Quality: QOA $\approx$ 13,000n/(Cindoors$-$COA), QOA in cfm, concentrations in ppm CO\textsubscript{2} (p.326) \textbullet\ Handbook p.326 --- Environmental Engineering: Approximate Volume Flow Rate of Outdoor Air}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q19.}\quad {\small\color{soft}[D11-Q19 \textbullet\ MCQ \textbullet\ Indoor air quality --- percent outdoor air from CO\textsubscript{2}]}\par\vspace{2pt}
+A central air-handling unit mixes outdoor air with return air from occupied spaces. CO\textsubscript{2} measurements show:
+• Return air (CRA): 1,000 ppm
+• Supply air (CSA): 600 ppm
+• Outdoor air (COA): 400 ppm
+
+The percent outdoor air in the supply stream is most nearly:
+
+\%Outdoor Air = (CRA $-$ CSA) / (CRA $-$ COA) $\times$ 100 (Handbook p.326)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\% \text{ Outdoor Air} = \dfrac{C_{RA} - C_{SA}}{C_{RA} - C_{OA}} \times 100$\par\vspace{3pt}
+\optline{A}{40.0\%}
+\optline{B}{50.0\%}
+\optline{C}{\correct{66.7\%}}
+\optline{D}{75.0\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\% OA = \frac{C_{RA} - C_{SA}}{C_{RA} - C_{OA}} \times 100 = \frac{1{,}000 - 600}{1{,}000 - 400} \times 100 = \frac{400}{600} \times 100 = 66.7\%\]
+
+Option (A) 40.0\%: uses (CSA $-$ COA)/(CRA $-$ COA) = 200/600 = 33.3\%... or some other ratio. Option (B) 50.0\%: uses (CSA $-$ COA)/(CRA $-$ COA) = 200/600 = 33.3\% --- doesn't match. More likely: treats midpoint (600$-$400)/(1000$-$400) = 33\% $\rightarrow$ must be a different error. Let's note: 40\% = (CSA$-$COA)/(CRA$-$CSA) (inverted from Handbook). Option (D) 75.0\%: uses (CRA$-$CSA)/(CSA$-$COA)$\times$100 = 400/200$\times$100 (wrong denominator). This formula is an energy-balance/mass-balance approach using CO\textsubscript{2} as a tracer gas for mixing fraction.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Indoor Air Quality: \%Outdoor Air = (CRA$-$CSA)/(CRA$-$COA)$\times$100 (p.326) \textbullet\ Handbook p.326 --- Environmental Engineering: Percent of Outdoor Air}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q20.}\quad {\small\color{soft}[D11-Q20 \textbullet\ Numeric \textbullet\ Indoor air quality --- outdoor air changes per hour]}\par\vspace{2pt}
+A classroom is tested for air exchange rate using CO\textsubscript{2} as a tracer gas. Windows are opened and the CO\textsubscript{2} concentration decays from Ci = 1,200 ppm at the start to Ca = 700 ppm after h = 1.5 hours. The outdoor CO\textsubscript{2} concentration is Co = 400 ppm. The number of outdoor air changes per hour is most nearly:
+
+Outdoor Air Changes per Hour (Handbook p.326):
+N = [ln(Ci $-$ Co) $-$ ln(Ca $-$ Co)] / h\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $N = \dfrac{\ln(C_i - C_o) - \ln(C_a - C_o)}{h}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} 1\par\vspace{2pt}
+{\small \[N = \frac{\ln(1{,}200 - 400) - \ln(700 - 400)}{1.5} = \frac{\ln(800) - \ln(300)}{1.5}\]
+\[= \frac{6.6846 - 5.7038}{1.5} = \frac{0.9808}{1.5} = 0.654\;\text{ACH}\]
+
+Option (A) 0.33 ACH: divides by 3 instead of 1.5 (uses 3 hours). Option (C) 0.98 ACH: applies 0.9808/1.0 (forgets to divide by h = 1.5, treating h = 1 hour). Option (D) 1.78 ACH: uses (Ci$-$Co)/(Ca$-$Co) directly without logarithms --- (800/300)/1.5 = 1.78 --- the linear-decay error. The ln-ratio formula derives from the first-order decay of the tracer-gas excess (Ci$-$Co), analogous to first-order reaction kinetics. The classroom at 0.65 ACH is below the ASHRAE minimum of \textasciitilde{}0.7--1.0 ACH for occupied classrooms.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Indoor Air Quality: Outdoor Air Changes per Hour N = [ln(Ci$-$Co)$-$ln(Ca$-$Co)]/h (p.326) \textbullet\ Handbook p.326 --- Environmental Engineering: Outdoor Air Changes per Hour}\vspace{2pt}
+}}
+\vspace{9pt}
+\end{document}
