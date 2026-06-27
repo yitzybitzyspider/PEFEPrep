@@ -27,7 +27,7 @@
 \vspace{6pt}\hrule\vspace{10pt}
 \markright{Air Quality \& Control}
 \par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ All formulas confirmed against NCEES FE Reference Handbook v10.6 (local text extract + Google Drive subagent). ppb/$\mu$g/m\textsuperscript{3} conversion (p.317): C($\mu$g/m\textsuperscript{3}) = C(ppb)$\times$P$\times$MW/(R$\times$T), R=0.0821 L$\cdot$atm/(mol$\cdot$K) --- formula confirmed from text extract (notation garbled by OCR; formula is physically correct ideal-gas derivation). Gaussian dispersion (pp.318--319): full 3D formula with ground reflection; at y=0, z=0 simplifies to C = Q/($\pi$$\sigma$y$\sigma$zu)$\times$exp($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}); Cmax formula also on p.318; stability table and lapse-rate comparison on p.319 --- all confirmed. Cyclone efficiency $\eta$ = 1/(1+(dpc/dp)\textsuperscript{2}) on p.322; Ne = (1/H)(Lb+Lc/2) on p.322; dpc = $\surd$(9$\mu$HW/[2NeVi($\rho$p$-$$\rho$g)]) on p.323 --- NOTE: numerator contains BOTH inlet height H AND inlet width W; denominator contains factor 2 (no $\pi$). Baghouse air-to-cloth ratio table (p.324): fly ash pulse-jet/felt = 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}). ESP Deutsch-Anderson $\eta$ = 1$-$e\textasciicircum{}($-$WA/Q) on p.325. Incineration: DRE = (Win$-$Wout)/Win$\times$100\% and CE = CO\textsubscript{2}/(CO\textsubscript{2}+CO)$\times$100\% on p.325. Kiln formula t = 2.28(L/D)/(SN) on p.325. Indoor air quality: mass balance ODE and steady-state Ciss = (ACo+S/V)/(A+k), A = Q/V on pp.325--326; QOA = 13,000n/(Cindoors$-$COA) on p.326; \%OA = (CRA$-$CSA)/(CRA$-$COA)$\times$100 on p.326; N = [ln(Ci$-$Co)$-$ln(Ca$-$Co)]/h on p.326. NOT in Handbook: (1) The condition $\sigma$z = H/$\surd$2 at maximum ground-level concentration is a derived result --- stated in Q09 stem so students can apply it (tagged in-stem). (2) Scrubber removal efficiency $\eta$ = (Cin$-$Cout)/Cin is a fundamental definition, not a printed Handbook formula (tagged fundamental). (3) Stack mass emission rate = C$\times$Q is continuity/fundamental (tagged fundamental).}\vspace{2pt}}}
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ All formulas confirmed against NCEES FE Reference Handbook v10.6 (local text extract + Google Drive subagent). ppb/$\mu$g/m\textsuperscript{3} conversion (p.317): C($\mu$g/m\textsuperscript{3}) = C(ppb)$\times$P$\times$MW/(R$\times$T), R=0.0821 L$\cdot$atm/(mol$\cdot$K) --- formula confirmed from text extract (notation garbled by OCR; formula is physically correct ideal-gas derivation). Gaussian dispersion (pp.318--319): full 3D formula with ground reflection; at y=0, z=0 simplifies to C = Q/($\pi$$\sigma$y$\sigma$zu)$\times$exp($-$H\textsuperscript{2}/2$\sigma$z\textsuperscript{2}); Cmax formula also on p.318; stability table and lapse-rate comparison on p.319 --- all confirmed. Cyclone efficiency $\eta$ = 1/(1+(dpc/dp)\textsuperscript{2}) on p.322; Ne = (1/H)(Lb+Lc/2) on p.322; dpc = $\surd$(9$\mu$W/[2NeVi($\rho$p$-$$\rho$g)]) on p.323 --- numerator contains only $\mu$ and inlet width W (inlet height H does NOT appear); denominator factor is 2 (no $\pi$). Dimensional analysis confirms: $\surd$(m\textsuperscript{2}) = m requires only W in numerator. The OCR text extract garbles $\mu$ as 'H'; the variable list (p.323) lists $\mu$ and W but not H for this formula. Baghouse air-to-cloth ratio table (p.324): fly ash pulse-jet/felt = 1.5 m\textsuperscript{3}/(min$\cdot$m\textsuperscript{2}). ESP Deutsch-Anderson $\eta$ = 1$-$e\textasciicircum{}($-$WA/Q) on p.325. Incineration: DRE = (Win$-$Wout)/Win$\times$100\% and CE = CO\textsubscript{2}/(CO\textsubscript{2}+CO)$\times$100\% on p.325. Kiln formula t = 2.28(L/D)/(SN) on p.325. Indoor air quality: mass balance ODE and steady-state Ciss = (ACo+S/V)/(A+k), A = Q/V on pp.325--326; QOA = 13,000n/(Cindoors$-$COA) on p.326; \%OA = (CRA$-$CSA)/(CRA$-$COA)$\times$100 on p.326; N = [ln(Ci$-$Co)$-$ln(Ca$-$Co)]/h on p.326. NOT in Handbook: (1) The condition $\sigma$z = H/$\surd$2 at maximum ground-level concentration is a derived result --- stated in Q09 stem so students can apply it (tagged in-stem). (2) Scrubber removal efficiency $\eta$ = (Cin$-$Cout)/Cin is a fundamental definition, not a printed Handbook formula (tagged fundamental). (3) Stack mass emission rate = C$\times$Q is continuity/fundamental (tagged fundamental).}\vspace{2pt}}}
 \vspace{10pt}
 \filbreak
 \textbf{\color{accent}Q1.}\quad {\small\color{soft}[D11-Q01 \textbullet\ MCQ \textbullet\ Air quality --- ppb to $\mu$g/m\textsuperscript{3} conversion (SI)]}\par\vspace{2pt}
@@ -281,33 +281,33 @@ Option (A) 2.75: equals Lb+Lc/2 = 2.75 without dividing by H (forgets the 1/H fa
 \filbreak
 \textbf{\color{accent}Q13.}\quad {\small\color{soft}[D11-Q13 \textbullet\ MCQ \textbullet\ Particle treatment --- cyclone 50\% cut diameter]}\par\vspace{2pt}
 A conventional cyclone has the following parameters:
-• Inlet height H = 0.50 m, inlet width W = 0.25 m
+• Inlet width W = 0.25 m
 • Ne = 5.5 effective turns, inlet velocity Vi = 15 m/s
 • Gas dynamic viscosity $\mu$ = 1.8 $\times$ 10\textsuperscript{--}\textsuperscript{5} kg/(m$\cdot$s), density $\rho$g = 1.2 kg/m\textsuperscript{3}
 • Particle density $\rho$p = 1,600 kg/m\textsuperscript{3}
 
-Using the Handbook formula for the 50\% cut-diameter:
-dpc = $\surd$(9$\mu$HW / [2 $\cdot$ Ne $\cdot$ Vi $\cdot$ ($\rho$p $-$ $\rho$g)])
+Using the Handbook formula for the 50\% cut-diameter (Handbook p.323):
+dpc = $\surd$(9$\mu$W / [2 $\cdot$ Ne $\cdot$ Vi $\cdot$ ($\rho$p $-$ $\rho$g)])
 
 The diameter dpc of the particle collected with 50\% efficiency is most nearly:\par\vspace{3pt}
-{\small\color{soft}Relevant:}\ $d_{pc} = \sqrt{\dfrac{9\,\mu\,H\,W}{2\,N_e\,V_i\,(\rho_p - \rho_g)}}$\par\vspace{3pt}
-\optline{A}{7.0 $\mu$m}
-\optline{B}{\correct{8.8 $\mu$m}}
-\optline{C}{12.4 $\mu$m}
+{\small\color{soft}Relevant:}\ $d_{pc} = \sqrt{\dfrac{9\,\mu\,W}{2\,N_e\,V_i\,(\rho_p - \rho_g)}}$\par\vspace{3pt}
+\optline{A}{8.8 $\mu$m}
+\optline{B}{9.9 $\mu$m}
+\optline{C}{\correct{12.4 $\mu$m}}
 \optline{D}{17.5 $\mu$m}
 \par\vspace{3pt}
 \vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
-{\small \[d_{pc} = \sqrt{\frac{9\times1.8\times10^{-5}\times0.50\times0.25}{2\times5.5\times15\times(1600-1.2)}}\]
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[d_{pc} = \sqrt{\frac{9\times1.8\times10^{-5}\times0.25}{2\times5.5\times15\times(1600-1.2)}}\]
 
-Numerator: $9\times1.8\times10^{-5}\times0.50\times0.25 = 2.025\times10^{-5}$
+Numerator: $9\times1.8\times10^{-5}\times0.25 = 4.05\times10^{-5}$
 
 Denominator: $2\times5.5\times15\times1598.8 = 263{,}802$
 
-\[d_{pc} = \sqrt{\frac{2.025\times10^{-5}}{263{,}802}} = \sqrt{7.677\times10^{-11}} = 8.77\times10^{-6}\text{ m} \approx 8.8\;\mu\text{m}\]
+\[d_{pc} = \sqrt{\frac{4.05\times10^{-5}}{263{,}802}} = \sqrt{1.535\times10^{-10}} = 1.239\times10^{-5}\text{ m} \approx 12.4\;\mu\text{m}\]
 
-Option (A) 7.0 $\mu$m: uses $\pi$ instead of 2 in the denominator ($\pi$$\times$Ne$\times$Vi). Option (C) 12.4 $\mu$m: omits H from the numerator --- uses only 9$\mu$W (missing inlet-height factor). Option (D) 17.5 $\mu$m: omits W from the numerator --- uses only 9$\mu$H. Both H (inlet height) and W (inlet width) appear in the numerator because the particle must travel across the full inlet cross-section during the Ne turns.}\par\vspace{2pt}
-{\footnotesize\color{soft}Handbook: Environmental Engineering --- Cyclone 50\% Collection Efficiency for Particle Diameter: dpc = $\surd$(9$\mu$HW/[2NeVi($\rho$p$-$$\rho$g)]) (p.323) \textbullet\ Handbook p.323 --- Environmental Engineering: Cyclone 50\% Collection Efficiency for Particle Diameter}\vspace{2pt}
+Option (A) 8.8 $\mu$m: erroneously includes the inlet height H = 0.50 m in the numerator alongside W, giving 9$\mu$HW instead of 9$\mu$W --- the Handbook formula has W only. Option (B) 9.9 $\mu$m: uses $\pi$ (not 2) in the denominator. Option (D) 17.5 $\mu$m: omits the factor of 2 in the denominator. Dimensional check: 9$\mu$W/[2NeVi($\rho$p$-$$\rho$g)] has units m\textsuperscript{2}; $\surd$m\textsuperscript{2} = m $\checkmark$. Including H would give m\textsuperscript{3} under the root (dimensionally inconsistent).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Cyclone 50\% Collection Efficiency for Particle Diameter: dpc = $\surd$(9$\mu$W/[2NeVi($\rho$p$-$$\rho$g)]) (p.323). Note: the Handbook numerator contains only W (inlet width) and $\mu$; the inlet height H does NOT appear in this formula. \textbullet\ Handbook p.323 --- Environmental Engineering: Cyclone 50\% Collection Efficiency for Particle Diameter}\vspace{2pt}
 }}
 \vspace{9pt}
 \filbreak
