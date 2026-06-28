@@ -1,7 +1,19 @@
 {
-  "version": "0.22.0",
-  "updated": "2026-06-27",
+  "version": "0.23.0",
+  "updated": "2026-06-28",
   "history": [
+    {
+      "version": "0.23.0",
+      "date": "2026-06-28",
+      "title": "Day 12 added — Solid & Hazardous Waste",
+      "changes": [
+        "Solid & Hazardous Waste (Day 12, 20 questions) added — KA 14 subtopics A–F: mass/energy balances (weighted average MSW moisture content from Handbook table p.332, composite MSW heating value from Handbook table p.359), solid waste management (compaction volume reduction p.334, RCRA four characteristics, diversion rate, landfill airspace consumption, RCRA 99.99% DRE standard for POHCs), disposal/landfills (clay liner leachate breakthrough time t=d²η/[K(d+h)] USCS p.333, landfill gas flux NA=D·η_gas·ΔC/L SI p.333, soil cover water balance ΔS_LC=P−R−ET−PERsw p.333, overburden pressure effect SWp=SWi+p/(a+bp) p.333), hazardous waste compatibility (Chemical Compatibility Chart p.26: acid+caustic→H heat; organic acid+amine→H+GT toxic gas), site characterization (coefficient of variation CV=(100s)/x̄ p.336, DQO sampling table p.336 n=8 for CV=15%/power=95%/confidence=95%/MDRD=20%, TCLP toxicity characteristic determination), hazardous and radioactive waste treatment & disposal (effective half-life 1/τe=1/τr+1/τb p.335, radioactive decay N=N₀exp(−0.693t/τ) p.335, inverse square law I₁/I₂=(R₂/R₁)² p.335)",
+        "Bank now holds 262 questions spanning Days 1–12; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 9 new Solid & Hazardous Waste equations (clay liner breakthrough t p.333, gas flux NA p.333, water balance ΔS_LC p.333, overburden SWp p.333, volume reduction VR% p.334, effective half-life p.335, radioactive decay p.335, inverse square law p.335, coefficient of variation CV p.336); printable Day-12 study PDF generated with pdflatex (materials/)",
+        "All Day-12 Handbook formulas confirmed against NCEES FE Reference Handbook v10.6 text extract (materials/NCEES_FE_Handbook_text.txt); non-Handbook content (RCRA regulations, diversion rate, landfill mass balance) tagged fundamental or in-stem per policy",
+        "KA 14 (7–11 exam questions) fully covered: all 6 subtopics A–F — SI + USCS mix (Q01/Q04/Q05/Q06/Q09/Q13/Q17/Q20 USCS; Q02/Q03/Q07/Q08/Q11/Q15 SI)"
+      ]
+    },
     {
       "version": "0.22.0",
       "date": "2026-06-27",

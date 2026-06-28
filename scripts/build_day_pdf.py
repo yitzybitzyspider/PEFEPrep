@@ -41,11 +41,15 @@ UNI = {
     "ε": ("$\\varepsilon$", "\\varepsilon"),
     "σ": ("$\\sigma$", "\\sigma"),
     "η": ("$\\eta$", "\\eta"),
+    "τ": ("$\\tau$", "\\tau"),
     "λ": ("$\\lambda$", "\\lambda"),
     "ω": ("$\\omega$", "\\omega"),
     "Γ": ("$\\Gamma$", "\\Gamma"),
+    "Σ": ("$\\Sigma$", "\\Sigma"),
     "Φ": ("$\\Phi$", "\\Phi"),
     "Ω": ("$\\Omega$", "\\Omega"),
+    "x̄": ("$\\bar{x}$", "\\bar{x}"),
+    "̄": ("", ""),    # strip stray combining macron (U+0304)
     "ṁ": ("$\\dot{m}$", "\\dot{m}"),
     "∑": ("$\\sum$", "\\sum"),
     "→": ("$\\rightarrow$", "\\rightarrow"),
@@ -58,6 +62,7 @@ UNI = {
     "⁷": ("\\textsuperscript{7}", "^{7}"),
     "⁸": ("\\textsuperscript{8}", "^{8}"),
     "⁹": ("\\textsuperscript{9}", "^{9}"),
+    "ⁿ": ("\\textsuperscript{n}", "^{n}"),
     "⁺": ("\\textsuperscript{+}", "^{+}"),
     "⁻": ("\\textsuperscript{--}", "^{-}"),
     # subscripts
