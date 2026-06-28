@@ -4,19 +4,19 @@
   "entries": [
     {
       "topic": "Mathematics",
-      "section": "Mathematics — Quadratic Equation",
+      "section": "Mathematics \u2014 Quadratic Equation",
       "term": "Quadratic",
       "eq": "$x = \\dfrac{-b \\pm \\sqrt{b^{2}-4ac}}{2a}$"
     },
     {
       "topic": "Mathematics",
-      "section": "Mathematics — Logarithms",
+      "section": "Mathematics \u2014 Logarithms",
       "term": "Logarithm",
       "eq": "$\\log(ab)=\\log a+\\log b,\\quad \\log_a x=\\dfrac{\\ln x}{\\ln a}$"
     },
     {
       "topic": "Mathematics",
-      "section": "Trigonometry — Identities",
+      "section": "Trigonometry \u2014 Identities",
       "term": "Trigonometric",
       "eq": "$\\sin^{2}\\theta+\\cos^{2}\\theta=1$"
     },
@@ -40,7 +40,7 @@
     },
     {
       "topic": "Mathematics",
-      "section": "Differential Equations — decay",
+      "section": "Differential Equations \u2014 decay",
       "term": "Half-Life",
       "eq": "$t_{1/2}=\\dfrac{0.693}{k}$"
     },
@@ -70,7 +70,7 @@
     },
     {
       "topic": "Fluid Mechanics",
-      "section": "Fluid Statics — pressure",
+      "section": "Fluid Statics \u2014 pressure",
       "term": "Pressure Head",
       "eq": "$p=\\gamma h,\\quad p_{abs}=p_{atm}+p_{gauge},\\quad h=\\dfrac{p}{\\gamma}$"
     },
@@ -100,7 +100,7 @@
     },
     {
       "topic": "Fluid Mechanics",
-      "section": "Bernoulli — orifice / Pitot",
+      "section": "Bernoulli \u2014 orifice / Pitot",
       "term": "Pitot",
       "eq": "$v=\\sqrt{2gh}\\quad(\\text{Torricelli}),\\qquad V=\\sqrt{\\dfrac{2\\,\\Delta p}{\\rho}}\\quad(\\text{Pitot})$"
     },
@@ -119,7 +119,7 @@
     },
     {
       "topic": "Fluid Mechanics",
-      "section": "Head Loss — Darcy-Weisbach",
+      "section": "Head Loss \u2014 Darcy-Weisbach",
       "term": "Darcy-Weisbach",
       "eq": "$h_f=f\\,\\dfrac{L}{D}\\,\\dfrac{V^{2}}{2g},\\quad \\Delta p=\\gamma h_f$"
     },
@@ -135,7 +135,7 @@
       "section": "Friction factor (turbulent)",
       "term": "Relative Roughness",
       "eq": "$\\dfrac{1}{\\sqrt f}=-2\\log\\!\\left(\\dfrac{\\varepsilon/D}{3.7}+\\dfrac{2.51}{\\mathrm{Re}\\sqrt f}\\right)$",
-      "note": "Colebrook — NOT in the FE Handbook; use the Moody chart"
+      "note": "Colebrook \u2014 NOT in the FE Handbook; use the Moody chart"
     },
     {
       "topic": "Fluid Mechanics",
@@ -168,7 +168,7 @@
       "section": "NPSH / Cavitation",
       "term": "Net Positive Suction",
       "eq": "$NPSH_A>NPSH_R$",
-      "note": "Series: heads add; parallel: flows add — concept, not stated in Handbook"
+      "note": "Series: heads add; parallel: flows add \u2014 concept, not stated in Handbook"
     },
     {
       "topic": "Fluid Mechanics",
@@ -184,7 +184,7 @@
     },
     {
       "topic": "Hydraulics",
-      "section": "Open-Channel Flow — geometry",
+      "section": "Open-Channel Flow \u2014 geometry",
       "term": "Open-Channel",
       "eq": "$A=(b+zy)y,\\quad P=b+2y\\sqrt{1+z^{2}},\\quad T=b+2zy$"
     },
@@ -234,7 +234,7 @@
     },
     {
       "topic": "Hydraulics",
-      "section": "Orifice Discharging Freely — tank drain",
+      "section": "Orifice Discharging Freely \u2014 tank drain",
       "term": "Drain",
       "eq": "$\\Delta t=\\dfrac{2\\,(A_t/A_0)}{\\sqrt{2g}}\\left(h_1^{1/2}-h_2^{1/2}\\right)$"
     },
@@ -253,556 +253,556 @@
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Rational Formula",
+      "section": "Surface Water \u2014 Rational Formula",
       "term": "Rational Method",
       "eq": "$Q=CIA\\ (\\text{US: cfs, in/hr, acres})$",
       "note": "In Handbook (p.296, capital I). C dimensionless, 0<=C<=1; 1 in/hr over 1 acre ~ 1 cfs"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Rational Formula (SI, supplemental)",
+      "section": "Surface Water \u2014 Rational Formula (SI, supplemental)",
       "term": "Rational Method SI",
       "eq": "$Q=\\dfrac{CIA}{360}\\ (\\text{SI: m}^3/\\text{s, mm/hr, ha})$",
-      "note": "SUPPLEMENTAL — not in Handbook v10.6 (US form only); memorize"
+      "note": "SUPPLEMENTAL \u2014 not in Handbook v10.6 (US form only); memorize"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Rational Formula",
+      "section": "Surface Water \u2014 Rational Formula",
       "term": "Composite Runoff Coefficient",
       "eq": "$C_{comp}=\\dfrac{\\sum C_i A_i}{\\sum A_i}$",
       "note": "Area-weighted; standard practice"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — NRCS/SCS Rainfall-Runoff",
+      "section": "Surface Water \u2014 NRCS/SCS Rainfall-Runoff",
       "term": "Curve Number",
       "eq": "$S=\\dfrac{1000}{CN}-10\\ (\\text{in})$",
       "note": "In Handbook (p.296, inches). Higher CN -> smaller S -> more runoff. SI $S=25400/CN-254$ mm is supplemental (not in Handbook)"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — NRCS/SCS Rainfall-Runoff",
+      "section": "Surface Water \u2014 NRCS/SCS Rainfall-Runoff",
       "term": "SCS Runoff Depth",
       "eq": "$Q=\\dfrac{(P-0.2S)^{2}}{P+0.8S}\\ \\ (P>0.2S)$",
       "note": "In Handbook (p.296). Q=0 when P<=0.2S; Q,P,S in inches. $I_a=0.2S$ implied (not stated separately)"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Runoff Volume",
+      "section": "Surface Water \u2014 Runoff Volume",
       "term": "Runoff Volume",
       "eq": "$V=Q_{depth}\\times A$",
       "note": "US: depth(in)/12 x area(ac)=ac-ft. SI: depth(m) x area(m^2)=m^3"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Frequency Analysis (supplemental)",
+      "section": "Surface Water \u2014 Frequency Analysis (supplemental)",
       "term": "Return Period",
       "eq": "$T=\\dfrac{1}{P},\\quad P=\\dfrac{1}{T}$",
-      "note": "SUPPLEMENTAL — not printed in Handbook v10.6. P = annual exceedance probability of the T-year event"
+      "note": "SUPPLEMENTAL \u2014 not printed in Handbook v10.6. P = annual exceedance probability of the T-year event"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Frequency Analysis (supplemental)",
+      "section": "Surface Water \u2014 Frequency Analysis (supplemental)",
       "term": "Risk / Recurrence",
       "eq": "$R=1-\\left(1-\\dfrac{1}{T}\\right)^{n}$",
-      "note": "SUPPLEMENTAL — not in Handbook v10.6. Probability of >=1 exceedance in n years"
+      "note": "SUPPLEMENTAL \u2014 not in Handbook v10.6. Probability of >=1 exceedance in n years"
     },
     {
       "topic": "Surface Water & Hydrology",
-      "section": "Surface Water — Rainfall and Runoff (IDF, supplemental)",
+      "section": "Surface Water \u2014 Rainfall and Runoff (IDF, supplemental)",
       "term": "IDF",
       "eq": "$I=\\dfrac{a}{(t_d+b)^{c}}$",
-      "note": "SUPPLEMENTAL — not in Handbook v10.6. For fixed return period, intensity falls as duration rises"
+      "note": "SUPPLEMENTAL \u2014 not in Handbook v10.6. For fixed return period, intensity falls as duration rises"
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Soil Index Properties",
+      "section": "Groundwater \u2014 Soil Index Properties",
       "term": "Void Ratio / Porosity",
       "eq": "$e=V_v/V_s,\\quad n=V_v/V_T=e/(1+e)$",
-      "note": "In Handbook (Geotechnical). Higher e and n → more storage space."
+      "note": "In Handbook (Geotechnical). Higher e and n \u2192 more storage space."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Darcy's Law",
+      "section": "Groundwater \u2014 Darcy's Law",
       "term": "Darcy's Law",
       "eq": "$Q=-KA\\,\\dfrac{dh}{dx}=KiA,\\quad q=Ki,\\quad v=q/n=Ki/n$",
       "note": "In Handbook p.297. Q = discharge; q = Darcy (superficial) velocity; v = seepage velocity; n = effective porosity; i = hydraulic gradient = dh/dx."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Hydraulic Conductivity Tests",
+      "section": "Groundwater \u2014 Hydraulic Conductivity Tests",
       "term": "Constant-Head Test",
       "eq": "$K=\\dfrac{Q}{i\\,A\\,t_e}$",
       "note": "In Handbook p.297. Q = total volume collected; i = applied gradient; A = specimen area; te = elapsed time."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Hydraulic Conductivity Tests",
+      "section": "Groundwater \u2014 Hydraulic Conductivity Tests",
       "term": "Falling-Head Test",
       "eq": "$K=2.303\\,\\dfrac{aL}{A\\,t_e}\\,\\log_{10}\\!(h_1/h_2)$",
       "note": "In Handbook p.297. a = standpipe area; L = specimen length; A = specimen area; h1, h2 = initial/final heads."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Aquifer Properties",
+      "section": "Groundwater \u2014 Aquifer Properties",
       "term": "Transmissivity",
       "eq": "$T=Kb$",
-      "note": "In Handbook p.297. b = saturated aquifer thickness. Units: L²/T (e.g. m²/s or ft²/s)."
+      "note": "In Handbook p.297. b = saturated aquifer thickness. Units: L\u00b2/T (e.g. m\u00b2/s or ft\u00b2/s)."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Well Drawdown (Unconfined)",
+      "section": "Groundwater \u2014 Well Drawdown (Unconfined)",
       "term": "Dupuit's Formula",
       "eq": "$Q=\\dfrac{\\pi K(h_2^{2}-h_1^{2})}{\\ln(r_2/r_1)}$",
       "note": "In Handbook p.298. Steady-state pumping from unconfined aquifer. h1,h2 = saturated heights at r1,r2. Specific capacity = Q/Dw."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Well Drawdown (Confined)",
+      "section": "Groundwater \u2014 Well Drawdown (Confined)",
       "term": "Thiem Equation",
       "eq": "$Q=\\dfrac{2\\pi T(h_2-h_1)}{\\ln(r_2/r_1)}$",
       "note": "In Handbook p.299. Steady-state pumping from confined aquifer. h1,h2 = piezometric head at r1,r2. T = Kb."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Remediation",
+      "section": "Groundwater \u2014 Remediation",
       "term": "Retardation Factor",
       "eq": "$R=1+\\dfrac{\\rho_b}{n_e}K_d,\\quad K_d=K_{oc}f_{oc}$",
-      "note": "In Handbook (Environmental Eng.). Contaminant velocity = v/R; R=1 for conservative tracer. ρb = bulk density; ne = effective porosity; Koc = organic carbon partition coeff; foc = organic carbon fraction."
+      "note": "In Handbook (Environmental Eng.). Contaminant velocity = v/R; R=1 for conservative tracer. \u03c1b = bulk density; ne = effective porosity; Koc = organic carbon partition coeff; foc = organic carbon fraction."
     },
     {
       "topic": "Groundwater, Soils & Sediments",
-      "section": "Groundwater — Remediation",
+      "section": "Groundwater \u2014 Remediation",
       "term": "Vadose Zone Penetration",
       "eq": "$D=\\dfrac{R_v\\,V}{A}$",
       "note": "In Handbook (Environmental Eng. p.330). D = max depth; Rv = retention constant (soil+product specific, tabulated); V = spill volume; A = spill area."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Characteristics",
+      "section": "Water & Wastewater \u2014 Characteristics",
       "term": "Hardness as CaCO3",
       "eq": "$\\text{Hardness (mg/L as CaCO}_3) = C_{ion}\\times\\dfrac{EW_{CaCO_3}}{EW_{ion}}$",
       "note": "Handbook p.348 Common Radicals table: EW(Ca2+)=20.0, EW(Mg2+)=12.2, EW(CaCO3)=50.0, EW(HCO3-)=61.0. Total hardness = Ca hardness + Mg hardness."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — BOD Test",
+      "section": "Water & Wastewater \u2014 BOD Test",
       "term": "BOD5 Lab Test",
       "eq": "$BOD = \\dfrac{D_1-D_2}{P}\\ (\\text{unseeded}),\\quad BOD = \\dfrac{(D_1-D_2)-(B_1-B_2)f}{P}\\ (\\text{seeded})$",
       "note": "In Handbook p.339. D1,D2 = initial/final DO of diluted sample; P = fraction of wastewater sample; B1,B2 = seed control DO; f = fraction of seeded dilution water."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Mass Balance",
+      "section": "Water & Wastewater \u2014 Mass Balance",
       "term": "Mass Loading Conversion",
       "eq": "$M\\ (\\mathrm{lb/day}) = C\\ (\\mathrm{mg/L})\\times Q\\ (\\mathrm{MGD})\\times 8.34$",
-      "note": "In Handbook p.327. Unit factor 8.34 lb·L/(mg·MG). SI equivalent: M (kg/d) = C (mg/L) × Q (m3/d) / 1000."
+      "note": "In Handbook p.327. Unit factor 8.34 lb\u00b7L/(mg\u00b7MG). SI equivalent: M (kg/d) = C (mg/L) \u00d7 Q (m3/d) / 1000."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — BOD Kinetics",
+      "section": "Water & Wastewater \u2014 BOD Kinetics",
       "term": "BOD Exertion",
       "eq": "$BOD_t = L_o(1-e^{-kt})$",
-      "note": "In Handbook p.327. Lo = ultimate BOD (mg/L); k = BOD decay rate constant base e (day-1); BODt = BOD exerted at time t. Remaining BOD = Lo·e^{-kt}."
+      "note": "In Handbook p.327. Lo = ultimate BOD (mg/L); k = BOD decay rate constant base e (day-1); BODt = BOD exerted at time t. Remaining BOD = Lo\u00b7e^{-kt}."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — BOD Kinetics",
+      "section": "Water & Wastewater \u2014 BOD Kinetics",
       "term": "Kinetic Temperature Correction",
       "eq": "$k_T = k_{20}\\,\\theta^{T-20}$",
-      "note": "In Handbook p.328. θ values: BOD (4–20°C)=1.135; BOD (21–30°C)=1.056; Reaeration=1.024; Bio Towers=1.035; Trickling Filters=1.072."
+      "note": "In Handbook p.328. \u03b8 values: BOD (4\u201320\u00b0C)=1.135; BOD (21\u201330\u00b0C)=1.056; Reaeration=1.024; Bio Towers=1.035; Trickling Filters=1.072."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Reactor Design",
+      "section": "Water & Wastewater \u2014 Reactor Design",
       "term": "CMFR (CSTR) First-Order",
       "eq": "$C_t = \\dfrac{C_0}{1+k\\theta}\\ (\\text{CMFR}),\\quad C_t = C_0 e^{-k\\theta}\\ (\\text{PFR/Batch})$",
-      "note": "In Handbook p.331 reactor table. For first-order decay; θ = V/Q (HRT). CMFR is always less efficient than PFR for positive-order reactions."
+      "note": "In Handbook p.331 reactor table. For first-order decay; \u03b8 = V/Q (HRT). CMFR is always less efficient than PFR for positive-order reactions."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Physical Processes",
+      "section": "Water & Wastewater \u2014 Physical Processes",
       "term": "Clarifier Design",
       "eq": "$v_o = Q/A_{surface}$ (overflow rate),\\quad $\\theta = V/Q$ (HRT),\\quad $WOR = Q/\\text{Weir Length}$",
-      "note": "In Handbook p.344. Primary clarifier: OFR avg 800–1200 gpd/ft2 (32–49 m/d); HRT 2 hr; depth 10–12 ft. vo = critical settling velocity for 100% removal of smallest particle."
+      "note": "In Handbook p.344. Primary clarifier: OFR avg 800\u20131200 gpd/ft2 (32\u201349 m/d); HRT 2 hr; depth 10\u201312 ft. vo = critical settling velocity for 100% removal of smallest particle."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Physical Processes",
+      "section": "Water & Wastewater \u2014 Physical Processes",
       "term": "Stokes' Law",
       "eq": "$v_t = \\dfrac{g(\\rho_p-\\rho_f)d^2}{18\\mu}$",
-      "note": "In Handbook p.346. Applies in laminar settling (Re ≤ 1). ρp = particle density; ρf = fluid density; d = particle diameter; μ = dynamic viscosity. Also written using SG: vt = g·ρf·(SG-1)·d²/(18μ)."
+      "note": "In Handbook p.346. Applies in laminar settling (Re \u2264 1). \u03c1p = particle density; \u03c1f = fluid density; d = particle diameter; \u03bc = dynamic viscosity. Also written using SG: vt = g\u00b7\u03c1f\u00b7(SG-1)\u00b7d\u00b2/(18\u03bc)."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Chemical Processes",
+      "section": "Water & Wastewater \u2014 Chemical Processes",
       "term": "CT Disinfection",
       "eq": "$CT_{calc} = C\\times t_{10},\\quad t_{10}\\approx\\theta\\times BF$",
-      "note": "In Handbook p.351–353. C = residual Cl2 (mg/L); t10 = time for 10% of flow through reactor (min); BF = baffling factor (0.1 unbaffled → 1.0 plug flow). CT tables: Giardia 3-log, viruses 4-log."
+      "note": "In Handbook p.351\u2013353. C = residual Cl2 (mg/L); t10 = time for 10% of flow through reactor (min); BF = baffling factor (0.1 unbaffled \u2192 1.0 plug flow). CT tables: Giardia 3-log, viruses 4-log."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Chemical Processes",
+      "section": "Water & Wastewater \u2014 Chemical Processes",
       "term": "Lime-Soda Softening (key reactions)",
       "eq": "$\\text{Ca carbonate hardness: }\\mathrm{Ca(HCO_3)_2 + Ca(OH)_2 \\to 2CaCO_3\\downarrow + 2H_2O}$",
       "note": "In Handbook p.347. 7 reactions: (1) CO2 removal; (2) Ca-carbonate hardness; (3) Ca-non-carbonate; (4) Mg-carbonate; (5) Mg-non-carbonate; (6) excess alkalinity; (7) recarbonation. Soda ash Na2CO3 removes non-carbonate hardness."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Chemical Processes",
+      "section": "Water & Wastewater \u2014 Chemical Processes",
       "term": "Alum Coagulation",
       "eq": "$\\mathrm{Al_2(SO_4)_3 + 3\\,Ca(HCO_3)_2 \\rightleftharpoons 2\\,Al(OH)_3 + 3\\,CaSO_4 + 6\\,CO_2}$",
-      "note": "In Handbook p.347 (reaction 1). Products: Al(OH)3 gelatinous floc (settles with enmeshed particles), CaSO4 (stays in solution), CO2. Effective at pH 6–8. FeCl3 and Fe2(SO4)3 are alternative coagulants."
+      "note": "In Handbook p.347 (reaction 1). Products: Al(OH)3 gelatinous floc (settles with enmeshed particles), CaSO4 (stays in solution), CO2. Effective at pH 6\u20138. FeCl3 and Fe2(SO4)3 are alternative coagulants."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Biological Processes",
+      "section": "Water & Wastewater \u2014 Biological Processes",
       "term": "Activated Sludge MLSS",
       "eq": "$X_A = \\dfrac{\\theta_c\\,Y\\,(S_0-S_e)}{\\theta\\,(1+k_d\\,\\theta_c)}$",
-      "note": "In Handbook p.339. θc = SRT (sludge age, days); θ = HRT (days); Y = yield (kg/kg); S0-Se = BOD removed (mg/L); kd = endogenous decay rate (day-1). Typical MLSS 1500–3000 mg/L (conventional)."
+      "note": "In Handbook p.339. \u03b8c = SRT (sludge age, days); \u03b8 = HRT (days); Y = yield (kg/kg); S0-Se = BOD removed (mg/L); kd = endogenous decay rate (day-1). Typical MLSS 1500\u20133000 mg/L (conventional)."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Biological Processes",
+      "section": "Water & Wastewater \u2014 Biological Processes",
       "term": "Sludge Volume Index (SVI)",
       "eq": "$SVI = \\dfrac{\\text{Sludge vol after settling (mL/L)}\\times1000}{MLSS\\ (\\mathrm{mg/L})}$",
-      "note": "In Handbook p.339. SVI < 80 excellent; 80–150 acceptable; > 150 bulking sludge (poor settling). Units: mL/g."
+      "note": "In Handbook p.339. SVI < 80 excellent; 80\u2013150 acceptable; > 150 bulking sludge (poor settling). Units: mL/g."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Biological Processes",
+      "section": "Water & Wastewater \u2014 Biological Processes",
       "term": "Biotower Fixed-Film (no recycle)",
       "eq": "$\\dfrac{S_e}{S_0} = e^{-kD/q^n}$",
-      "note": "In Handbook p.340. k = treatability constant (min-1, ~0.06 min-1 for municipal/modular plastic at 20°C); D = media depth (m); q = hydraulic loading [m3/(m2·min)]; n = media coefficient (n=0.5 modular plastic). kT = k20·(1.035)^(T-20)."
+      "note": "In Handbook p.340. k = treatability constant (min-1, ~0.06 min-1 for municipal/modular plastic at 20\u00b0C); D = media depth (m); q = hydraulic loading [m3/(m2\u00b7min)]; n = media coefficient (n=0.5 modular plastic). kT = k20\u00b7(1.035)^(T-20)."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Sludge Treatment",
+      "section": "Water & Wastewater \u2014 Sludge Treatment",
       "term": "Sludge Volume from Dry Solids",
       "eq": "$V = \\dfrac{W_s}{(s/100)\\,\\gamma\\,S}$",
-      "note": "In Handbook p.338. Ws = dry solids mass; s = solids content (%); γ = unit weight of water (62.4 lb/ft3 or 1000 kg/m3); S = specific gravity of wet sludge (~1.02). Converts dry-weight production to wet volume."
+      "note": "In Handbook p.338. Ws = dry solids mass; s = solids content (%); \u03b3 = unit weight of water (62.4 lb/ft3 or 1000 kg/m3); S = specific gravity of wet sludge (~1.02). Converts dry-weight production to wet volume."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Sludge Treatment",
+      "section": "Water & Wastewater \u2014 Sludge Treatment",
       "term": "Aerobic Digestion SRT",
       "eq": "$SRT \\geq 40\\ \\mathrm{days\\ @\\ 20\\textdegree C},\\quad SRT \\geq 60\\ \\mathrm{days\\ @\\ 15\\textdegree C}$",
-      "note": "In Handbook p.341 (aerobic digestion design-criteria table). VSS reduction 40–50%. O2 requirement ~2.3 lb O2/lb cell tissue destroyed."
+      "note": "In Handbook p.341 (aerobic digestion design-criteria table). VSS reduction 40\u201350%. O2 requirement ~2.3 lb O2/lb cell tissue destroyed."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Characteristics",
+      "section": "Water & Wastewater \u2014 Characteristics",
       "term": "Theoretical Oxygen Demand (ThOD)",
       "eq": "$ThOD = C_{compound}\\times\\dfrac{\\text{mass O}_2\\text{ consumed per mole}}{MW_{compound}}$",
-      "note": "Fundamental stoichiometry — not a Handbook formula. ThOD sets the upper bound; COD ≤ ThOD. Example: glucose C6H12O6 (MW=180) + 6O2 → 6CO2+6H2O gives ThOD ratio = 192/180 = 1.067 g O2/g glucose."
+      "note": "Fundamental stoichiometry \u2014 not a Handbook formula. ThOD sets the upper bound; COD \u2264 ThOD. Example: glucose C6H12O6 (MW=180) + 6O2 \u2192 6CO2+6H2O gives ThOD ratio = 192/180 = 1.067 g O2/g glucose."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Characteristics",
+      "section": "Water & Wastewater \u2014 Characteristics",
       "term": "BOD5/COD Ratio",
       "eq": "$\\text{Biodegradability ratio} = BOD_5/COD$",
-      "note": "Fundamental concept. Ratio ≥ 0.5: readily biodegradable; 0.3–0.5: moderately; < 0.3: poorly biodegradable / inhibitory. COD ≥ BOD5 always."
+      "note": "Fundamental concept. Ratio \u2265 0.5: readily biodegradable; 0.3\u20130.5: moderately; < 0.3: poorly biodegradable / inhibitory. COD \u2265 BOD5 always."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Mass Balance",
+      "section": "Water & Wastewater \u2014 Mass Balance",
       "term": "Return Sludge (RAS) Flow Rate",
       "eq": "$\\dfrac{Q_R}{Q_0} = \\dfrac{X_A}{X_r - X_A}\\quad(X_e\\approx0)$",
-      "note": "In Handbook p.339 (secondary clarifier mass balance). Full form: (Q0+QR)XA = QeXe + QRXr + QwXw. When effluent solids ≈ 0 and Qw << QR: QR = Q0 XA/(Xr-XA). Recycle ratio R = QR/Q0 typically 0.25–0.5 for conventional AS."
+      "note": "In Handbook p.339 (secondary clarifier mass balance). Full form: (Q0+QR)XA = QeXe + QRXr + QwXw. When effluent solids \u2248 0 and Qw << QR: QR = Q0 XA/(Xr-XA). Recycle ratio R = QR/Q0 typically 0.25\u20130.5 for conventional AS."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Mass Balance",
+      "section": "Water & Wastewater \u2014 Mass Balance",
       "term": "Waste Activated Sludge (WAS) Flow Rate",
       "eq": "$Q_w = \\dfrac{V\\,X_A}{\\theta_c\\,X_w}\\quad (X_e\\approx0)$",
-      "note": "In Handbook p.339 (SRT definition rearranged). θc = V·XA / (QwXw + QeXe). Neglecting effluent solids: Qw = V·XA / (θc·Xw). Units must be consistent (m3/d and m3, or MG/d and MG)."
+      "note": "In Handbook p.339 (SRT definition rearranged). \u03b8c = V\u00b7XA / (QwXw + QeXe). Neglecting effluent solids: Qw = V\u00b7XA / (\u03b8c\u00b7Xw). Units must be consistent (m3/d and m3, or MG/d and MG)."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Mass Balance",
+      "section": "Water & Wastewater \u2014 Mass Balance",
       "term": "Methanol Dose for Denitrification",
       "eq": "$C_m = 2.47\\,N_o + 1.53\\,N_l + 0.87\\,D_o$",
-      "note": "In Handbook p.340 (Environmental Engineering, wastewater section). Cm = methanol (mg/L); No = nitrate-N (mg/L); Nl = nitrite-N (mg/L); Do = dissolved O2 (mg/L). The 0.87·Do term accounts for methanol consumed to deplete DO before denitrification proceeds."
+      "note": "In Handbook p.340 (Environmental Engineering, wastewater section). Cm = methanol (mg/L); No = nitrate-N (mg/L); Nl = nitrite-N (mg/L); Do = dissolved O2 (mg/L). The 0.87\u00b7Do term accounts for methanol consumed to deplete DO before denitrification proceeds."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Physical Processes",
+      "section": "Water & Wastewater \u2014 Physical Processes",
       "term": "Trickling Filter NRC Recirculation Factor",
       "eq": "$F = \\dfrac{1+R}{(1+R/10)^{2}}$",
-      "note": "In Handbook p.337 (NRC equation for single-stage rock trickling filter). R = recycle ratio QR/Q0. F appears in the NRC efficiency equation E1 = 100/[1+0.4432√(W/(VF))]. Higher R → higher F → improved effective capacity."
+      "note": "In Handbook p.337 (NRC equation for single-stage rock trickling filter). R = recycle ratio QR/Q0. F appears in the NRC efficiency equation E1 = 100/[1+0.4432\u221a(W/(VF))]. Higher R \u2192 higher F \u2192 improved effective capacity."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Physical Processes",
+      "section": "Water & Wastewater \u2014 Physical Processes",
       "term": "Secondary Clarifier Design OFR",
       "eq": "$v_o = Q/A_{surface}$; design range: 400\\text{--}700\\ \\mathrm{gpd/ft^2}\\ (16\\text{--}28\\ \\mathrm{m/d})$ for air-AS (not ext. aeration)",
-      "note": "In Handbook p.345 (design criteria table). Following air-activated sludge (not extended aeration): avg 400–700 gpd/ft2 (16–28 m/d), peak 1000–1200 gpd/ft2 (40–64 m/d). Extended aeration secondary: avg 200–400 gpd/ft2 (8–16 m/d), lower OFR reflects longer SRT and higher MLSS."
+      "note": "In Handbook p.345 (design criteria table). Following air-activated sludge (not extended aeration): avg 400\u2013700 gpd/ft2 (16\u201328 m/d), peak 1000\u20131200 gpd/ft2 (40\u201364 m/d). Extended aeration secondary: avg 200\u2013400 gpd/ft2 (8\u201316 m/d), lower OFR reflects longer SRT and higher MLSS."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Biological Processes",
+      "section": "Water & Wastewater \u2014 Biological Processes",
       "term": "Biotower with Recycle",
       "eq": "$\\dfrac{S_e}{S_a} = e^{-kD/q_T^n},\\quad S_a=\\dfrac{S_0+RS_e}{1+R},\\quad q_T=(1+R)q$",
-      "note": "In Handbook p.340. Solving for Se: Se = S0·E/(1+R−R·E) where E = exp(−kD/qT^n). R = QR/Q (recycle ratio); q = Q/A (base hydraulic loading without recycle); qT = (1+R)q (total loading with recycle). Recycle dilutes influent BOD but reduces per-pass efficiency; net effect on Se depends on parameters."
+      "note": "In Handbook p.340. Solving for Se: Se = S0\u00b7E/(1+R\u2212R\u00b7E) where E = exp(\u2212kD/qT^n). R = QR/Q (recycle ratio); q = Q/A (base hydraulic loading without recycle); qT = (1+R)q (total loading with recycle). Recycle dilutes influent BOD but reduces per-pass efficiency; net effect on Se depends on parameters."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Sludge Treatment",
+      "section": "Water & Wastewater \u2014 Sludge Treatment",
       "term": "Anaerobic Digestion Design Criteria",
       "eq": "$SRT:\\ 30\\text{--}90\\ \\mathrm{d}\\ (\\text{std-rate}),\\ 10\\text{--}20\\ \\mathrm{d}\\ (\\text{hi-rate})$; $\\text{Gas: }0.50\\text{--}0.55\\ \\mathrm{m^3/kg\\ VSS\\ (std)},\\ 0.60\\text{--}0.65\\ \\mathrm{m^3/kg\\ VSS\\ (hi)}$",
-      "note": "In Handbook p.342 (anaerobic digestion design criteria table). VS reduction: std 35–50%, hi-rate 45–55%. Gas ≈ 65% CH4, 35% CO2. Standard-rate = unheated/unmixed (stratified); high-rate = heated (35°C) + completely mixed."
+      "note": "In Handbook p.342 (anaerobic digestion design criteria table). VS reduction: std 35\u201350%, hi-rate 45\u201355%. Gas \u2248 65% CH4, 35% CO2. Standard-rate = unheated/unmixed (stratified); high-rate = heated (35\u00b0C) + completely mixed."
     },
     {
       "topic": "Water & Wastewater",
-      "section": "Water & Wastewater — Sludge Treatment",
-      "term": "Aerobic Digestion O₂ Requirement",
+      "section": "Water & Wastewater \u2014 Sludge Treatment",
+      "term": "Aerobic Digestion O\u2082 Requirement",
       "eq": "$O_2\\ (\\mathrm{lb/day}) = VSS_{destroyed}\\times2.3$",
-      "note": "In Handbook p.341 (aerobic digestion design criteria). O2 for cell tissue destruction = ~2.3 lb O2/lb VSS destroyed; for BOD5 in primary sludge = 1.6–1.9 lb O2/lb. VSS reduction 40–50%. Tank volume formula: V = Qi(Xi + F·Si)/[Xd(kd·Pv + 1/θc)]."
+      "note": "In Handbook p.341 (aerobic digestion design criteria). O2 for cell tissue destruction = ~2.3 lb O2/lb VSS destroyed; for BOD5 in primary sludge = 1.6\u20131.9 lb O2/lb. VSS reduction 40\u201350%. Tank volume formula: V = Qi(Xi + F\u00b7Si)/[Xd(kd\u00b7Pv + 1/\u03b8c)]."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Acid-Base",
+      "section": "Environmental Chemistry \u2014 Acid-Base",
       "term": "pH and pOH",
       "eq": "$\\mathrm{pH}=-\\log_{10}[\\mathrm{H}^+],\\quad \\mathrm{pOH}=-\\log_{10}[\\mathrm{OH}^-],\\quad \\mathrm{pH}+\\mathrm{pOH}=14$",
-      "note": "Fundamental — NOT printed in Handbook v10.6. Strong acid: [H+] = Cacid; strong base: [OH-] = Cbase, then pH = 14−pOH. Kw = [H+][OH-] = 1.0×10-14 at 25°C."
+      "note": "Fundamental \u2014 NOT printed in Handbook v10.6. Strong acid: [H+] = Cacid; strong base: [OH-] = Cbase, then pH = 14\u2212pOH. Kw = [H+][OH-] = 1.0\u00d710-14 at 25\u00b0C."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Acid-Base",
+      "section": "Environmental Chemistry \u2014 Acid-Base",
       "term": "Henderson-Hasselbalch (SUPPLEMENTAL)",
       "eq": "$\\mathrm{pH}=\\mathrm{p}K_a+\\log_{10}\\dfrac{[\\mathrm{A}^-]}{[\\mathrm{HA}]}$",
-      "note": "SUPPLEMENTAL — NOT in Handbook v10.6. Always provided in stem on exam if needed. Buffer is most effective within ±1 unit of pKa."
+      "note": "SUPPLEMENTAL \u2014 NOT in Handbook v10.6. Always provided in stem on exam if needed. Buffer is most effective within \u00b11 unit of pKa."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Acid-Base",
-      "term": "Alkalinity as CaCO₃",
+      "section": "Environmental Chemistry \u2014 Acid-Base",
+      "term": "Alkalinity as CaCO\u2083",
       "eq": "$\\mathrm{Alk}\\,(\\mathrm{mg/L\\ as\\ CaCO_3})=C_{\\mathrm{HCO_3^-}}\\times\\dfrac{EW_{\\mathrm{CaCO_3}}}{EW_{\\mathrm{HCO_3^-}}}=C\\times\\dfrac{50}{61}$",
-      "note": "Fundamental (EW table in Handbook p.348). EW(CaCO3)=50 g/eq; EW(HCO3-)=61 g/eq. Equivalently: meq/L × 50 mg/meq = mg/L as CaCO3."
+      "note": "Fundamental (EW table in Handbook p.348). EW(CaCO3)=50 g/eq; EW(HCO3-)=61 g/eq. Equivalently: meq/L \u00d7 50 mg/meq = mg/L as CaCO3."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Reactions",
+      "section": "Environmental Chemistry \u2014 Reactions",
       "term": "Solubility Product (Ksp)",
       "eq": "$K_{sp}=[\\mathrm{M}^{n+}][\\mathrm{X}^{m-}]\\quad(\\text{for }\\mathrm{M}_m\\mathrm{X}_n);\\quad [\\mathrm{Ca}^{2+}]=[\\mathrm{CO_3}^{2-}]=\\sqrt{K_{sp}}\\,(1{:}1)$",
-      "note": "In Handbook (Chemistry section). CaCO3 Ksp = 3.3×10-9; solubility = √Ksp = 5.7×10-5 mol/L = 2.3 mg/L as Ca2+. Common-ion effect: adding one ion suppresses the other."
+      "note": "In Handbook (Chemistry section). CaCO3 Ksp = 3.3\u00d710-9; solubility = \u221aKsp = 5.7\u00d710-5 mol/L = 2.3 mg/L as Ca2+. Common-ion effect: adding one ion suppresses the other."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Kinetics",
+      "section": "Environmental Chemistry \u2014 Kinetics",
       "term": "Zero-Order Rate Law",
       "eq": "$[\\mathrm{A}]_t=[\\mathrm{A}]_0-k_0\\,t,\\quad t_{1/2}^{\\mathrm{zero}}=\\dfrac{[\\mathrm{A}]_0}{2k_0}$",
-      "note": "In Handbook p.331 (Reactor Design table). Zero-order: rate = k0 (constant, mg/L·time); half-life depends on C0. Contrast first-order: t1/2 = 0.693/k (independent of C0)."
+      "note": "In Handbook p.331 (Reactor Design table). Zero-order: rate = k0 (constant, mg/L\u00b7time); half-life depends on C0. Contrast first-order: t1/2 = 0.693/k (independent of C0)."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Organic Chemistry",
+      "section": "Environmental Chemistry \u2014 Organic Chemistry",
       "term": "Degree of Unsaturation (DoU)",
       "eq": "$DoU=\\dfrac{2C+2-H+N}{2}\\quad(\\text{O, S not counted; each halogen replaces 1 H})$",
-      "note": "Fundamental — NOT in Handbook v10.6. DoU=0: saturated alkane; DoU=1: one ring or C=C; DoU=4: benzene ring (3 C=C + 1 ring). Useful for identifying compound class from MW data."
+      "note": "Fundamental \u2014 NOT in Handbook v10.6. DoU=0: saturated alkane; DoU=1: one ring or C=C; DoU=4: benzene ring (3 C=C + 1 ring). Useful for identifying compound class from MW data."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Organic Chemistry",
+      "section": "Environmental Chemistry \u2014 Organic Chemistry",
       "term": "Alkane General Formula",
       "eq": "$C_nH_{2n+2}\\,(\\text{alkane}),\\quad C_nH_{2n}\\,(\\text{alkene/cyclo}),\\quad C_nH_{2n-2}\\,(\\text{alkyne/2 rings})$",
       "note": "Fundamental. Check DoU: alkane DoU=0; alkene/cyclo DoU=1; alkyne or diene DoU=2. Environmental significance: BTEX (aromatics, DoU=4) are priority groundwater pollutants."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Multimedia Partitioning",
+      "section": "Environmental Chemistry \u2014 Multimedia Partitioning",
       "term": "Henry's Law (dimensionless)",
       "eq": "$H_{cc}=\\dfrac{C_{\\mathrm{gas}}}{C_{\\mathrm{liq}}}\\quad(\\text{same units both phases});\\quad C_{\\mathrm{gas}}=H_{cc}\\times C_{\\mathrm{liq}}$",
       "note": "In Handbook (Environmental Engineering section). Hcc > 0.01: significant volatilization; Hcc > 0.1: readily stripped. Air-stripping design exploits high Hcc to remove VOCs from groundwater."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Multimedia Partitioning",
+      "section": "Environmental Chemistry \u2014 Multimedia Partitioning",
       "term": "Octanol-Water Partition Coefficient (Kow)",
       "eq": "$K_{ow}=\\dfrac{C_{\\mathrm{octanol}}}{C_{\\mathrm{water}}}$; log $K_{ow}>4$: bioaccumulation concern",
-      "note": "In Handbook (Environmental Engineering section). High Kow → lipophilic, sorbs to soil organic carbon, bioaccumulates. log Kow > 5: PBT (persistent, bioaccumulative, toxic) concern. Low Kow → stays in water, more mobile."
+      "note": "In Handbook (Environmental Engineering section). High Kow \u2192 lipophilic, sorbs to soil organic carbon, bioaccumulates. log Kow > 5: PBT (persistent, bioaccumulative, toxic) concern. Low Kow \u2192 stays in water, more mobile."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Multimedia Partitioning",
+      "section": "Environmental Chemistry \u2014 Multimedia Partitioning",
       "term": "Bioconcentration Factor (BCF)",
       "eq": "$BCF=\\dfrac{C_{\\mathrm{organism}}\\ (\\mu\\mathrm{g/kg})}{C_{\\mathrm{water}}\\ (\\mu\\mathrm{g/L})}\\quad[\\mathrm{L/kg}]$",
-      "note": "In Handbook (Environmental Engineering p.328–329). BCF ≥ 1,000 L/kg: bioaccumulative (EPA Tier 2); BCF ≥ 5,000 L/kg: highly bioaccumulative (PBT status). Assumes tissue density ≈ 1 kg/L."
+      "note": "In Handbook (Environmental Engineering p.328\u2013329). BCF \u2265 1,000 L/kg: bioaccumulative (EPA Tier 2); BCF \u2265 5,000 L/kg: highly bioaccumulative (PBT status). Assumes tissue density \u2248 1 kg/L."
     },
     {
       "topic": "Environmental Chemistry",
-      "section": "Environmental Chemistry — Multimedia Partitioning",
+      "section": "Environmental Chemistry \u2014 Multimedia Partitioning",
       "term": "Organic Carbon Partitioning (Koc, Kd)",
       "eq": "$K_d=K_{oc}\\cdot f_{oc},\\quad R=1+\\dfrac{\\rho_b}{n_e}K_d$",
-      "note": "In Handbook p.330 (Environmental Engineering). Koc = organic carbon partition coefficient (mL/g); foc = fraction organic carbon; ρb = bulk density; ne = effective porosity. Koc empirically ≈ 0.41·Kow (supplemental — not in Handbook). Retardation entry also in Groundwater section."
+      "note": "In Handbook p.330 (Environmental Engineering). Koc = organic carbon partition coefficient (mL/g); foc = fraction organic carbon; \u03c1b = bulk density; ne = effective porosity. Koc empirically \u2248 0.41\u00b7Kow (supplemental \u2014 not in Handbook). Retardation entry also in Groundwater section."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Population Projections — Linear (Algebraic)",
+      "section": "Population Projections \u2014 Linear (Algebraic)",
       "term": "Linear Projection",
       "eq": "$P_t = P_0 + k\\,\\Delta t$",
-      "note": "Handbook p.334. Also called Algebraic Projection. k = growth rate (persons/yr); Δt = elapsed years. Assumes constant annual increment."
+      "note": "Handbook p.334. Also called Algebraic Projection. k = growth rate (persons/yr); \u0394t = elapsed years. Assumes constant annual increment."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Population Projections — Geometric (Log/Exponential)",
+      "section": "Population Projections \u2014 Geometric (Log/Exponential)",
       "term": "Geometric Growth",
       "eq": "$P_t = P_0\\,e^{k\\Delta t},\\quad k=\\dfrac{\\ln(P_t/P_0)}{\\Delta t}$",
-      "note": "Handbook p.334. Also called Log Growth = Exponential Growth = Geometric Growth. k units: yr⁻¹. Compounding continuously."
+      "note": "Handbook p.334. Also called Log Growth = Exponential Growth = Geometric Growth. k units: yr\u207b\u00b9. Compounding continuously."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Population Projections — Percent Growth (Discrete)",
+      "section": "Population Projections \u2014 Percent Growth (Discrete)",
       "term": "Percent Growth",
       "eq": "$P_t = P_0(1+k)^n$",
       "note": "Handbook p.334. k = annual growth fraction; n = number of periods. Discrete annual compounding."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Population Projections — Ratio-Correlation",
+      "section": "Population Projections \u2014 Ratio-Correlation",
       "term": "Ratio and Correlation Growth",
       "eq": "$\\dfrac{P_2}{P_{2R}} = \\dfrac{P_1}{P_{1R}}$",
       "note": "Handbook p.334. Scales city population in proportion to its larger region."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Population Projections — Decreasing-Rate-of-Increase (Saturation)",
+      "section": "Population Projections \u2014 Decreasing-Rate-of-Increase (Saturation)",
       "term": "Decreasing-Rate-of-Increase Growth",
       "eq": "$P_t = P_0 + (S-P_0)(1-e^{-k(t-t_0)})$",
       "note": "Handbook p.334. S = saturation population. NOT called logistic in Handbook."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Reactors — Steady-State CMFR, First-Order",
+      "section": "Reactors \u2014 Steady-State CMFR, First-Order",
       "term": "CMFR First-Order HRT",
       "eq": "$\\theta = \\dfrac{C_0/C_t - 1}{k}$ (first-order, CMFR)",
-      "note": "Handbook p.330–331 table. r = −kC. Effluent: Ct = C0/(1+kθ)."
+      "note": "Handbook p.330\u2013331 table. r = \u2212kC. Effluent: Ct = C0/(1+k\u03b8)."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Reactors — Steady-State PFR, First-Order",
+      "section": "Reactors \u2014 Steady-State PFR, First-Order",
       "term": "PFR First-Order HRT",
       "eq": "$\\theta = \\dfrac{\\ln(C_0/C_t)}{k}$ (first-order, PFR)",
-      "note": "Handbook p.330–331 table. r = −kC. Effluent: Ct = C0·exp(−kθ). PFR more efficient than CMFR for first-order."
+      "note": "Handbook p.330\u2013331 table. r = \u2212kC. Effluent: Ct = C0\u00b7exp(\u2212k\u03b8). PFR more efficient than CMFR for first-order."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Reactors — Zero-Order (all ideal reactors)",
+      "section": "Reactors \u2014 Zero-Order (all ideal reactors)",
       "term": "Zero-Order HRT",
       "eq": "$\\theta = \\dfrac{C_0 - C_t}{k}$ (zero-order; CMFR = PFR = batch)",
-      "note": "Handbook p.330–331 table. r = −k. Same HRT for all ideal reactor types."
+      "note": "Handbook p.330\u2013331 table. r = \u2212k. Same HRT for all ideal reactor types."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Reactors — Steady-State CMFR, Second-Order",
+      "section": "Reactors \u2014 Steady-State CMFR, Second-Order",
       "term": "CMFR Second-Order Effluent",
       "eq": "$C_t = \\dfrac{\\sqrt{4kC_0\\theta+1}-1}{2k\\theta}$ (second-order, CMFR)",
-      "note": "Handbook p.330–331 table. r = −kC²."
+      "note": "Handbook p.330\u2013331 table. r = \u2212kC\u00b2."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Materials Science — Stress and Strain",
+      "section": "Materials Science \u2014 Stress and Strain",
       "term": "Engineering Stress / True Stress",
       "eq": "$\\sigma=F/A_0$ (engineering), $\\sigma_T=F/A$ (true)",
       "note": "Handbook p.121. Engineering stress uses original area A0; true stress uses actual area A."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Materials Science — Hooke's Law",
+      "section": "Materials Science \u2014 Hooke's Law",
       "term": "Young's Modulus (Hooke's Law)",
       "eq": "$\\sigma = E\\varepsilon$",
       "note": "Handbook p.121. E = elastic modulus = modulus of elasticity = Young's modulus. Elastic range only."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Materials Science — Thermal Properties",
+      "section": "Materials Science \u2014 Thermal Properties",
       "term": "Thermal Expansion Coefficient (strain)",
       "eq": "$\\varepsilon = \\alpha\\,\\Delta T$",
-      "note": "Handbook p.127. Free thermal strain. If constrained: thermal stress σ = EαΔT."
+      "note": "Handbook p.127. Free thermal strain. If constrained: thermal stress \u03c3 = E\u03b1\u0394T."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Mechanics of Materials — Thermal Deformations",
+      "section": "Mechanics of Materials \u2014 Thermal Deformations",
       "term": "Thermal Deformation (axial)",
       "eq": "$\\delta_t = \\alpha L(T - T_0)$",
-      "note": "Handbook p.131. δt = deformation; α = coefficient of expansion; L = length; T, T0 = final/initial temp."
+      "note": "Handbook p.131. \u03b4t = deformation; \u03b1 = coefficient of expansion; L = length; T, T0 = final/initial temp."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Civil Engineering — Fire Hydrant Rated Capacity",
+      "section": "Civil Engineering \u2014 Fire Hydrant Rated Capacity",
       "term": "Fire Hydrant Rated Capacity at 20 psi (NFPA 291)",
-      "eq": "$Q_R = Q_F(H_R/H_F)^{0.54}$, HR = PS−20, HF = PS−PR",
+      "eq": "$Q_R = Q_F(H_R/H_F)^{0.54}$, HR = PS\u221220, HF = PS\u2212PR",
       "note": "Handbook p.304. Source: NFPA Standard 291. QR, QF in gpm; pressures in psi."
     },
     {
       "topic": "Fundamental Principles",
-      "section": "Civil Engineering — Fire Hydrant Discharge",
+      "section": "Civil Engineering \u2014 Fire Hydrant Discharge",
       "term": "Fire Hydrant Discharge to Atmosphere (NFPA 291)",
       "eq": "$Q = 29.8\\,D^2\\,C_d\\,P^{1/2}$",
-      "note": "Handbook p.304–305. Q = gpm; D = outlet diameter (in.); P = pitot pressure (psi); Cd = 0.90/0.80/0.70 per outlet geometry."
+      "note": "Handbook p.304\u2013305. Q = gpm; D = outlet diameter (in.); P = pitot pressure (psi); Cd = 0.90/0.80/0.70 per outlet geometry."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Ambient Air Quality — Unit Conversion",
-      "term": "ppb ↔ µg/m³ Conversion",
+      "section": "Ambient Air Quality \u2014 Unit Conversion",
+      "term": "ppb \u2194 \u00b5g/m\u00b3 Conversion",
       "eq": "$C\\,(\\mu\\mathrm{g/m^3}) = C\\,(\\mathrm{ppb}) \\cdot \\dfrac{P \\cdot MW}{R \\cdot T}$",
-      "note": "Handbook p.317. P = pressure (atm); MW = molecular weight (g/mol); R = 82.06 cm³·atm/(mol·K); T = temperature (K). At 25°C, 1 atm: C(µg/m³) = C(ppb)×MW/24.45."
+      "note": "Handbook p.317. P = pressure (atm); MW = molecular weight (g/mol); R = 82.06 cm\u00b3\u00b7atm/(mol\u00b7K); T = temperature (K). At 25\u00b0C, 1 atm: C(\u00b5g/m\u00b3) = C(ppb)\u00d7MW/24.45."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Atmospheric Modeling — Gaussian Dispersion",
+      "section": "Atmospheric Modeling \u2014 Gaussian Dispersion",
       "term": "Gaussian Plume Centerline Ground-Level Concentration",
       "eq": "$C = \\dfrac{Q}{\\pi \\sigma_y \\sigma_z u} \\exp\\!\\left(-\\dfrac{H^2}{2\\sigma_z^2}\\right)$",
-      "note": "Handbook p.318. Valid at y=0, z=0 (centerline at ground). Q = emission rate (g/s); σy, σz = horizontal/vertical dispersion (m); u = wind speed (m/s); H = effective stack height (m). Terrain reflection term omitted."
+      "note": "Handbook p.318. Valid at y=0, z=0 (centerline at ground). Q = emission rate (g/s); \u03c3y, \u03c3z = horizontal/vertical dispersion (m); u = wind speed (m/s); H = effective stack height (m). Terrain reflection term omitted."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Atmospheric Modeling — Gaussian Dispersion",
+      "section": "Atmospheric Modeling \u2014 Gaussian Dispersion",
       "term": "Maximum Ground-Level Concentration",
       "eq": "$C_{\\max} = \\dfrac{Q}{\\pi \\sigma_y u}\\cdot\\dfrac{2}{eH^2}$ occurs when $\\sigma_z = H/\\sqrt{2}$",
-      "note": "Derived from Gaussian formula. e ≈ 2.718. σy evaluated at the downwind distance where σz = H/√2. Not printed separately in Handbook v10.6 — derive from p.318 formula (supplemental)."
+      "note": "Derived from Gaussian formula. e \u2248 2.718. \u03c3y evaluated at the downwind distance where \u03c3z = H/\u221a2. Not printed separately in Handbook v10.6 \u2014 derive from p.318 formula (supplemental)."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Atmospheric Modeling — Stability",
+      "section": "Atmospheric Modeling \u2014 Stability",
       "term": "Atmospheric Lapse Rate Stability Criterion",
       "eq": "$\\Gamma > \\Gamma_{AD}$ unstable; $\\Gamma = \\Gamma_{AD}$ neutral; $\\Gamma < \\Gamma_{AD}$ stable. $\\Gamma_{AD} = 0.98\\,^\\circ\\mathrm{C}/100\\,\\mathrm{m}$",
-      "note": "Handbook p.319. Γ = actual (ambient) lapse rate; ΓAD = dry adiabatic lapse rate = 0.98°C/100 m. Pasquill-Gifford stability classes A–F also on p.319."
+      "note": "Handbook p.319. \u0393 = actual (ambient) lapse rate; \u0393AD = dry adiabatic lapse rate = 0.98\u00b0C/100 m. Pasquill-Gifford stability classes A\u2013F also on p.319."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Particle Treatment — Cyclone",
+      "section": "Particle Treatment \u2014 Cyclone",
       "term": "Cyclone Number of Effective Turns",
       "eq": "$N_e = \\dfrac{1}{H}\\!\\left(L_b + \\dfrac{L_c}{2}\\right)$",
       "note": "Handbook p.322. H = inlet height (ft or m); Lb = length of body; Lc = length of cone. Ne is dimensionless."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Particle Treatment — Cyclone",
+      "section": "Particle Treatment \u2014 Cyclone",
       "term": "Cyclone 50% Cut Diameter",
       "eq": "$d_{pc} = \\sqrt{\\dfrac{9\\,\\mu\\,H\\,W}{2\\,N_e\\,V_i\\,(\\rho_p - \\rho_g)}}$",
-      "note": "Handbook p.323. µ = gas viscosity; H = inlet height; W = inlet width; Ne = effective turns; Vi = inlet velocity; ρp−ρg = particle–gas density difference. Factor is 2, not π."
+      "note": "Handbook p.323. \u00b5 = gas viscosity; H = inlet height; W = inlet width; Ne = effective turns; Vi = inlet velocity; \u03c1p\u2212\u03c1g = particle\u2013gas density difference. Factor is 2, not \u03c0."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Particle Treatment — Cyclone",
+      "section": "Particle Treatment \u2014 Cyclone",
       "term": "Cyclone Fractional Collection Efficiency",
       "eq": "$\\eta = \\dfrac{1}{1 + (d_{pc}/d_p)^2}$",
-      "note": "Handbook p.322. dpc = 50% cut diameter; dp = particle diameter. η → 1 for dp >> dpc."
+      "note": "Handbook p.322. dpc = 50% cut diameter; dp = particle diameter. \u03b7 \u2192 1 for dp >> dpc."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Particle Treatment — Baghouse",
+      "section": "Particle Treatment \u2014 Baghouse",
       "term": "Baghouse Air-to-Cloth Ratio",
-      "eq": "$A/C = Q / A_{fabric}$, typical range: 1–3 m³/(min·m²) for pulse-jet/felt",
+      "eq": "$A/C = Q / A_{fabric}$, typical range: 1\u20133 m\u00b3/(min\u00b7m\u00b2) for pulse-jet/felt",
       "note": "Handbook p.324. Q = volumetric gas flow; Afabric = total filter cloth area. Design ranges by fabric/cleaning type in Handbook table."
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Particle Treatment — Electrostatic Precipitator",
+      "section": "Particle Treatment \u2014 Electrostatic Precipitator",
       "term": "ESP Deutsch-Anderson Efficiency",
       "eq": "$\\eta = 1 - e^{-WA/Q}$",
-      "note": "Handbook p.325. W = drift (migration) velocity (m/s or ft/s); A = collection plate area (m² or ft²); Q = volumetric gas flow. η expressed as fraction."
+      "note": "Handbook p.325. W = drift (migration) velocity (m/s or ft/s); A = collection plate area (m\u00b2 or ft\u00b2); Q = volumetric gas flow. \u03b7 expressed as fraction."
     },
     {
       "topic": "Air Quality & Control",
@@ -820,7 +820,7 @@
     },
     {
       "topic": "Air Quality & Control",
-      "section": "Gas Treatment — Rotary Kiln",
+      "section": "Gas Treatment \u2014 Rotary Kiln",
       "term": "Rotary Kiln Residence Time (USCS)",
       "eq": "$t = \\dfrac{2.28\\,(L/D)}{S \\cdot N}$",
       "note": "Handbook p.325. t = residence time (min); L = kiln length (ft); D = diameter (ft); S = slope (in/ft); N = rotational speed (rpm). USCS units only."
@@ -830,7 +830,7 @@
       "section": "Indoor Air Quality Modeling",
       "term": "IAQ Steady-State Indoor Concentration",
       "eq": "$C_{iss} = \\dfrac{A \\cdot C_o + S/V}{A + k}$, where $A = Q_{OA}/V$",
-      "note": "Handbook pp.325–326. Ciss = steady-state indoor conc. (µg/m³); Co = outdoor conc.; S = source strength (µg/s); V = room volume (m³); k = removal rate constant (s⁻¹); QOA = outdoor air flow (m³/s)."
+      "note": "Handbook pp.325\u2013326. Ciss = steady-state indoor conc. (\u00b5g/m\u00b3); Co = outdoor conc.; S = source strength (\u00b5g/s); V = room volume (m\u00b3); k = removal rate constant (s\u207b\u00b9); QOA = outdoor air flow (m\u00b3/s)."
     },
     {
       "topic": "Air Quality & Control",
@@ -844,14 +844,68 @@
       "section": "Indoor Air Quality Modeling",
       "term": "Percent Outdoor Air (%OA)",
       "eq": "$\\%OA = \\dfrac{C_{RA} - C_{SA}}{C_{RA} - C_{OA}} \\times 100$",
-      "note": "Handbook p.326. CRA = return air conc.; CSA = supply air conc.; COA = outdoor air conc. All in same units (ppm CO2 or µg/m³)."
+      "note": "Handbook p.326. CRA = return air conc.; CSA = supply air conc.; COA = outdoor air conc. All in same units (ppm CO2 or \u00b5g/m\u00b3)."
     },
     {
       "topic": "Air Quality & Control",
       "section": "Indoor Air Quality Modeling",
       "term": "Outdoor Air Changes per Hour",
       "eq": "$N = \\dfrac{\\ln(C_i - C_o) - \\ln(C_a - C_o)}{h}$",
-      "note": "Handbook p.326. N = outdoor ACH (h⁻¹); Ci = initial indoor conc.; Ca = final indoor conc.; Co = outdoor conc.; h = elapsed time (h)."
+      "note": "Handbook p.326. N = outdoor ACH (h\u207b\u00b9); Ci = initial indoor conc.; Ca = final indoor conc.; Co = outdoor conc.; h = elapsed time (h)."
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Landfill \u2014 Clay Liner Leachate Breakthrough Time",
+      "term": "Clay Liner Breakthrough",
+      "eq": "$t = \\dfrac{d^2\\,\\eta}{K(d+h)}$  (d=liner thickness ft, \\eta=porosity, K=hydraulic conductivity ft/yr, h=hydraulic head ft) \u2014 Handbook p.333"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Landfill \u2014 Gas Flux Through Cover",
+      "term": "Landfill Gas Flux",
+      "eq": "$N_A = \\dfrac{D\\,\\eta_{\\text{gas}}\\,(C_{\\text{fill}}-C_{\\text{atm}})}{L}$  (D: CH\\textsubscript{4}=0.20 cm\u00b2/s, CO\\textsubscript{2}=0.13 cm\u00b2/s) \u2014 Handbook p.333"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Landfill \u2014 Soil Cover Water Balance",
+      "term": "Landfill Cover Water Balance",
+      "eq": "$\\Delta S_{LC} = P - R - ET - PER_{sw}$  (all in inches; PERsw=percolation into waste) \u2014 Handbook p.333"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Landfill \u2014 Effect of Overburden Pressure on Specific Weight",
+      "term": "Overburden Specific Weight",
+      "eq": "$SW_p = SW_i + \\dfrac{p}{a+b\\,p}$  (SW in lb/yd\u00b3, p in lb/in\u00b2, a in yd\u00b3/in\u00b2, b in yd\u00b3/lb; typical SW_i=1000, SW_p=1750\u20132150) \u2014 Handbook p.333"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Compaction \u2014 Volume Reduction",
+      "term": "Volume Reduction",
+      "eq": "$VR(\\%) = \\dfrac{V_i - V_f}{V_i} \\times 100$  (Vi=initial vol yd\u00b3, Vf=final vol yd\u00b3) \u2014 Handbook p.334"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Radiation \u2014 Effective Half-Life",
+      "term": "Effective Half-Life",
+      "eq": "$\\dfrac{1}{\\tau_e} = \\dfrac{1}{\\tau_r} + \\dfrac{1}{\\tau_b}$  (\\tau_r=radioactive, \\tau_b=biological half-life) \u2014 Handbook p.335"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Radiation \u2014 Radioactive Decay",
+      "term": "Radioactive Decay",
+      "eq": "$N = N_0\\,e^{-0.693\\,t/\\tau}$  (N=activity, \\tau=half-life, t=time in same units as \\tau) \u2014 Handbook p.335"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Radiation \u2014 Inverse Square Law",
+      "term": "Inverse Square Law",
+      "eq": "$\\dfrac{I_1}{I_2} = \\left(\\dfrac{R_2}{R_1}\\right)^2$  (I=intensity, R=distance from source) \u2014 Handbook p.335"
+    },
+    {
+      "topic": "Solid & Hazardous Waste",
+      "section": "Sampling & Monitoring \u2014 Coefficient of Variation",
+      "term": "Coefficient of Variation",
+      "eq": "$CV = \\dfrac{100\\,s}{\\bar{x}}$  (s=standard deviation, x\u0304=sample mean) \u2014 Handbook p.336"
     }
   ]
 }

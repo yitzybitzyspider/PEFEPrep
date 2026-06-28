@@ -1,0 +1,427 @@
+{
+  "day": 12,
+  "date": "2026-06-28",
+  "topic": "Solid & Hazardous Waste",
+  "fidelityNote": "All formulas confirmed against NCEES FE Reference Handbook v10.6 text extract (materials/NCEES_FE_Handbook_text.txt). Clay liner leachate breakthrough time t = d²η/[K(d+h)] on p.333 — confirmed (USCS: d in ft, K in ft/yr, h in ft). Overburden pressure formula SWp = SWi + p/(a+bp) on p.333 — confirmed; a in yd³/in², b in yd³/lb, p in lb/in², SWp in lb/yd³. Landfill gas flux NA = D·η_gas·(C_fill − C_atm)/L on p.333 — OCR garbles notation; confirmed as Fick's law modified form with gas-filled porosity η_gas; D values for methane (0.20 cm²/s) and CO₂ (0.13 cm²/s) tabulated same page. Landfill cover water balance ΔS_LC = P − R − ET − PERsw on p.333 — confirmed (all in inches). Volume reduction % = (Vi−Vf)/Vi × 100 on p.334 — confirmed. Effective half-life 1/τe = 1/τr + 1/τb on p.335 — confirmed. Radioactive decay N = N₀ exp(−0.693 t/τ) on p.335 — confirmed; also written as N = N₀ e^(−0.693t/τ). Inverse square law I₁/I₂ = (R₂/R₁)² on p.335 — confirmed (intensity inversely proportional to square of distance). Coefficient of variation CV = (100·s)/x̄ on p.336 — confirmed. DQO sampling table (one-sided one-sample t-test) on p.336 — confirmed; CV=15%, power=95%, confidence=95%, MDRD=20% → n=8. Chemical Compatibility Chart on p.26 — confirmed; reactivity codes: H=heat generation, F=fire, GT=toxic gas generation, GF=flammable gas, E=explosion, P=polymerization, S=solubilization, G=innocuous non-flammable gas. Group 1 (Acids, Minerals, Non-Oxidizing) + Group 10 (Caustics) → H. Group 3 (Acids, Organic) + Group 7 (Amines, Aliphatic & Aromatic) → H + GT. MSW moisture content table on p.332 — confirmed (food wastes 70%, paper 6%, glass 2%, wood 20% typical). MSW heating value table on p.359 — confirmed (food 2,000 Btu/lb, paper 7,200, plastics 14,000 typical). MSW as-received density table on p.332 — confirmed (aluminum cans whole 50 lb/yd³, baled 950 lb/yd³). NOT in Handbook (supplemental, tagged accordingly): RCRA four characteristics (ignitability/corrosivity/reactivity/toxicity) are regulatory knowledge from RCRA — tagged fundamental. RCRA 99.99% DRE standard for POHCs is regulatory (40 CFR 63.1206) — tagged fundamental. Diversion rate = recycled/total generated is a definitional ratio — tagged fundamental. Landfill airspace consumption = (tons/day × 2000 lb/ton) / density is fundamental mass balance — tagged fundamental. TCLP threshold (5.0 mg/L Pb) stated in Q18 stem — tagged in-stem.",
+  "questions": [
+    {
+      "id": "D12-Q01",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Landfill — clay liner leachate breakthrough time (USCS)",
+      "stem": "A municipal landfill is lined with a 2-ft clay layer (porosity η = 0.25, hydraulic conductivity K = 0.10 ft/yr). The hydraulic head above the liner is h = 3 ft. The time for leachate to penetrate through the clay liner is most nearly:\n\nBreak-Through Time (Handbook p.333):\nt = d²η / [K(d + h)]\nwhere d = liner thickness (ft), η = porosity, K = hydraulic conductivity (ft/yr), h = hydraulic head (ft).",
+      "equations": [
+        "$t = \\dfrac{d^2 \\eta}{K(d + h)}$"
+      ],
+      "options": [
+        "1.0 yr",
+        "2.0 yr",
+        "5.0 yr",
+        "12.5 yr"
+      ],
+      "answer": 1,
+      "solution": "$$t = \\frac{(2\\,\\text{ft})^2 \\times 0.25}{0.10\\,\\text{ft/yr}\\times(2+3)\\,\\text{ft}} = \\frac{4 \\times 0.25}{0.10 \\times 5} = \\frac{1.00}{0.50} = 2.0\\;\\text{yr}$$\n\nOption (A) 1.0 yr: uses d (not d²) in numerator → t = 2×0.25/(0.10×5) = 1.0 yr — square the liner thickness. Option (C) 5.0 yr: omits the head h from the denominator → t = 4×0.25/(0.10×2) = 5.0 yr — the hydraulic head drives flow through the liner and must be included. Option (D) 12.5 yr: uses (d+h)² in numerator instead of d² → 25×0.25/(0.10×5) = 12.5 yr. The formula penalizes thin liners quadratically and rewards greater head height — both increase leachate flux through the liner.",
+      "handbook": "Environmental Engineering — Landfill: Break-Through Time for Leachate to Penetrate a Clay Liner, t = d²η/[K(d+h)] (p.333)",
+      "references": "Handbook p.333 — Landfill: Leachate Breakthrough Time",
+      "source": "handbook",
+      "spec": "14.C — solid waste disposal (landfills, leachate and gas collection)"
+    },
+    {
+      "id": "D12-Q02",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "MSW composition — weighted average moisture content (SI)",
+      "stem": "A solid waste stream consists of three components: 50% food wastes, 30% paper, and 20% glass (all by wet mass). Using typical moisture content values from the Handbook (food wastes 70%, paper 6%, glass 2%), the weighted average moisture content of this mixed solid waste is most nearly:\n\nWeighted average = Σ (mass fraction × moisture content)",
+      "equations": [
+        "$\\overline{MC} = \\sum_i f_i \\cdot MC_i$"
+      ],
+      "options": [
+        "26.0%",
+        "35.0%",
+        "37.2%",
+        "70.0%"
+      ],
+      "answer": 2,
+      "solution": "$$\\overline{MC} = 0.50 \\times 70\\% + 0.30 \\times 6\\% + 0.20 \\times 2\\% = 35.0 + 1.8 + 0.4 = 37.2\\%$$\n\nOption (A) 26.0%: unweighted average (70+6+2)/3 = 26.0% — ignores the actual mass fractions. Option (B) 35.0%: counts only the food waste contribution (0.50×70) and omits paper and glass — partial calculation. Option (D) 70.0%: reports only the food waste typical moisture content without weighting — the dominant component's value, not the blend. The weighted average properly weights each component by its mass fraction; food wastes dominate because of their high fraction AND high moisture content.",
+      "handbook": "Environmental Engineering — Landfill: Typical Moisture Content of MSW Components table (p.332)",
+      "references": "Handbook p.332 — Landfill: MSW Moisture Content Table (food wastes 70%, paper 6%, glass 2% typical)",
+      "source": "handbook",
+      "spec": "14.A — mass/energy balances"
+    },
+    {
+      "id": "D12-Q03",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Landfill — methane gas flux through cover (SI)",
+      "stem": "Methane migrates upward through a landfill soil cover. The cover depth is L = 60 cm, and the gas-filled porosity is η_gas = 0.30. The methane diffusion coefficient is D = 0.20 cm²/s (from Handbook p.333). The methane concentration at the bottom of the cover (landfill side) is C_fill = 2.5 × 10⁻⁴ g/cm³, and the atmospheric concentration is C_atm ≈ 0. The steady-state methane gas flux is most nearly:\n\nGas Flux (Handbook p.333): N_A = D · η_gas · (C_fill − C_atm) / L",
+      "equations": [
+        "$N_A = \\dfrac{D \\cdot \\eta_{\\text{gas}} \\cdot (C_{\\text{fill}} - C_{\\text{atm}})}{L}$"
+      ],
+      "options": [
+        "8.3 × 10⁻⁷ g/(cm²·s)",
+        "2.5 × 10⁻⁷ g/(cm²·s)",
+        "2.5 × 10⁻⁵ g/(cm²·s)",
+        "9.0 × 10⁻⁴ g/(cm²·s)"
+      ],
+      "answer": 1,
+      "solution": "$$N_A = \\frac{0.20 \\times 0.30 \\times (2.5\\times10^{-4} - 0)}{60} = \\frac{0.060 \\times 2.5\\times10^{-4}}{60} = \\frac{1.5\\times10^{-5}}{60} = 2.5\\times10^{-7}\\;\\text{g/(cm}^2\\text{·s)}$$\n\nOption (A) 8.3×10⁻⁷: omits η_gas — uses NA = D·ΔC/L = 0.20×2.5×10⁻⁴/60 = 8.33×10⁻⁷; the gas-filled porosity reduces the effective diffusivity. Option (C) 2.5×10⁻⁵: uses L=0.60 cm (treats as meters); correct units require L in cm (60 cm, not 0.60 m). Option (D) 9.0×10⁻⁴: multiplies L into numerator instead of dividing → 0.20×0.30×2.5×10⁻⁴×60. Fick's first law modified by gas-filled porosity governs landfill gas transport through the unsaturated cover.",
+      "handbook": "Environmental Engineering — Landfill: Gas Flux N_A = D·η_gas·(CAatm − CAfill)/L; D(methane)=0.20 cm²/s, D(CO₂)=0.13 cm²/s (p.333)",
+      "references": "Handbook p.333 — Landfill: Gas Flux (Fick's Law with gas-filled porosity)",
+      "source": "handbook",
+      "spec": "14.C — solid waste disposal (landfills, leachate and gas collection)"
+    },
+    {
+      "id": "D12-Q04",
+      "set": "A",
+      "type": "Numeric",
+      "concept": "Landfill cover — water balance, solve for percolation (USCS)",
+      "stem": "A landfill cover water balance for a one-year period shows: precipitation P = 42 in, surface runoff R = 16 in, evapotranspiration ET = 18 in, and change in soil moisture storage ΔS_LC = +2 in. Determine the annual percolation through the landfill cover into the waste (PERsw, in inches per year).\n\nSoil Landfill Cover Water Balance (Handbook p.333):\nΔS_LC = P − R − ET − PERsw",
+      "equations": [
+        "$\\Delta S_{LC} = P - R - ET - PER_{sw}$",
+        "$PER_{sw} = P - R - ET - \\Delta S_{LC}$"
+      ],
+      "answer": "6 in/yr",
+      "solution": "Rearrange the water balance for the unknown:\n$$PER_{sw} = P - R - ET - \\Delta S_{LC} = 42 - 16 - 18 - 2 = 6\\;\\text{in/yr}$$\n\nEvery unit of precipitation must go somewhere: runoff off the surface, evapotranspiration back to the atmosphere, storage change in the soil, or percolation downward into the waste. With 6 in/yr percolating through the cover, landfill leachate generation will be proportional to this flux and the waste footprint area. Minimizing PERsw through good cover design (adequate ET, runoff management) is central to leachate control.",
+      "handbook": "Environmental Engineering — Landfill: Soil Landfill Cover Water Balance ΔS_LC = P − R − ET − PERsw (p.333)",
+      "references": "Handbook p.333 — Landfill: Soil Cover Water Balance",
+      "source": "handbook",
+      "spec": "14.C — solid waste disposal (landfills, leachate and gas collection)"
+    },
+    {
+      "id": "D12-Q05",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Solid waste — volume reduction by compaction (USCS)",
+      "stem": "A packer truck compresses uncompacted residential solid waste from an initial volume of Vi = 800 yd³ to a final volume of Vf = 200 yd³. The volume reduction achieved by compaction is most nearly:\n\nVolume Reduction (Handbook p.334):\nVR(%) = (Vi − Vf) / Vi × 100",
+      "equations": [
+        "$VR(\\%) = \\dfrac{V_i - V_f}{V_i} \\times 100$"
+      ],
+      "options": [
+        "25%",
+        "33.3%",
+        "75%",
+        "300%"
+      ],
+      "answer": 2,
+      "solution": "$$VR = \\frac{800 - 200}{800} \\times 100 = \\frac{600}{800} \\times 100 = 75\\%$$\n\nOption (A) 25%: computes Vf/Vi = 200/800 = 25% — this is the fraction remaining (compaction ratio⁻¹), not the reduction. Option (B) 33.3%: computes Vf/(Vi−Vf) = 200/600 = 33.3% — wrong denominator. Option (D) 300%: uses (Vi−Vf)/Vf × 100 = 600/200 = 300% — inverted; by definition, volume reduction is normalized to the original volume. A 75% VR means the packer truck reduces 4 yd³ of loose waste to 1 yd³ of compacted waste (4:1 compaction ratio).",
+      "handbook": "Environmental Engineering — Compaction: Volume Reduction(%) = (Vi−Vf)/Vi × 100 (p.334)",
+      "references": "Handbook p.334 — Compaction: Volume Reduction formula",
+      "source": "handbook",
+      "spec": "14.B — solid waste management (collection, transportation, storage)"
+    },
+    {
+      "id": "D12-Q06",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Landfill — effect of overburden pressure on waste specific weight (USCS)",
+      "stem": "The initial compacted specific weight of municipal solid waste in a landfill is SWi = 1,000 lb/yd³. At an overburden pressure of p = 10 lb/in², the empirical constants are a = 0.008 yd³/in² and b = 0.00053 yd³/lb. The specific weight of the waste under this overburden is most nearly:\n\nEffect of Overburden Pressure (Handbook p.333):\nSWp = SWi + p / (a + b·p)\nwhere SWp (lb/yd³), SWi (lb/yd³), p (lb/in²).",
+      "equations": [
+        "$SW_p = SW_i + \\dfrac{p}{a + b \\cdot p}$"
+      ],
+      "options": [
+        "752 lb/yd³",
+        "1,010 lb/yd³",
+        "1,750 lb/yd³",
+        "2,000 lb/yd³"
+      ],
+      "answer": 2,
+      "solution": "$$SW_p = 1000 + \\frac{10}{0.008 + 0.00053 \\times 10} = 1000 + \\frac{10}{0.008 + 0.0053} = 1000 + \\frac{10}{0.0133} = 1000 + 752 = 1{,}752\\;\\text{lb/yd}^3$$\n\nOption (A) 752 lb/yd³: forgets to add SWi — reports only the overburden increment p/(a+bp). Option (B) 1,010 lb/yd³: adds p directly to SWi (SWi + p = 1000+10) — ignores the empirical denominator. Option (D) 2,000 lb/yd³: rounds to the upper end of the typical range (1,750–2,150 lb/yd³) without calculation. The typical initial compacted SWi ≈ 1,000 lb/yd³ increases to 1,750–2,150 lb/yd³ under overburden — settlements in old landfills are driven by this densification.",
+      "handbook": "Environmental Engineering — Landfill: Effect of Overburden Pressure SWp = SWi + p/(a+bp) (p.333)",
+      "references": "Handbook p.333 — Landfill: Effect of Overburden Pressure on Specific Weight",
+      "source": "handbook",
+      "spec": "14.C — solid waste disposal (landfills, leachate and gas collection)"
+    },
+    {
+      "id": "D12-Q07",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Radioactive waste — effective half-life (SI)",
+      "stem": "Iodine-131 (¹³¹I) has a radioactive half-life τr = 8 days. In the human body, its biological half-life is τb = 120 days (rate of biological excretion). The effective half-life of ¹³¹I in the body is most nearly:\n\nEffective Half-Life (Handbook p.335):\n1/τe = 1/τr + 1/τb",
+      "equations": [
+        "$\\dfrac{1}{\\tau_e} = \\dfrac{1}{\\tau_r} + \\dfrac{1}{\\tau_b}$"
+      ],
+      "options": [
+        "7.5 days",
+        "8.0 days",
+        "64 days",
+        "128 days"
+      ],
+      "answer": 0,
+      "solution": "$$\\frac{1}{\\tau_e} = \\frac{1}{8} + \\frac{1}{120} = \\frac{15}{120} + \\frac{1}{120} = \\frac{16}{120} \\implies \\tau_e = \\frac{120}{16} = 7.5\\;\\text{days}$$\n\nEquivalently: τe = τr·τb/(τr+τb) = 8×120/(8+120) = 960/128 = 7.5 days.\n\nOption (B) 8.0 days: uses only the radioactive half-life, ignoring biological clearance. Option (C) 64 days: simple arithmetic average (τr+τb)/2 = 64 — averaging is incorrect; the two parallel decay channels add as reciprocals. Option (D) 128 days: simple sum τr+τb — if they added, the effective half-life would be LONGER than either; instead, two simultaneous clearance pathways make the effective half-life SHORTER. τe is always shorter than the smaller of τr and τb.",
+      "handbook": "Environmental Engineering — Radiation: Effective Half-Life 1/τe = 1/τr + 1/τb (p.335)",
+      "references": "Handbook p.335 — Radiation: Effective Half-Life",
+      "source": "handbook",
+      "spec": "14.F — hazardous and radioactive waste treatment and disposal"
+    },
+    {
+      "id": "D12-Q08",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Radioactive waste — radioactive decay after multiple half-lives (SI)",
+      "stem": "A hospital receives 1,000 µCi of Iodine-131 (radioactive half-life τ = 8 days). After 24 days of decay in a shielded storage cabinet, the remaining activity is most nearly:\n\nHalf-Life Decay (Handbook p.335):\nN = N₀ · e^(−0.693 t/τ)",
+      "equations": [
+        "$N = N_0 \\cdot e^{-0.693\\, t/\\tau}$"
+      ],
+      "options": [
+        "62.5 µCi",
+        "125 µCi",
+        "250 µCi",
+        "500 µCi"
+      ],
+      "answer": 1,
+      "solution": "24 days = 3 half-lives (24/8 = 3):\n$$N = 1000 \\times e^{-0.693 \\times 3} = 1000 \\times e^{-2.079} = 1000 \\times \\frac{1}{8} = 125\\;\\mu\\text{Ci}$$\n\nAfter each half-life: 1,000 → 500 → 250 → 125 µCi.\n\nOption (A) 62.5 µCi: uses 4 half-lives (t=32 d, not 24 d) — N = 1000/16 = 62.5 µCi. Option (C) 250 µCi: uses 2 half-lives (t=16 d) — N = 1000/4 = 250 µCi. Option (D) 500 µCi: uses 1 half-life (t=8 d) — N = 1000/2 = 500 µCi. The e^(−0.693t/τ) form and the successive-halving form are equivalent: after n half-lives N = N₀/2ⁿ. Radioactive waste held for 10 half-lives drops to N₀/1024 < 0.1% of original — this guides storage-then-disposal protocols for short-lived medical isotopes.",
+      "handbook": "Environmental Engineering — Radiation: Half-Life Decay N = N₀ e^(−0.693 t/τ) (p.335)",
+      "references": "Handbook p.335 — Radiation: Half-Life Decay Equation",
+      "source": "handbook",
+      "spec": "14.F — hazardous and radioactive waste treatment and disposal"
+    },
+    {
+      "id": "D12-Q09",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Radiation — inverse square law for intensity (USCS)",
+      "stem": "A radiation survey meter reads 20 mrem/hr at a distance of R₁ = 1 ft from a point source. The radiation intensity at a distance of R₂ = 4 ft from the same source is most nearly:\n\nInverse Square Law (Handbook p.335):\nI₁/I₂ = (R₂/R₁)²\nor equivalently: I₂ = I₁ × (R₁/R₂)²",
+      "equations": [
+        "$\\dfrac{I_1}{I_2} = \\left(\\dfrac{R_2}{R_1}\\right)^2$"
+      ],
+      "options": [
+        "1.25 mrem/hr",
+        "5.0 mrem/hr",
+        "20 mrem/hr",
+        "80 mrem/hr"
+      ],
+      "answer": 0,
+      "solution": "$$I_2 = I_1 \\times \\left(\\frac{R_1}{R_2}\\right)^2 = 20 \\times \\left(\\frac{1}{4}\\right)^2 = 20 \\times \\frac{1}{16} = 1.25\\;\\text{mrem/hr}$$\n\nMoving 4× farther reduces intensity by 4² = 16×.\n\nOption (B) 5.0 mrem/hr: uses a linear (not squared) relationship — I₂ = I₁×(R₁/R₂) = 20×(1/4) = 5. Option (C) 20 mrem/hr: assumes intensity is constant with distance (no inverse-square attenuation). Option (D) 80 mrem/hr: applies direct proportion in the wrong direction — I₂ = I₁×(R₂/R₁) = 20×4 = 80. The inverse square law applies to point sources radiating isotropically: doubling the distance quarters the dose rate. This is the basis for the distance rule in radiation protection ('time, distance, shielding').",
+      "handbook": "Environmental Engineering — Radiation: Inverse Square Law I₁/I₂ = (R₂/R₁)², also written Flux at distance 2 = Flux at distance 1 × (r₁/r₂)² (p.335)",
+      "references": "Handbook p.335 — Radiation: Inverse Square Law",
+      "source": "handbook",
+      "spec": "14.F — hazardous and radioactive waste treatment and disposal"
+    },
+    {
+      "id": "D12-Q10",
+      "set": "A",
+      "type": "MCQ",
+      "concept": "Hazardous waste — chemical compatibility (acid + caustic)",
+      "stem": "A hazardous waste contractor accidentally mixes a drum of non-oxidizing mineral acid (Group 1 — e.g., hydrochloric acid) with a drum of a caustic (Group 10 — e.g., sodium hydroxide). According to the NCEES Chemical Compatibility Chart (Handbook p.26), what is the primary hazard from this mixture?\n\nReactivity codes: H = Heat generation · F = Fire · G = Innocuous & non-flammable gas · GT = Toxic gas · GF = Flammable gas · E = Explosion · P = Polymerization",
+      "equations": [],
+      "options": [
+        "E — Explosion",
+        "F — Fire",
+        "H — Heat generation",
+        "GT — Toxic gas generation"
+      ],
+      "answer": 2,
+      "solution": "From the Chemical Compatibility Chart (p.26): Group 1 (Acids, Minerals, Non-Oxidizing) × Group 10 (Caustics) → **H (Heat generation)**.\n\nAcid–base neutralization: HCl + NaOH → NaCl + H₂O + heat. This is highly exothermic — mixing a strong acid with a concentrated caustic can cause boiling, spattering, or container failure from steam pressure. Option (A) Explosion: not the primary hazard for simple acid–caustic mixing (explosion codes E appear for reactive/peroxide-forming combinations). Option (B) Fire: no flammable products — water and salt are produced. Option (D) GT: toxic gas arises when acids react with sulfides, cyanides, or other reactive anions — not from plain caustic NaOH. The compatibility chart is a required reference for hazardous waste treatment facility operators.",
+      "handbook": "Safety — Chemical Compatibility Chart (p.26): Group 1 (Acids, Minerals, Non-Oxidizing) + Group 10 (Caustics) → H (Heat generation)",
+      "references": "Handbook p.26 — Chemical Compatibility Chart (Reactivity codes and group interactions)",
+      "source": "handbook",
+      "spec": "14.D — hazardous waste compatibility"
+    },
+    {
+      "id": "D12-Q11",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Site characterization — coefficient of variation (CV)",
+      "stem": "Soil samples collected from a contaminated site for a Phase II investigation yield an average arsenic concentration of x̄ = 12.0 mg/kg with a standard deviation of s = 2.4 mg/kg. The coefficient of variation (CV) for this data set is most nearly:\n\nCoefficient of Variation (Handbook p.336):\nCV = (100 × s) / x̄",
+      "equations": [
+        "$CV = \\dfrac{100 \\times s}{\\bar{x}}$"
+      ],
+      "options": [
+        "0.2%",
+        "20.0%",
+        "80.0%",
+        "500%"
+      ],
+      "answer": 1,
+      "solution": "$$CV = \\frac{100 \\times 2.4}{12.0} = \\frac{240}{12.0} = 20.0\\%$$\n\nOption (A) 0.2%: divides without multiplying by 100 → CV = s/x̄ = 2.4/12.0 = 0.20 (dimensionless fraction, not percent). Option (C) 80.0%: computes (x̄ − s)/x̄ × 100 = 9.6/12 × 100 = 80% — a confidence-interval-like value, not CV. Option (D) 500%: inverts the ratio → x̄/s × 100 = 12/2.4 × 100 = 500%. CV is a normalized measure of dispersion used in DQO analysis to select sample sizes (see the Handbook sampling table, p.336). A CV of 20% is in the moderate range; CV > 50% would signal high variability requiring more samples.",
+      "handbook": "Environmental Engineering — Sampling and Monitoring: CV = (100 × s) / x̄ (p.336)",
+      "references": "Handbook p.336 — Sampling and Monitoring: Coefficient of Variation",
+      "source": "handbook",
+      "spec": "14.E — site characterization"
+    },
+    {
+      "id": "D12-Q12",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Site characterization — DQO sampling: number of samples required",
+      "stem": "A planned remedial response site investigation has a coefficient of variation (CV) of 15%. The project requires a confidence level of 95% and a statistical power of 95%. The minimum detectable relative difference (MDRD) is set at 20%. Using the NCEES one-sided one-sample t-test table (Handbook p.336), the minimum number of samples required is most nearly:",
+      "equations": [],
+      "options": [
+        "5",
+        "6",
+        "8",
+        "12"
+      ],
+      "answer": 2,
+      "solution": "Locate in the Handbook DQO table (p.336): row CV=15%, power=95%, confidence level=95%, column MDRD=20% → **n = 8**.\n\nFor reference, adjacent entries in the table:\n- MDRD=30% → n=5 (acceptable if a larger relative difference is tolerable)\n- MDRD=10% → n=26 (required if a smaller difference must be detected)\n- Confidence=99% (same CV, power, MDRD=20%) → n=12 — Option (D)\n- Confidence=90% (same CV, power, MDRD=20%) → n=6 — Option (B)\n\nThe DQO process sets the minimum sample size to achieve the desired statistical performance. Planned remedial response operations typically require 90–95% confidence and 90–95% power per EPA guidance; n=8 is the correct answer for the given parameters.",
+      "handbook": "Environmental Engineering — Sampling and Monitoring: DQO one-sided one-sample t-test table (p.336)",
+      "references": "Handbook p.336 — Sampling and Monitoring: Number of Samples Required table",
+      "source": "handbook",
+      "spec": "14.E — site characterization"
+    },
+    {
+      "id": "D12-Q13",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "MSW energy — composite heating value of mixed waste stream (USCS)",
+      "stem": "A waste-to-energy facility receives a municipal solid waste stream with the following composition (by mass): 40% food wastes, 35% paper, and 25% plastics. Using Handbook typical heating values (food wastes 2,000 Btu/lb; paper 7,200 Btu/lb; plastics 14,000 Btu/lb), the composite as-fired heating value of this mixed stream is most nearly:",
+      "equations": [
+        "$HV_{\\text{composite}} = \\sum_i f_i \\cdot HV_i$"
+      ],
+      "options": [
+        "5,020 Btu/lb",
+        "6,820 Btu/lb",
+        "7,733 Btu/lb",
+        "8,620 Btu/lb"
+      ],
+      "answer": 1,
+      "solution": "$$HV = 0.40 \\times 2{,}000 + 0.35 \\times 7{,}200 + 0.25 \\times 14{,}000$$\n$$= 800 + 2{,}520 + 3{,}500 = 6{,}820\\;\\text{Btu/lb}$$\n\nOption (A) 5,020 Btu/lb: uses food waste HV for all components → 2000 Btu/lb scaled, or an arithmetic slip. Option (C) 7,733 Btu/lb: unweighted average (2000+7200+14000)/3 = 7733 — ignores the fact that food waste is the dominant fraction. Option (D) 8,620 Btu/lb: swaps fractions for food and plastics → 0.25×2000 + 0.35×7200 + 0.40×14000 = 500+2520+5600 = 8620. The high plastic fraction (25% at 14,000 Btu/lb) boosts the composite well above the all-MSW typical of 4,000–6,500 Btu/lb; the high food fraction (40% at only 2,000 Btu/lb) pulls it back down.",
+      "handbook": "Environmental Engineering — Municipal Solid Wastes (MSW): Typical Heating Value table; food 2,000 / paper 7,200 / plastics 14,000 / MSW composite 4,000–6,500 Btu/lb typical (p.359)",
+      "references": "Handbook p.359 — MSW: Typical Heating Value of MSW Components table",
+      "source": "handbook",
+      "spec": "14.A — mass/energy balances"
+    },
+    {
+      "id": "D12-Q14",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "RCRA — four hazardous waste characteristics (regulatory)",
+      "stem": "Under the Resource Conservation and Recovery Act (RCRA), a solid waste is considered a listed or characteristic hazardous waste if it exhibits one or more of four regulatory characteristics. Which of the following correctly identifies all four RCRA hazardous waste characteristics?",
+      "equations": [],
+      "options": [
+        "Ignitability, corrosivity, reactivity, and toxicity",
+        "Flammability, corrosivity, reactivity, and toxicity",
+        "Ignitability, corrosivity, reactivity, and radioactivity",
+        "Ignitability, corrosivity, persistence, and toxicity"
+      ],
+      "answer": 0,
+      "solution": "The four RCRA hazardous waste characteristics (40 CFR Part 261, Subpart C) are: **ignitability** (D001 — flash point < 60°C/140°F for liquids, or capable of causing fire), **corrosivity** (D002 — aqueous pH ≤ 2 or ≥ 12.5, or corrodes steel at > 6.35 mm/yr), **reactivity** (D003 — unstable, reacts violently with water, generates toxic gases, or is explosive), and **toxicity** (D004–D043 — determined by the Toxicity Characteristic Leaching Procedure, TCLP).\n\nOption (B) Flammability: RCRA uses 'ignitability,' not 'flammability' — the regulatory term matters for permits and manifests. Option (C) Radioactivity: radioactive wastes are regulated separately under the Atomic Energy Act (AEA/NRC) and DOE orders — not as a RCRA characteristic. Option (D) Persistence: environmental persistence is relevant to listing criteria and PBT chemicals but is not one of the four characteristic tests. The TCLP test for toxicity leaches a representative sample under simulated landfill conditions and compares extract concentrations to regulatory thresholds.",
+      "handbook": "Not in Handbook v10.6 — RCRA hazardous waste characteristics are regulatory knowledge (40 CFR 261)",
+      "references": "RCRA 40 CFR Part 261 Subpart C — four hazardous waste characteristics (ignitability, corrosivity, reactivity, toxicity)",
+      "source": "fundamental",
+      "spec": "14.B — solid waste management"
+    },
+    {
+      "id": "D12-Q15",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Solid waste — diversion rate (SI)",
+      "stem": "A municipality generates 5.0 tonnes/day of municipal solid waste (MSW). Of this, 1.5 tonnes/day is diverted from landfill through recycling and composting programs. The solid waste diversion rate for this municipality is most nearly:",
+      "equations": [
+        "$\\text{Diversion Rate} = \\dfrac{\\text{mass diverted from landfill}}{\\text{total mass generated}} \\times 100\\%$"
+      ],
+      "options": [
+        "23.1%",
+        "30.0%",
+        "42.9%",
+        "70.0%"
+      ],
+      "answer": 1,
+      "solution": "$$\\text{Diversion Rate} = \\frac{1.5}{5.0} \\times 100\\% = 30.0\\%$$\n\nOption (A) 23.1%: uses total as denominator including diverted + landfilled + generated together → 1.5/(5.0+1.5) = 1.5/6.5 = 23.1% — double-counts material. Option (C) 42.9%: uses landfilled mass as denominator → 1.5/(5.0−1.5) = 1.5/3.5 = 42.9% — rates diverted relative to landfilled, not total. Option (D) 70.0%: computes the landfill disposal rate (1 − 0.30 = 0.70 = 70%) — this is the complement of the diversion rate. The EPA has set a national goal to divert 50% of MSW from landfills through source reduction and recycling. The U.S. recycling/composting rate was approximately 32% as of recent EPA data.",
+      "handbook": "Fundamental definition: Diversion Rate = diverted mass / total generated mass × 100% (not a named Handbook formula)",
+      "references": "Fundamental: solid waste diversion rate definition",
+      "source": "fundamental",
+      "spec": "14.B — solid waste management"
+    },
+    {
+      "id": "D12-Q16",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "RCRA — minimum DRE standard for hazardous waste incineration",
+      "stem": "Under RCRA (40 CFR 63.1206), a permitted hazardous waste incinerator must meet a minimum Destruction and Removal Efficiency (DRE) for each principal organic hazardous constituent (POHC) in the waste feed. The RCRA minimum DRE standard for POHCs is:\n\nDRE = (Win − Wout) / Win × 100%   [Handbook p.325]",
+      "equations": [
+        "$\\text{DRE} = \\dfrac{W_{\\text{in}} - W_{\\text{out}}}{W_{\\text{in}}} \\times 100\\%$"
+      ],
+      "options": [
+        "99.0%",
+        "99.9%",
+        "99.99%",
+        "99.9999%"
+      ],
+      "answer": 2,
+      "solution": "The RCRA standard requires DRE ≥ **99.99%** (four nines) for each POHC during a trial burn. This means the incinerator must destroy at least 9,999 out of every 10,000 kg of POHC fed to it — Wout ≤ 0.01% of Win.\n\nFor especially toxic constituents — dioxins and furans — EPA imposes a more stringent standard of 99.9999% (six nines).\n\nOption (A) 99.0%: this is the general combustion efficiency (CE) range for well-designed combustors but not the RCRA DRE threshold. Option (B) 99.9%: three nines — not the RCRA standard; this shortfall allows 10× more POHC to escape than the regulation permits. Option (D) 99.9999%: the dioxin/furan DRE standard — more stringent than the general POHC requirement. The trial burn protocol includes stack sampling for the designated POHCs; failure to meet DRE during trial burn means the facility cannot receive an operating permit.",
+      "handbook": "Environmental Engineering — Incineration: DRE formula = (Win−Wout)/Win × 100% (p.325); RCRA 99.99% standard is regulatory knowledge (40 CFR 63.1206)",
+      "references": "Handbook p.325 — DRE formula; RCRA 40 CFR 63 — 99.99% DRE standard for POHCs",
+      "source": "fundamental",
+      "spec": "14.F — hazardous and radioactive waste treatment and disposal"
+    },
+    {
+      "id": "D12-Q17",
+      "set": "B",
+      "type": "Numeric",
+      "concept": "Landfill — clay liner leachate breakthrough time, second scenario (USCS)",
+      "stem": "A proposed industrial solid waste landfill uses a 3-ft compacted clay liner with hydraulic conductivity K = 0.075 ft/yr and porosity η = 0.25. The design hydraulic head above the liner is h = 2 ft. Calculate the leachate breakthrough time for the clay liner (in years).\n\nBreak-Through Time (Handbook p.333):\nt = d²η / [K(d + h)]",
+      "equations": [
+        "$t = \\dfrac{d^2 \\eta}{K(d + h)}$"
+      ],
+      "answer": "6.0 yr",
+      "solution": "$$t = \\frac{(3\\,\\text{ft})^2 \\times 0.25}{0.075\\,\\text{ft/yr} \\times (3+2)\\,\\text{ft}} = \\frac{9 \\times 0.25}{0.075 \\times 5} = \\frac{2.25}{0.375} = 6.0\\;\\text{yr}$$\n\nCompare with Q01 (d=2 ft, K=0.10 ft/yr → t=2.0 yr): the 3-ft liner in this problem is 50% thicker, which increases t by a factor of (3/2)²=2.25 in the numerator, but the lower K=0.075 ft/yr (vs 0.10) further reduces the denominator. The combined effect: (9×0.25)/(0.075×5) = 2.25/0.375 = 6.0 yr — 3× longer than the 2-ft liner. Modern Subtitle D landfills require K ≤ 1×10⁻⁷ cm/s (≈ 0.000105 ft/yr) for clay liners, giving breakthrough times of thousands of years for even modest liner thicknesses.",
+      "handbook": "Environmental Engineering — Landfill: Break-Through Time t = d²η/[K(d+h)] (p.333)",
+      "references": "Handbook p.333 — Landfill: Leachate Breakthrough Time",
+      "source": "handbook",
+      "spec": "14.C — solid waste disposal (landfills, leachate and gas collection)"
+    },
+    {
+      "id": "D12-Q18",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Hazardous waste — TCLP toxicity characteristic determination (in-stem)",
+      "stem": "A solid waste generator performs TCLP (Toxicity Characteristic Leaching Procedure) extraction on a sample of industrial sludge. The regulatory threshold for lead under TCLP is 5.0 mg/L (as given by 40 CFR 261.24 and stated here for reference). The TCLP extract analysis reports a lead concentration of 8.0 mg/L. Which conclusion is correct regarding this waste?",
+      "equations": [],
+      "options": [
+        "The waste is NOT hazardous because the lead concentration exceeds the TCLP threshold.",
+        "The waste IS hazardous because the lead concentration exceeds the TCLP threshold.",
+        "The waste IS hazardous only if it also exhibits ignitability, corrosivity, or reactivity.",
+        "The waste IS NOT hazardous because 8.0 mg/L is below the TCLP threshold."
+      ],
+      "answer": 1,
+      "solution": "The measured TCLP extract concentration (8.0 mg/L) **exceeds** the regulatory threshold (5.0 mg/L). Therefore, the waste exhibits the toxicity characteristic (D008 for lead) and **is a RCRA characteristic hazardous waste**.\n\nOption (A): Incorrect statement — 'not hazardous because it exceeds' is contradictory; exceeding the threshold makes it hazardous, not safe. Option (C): A waste is a RCRA characteristic hazardous waste if it fails ANY of the four characteristic tests independently — it does not need to exhibit multiple characteristics simultaneously. Option (D): Incorrect — 8.0 mg/L > 5.0 mg/L (threshold is not exceeded in the safe direction). Once classified as hazardous, this sludge must be managed under RCRA Subtitle C requirements: proper containers, manifesting, permitted storage, and disposal at a licensed TSDF (Treatment, Storage, and Disposal Facility).",
+      "handbook": "Not in Handbook v10.6 — TCLP threshold for Pb (5.0 mg/L) is given in the problem stem per 40 CFR 261.24",
+      "references": "RCRA 40 CFR 261.24 — Toxicity Characteristic (TCLP); threshold stated in problem stem",
+      "source": "in-stem",
+      "spec": "14.E — site characterization"
+    },
+    {
+      "id": "D12-Q19",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Hazardous waste — chemical compatibility (organic acid + amines)",
+      "stem": "A hazardous waste storage area contains drums of organic acids (Group 3 — e.g., acetic acid) and drums of aliphatic amines (Group 7 — e.g., triethylamine). According to the NCEES Chemical Compatibility Chart (Handbook p.26), what hazards result if these two groups are accidentally mixed?\n\nReactivity codes: H = Heat generation · GT = Toxic gas generation · GF = Flammable gas · F = Fire · E = Explosion · G = Innocuous & non-flammable gas",
+      "equations": [],
+      "options": [
+        "G — Innocuous and non-flammable gas generation only",
+        "E — Explosion",
+        "H + F — Heat generation and fire",
+        "H + GT — Heat generation and toxic gas generation"
+      ],
+      "answer": 3,
+      "solution": "From the Chemical Compatibility Chart (p.26): Group 3 (Acids, Organic) × Group 7 (Amines, Aliphatic & Aromatic) → **H (Heat generation) + GT (Toxic gas generation)**.\n\nOrganic acid + amine undergoes acid–base neutralization: R-COOH + R₃N → R-COO⁻ R₃NH⁺ (exothermic → H). If the amine is volatile, vapors can be released and, depending on the specific amine, may be toxic (GT — e.g., triethylamine TLV = 1 ppm TWA, ammonia from simple amines). Option (A) G: innocuous gas — acids and amines do NOT produce CO₂ or N₂ harmlessly; the products include heat and potentially toxic amine vapors. Option (B) E: explosion code not applicable to simple acid–base neutralization. Option (C) H + F: fire code (F) is not assigned; amines are flammable but the reaction itself is not primarily a fire hazard — the flash point of the amine vapor, not the reaction, drives fire risk. Chemical compatibility assessment is required by OSHA 1910.120 for hazardous waste operations.",
+      "handbook": "Safety — Chemical Compatibility Chart (p.26): Group 3 (Acids, Organic) + Group 7 (Amines, Aliphatic & Aromatic) → H + GT",
+      "references": "Handbook p.26 — Chemical Compatibility Chart",
+      "source": "handbook",
+      "spec": "14.D — hazardous waste compatibility"
+    },
+    {
+      "id": "D12-Q20",
+      "set": "B",
+      "type": "MCQ",
+      "concept": "Landfill — daily airspace consumption from mass balance (USCS)",
+      "stem": "A municipal solid waste landfill receives 500 tons/day of compacted waste. The as-placed density of the compacted waste in the landfill (including daily cover) is 1,500 lb/yd³. The volume of landfill airspace consumed per day is most nearly:\n\nFundamental mass balance: V = mass / density",
+      "equations": [
+        "$V = \\dfrac{\\dot{m}}{\\rho} = \\dfrac{(\\text{tons/day}\\times 2{,}000\\;\\text{lb/ton})}{\\rho\\;(\\text{lb/yd}^3)}$"
+      ],
+      "options": [
+        "0.33 yd³/day",
+        "375 yd³/day",
+        "667 yd³/day",
+        "1,000 yd³/day"
+      ],
+      "answer": 2,
+      "solution": "$$V = \\frac{500\\;\\text{tons/day} \\times 2{,}000\\;\\text{lb/ton}}{1{,}500\\;\\text{lb/yd}^3} = \\frac{1{,}000{,}000\\;\\text{lb/day}}{1{,}500\\;\\text{lb/yd}^3} = 667\\;\\text{yd}^3\\text{/day}$$\n\nOption (A) 0.33 yd³/day: forgets the 2000 lb/ton conversion → 500/1500 = 0.33 — orders of magnitude off. Option (B) 375 yd³/day: inverts density in conversion → 500×1500/2000 = 375 — uses density as numerator instead of denominator. Option (D) 1,000 yd³/day: uses a placed density of 1,000 lb/yd³ instead of 1,500 — a common order-of-magnitude but off by 50%. At 667 yd³/day, this landfill would exhaust 1 million yd³ of airspace in about 4.1 years. Landfill airspace calculations drive the permitted life of a facility and are central to solid waste planning and permitting.",
+      "handbook": "Fundamental mass balance: V = ṁ/ρ — conservation of mass (not a named Handbook formula; Handbook provides densities and compaction formulas on p.332–334)",
+      "references": "Fundamental: landfill airspace = (mass rate × unit conversion) / placed density",
+      "source": "fundamental",
+      "spec": "14.B — solid waste management"
+    }
+  ]
+}
