@@ -137,7 +137,7 @@
       "handbook": "Reynolds Number — flow regimes (p. 186)", "references": "Ctrl-F: Reynolds Number" },
 
     { "id": "D2B-Q20", "set": "B", "type": "Numeric", "concept": "Hydraulic diameter",
-      "stem": "A rectangular duct 0.40 m × 0.20 m flows completely full. Determine the hydraulic diameter D_H = 4A/P, in m.",
+      "stem": "A rectangular duct 0.40 m × 0.20 m flows completely full. Determine the hydraulic diameter, in m.",
       "equations": ["$D_H = \\dfrac{4A}{P}$"],
       "answer": "0.267 m",
       "solution": "$D_H = \\dfrac{4(0.40\\times0.20)}{2(0.40+0.20)} = \\dfrac{0.32}{1.2} = 0.267\\ \\mathrm{m}$.",

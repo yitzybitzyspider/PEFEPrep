@@ -9,7 +9,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Air quality — ppb to µg/m³ conversion (SI)",
-      "stem": "The 1-hour NAAQS for SO₂ is often compared on a mass-concentration basis. A monitoring station measures SO₂ at 75 ppb. At 25°C and 1 atm, the equivalent mass concentration of SO₂ is most nearly:\n\nAir Pollution Nomenclature (Handbook p.317):\nC(µg/m³) = C(ppb) × P × MW / (R × T)\nwhere P = pressure (atm), R = 0.0821 L·atm/(mol·K), T = temperature (K), MW = molecular weight (g/mol).\nMW(SO₂) = 64 g/mol.",
+      "stem": "The 1-hour NAAQS for SO₂ is often compared on a mass-concentration basis. A monitoring station measures SO₂ at 75 ppb (molecular weight MW = 64 g/mol). At 25°C and 1 atm, the equivalent mass concentration of SO₂ is most nearly:",
       "equations": [
         "$C\\,\\bigl(\\mu\\text{g/m}^3\\bigr) = C(\\text{ppb}) \\times \\dfrac{P \\cdot MW}{R \\cdot T}$"
       ],
@@ -31,7 +31,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Air quality — µg/m³ to ppb back-conversion (SI)",
-      "stem": "An ambient air monitor measures NO₂ at a concentration of 100 µg/m³ at 25°C and 1 atm. The equivalent volumetric concentration of NO₂ in ppb is most nearly:\n\nRearranging the Handbook conversion:\nC(ppb) = C(µg/m³) × R × T / (P × MW)\nwhere MW(NO₂) = 46 g/mol.",
+      "stem": "An ambient air monitor measures NO₂ (molecular weight MW = 46 g/mol) at a concentration of 100 µg/m³ at 25°C and 1 atm. The equivalent volumetric concentration of NO₂ in ppb is most nearly:",
       "equations": [
         "$C(\\text{ppb}) = C\\,\\bigl(\\mu\\text{g/m}^3\\bigr) \\times \\dfrac{R \\cdot T}{P \\cdot MW}$"
       ],
@@ -53,7 +53,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Air quality — stack mass emission rate (SI)",
-      "stem": "A power plant stack discharges flue gas at a measured volumetric flow rate of Q = 25 m³/s. Continuous emission monitoring shows a SO₂ concentration of 200 mg/m³ in the flue gas. The mass emission rate of SO₂ from this stack is most nearly:\n\nMass emission rate = C × Q",
+      "stem": "A power plant stack discharges flue gas at a measured volumetric flow rate of Q = 25 m³/s. Continuous emission monitoring shows a SO₂ concentration of 200 mg/m³ in the flue gas. The mass emission rate of SO₂ from this stack is most nearly:",
       "equations": [
         "$\\dot{m} = C \\times Q$"
       ],
@@ -75,7 +75,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Incineration — destruction and removal efficiency (DRE)",
-      "stem": "A hazardous waste incinerator burns a principal organic hazardous constituent (POHC) at a feed rate of Win = 50 kg/h. Stack testing measures an emission rate of Wout = 0.025 kg/h for the same POHC. The destruction and removal efficiency (DRE) is most nearly:\n\nDRE = (Win − Wout) / Win × 100%",
+      "stem": "A hazardous waste incinerator burns a principal organic hazardous constituent (POHC) at a feed rate of Win = 50 kg/h. Stack testing measures an emission rate of Wout = 0.025 kg/h for the same POHC. The destruction and removal efficiency (DRE) is most nearly:",
       "equations": [
         "$\\text{DRE} = \\dfrac{W_{\\text{in}} - W_{\\text{out}}}{W_{\\text{in}}} \\times 100\\%$"
       ],
@@ -97,7 +97,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Incineration — combustion efficiency (CE)",
-      "stem": "Continuous emission monitoring at an industrial furnace measures dry flue gas concentrations of CO₂ = 11,500 ppmv and CO = 500 ppmv. The combustion efficiency (CE) is most nearly:\n\nCE = CO₂ / (CO₂ + CO) × 100%",
+      "stem": "Continuous emission monitoring at an industrial furnace measures dry flue gas concentrations of CO₂ = 11,500 ppmv and CO = 500 ppmv. The combustion efficiency (CE) is most nearly:",
       "equations": [
         "$CE = \\dfrac{CO_2}{CO_2 + CO} \\times 100\\%$"
       ],
@@ -119,7 +119,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Gaussian dispersion — ground-level centerline concentration",
-      "stem": "A factory emits SO₂ at Q = 50 g/s from an effective stack height H = 50 m. The mean wind speed at stack height is u = 3 m/s. At a downwind distance where the horizontal and vertical dispersion parameters are σy = 50 m and σz = 25 m, the ground-level (z = 0) concentration directly beneath the plume centerline (y = 0) is most nearly:\n\nGaussian ground-level centerline concentration (Handbook p.318):\nC = Q / (π σy σz u) × exp(−H² / 2σz²)",
+      "stem": "A factory emits SO₂ at Q = 50 g/s from an effective stack height H = 50 m. The mean wind speed at stack height is u = 3 m/s. At a downwind distance where the horizontal and vertical dispersion parameters are σy = 50 m and σz = 25 m, the ground-level (z = 0) concentration directly beneath the plume centerline (y = 0) is most nearly:",
       "equations": [
         "$C = \\dfrac{Q}{\\pi\\,\\sigma_y\\,\\sigma_z\\,u}\\exp\\!\\left(\\dfrac{-H^2}{2\\sigma_z^2}\\right)$"
       ],
@@ -184,7 +184,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Gaussian dispersion — maximum ground-level concentration",
-      "stem": "For a Gaussian elevated-source plume, the theoretical maximum ground-level concentration occurs at the downwind distance where σz = H/√2. A source emits Q = 30 g/s from an effective stack height H = 60 m. The wind speed is u = 5 m/s. At the point of maximum concentration, σy = 50 m and (as stated) σz = H/√2 = 42.4 m. The maximum ground-level centerline concentration is most nearly:\n\nC = Q / (π σy σz u) × exp(−H² / 2σz²)",
+      "stem": "For a Gaussian elevated-source plume, the theoretical maximum ground-level concentration occurs at the downwind distance where σz = H/√2. A source emits Q = 30 g/s from an effective stack height H = 60 m. The wind speed is u = 5 m/s. At the point of maximum concentration, σy = 50 m and (as stated) σz = H/√2 = 42.4 m. The maximum ground-level centerline concentration is most nearly:",
       "equations": [
         "$C_{\\max} = \\dfrac{Q}{\\pi\\,\\sigma_y\\,\\sigma_z\\,u}\\exp\\!\\left(\\dfrac{-H^2}{2\\sigma_z^2}\\right)$",
         "$\\sigma_z = H/\\sqrt{2} \\implies H^2/(2\\sigma_z^2) = 1 \\implies e^{-1} = 0.3679$"
@@ -207,7 +207,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Incineration — rotary kiln mean residence time (USCS)",
-      "stem": "A rotary kiln hazardous waste incinerator has an internal length-to-diameter ratio L/D = 3. The kiln is inclined at a rake slope S = 0.05 in/ft and rotates at N = 2.0 rev/min. The mean residence time of waste in the kiln is most nearly:\n\nKiln Formula (Handbook p.325):\nt = 2.28 (L/D) / (S × N)\nwhere t = mean residence time (min), S = kiln rake slope (in./ft), N = rotational speed (rev/min).",
+      "stem": "A rotary kiln hazardous waste incinerator has an internal length-to-diameter ratio L/D = 3. The kiln is inclined at a rake slope S = 0.05 in/ft and rotates at N = 2.0 rev/min. The mean residence time of waste in the kiln is most nearly:",
       "equations": [
         "$t = \\dfrac{2.28\\,(L/D)}{S \\times N}$"
       ],
@@ -229,7 +229,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Gas treatment — scrubber removal efficiency",
-      "stem": "A wet scrubber treats an exhaust stream containing 1,200 ppm HCl. The outlet HCl concentration after the scrubber is measured at 24 ppm. The fractional removal efficiency of the scrubber is most nearly:\n\nRemoval efficiency η = (Cin − Cout) / Cin × 100%",
+      "stem": "A wet scrubber treats an exhaust stream containing 1,200 ppm HCl. The outlet HCl concentration after the scrubber is measured at 24 ppm. The fractional removal efficiency of the scrubber is most nearly:",
       "equations": [
         "$\\eta = \\dfrac{C_{\\text{in}} - C_{\\text{out}}}{C_{\\text{in}}} \\times 100\\%$"
       ],
@@ -251,7 +251,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Particle treatment — cyclone effective number of turns",
-      "stem": "A conventional cyclone has a body diameter D = 1.0 m. Using the conventional cyclone dimension ratios from the FE Reference Handbook:\n• Inlet height: H = 0.50D\n• Body length: Lb = 1.75D\n• Cone length: Lc = 2.00D\n\nThe effective number of turns Ne the gas makes in the cyclone is most nearly:\n\nNe = (1/H)(Lb + Lc/2)",
+      "stem": "A conventional cyclone has a body diameter D = 1.0 m. Using the conventional cyclone dimension ratios from the FE Reference Handbook:\n• Inlet height: H = 0.50D\n• Body length: Lb = 1.75D\n• Cone length: Lc = 2.00D\n\nThe effective number of turns Ne the gas makes in the cyclone is most nearly:",
       "equations": [
         "$N_e = \\dfrac{1}{H}\\left(L_b + \\dfrac{L_c}{2}\\right)$"
       ],
@@ -273,7 +273,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Particle treatment — cyclone 50% cut diameter",
-      "stem": "A conventional cyclone has the following parameters:\n• Inlet width W = 0.25 m\n• Ne = 5.5 effective turns, inlet velocity Vi = 15 m/s\n• Gas dynamic viscosity µ = 1.8 × 10⁻⁵ kg/(m·s), density ρg = 1.2 kg/m³\n• Particle density ρp = 1,600 kg/m³\n\nUsing the Handbook formula for the 50% cut-diameter (Handbook p.323):\ndpc = √(9µW / [2 · Ne · Vi · (ρp − ρg)])\n\nThe diameter dpc of the particle collected with 50% efficiency is most nearly:",
+      "stem": "A conventional cyclone has the following parameters:\n• Inlet width W = 0.25 m\n• Ne = 5.5 effective turns, inlet velocity Vi = 15 m/s\n• Gas dynamic viscosity µ = 1.8 × 10⁻⁵ kg/(m·s), density ρg = 1.2 kg/m³\n• Particle density ρp = 1,600 kg/m³\n\nThe diameter dpc of the particle collected with 50% efficiency is most nearly:",
       "equations": [
         "$d_{pc} = \\sqrt{\\dfrac{9\\,\\mu\\,W}{2\\,N_e\\,V_i\\,(\\rho_p - \\rho_g)}}$"
       ],
@@ -295,7 +295,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Particle treatment — cyclone collection efficiency for a specific particle size",
-      "stem": "A cyclone has a 50% cut diameter of dpc = 10 µm. A dust stream contains particles with diameter dp = 20 µm. The fractional collection efficiency for these 20 µm particles is most nearly:\n\nCyclone Collection Efficiency (Handbook p.322):\nη = 1 / (1 + (dpc / dp)²)",
+      "stem": "A cyclone has a 50% cut diameter of dpc = 10 µm. A dust stream contains particles with diameter dp = 20 µm. The fractional collection efficiency for these 20 µm particles is most nearly:",
       "equations": [
         "$\\eta = \\dfrac{1}{1 + \\left(\\dfrac{d_{pc}}{d_p}\\right)^{2}}$"
       ],
@@ -317,7 +317,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Particle treatment — electrostatic precipitator (ESP) collection efficiency",
-      "stem": "An electrostatic precipitator (ESP) has a total collection plate area A = 2,000 m² and treats flue gas at a volumetric flow rate Q = 50 m³/s. The terminal drift velocity of the particles toward the collection plates is W = 0.10 m/s. The fractional collection efficiency of the ESP is most nearly:\n\nDeutsch-Anderson equation (Handbook p.325):\nη = 1 − exp(−WA/Q)",
+      "stem": "An electrostatic precipitator (ESP) has a total collection plate area A = 2,000 m² and treats flue gas at a volumetric flow rate Q = 50 m³/s. The terminal drift velocity of the particles toward the collection plates is W = 0.10 m/s. The fractional collection efficiency of the ESP is most nearly:",
       "equations": [
         "$\\eta = 1 - e^{-WA/Q}$"
       ],
@@ -339,7 +339,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Particle treatment — baghouse filter cloth area",
-      "stem": "A coal-fired boiler generates fly ash that must be filtered in a pulse-jet/felt fabric filter (baghouse). The flue gas flow rate is Q = 6,000 m³/min. From the FE Reference Handbook Air-to-Cloth Ratio table, fly ash in a pulse-jet/felt system has an air-to-cloth ratio of 1.5 m³/(min·m²). The minimum filter cloth area required is most nearly:\n\nA = Q / (air-to-cloth ratio)",
+      "stem": "A coal-fired boiler generates fly ash that must be filtered in a pulse-jet/felt fabric filter (baghouse). The flue gas flow rate is Q = 6,000 m³/min. From the FE Reference Handbook Air-to-Cloth Ratio table, fly ash in a pulse-jet/felt system has an air-to-cloth ratio of 1.5 m³/(min·m²). The minimum filter cloth area required is most nearly:",
       "equations": [
         "$A_{\\text{cloth}} = \\dfrac{Q}{\\text{air-to-cloth ratio}}$"
       ],
@@ -361,7 +361,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Indoor air quality — steady-state pollutant concentration",
-      "stem": "A laboratory room has volume V = 500 m³ and a ventilation rate Q = 200 m³/h. The outdoor CO concentration is Co = 2 µg/m³. A gas appliance inside the room generates CO at a source rate S = 800 µg/h. Assuming no first-order removal (k = 0) and steady-state conditions, the indoor CO concentration is most nearly:\n\nIndoor Air Quality — Steady-State (Handbook p.325–326):\nCiss = (A·Co + S/V) / (A + k)\nwhere A = Q/V (air exchange rate, ACH)",
+      "stem": "A laboratory room has volume V = 500 m³ and a ventilation rate Q = 200 m³/h. The outdoor CO concentration is Co = 2 µg/m³. A gas appliance inside the room generates CO at a source rate S = 800 µg/h. Assuming no first-order removal (k = 0) and steady-state conditions, the indoor CO concentration is most nearly:",
       "equations": [
         "$C_{\\text{iss}} = \\dfrac{A\\cdot C_o + S/V}{A + k},\\qquad A = \\dfrac{Q}{V}$"
       ],
@@ -383,7 +383,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Indoor air quality — outdoor air flow rate from CO₂ balance (USCS)",
-      "stem": "An office building houses 8 workers. After 4+ hours of occupancy, the steady-state CO₂ concentration indoors is measured at 1,100 ppm. The outdoor CO₂ concentration is 400 ppm. The approximate volume flow rate of outdoor ventilation air supplied to the office is most nearly:\n\nApproximate Outdoor Air Flow Rate (Handbook p.326):\nQOA ≈ 13,000 n / (Cindoors − COA)\nwhere n = number of people, concentrations in ppm, QOA in cfm.",
+      "stem": "An office building houses 8 workers. After 4+ hours of occupancy, the steady-state CO₂ concentration indoors is measured at 1,100 ppm. The outdoor CO₂ concentration is 400 ppm. The approximate volume flow rate of outdoor ventilation air supplied to the office is most nearly:",
       "equations": [
         "$Q_{OA} \\approx \\dfrac{13{,}000\\,n}{C_{\\text{indoors}} - C_{OA}}$"
       ],
@@ -405,7 +405,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Indoor air quality — percent outdoor air from CO₂",
-      "stem": "A central air-handling unit mixes outdoor air with return air from occupied spaces. CO₂ measurements show:\n• Return air (CRA): 1,000 ppm\n• Supply air (CSA): 600 ppm\n• Outdoor air (COA): 400 ppm\n\nThe percent outdoor air in the supply stream is most nearly:\n\n%Outdoor Air = (CRA − CSA) / (CRA − COA) × 100 (Handbook p.326)",
+      "stem": "A central air-handling unit mixes outdoor air with return air from occupied spaces. CO₂ measurements show:\n• Return air (CRA): 1,000 ppm\n• Supply air (CSA): 600 ppm\n• Outdoor air (COA): 400 ppm\n\nThe percent outdoor air in the supply stream is most nearly:",
       "equations": [
         "$\\% \\text{ Outdoor Air} = \\dfrac{C_{RA} - C_{SA}}{C_{RA} - C_{OA}} \\times 100$"
       ],
@@ -427,7 +427,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Indoor air quality — outdoor air changes per hour",
-      "stem": "A classroom is tested for air exchange rate using CO₂ as a tracer gas. Windows are opened and the CO₂ concentration decays from Ci = 1,200 ppm at the start to Ca = 700 ppm after h = 1.5 hours. The outdoor CO₂ concentration is Co = 400 ppm. The number of outdoor air changes per hour is most nearly:\n\nOutdoor Air Changes per Hour (Handbook p.326):\nN = [ln(Ci − Co) − ln(Ca − Co)] / h",
+      "stem": "A classroom is tested for air exchange rate using CO₂ as a tracer gas. Windows are opened and the CO₂ concentration decays from Ci = 1,200 ppm at the start to Ca = 700 ppm after h = 1.5 hours. The outdoor CO₂ concentration is Co = 400 ppm. The number of outdoor air changes per hour is most nearly:",
       "equations": [
         "$N = \\dfrac{\\ln(C_i - C_o) - \\ln(C_a - C_o)}{h}$"
       ],
