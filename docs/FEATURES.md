@@ -11,6 +11,7 @@
 |---|---|---|---|---|---|
 | Daily question set | ✅ | Today | `today.js`, `data.js`, `store.js` | Engine | Interleaves due reviews + new, capped at daily size |
 | MCQ + Numeric questions | ✅ | Today, Bank, Live, Plan | controllers, `math.js` | Engine | KaTeX-rendered math; numeric tolerance grading |
+| Markdown in question content | ✅ | Today, Bank, Live, Dashboard | `math.js` (`renderMarkdown`/`renderInline`/`renderRich`) | Engine | GFM tables, **bold**, *italic*, bullet lists, paragraph breaks in stems/options/solutions; math spans protected so KaTeX still typesets `$…$`/`$$…$$` |
 | Equations-first, solution-on-demand | ✅ | Today | `today.js` | Engine | Show formulas before revealing the worked solution |
 | Step-by-step solution reveal | ✅ | Today | `today.js` | Engine | Unlock steps one at a time |
 | Reveal-on-demand in Bank | ✅ | Bank, Live | `browse.js`, `bank-live.js` | Engine | Attempt first; "Show answer" reveals answer + formula |

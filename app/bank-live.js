@@ -12,6 +12,8 @@
   var ALL = [], QBYID = {}, KA = {};
   var FILT = { ka: "all", type: "all", source: "all", status: "all", q: "" };
   var $ = function (id) { return document.getElementById(id); };
+  var md = function (t) { return window.renderMarkdown ? window.renderMarkdown(t) : (t == null ? "" : String(t)); };
+  var mdi = function (t) { return window.renderInline ? window.renderInline(t) : (t == null ? "" : String(t)); };
 
   function api(path) {
     return fetch(SUPABASE_URL + "/rest/v1/" + path, {
@@ -113,17 +115,17 @@
       var st = histStatus(q), on = PFP.isStarred(q.id);
       var hasOpts = Array.isArray(q.options) && q.options.length;
       var optsHtml = hasOpts ? '<div class="opts" style="margin:12px 0;">' + q.options.map(function (t, j) {
-        return '<div class="opt" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
+        return '<div class="opt" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + mdi(t) + "</span></div>";
       }).join("") + "</div>" : "";
-      var numAns = hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>";
+      var numAns = hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + mdi(q.answer) + "</span></div>";
       var eqs = (q._eqs && q._eqs.length)
         ? '<div class="eqbox" style="margin:4px 0 12px;"><h4>Equations</h4>' + q._eqs.map(function (e) { return '<div class="eq">' + e + "</div>"; }).join("") + "</div>" : "";
       var src = q.source ? '<span class="srcbadge">' + (SRCLBL[q.source] || q.source) + "</span>" : "";
       return '<div class="qcard" data-id="' + q.id + '">' +
         '<div class="qtop"><span class="topic-tag">' + q._ka + "</span> " + src + ' <span class="qtype">' + q.type + "</span>" +
           '<span class="qstatus"><span class="dot ' + st + '"></span><span class="bdg ' + statusOf(q) + '">' + badgeLabel(q) + "</span></span></div>" +
-        (q.concept ? '<div class="qconcept">' + q.concept + "</div>" : "") +
-        '<div class="qstem">' + q.stem + "</div>" +
+        (q.concept ? '<div class="qconcept">' + mdi(q.concept) + "</div>" : "") +
+        '<div class="qstem">' + md(q.stem) + "</div>" +
         optsHtml +
         '<div class="qactions">' +
           '<button class="qact star' + (on ? " on" : "") + '" data-act="star">' + (on ? "★ Saved" : "☆ Save") + "</button>" +
@@ -133,7 +135,7 @@
           '<button class="qact report" data-act="report" title="Report a problem with this question">⚑ Report</button>' +
         "</div>" +
         '<div class="qans hide">' + eqs + numAns +
-          '<div class="sol">' + (q.solution || "") + "</div>" +
+          '<div class="sol">' + md(q.solution || "") + "</div>" +
           '<div class="ref">Handbook: ' + (q.handbook || "—") + ' · <span class="qid">' + q.id + "</span></div>" +
         "</div></div>";
     }).join("") : "<div class='card'><p class='sub'>No questions match these filters.</p></div>";
