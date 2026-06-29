@@ -5,6 +5,8 @@
   var KEYS = ["A", "B", "C", "D", "E", "F"];
   var $ = function (id) { return document.getElementById(id); };
   var KA = {};
+  var md = function (t) { return window.renderMarkdown ? window.renderMarkdown(t) : (t == null ? "" : String(t)); };
+  var mdi = function (t) { return window.renderInline ? window.renderInline(t) : (t == null ? "" : String(t)); };
 
   async function init() {
     var u = await PFPAuth.require(); if (!u) return;
@@ -88,7 +90,7 @@
   function cardHtml(q, i, isReview) {
     var hasOpts = Array.isArray(q.options) && q.options.length;
     var opts = hasOpts ? q.options.map(function (t, j) {
-      return '<div class="opt pick" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
+      return '<div class="opt pick" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + mdi(t) + "</span></div>";
     }).join("") : "";
     return '<div class="qcard" data-i="' + i + '">' +
       '<div class="qtop">' +
@@ -99,13 +101,13 @@
         "</span>" +
         '<button class="qact qreport" type="button" title="Report a problem with this question">⚑ Report</button>' +
       "</div>" +
-      (q.concept ? '<div class="qconcept" style="font-weight:600;margin:4px 0;">' + q.concept + "</div>" : "") +
-      '<div class="qstem">' + q.stem + "</div>" +
+      (q.concept ? '<div class="qconcept" style="font-weight:600;margin:4px 0;">' + mdi(q.concept) + "</div>" : "") +
+      '<div class="qstem">' + md(q.stem) + "</div>" +
       (hasOpts ? '<div class="opts" style="margin:12px 0;">' + opts + "</div>"
                : '<div class="qactions"><button class="btn-ghost reveal">Show answer</button></div>') +
       '<div class="qans hide">' + eqbox(q) +
-        (hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>") +
-        '<div class="sol" style="margin-top:8px;">' + (q.solution || "") + "</div>" +
+        (hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + mdi(q.answer) + "</span></div>") +
+        '<div class="sol" style="margin-top:8px;">' + md(q.solution || "") + "</div>" +
         '<div class="ref">Handbook: ' + (q.handbook || "—") + "</div>" +
         (hasOpts ? "" : '<div class="qactions"><button class="qact mk-got" data-r="1">✓ Got it</button><button class="qact mk-miss" data-r="0">✗ Missed</button></div>') +
       "</div></div>";

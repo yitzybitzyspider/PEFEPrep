@@ -17,6 +17,8 @@
   var $ = function (id) { return document.getElementById(id); };
   var pill = function (k, v) { return '<span class="pill"><b>' + v + "</b> · " + k + "</span>"; };
   var math = function (el) { if (window.renderMath) window.renderMath(el); };
+  var md = function (t) { return window.renderMarkdown ? window.renderMarkdown(t) : (t == null ? "" : String(t)); };
+  var mdi = function (t) { return window.renderInline ? window.renderInline(t) : (t == null ? "" : String(t)); };
   var todayStr = function () { return new Date().toISOString().slice(0, 10); };
 
   async function init() {
@@ -154,7 +156,7 @@
     $("bar").style.width = (idx / QUESTIONS.length * 100) + "%";
     $("qcount").textContent = "Question " + (idx + 1) + " of " + QUESTIONS.length;
     $("qtopic").textContent = "Day " + q.day + " · " + q.topic;
-    $("stem").textContent = q.stem;
+    $("stem").innerHTML = md(q.stem);
     math($("stem"));
 
     var eq = q.equations || [];
@@ -170,10 +172,11 @@
     (q.options || []).forEach(function (text, i) {
       var b = document.createElement("button");
       b.className = "opt"; b.dataset.i = i;
-      b.innerHTML = '<span class="key">' + KEYS[i] + "</span><span>" + text + "</span>";
+      b.innerHTML = '<span class="key">' + KEYS[i] + "</span><span>" + mdi(text) + "</span>";
       b.onclick = function () { selectOption(i); };
       opts.appendChild(b);
     });
+    math(opts);
 
     $("feedback").className = "feedback";
     $("verdict").innerHTML = ""; $("steps").innerHTML = ""; $("refbox").innerHTML = ""; $("selfgrade").innerHTML = "";
@@ -228,7 +231,7 @@
     view.revealed = true;
     var q = QUESTIONS[idx];
     var hasOpts = Array.isArray(q.options) && q.options.length > 0;
-    var answerText = hasOpts ? (KEYS[q.answer] + ") " + q.options[q.answer]) : String(q.answer);
+    var answerText = hasOpts ? (KEYS[q.answer] + ") " + mdi(q.options[q.answer])) : mdi(q.answer);
 
     if (hasOpts) {
       Array.prototype.forEach.call($("opts").children, function (b) {
@@ -265,6 +268,7 @@
     }
     $("revealBtn").classList.add("hide");
     $("nextBtn").classList.remove("hide");
+    math($("verdict"));
     math($("refbox"));
   }
 
@@ -274,7 +278,7 @@
     var n = view.stepsShown;
     var div = document.createElement("div");
     div.className = "step";
-    div.innerHTML = (arr.length > 1 ? '<span class="n">' + (n + 1) + ".</span>" : "") + arr[n];
+    div.innerHTML = (arr.length > 1 ? '<span class="n">' + (n + 1) + ".</span>" : "") + md(arr[n]);
     $("steps").appendChild(div); math(div);
     view.stepsShown++;
     if (view.stepsShown >= arr.length) $("stepBtn").classList.add("hide");

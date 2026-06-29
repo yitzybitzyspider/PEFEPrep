@@ -392,3 +392,26 @@ select.sel{background:var(--card2);border:1px solid var(--line);color:var(--ink)
 @media (pointer:coarse){
   .sg,.qact,.vtoggle,.reviewbtn,.btn-ghost,select.sel,.seg button{min-height:44px;}
 }
+
+/* ---- Rich markdown in question content (stems, options, solutions, steps) ---- */
+/* Paragraphs: tidy spacing, no stray margins at the edges of a block. */
+.stem p,.qstem p,.qans .sol p,.steps .step p,.opt p,.qconcept p{margin:0 0 .6em;}
+.stem p:first-child,.qstem p:first-child,.qans .sol p:first-child,.steps .step p:first-child{margin-top:0;}
+.stem p:last-child,.qstem p:last-child,.qans .sol p:last-child,.steps .step p:last-child,.opt p:last-child{margin-bottom:0;}
+.opt p,.qconcept p{display:inline;margin:0;}
+
+/* GFM tables rendered from markdown. */
+.mdtable{border-collapse:collapse;margin:.7em 0;font-size:.95em;line-height:1.4;max-width:100%;}
+.mdtable th,.mdtable td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top;}
+.mdtable thead th{background:var(--card2);font-weight:700;white-space:nowrap;}
+.mdtable tbody tr:nth-child(even){background:color-mix(in srgb,var(--card2) 50%,transparent);}
+.mdtable td:nth-child(n+2),.mdtable th:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums;}
+/* Let wide tables scroll horizontally on narrow screens instead of overflowing. */
+.stem,.qstem,.qans .sol,.steps .step{overflow-x:auto;}
+
+/* Bullet lists rendered from markdown. */
+.mdlist{margin:.5em 0;padding-left:1.4em;}
+.mdlist li{margin:.25em 0;}
+
+/* Standalone display-math blocks ($$…$$ on their own line). */
+.mdmath{margin:.5em 0;overflow-x:auto;overflow-y:hidden;}

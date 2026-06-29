@@ -1,7 +1,19 @@
 {
-  "version": "0.24.0",
+  "version": "0.25.0",
   "updated": "2026-06-29",
   "history": [
+    {
+      "version": "0.25.0",
+      "date": "2026-06-29",
+      "title": "Question formatting — tables, fractions, and clean stems",
+      "changes": [
+        "Question content now renders Markdown everywhere it appears (Today, Bank, Browse, Dashboard): GFM tables, **bold**, bullet lists, and paragraph breaks — so data tables (e.g. LD₅₀, TLV, OSHA noise hours) display as real tables instead of raw pipes",
+        "Fixed the Today player rendering stems as plain text — it now typesets math ($…$, fractions via \\dfrac) and tables/lists like the rest of the site",
+        "Options, worked-solution steps, and numeric answers now get the same Markdown + KaTeX treatment, so formatting is uniform across questions, answers, and worked examples",
+        "Math inside tables, bold, and lists is protected during Markdown conversion so LaTeX (pipes, \\leq, fractions) never gets mangled",
+        "Added styling for rendered tables (bordered, zebra rows, right-aligned numeric columns, horizontal scroll on narrow screens) and bullet lists"
+      ]
+    },
     {
       "version": "0.24.0",
       "date": "2026-06-29",

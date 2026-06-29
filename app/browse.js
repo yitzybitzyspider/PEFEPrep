@@ -8,6 +8,8 @@
   var ALL = [], SCHED = { days: [] }, QBYID = {};
   var FILT = { day: "all", topic: "all", status: "all", sort: "day", q: "" };
   var $ = function (id) { return document.getElementById(id); };
+  var md = function (t) { return window.renderMarkdown ? window.renderMarkdown(t) : (t == null ? "" : String(t)); };
+  var mdi = function (t) { return window.renderInline ? window.renderInline(t) : (t == null ? "" : String(t)); };
 
   async function init() {
     try {
@@ -128,16 +130,16 @@
       var st = histStatus(q), on = PFP.isStarred(q.id);
       var hasOpts = Array.isArray(q.options) && q.options.length;
       var optsHtml = hasOpts ? '<div class="opts" style="margin:12px 0;">' + q.options.map(function (t, j) {
-        return '<div class="opt" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + t + "</span></div>";
+        return '<div class="opt" data-j="' + j + '"><span class="key">' + KEYS[j] + "</span><span>" + mdi(t) + "</span></div>";
       }).join("") + "</div>" : "";
-      var numAns = hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + q.answer + "</span></div>";
+      var numAns = hasOpts ? "" : '<div class="opt correct"><span class="key">✓</span><span>' + mdi(q.answer) + "</span></div>";
       var eqs = (q.equations && q.equations.length)
         ? '<div class="eqbox" style="margin:4px 0 12px;"><h4>Equations</h4>' + q.equations.map(function (e) { return '<div class="eq">' + e + "</div>"; }).join("") + "</div>" : "";
       var refs = q.references ? '<div class="refs">Look up: ' + q.references + "</div>" : "";
       return '<div class="qcard" data-id="' + q.id + '">' +
         '<div class="qtop"><span class="topic-tag">Day ' + q.day + " · " + q.topic + "</span>" +
           '<span class="qstatus"><span class="dot ' + st + '"></span><span class="bdg ' + statusOf(q) + '">' + badgeLabel(q) + "</span></span></div>" +
-        '<div class="qstem">' + q.stem + "</div>" +
+        '<div class="qstem">' + md(q.stem) + "</div>" +
         optsHtml +
         '<div class="qactions">' +
           '<button class="qact star' + (on ? " on" : "") + '" data-act="star">' + (on ? "★ Saved" : "☆ Save") + "</button>" +
@@ -147,7 +149,7 @@
           '<button class="qact report" data-act="report" title="Report a problem with this question">⚑ Report</button>' +
         "</div>" +
         '<div class="qans hide">' + eqs + numAns +
-          '<div class="sol">' + q.solution + "</div>" + refs +
+          '<div class="sol">' + md(q.solution) + "</div>" + refs +
           '<div class="ref">Handbook: ' + q.handbook + "</div>" +
         "</div></div>";
     }).join("") : "<p class='sub'>No questions match these filters. (Star some questions to fill ★ My List, or mark a few ✗ Missed.)</p>";

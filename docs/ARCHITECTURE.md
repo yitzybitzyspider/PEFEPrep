@@ -103,7 +103,7 @@ The one file that holds everything specific to **this exam**: `examId`, `examNam
 | `app/sb.js` | Supabase client/auth/per-user store | Engine | ✅ Engine (project URL/key are deploy config) |
 | `app/plan-engine.js` | Training-plan generator | Engine | ✅ Engine (reads weights from config) |
 | `app/data.js` | Loads static bank from `data/` | Engine | ✅ Engine |
-| `app/math.js` | KaTeX render helper | Engine | ✅ Engine |
+| `app/math.js` | KaTeX render helper + Markdown renderer (`renderMarkdown`/`renderInline`/`renderRich`): GFM tables, bold/italic, lists, paragraphs — math spans protected so KaTeX still typesets them. Page controllers run stems/options/solutions through it. | Engine | ✅ Engine |
 | `app/today.js` `browse.js` `bank-live.js` `dashboard.js` `plan.js` `progress.js` `settings.js` `resources.js` `account.js` | Page controllers | Engine | ✅ Engine |
 | `app/report.js` | Report-a-question modal | Engine | ✅ Engine |
 | `app/celebrate.js` `engage.js` | Confetti/toasts, focus tracking | Engine | ✅ Engine |
