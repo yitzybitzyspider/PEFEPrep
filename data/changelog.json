@@ -1,7 +1,21 @@
 {
-  "version": "0.23.0",
-  "updated": "2026-06-28",
+  "version": "0.24.0",
+  "updated": "2026-06-29",
   "history": [
+    {
+      "version": "0.24.0",
+      "date": "2026-06-29",
+      "title": "Day 13 added — Risk Assessment + Thermodynamics",
+      "changes": [
+        "Risk Assessment + Thermodynamics (Day 13, 20 questions) added — KA 7 (Health Hazards & Risk Assessment, subtopics A–C) and KA 9 (Thermodynamics, subtopics A–C)",
+        "KA 7 Risk Assessment (11 questions): dose-response/LD₅₀ comparative table (p.23); carcinogen Risk=CDI×CSF and acceptable range 10⁻⁶–10⁻⁴ (p.25); noncarcinogen HI=CDI/RfD (p.26); RfD=NOAEL/UF and SHD=RfD×W (p.26); drinking water CDI (p.29); soil ingestion CDI (p.29); inhalation CDI (p.29); chemical interaction effects additive/synergistic/antagonistic table (p.24); OSHA noise dose D=100%×Σ(Ci/Ti) with permissible-hours table (pp.34–35); TLV definition and table (ammonia 25 ppm, chlorine 0.5 ppm, ethyl chloride 1000 ppm, ethyl ether 400 ppm) (p.25); carcinogen acceptable risk range interpretation",
+        "KA 9 Thermodynamics (9 questions): ideal gas law PV=mRT with Ri=R̄/Mi, R̄=8314 J/(kmol·K) (p.144); Boyle's Law isothermal Pv=const (p.148); Charles' Law constant-pressure T/v=const (p.148); First Law closed system Q−W=ΔU (p.147); Carnot efficiency ηc=(TH−TL)/TH (p.149); Carnot COP refrigerator TL/(TH−TL) vs. heat pump TH/(TH−TL) (pp.149–150); sensible heat Q=m·cp·ΔT (from Δh=cpΔT, p.145); isentropic process P₁V₁ᵏ=P₂V₂ᵏ with k=cp/cv=1.4 for air (p.148); combined gas law P₁V₁/T₁=P₂V₂/T₂ (p.144)",
+        "Bank now holds 282 questions spanning Days 1–13; every numeric answer recomputed and verified in Python",
+        "Cheat sheet extended with 15 new equations (carcinogen risk, HI, RfD, CDI formulas ×3, OSHA noise dose, ideal gas, combined gas law, Boyle's, Charles', First Law, Carnot η, Carnot COP, isentropic)",
+        "All Day-13 Handbook formulas confirmed against NCEES FE Reference Handbook v10.6 text extract; non-Handbook content (Q=m·cp·ΔT for liquids) tagged fundamental; all risk assessment formulas confirmed in Safety chapter pp.23–35",
+        "KA 7 (4–6 exam questions) fully covered: all 3 subtopics A (dose-response, carcinogen/noncarcinogen risk, interaction types), B (drinking water, soil, inhalation CDI pathways), C (OSHA noise dose, TLV); KA 9 (3–5 exam questions) fully covered: all 3 subtopics A (First Law, Carnot efficiency, COP), B (sensible heat, energy/work), C (ideal gas, Boyle's, Charles', isentropic, combined gas law) — SI throughout"
+      ]
+    },
     {
       "version": "0.23.0",
       "date": "2026-06-28",

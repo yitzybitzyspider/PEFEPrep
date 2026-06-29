@@ -906,6 +906,96 @@
       "section": "Sampling & Monitoring \u2014 Coefficient of Variation",
       "term": "Coefficient of Variation",
       "eq": "$CV = \\dfrac{100\\,s}{\\bar{x}}$  (s=standard deviation, x\u0304=sample mean) \u2014 Handbook p.336"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Risk Assessment \u2014 Carcinogen Cancer Risk",
+      "term": "Carcinogen Risk",
+      "eq": "$\\text{Risk} = CDI \\times CSF$  (CDI=chronic daily intake mg/(kg\u00b7day), CSF=cancer slope factor (mg/kg\u00b7day)\u207b\u00b9; acceptable range 10\u207b\u2076 to 10\u207b\u2074) \u2014 Handbook p.25"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Risk Assessment \u2014 Noncarcinogen Hazard Index",
+      "term": "Hazard Index HI",
+      "eq": "$HI = \\dfrac{CDI}{RfD}$  (HI > 1.0 = adverse effect possible; RfD = reference dose mg/(kg\u00b7day)) \u2014 Handbook p.26"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Risk Assessment \u2014 Reference Dose",
+      "term": "Reference Dose RfD",
+      "eq": "$RfD = \\dfrac{NOAEL}{UF}$,  $SHD = RfD \\times W$  (NOAEL=no-observable-adverse-effect-level mg/(kg\u00b7day), UF=uncertainty factor, W=body weight kg) \u2014 Handbook p.26"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Exposure \u2014 Drinking Water CDI",
+      "term": "CDI Drinking Water",
+      "eq": "$CDI = \\dfrac{(C_W)(IR)(EF)(ED)}{(BW)(AT)}$  (CW=mg/L, IR=L/day, EF=days/yr, ED=yr, BW=kg, AT=days; carcinogen AT=75 yr\u00d7365) \u2014 Handbook p.29"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Exposure \u2014 Inhalation CDI",
+      "term": "CDI Inhalation",
+      "eq": "$CDI = \\dfrac{(C_A)(IR)(ET)(EF)(ED)}{(BW)(AT)}$  (CA=mg/m\u00b3, IR=m\u00b3/hr, ET=hr/day; adult IR=0.98 m\u00b3/hr 6-hr day) \u2014 Handbook p.29\u201330"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Exposure \u2014 Soil Ingestion CDI",
+      "term": "CDI Soil Ingestion",
+      "eq": "$CDI = \\dfrac{(C_S)(IR)(CF)(FI)(EF)(ED)}{(BW)(AT)}$  (CS=mg/kg, IR=mg/day, CF=10\u207b\u2076 kg/mg, FI=fraction ingested; child IR >100 mg/day) \u2014 Handbook p.29\u201330"
+    },
+    {
+      "topic": "Risk Assessment",
+      "section": "Occupational Health \u2014 OSHA Noise Dose",
+      "term": "Noise Dose OSHA",
+      "eq": "$D = 100\\% \\times \\sum_i \\dfrac{C_i}{T_i}$  (Ci=hr at SPL, Ti=permissible hr; 90 dBA\u21928 hr, 95\u21924, 100\u21922, 105\u21921, 110\u21920.5, 115\u21920.25; D>100%\u2192abatement) \u2014 Handbook pp.34\u201335"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Ideal Gas Law",
+      "term": "Ideal Gas Law",
+      "eq": "$PV = mRT, \\quad R_i = \\bar{R}/M_i, \\quad \\bar{R} = 8{,}314\\;\\text{J/(kmol\u00b7K)}$  (P in Pa, V in m\u00b3, m in kg, T in K) \u2014 Handbook p.144"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Combined Gas Law",
+      "term": "Combined Gas Law",
+      "eq": "$\\dfrac{P_1 V_1}{T_1} = \\dfrac{P_2 V_2}{T_2}$  (T in K; for fixed mass of ideal gas) \u2014 Handbook p.144"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Boyle's Law",
+      "term": "Boyle's Law (isothermal)",
+      "eq": "$P_1 V_1 = P_2 V_2$  (constant T, ideal gas; Pv = constant) \u2014 Handbook p.148"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Charles' Law",
+      "term": "Charles' Law (constant pressure)",
+      "eq": "$V_1/T_1 = V_2/T_2$  (constant P, ideal gas; T/v = constant; T in K) \u2014 Handbook p.148"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 First Law (Closed System)",
+      "term": "First Law Closed System",
+      "eq": "$Q - W = \\Delta U$  (Q > 0 into system, W > 0 out of system; no \u0394KE/\u0394PE) \u2014 Handbook p.147"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Carnot Efficiency",
+      "term": "Carnot Efficiency",
+      "eq": "$\\eta_c = \\dfrac{T_H - T_L}{T_H}$  (TH, TL in absolute units K or \u00b0R; maximum possible heat-engine efficiency) \u2014 Handbook p.149"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Carnot COP",
+      "term": "Carnot COP",
+      "eq": "$COP_c^{\\text{(HP)}} = \\dfrac{T_H}{T_H-T_L}$;  $COP_c^{\\text{(ref)}} = \\dfrac{T_L}{T_H-T_L}$  (HP=heat pump, ref=refrigerator; COPc(HP)=COPc(ref)+1) \u2014 Handbook pp.149\u2013150"
+    },
+    {
+      "topic": "Thermodynamics",
+      "section": "Thermodynamics \u2014 Isentropic Process",
+      "term": "Isentropic (Adiabatic Reversible)",
+      "eq": "$P_1 V_1^k = P_2 V_2^k$,  $V_2 = V_1(P_1/P_2)^{1/k}$,  $k = c_p/c_v$  (air k\u22481.4, monatomic k\u22481.67) \u2014 Handbook p.148"
     }
   ]
 }

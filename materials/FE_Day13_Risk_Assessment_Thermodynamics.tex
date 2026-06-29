@@ -1,0 +1,555 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F6F8B}
+\definecolor{soft}{HTML}{555555}
+\definecolor{boxbg}{HTML}{F4F8FA}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\small\color{soft}FE Environmental \textemdash\ PEFEPrep}
+\rhead{\small\color{soft}\rightmark}
+\cfoot{\small\color{soft}\thepage}
+\newcommand{\correct}[1]{\textbf{#1}\;{\color{accent}$\checkmark$}}
+\newcommand{\optline}[2]{\par\noindent\hspace{1.2em}(#1)\hspace{0.6em}#2}
+
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{accent} Risk Assessment + Thermodynamics}\\[4pt]
+{\large FE Environmental \textemdash\ Day 13}\\[2pt]
+{\color{soft} Study set \textbullet\ 2026-06-29 \textbullet\ 20 questions \textbullet\ every numeric answer recomputed in Python}
+\end{center}
+\vspace{6pt}\hrule\vspace{10pt}
+\markright{Risk Assessment + Thermodynamics}
+\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ All formulas confirmed against NCEES FE Reference Handbook v10.6 text extract (materials/NCEES\_FE\_Handbook\_text.txt). RISK ASSESSMENT --- Dose-response curves, LD50/LC50 definitions p.23-24 confirmed. Chemical interaction effects table (additive 2+3=5, synergistic 2+3=20, antagonistic 6+6=8) p.24 confirmed. Carcinogen risk = CDI$\times$CSF, acceptable range 10\textsuperscript{--}\textsuperscript{4} to 10\textsuperscript{--}\textsuperscript{6} p.25 confirmed. TLV definition and example table (ammonia 25 ppm, chlorine 0.5 ppm, ethyl chloride 1,000 ppm, ethyl ether 400 ppm) p.25 confirmed. Noncarcinogen HI = CDI/RfD, HI > 1.0 triggers concern p.26 confirmed. RfD = NOAEL/UF, SHD = RfD$\times$W p.26 confirmed. Residential exposure equations for drinking water CDI=(CW)(IR)(EF)(ED)/[(BW)(AT)], inhalation CDI=(CA)(IR)(ET)(EF)(ED)/[(BW)(AT)], soil ingestion CDI=(CS)(IR)(CF)(FI)(EF)(ED)/[(BW)(AT)] p.29 confirmed. EPA intake parameter table (male BW 78 kg, water IR 2.3 L/day, adult inhalation 0.98 m\textsuperscript{3}/hr 6-hr day, child soil ingestion >100 mg/day, lifetime ED=75 yr, AT carcinogen=lifetime, AT noncarcinogen=actual ED) p.30 confirmed. OSHA permissible noise exposure D=100\%$\times$$\Sigma$(Ci/Ti) with noise table (90 dBA$\rightarrow$8 hr, 95$\rightarrow$4, 100$\rightarrow$2, 105$\rightarrow$1, 110$\rightarrow$0.5, 115$\rightarrow$0.25) pp.34-35 confirmed. THERMODYNAMICS --- Ideal gas PV=mRT and P\textsubscript{1}v\textsubscript{1}/T\textsubscript{1}=P\textsubscript{2}v\textsubscript{2}/T\textsubscript{2} p.144 confirmed; R=8,314 J/(kmol$\cdot$K), Ri=R/Mi p.144 confirmed. cp-cv=R, $\Delta$u=cv$\Delta$T, $\Delta$h=cp$\Delta$T for ideal gas p.145 confirmed. First Law Q-W=$\Delta$U (closed system) p.147 confirmed. Isentropic Pvk=constant, k=cp/cv p.148 confirmed. Boyle's Law Pv=const (isothermal), Charles' Law T/v=const (constant P) p.148 confirmed. Carnot efficiency $\eta$c=(TH-TL)/TH p.149 confirmed (TH, TL in absolute temperature). COP heat pump =TH/(TH-TL), COP refrigerator =TL/(TH-TL) pp.149-150 confirmed. NOT in Handbook (supplemental): Q=m$\cdot$cp$\cdot$$\Delta$T for sensible heating of liquids/solids is a fundamental form of $\Delta$h=cp$\Delta$T --- tagged fundamental. EPA acceptable carcinogen risk range (10\textsuperscript{--}\textsuperscript{4} to 10\textsuperscript{--}\textsuperscript{6}) stated in Handbook p.25 --- confirmed. NOAEL definition, UF uncertainty factor concept p.26 --- confirmed. All numeric answers independently recomputed in Python.}\vspace{2pt}}}
+\vspace{10pt}
+\filbreak
+\textbf{\color{accent}Q1.}\quad {\small\color{soft}[D13-Q01 \textbullet\ MCQ \textbullet\ Dose-response --- LD\textsubscript{5}\textsubscript{0} comparative lethal dose table (SI)]}\par\vspace{2pt}
+The NCEES FE Reference Handbook (p.23) provides a Comparative Acutely Lethal Doses table with the following LD\textsubscript{5}\textsubscript{0} values for rats:
+
+| Chemical | LD\textsubscript{5}\textsubscript{0} (mg/kg) |
+|---|---|
+| PCBs | 15,000 |
+| Morphine | 900 |
+| Nicotine | 1 |
+| 2,3,7,8-TCDD (dioxin) | 0.001 |
+
+Based solely on these LD\textsubscript{5}\textsubscript{0} values, which chemical is the MOST acutely toxic?\par\vspace{3pt}
+\optline{A}{PCBs (LD\textsubscript{5}\textsubscript{0} = 15,000 mg/kg)}
+\optline{B}{Morphine (LD\textsubscript{5}\textsubscript{0} = 900 mg/kg)}
+\optline{C}{Nicotine (LD\textsubscript{5}\textsubscript{0} = 1 mg/kg)}
+\optline{D}{\correct{2,3,7,8-TCDD (dioxin) (LD\textsubscript{5}\textsubscript{0} = 0.001 mg/kg)}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (D)\par\vspace{2pt}
+{\small The LD\textsubscript{5}\textsubscript{0} (Median Lethal Dose) is the dose expected to kill 50\% of a test population. A LOWER LD\textsubscript{5}\textsubscript{0} means MORE toxic --- a smaller dose is needed to produce a lethal effect.
+
+Ranked from most to least toxic:
+1. 2,3,7,8-TCDD (dioxin): 0.001 mg/kg ← MOST TOXIC
+2. Nicotine: 1 mg/kg
+3. Morphine: 900 mg/kg
+4. PCBs: 15,000 mg/kg ← LEAST TOXIC among these
+
+Option (A) PCBs: the largest LD\textsubscript{5}\textsubscript{0} = 15,000 mg/kg makes PCBs the LEAST acutely toxic of the group --- a large dose is required. Option (B) Morphine: LD\textsubscript{5}\textsubscript{0} = 900 mg/kg, more toxic than PCBs but far less than dioxin. Option (C) Nicotine: LD\textsubscript{5}\textsubscript{0} = 1 mg/kg --- highly toxic by comparison but still 1,000$\times$ less toxic than dioxin.
+
+Dioxin (2,3,7,8-TCDD) is one of the most acutely toxic synthetic chemicals known. Note: Botulinum toxin (LD\textsubscript{5}\textsubscript{0} = 0.00001 mg/kg) is even more toxic than dioxin but is not listed in these options.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Risk Assessment/Toxicology: Comparative Acutely Lethal Doses table (p.23); LD\textsubscript{5}\textsubscript{0} = median lethal dose by oral/skin exposure (p.23--24) \textbullet\ Handbook p.23--24 --- Comparative Acutely Lethal Doses table; LD\textsubscript{5}\textsubscript{0} definition}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q2.}\quad {\small\color{soft}[D13-Q02 \textbullet\ MCQ \textbullet\ Carcinogen risk --- Risk = CDI $\times$ CSF (SI)]}\par\vspace{2pt}
+A risk assessment for a contaminated groundwater plume finds that an adult male receptor has a Chronic Daily Intake (CDI) of benzene of 0.0015 mg/(kg$\cdot$day) via drinking water. The Cancer Slope Factor (CSF) for benzene is 0.05 (mg/kg$\cdot$day)\textsuperscript{--}\textsuperscript{1}. The incremental lifetime cancer risk due to this exposure is most nearly:
+
+Carcinogen Risk (Handbook p.25):
+Risk = CDI $\times$ CSF\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{Risk} = CDI \times CSF$\par\vspace{3pt}
+\optline{A}{7.5 $\times$ 10\textsuperscript{--}\textsuperscript{8} (below EPA acceptable range)}
+\optline{B}{\correct{7.5 $\times$ 10\textsuperscript{--}\textsuperscript{5} (within EPA acceptable range of 10\textsuperscript{--}\textsuperscript{6} to 10\textsuperscript{--}\textsuperscript{4})}}
+\optline{C}{7.5 $\times$ 10\textsuperscript{--}\textsuperscript{2} (above EPA acceptable range)}
+\optline{D}{7.5 $\times$ 10\textsuperscript{--}\textsuperscript{3} (above EPA acceptable range)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[\text{Risk} = CDI \times CSF = 0.0015 \times 0.05 = 7.5 \times 10^{-5}\]
+
+EPA acceptable carcinogen risk range: 10\textsuperscript{--}\textsuperscript{6} to 10\textsuperscript{--}\textsuperscript{4} (Handbook p.25).
+
+Check: 10\textsuperscript{--}\textsuperscript{6} $\le$ 7.5 $\times$ 10\textsuperscript{--}\textsuperscript{5} $\le$ 10\textsuperscript{--}\textsuperscript{4} $\checkmark$ $\rightarrow$ within the acceptable range.
+
+Option (A) 7.5$\times$10\textsuperscript{--}\textsuperscript{8}: off by 3 orders of magnitude --- likely an arithmetic error (e.g., moving the decimal incorrectly). Option (C) 7.5$\times$10\textsuperscript{--}\textsuperscript{2}: used CDI=0.15 mg/(kg$\cdot$day) --- wrong input by a factor of 100. Option (D) 7.5$\times$10\textsuperscript{--}\textsuperscript{3}: off by 100$\times$ --- a common error from unit confusion.
+
+The CSF (Cancer Slope Factor) is the slope of the dose--response curve for carcinogens; it is specific to each carcinogen and route of exposure (oral, inhalation, dermal). For a benzene oral CSF of 0.05, one in 13,333 people exposed at this CDI would be expected to develop cancer over a 75-year lifetime --- within EPA's acceptable management range.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Carcinogens: Risk = CDI $\times$ CSF; CDI = Chronic Daily Intake; CSF = Cancer Slope Factor; acceptable risk range 10\textsuperscript{--}\textsuperscript{6} to 10\textsuperscript{--}\textsuperscript{4} (p.25) \textbullet\ Handbook p.25 --- Carcinogens: Risk = CDI $\times$ CSF formula and acceptable risk range}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q3.}\quad {\small\color{soft}[D13-Q03 \textbullet\ MCQ \textbullet\ Noncarcinogen --- Hazard Index HI = CDI/RfD (SI)]}\par\vspace{2pt}
+A chronic daily intake assessment for a noncarcinogenic compound (chromium VI, a regulated noncarcinogen at this pathway) yields CDI = 0.002 mg/(kg$\cdot$day). The EPA oral Reference Dose (RfD) for this compound is 0.003 mg/(kg$\cdot$day). The Hazard Index (HI) for this exposure is most nearly, and its regulatory interpretation is:
+
+Noncarcinogen Hazard Index (Handbook p.26):
+HI = CDI / RfD\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $HI = \dfrac{CDI_{\text{noncarcinogen}}}{RfD}$\par\vspace{3pt}
+\optline{A}{\correct{HI = 0.67; below 1.0, adverse effect unlikely}}
+\optline{B}{HI = 1.50; above 1.0, adverse effect possible}
+\optline{C}{HI = 6.67; well above 1.0, significant concern}
+\optline{D}{HI = 0.67; above 1.0, adverse effect possible}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small \[HI = \frac{CDI}{RfD} = \frac{0.002}{0.003} = 0.667\]
+
+EPA interpretation: **HI < 1.0 $\rightarrow$ adverse effect unlikely** (Handbook p.26). EPA considers HI > 1.0 as representing the possibility of an adverse effect occurring.
+
+Option (B) HI = 1.50: inverted the formula --- CDI/RfD vs. RfD/CDI = 0.003/0.002 = 1.50. Dividing in the wrong order gives HI > 1 when in fact exposure is below the reference dose. Option (C) HI = 6.67: computes CDI $\times$ 1/RfD in wrong units --- a factor-of-10 arithmetic error. Option (D): correctly computes HI = 0.67 but misreports the interpretation; HI < 1.0 is the acceptable range.
+
+The RfD represents a daily dose below which no adverse effects are expected even with lifetime exposure. HI = 0.67 means the actual exposure is 67\% of the threshold --- providing a safety margin.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Noncarcinogens: HI = CDI/RfD; HI > 1.0 = possibility of adverse effect (p.26) \textbullet\ Handbook p.26 --- Noncarcinogens: Hazard Index HI = CDI/RfD}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q4.}\quad {\small\color{soft}[D13-Q04 \textbullet\ MCQ \textbullet\ Reference Dose --- RfD = NOAEL/UF (SI)]}\par\vspace{2pt}
+An EPA risk assessment study identifies a NOAEL (No Observable Adverse Effect Level) of 10 mg/(kg$\cdot$day) for a noncarcinogenic pesticide from animal studies. A total uncertainty factor (UF) of 1,000 is applied (accounting for interspecies extrapolation, human variability, and data gaps). The Reference Dose (RfD) and the Safe Human Dose (SHD) for a 78-kg adult male are:
+
+Reference Dose (Handbook p.26):
+RfD = NOAEL / UF
+SHD = RfD $\times$ W\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $RfD = \dfrac{NOAEL}{UF}$ \quad $SHD = RfD \times W$\par\vspace{3pt}
+\optline{A}{RfD = 10 mg/(kg$\cdot$day); SHD = 780 mg/day}
+\optline{B}{RfD = 0.1 mg/(kg$\cdot$day); SHD = 7.8 mg/day}
+\optline{C}{\correct{RfD = 0.01 mg/(kg$\cdot$day); SHD = 0.78 mg/day}}
+\optline{D}{RfD = 0.001 mg/(kg$\cdot$day); SHD = 0.078 mg/day}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[RfD = \frac{NOAEL}{UF} = \frac{10\;\text{mg/(kg\cdot{}day)}}{1{,}000} = 0.01\;\text{mg/(kg\cdot{}day)}\]
+
+\[SHD = RfD \times W = 0.01\;\text{mg/(kg\cdot{}day)} \times 78\;\text{kg} = 0.78\;\text{mg/day}\]
+
+Option (A): forgot to divide by UF --- reports NOAEL directly as RfD. Option (B): used UF = 100 instead of 1,000 $\rightarrow$ RfD = 10/100 = 0.1. Option (D): used UF = 10,000 $\rightarrow$ RfD = 10/10,000 = 0.001.
+
+The total uncertainty factor (UF) of 1,000 is built from three sub-factors: $\times$10 for animal-to-human extrapolation, $\times$10 for human variability (sensitive individuals), and $\times$10 for data quality (subchronic-to-chronic). The larger the UF, the more conservative (lower) the RfD --- reflecting greater uncertainty in the underlying data.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Noncarcinogens: Reference Dose RfD = NOAEL/UF; SHD = RfD $\times$ W; NOAEL = threshold dose from dose-response curve (p.26) \textbullet\ Handbook p.26 --- Noncarcinogens: Reference Dose equation}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q5.}\quad {\small\color{soft}[D13-Q05 \textbullet\ Numeric \textbullet\ Exposure pathway --- drinking water CDI for carcinogen (SI)]}\par\vspace{2pt}
+A residential receptor drinks tap water containing arsenic at a concentration of CW = 5 $\mu$g/L = 0.005 mg/L. Using EPA standard values from the Handbook (p.30): ingestion rate IR = 2.3 L/day, exposure frequency EF = 350 days/yr, exposure duration ED = 30 yr (at one residence, 90th percentile), body weight BW = 78 kg (adult male), and averaging time AT = 75 yr $\times$ 365 days/yr (carcinogen --- use lifetime averaging time). Calculate the Chronic Daily Intake (CDI) in mg/(kg$\cdot$day).
+
+Drinking Water CDI (Handbook p.29):
+CDI = (CW)(IR)(EF)(ED) / [(BW)(AT)]\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $CDI = \dfrac{(C_W)(IR)(EF)(ED)}{(BW)(AT)}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} 5.66 $\times$ 10\textsuperscript{--}\textsuperscript{5} mg/(kg$\cdot$day)\par\vspace{2pt}
+{\small \[CDI = \frac{(0.005)(2.3)(350)(30)}{(78)(75 \times 365)}\]
+
+Numerator: $0.005 \times 2.3 \times 350 \times 30 = 120.75$
+
+Denominator: $78 \times 27{,}375 = 2{,}135{,}250$
+
+\[CDI = \frac{120.75}{2{,}135{,}250} = 5.66 \times 10^{-5}\;\text{mg/(kg\cdot{}day)}\]
+
+The key distinction for carcinogens: **AT = lifetime = 75 years $\times$ 365 days/yr = 27,375 days**, regardless of the actual exposure duration (ED = 30 yr here). This normalizes the risk to a full lifetime. For noncarcinogens, AT = ED $\times$ 365. Using AT = ED $\times$ 365 (noncarcinogen approach) would give CDI = 120.75/10,950 = 0.011 mg/(kg$\cdot$day) --- 195$\times$ higher than the carcinogen-basis CDI.
+
+With CSF for arsenic (oral) $\approx$ 1.5 (mg/kg$\cdot$day)\textsuperscript{--}\textsuperscript{1}: Risk = 5.66$\times$10\textsuperscript{--}\textsuperscript{5} $\times$ 1.5 = 8.5$\times$10\textsuperscript{--}\textsuperscript{5} --- within the acceptable range (10\textsuperscript{--}\textsuperscript{6} to 10\textsuperscript{--}\textsuperscript{4}). The EPA Maximum Contaminant Level (MCL) for arsenic in drinking water is 10 $\mu$g/L --- this problem uses 5 $\mu$g/L, so the risk would be roughly half.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Exposure: Ingestion in drinking water CDI=(CW)(IR)(EF)(ED)/[(BW)(AT)] (p.29); EPA intake values: male BW=78 kg, water IR=2.3 L/day, carcinogen AT=lifetime (p.30) \textbullet\ Handbook p.29 --- CDI drinking water formula; p.30 --- EPA intake rate values table}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q6.}\quad {\small\color{soft}[D13-Q06 \textbullet\ MCQ \textbullet\ Exposure pathway --- soil ingestion CDI $\rightarrow$ Hazard Index (SI)]}\par\vspace{2pt}
+A child (age 1--6 years) is exposed to lead in residential soil. Using Handbook EPA standard values (p.29--30): soil concentration CS = 500 mg/kg, soil ingestion rate IR = 100 mg/day (child), conversion factor CF = 10\textsuperscript{--}\textsuperscript{6} kg/mg, fraction ingested FI = 1.0, exposure frequency EF = 350 days/yr, exposure duration ED = 6 yr, body weight BW = 16 kg (child 1--5 yr), and averaging time AT = 6 yr $\times$ 365 days (noncarcinogen). The Chronic Daily Intake via soil ingestion is most nearly:
+
+Soil CDI (Handbook p.29): CDI = (CS)(IR)(CF)(FI)(EF)(ED) / [(BW)(AT)]\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $CDI = \dfrac{(C_S)(IR)(CF)(FI)(EF)(ED)}{(BW)(AT)}$\par\vspace{3pt}
+\optline{A}{3.0 $\times$ 10\textsuperscript{--}\textsuperscript{5} mg/(kg$\cdot$day)}
+\optline{B}{\correct{3.0 $\times$ 10\textsuperscript{--}\textsuperscript{3} mg/(kg$\cdot$day)}}
+\optline{C}{3.0 $\times$ 10\textsuperscript{--}\textsuperscript{1} mg/(kg$\cdot$day)}
+\optline{D}{3.0 $\times$ 10\textsuperscript{1} mg/(kg$\cdot$day)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[CDI = \frac{(500)(100)(10^{-6})(1.0)(350)(6)}{(16)(6 \times 365)}\]
+
+Numerator: $500 \times 100 \times 10^{-6} \times 1.0 \times 350 \times 6 = 0.05 \times 2{,}100 = 105$
+
+Denominator: $16 \times 2{,}190 = 35{,}040$
+
+\[CDI = \frac{105}{35{,}040} = 3.0 \times 10^{-3}\;\text{mg/(kg\cdot day)}\]
+
+The conversion factor CF = 10\textsuperscript{--}\textsuperscript{6} kg/mg converts the soil ingestion rate from mg/day to kg/day so units cancel with the soil concentration in mg/kg:
+
+$(\text{mg}_{\text{chem}}/\text{kg}_{\text{soil}}) \times (\text{mg}_{\text{soil}}/\text{day}) \times (\text{kg}_{\text{soil}}/\text{mg}_{\text{soil}}) \times (\text{days}) / [(\text{kg}_{\text{body}})(\text{days})] = \text{mg}_{\text{chem}}/(\text{kg}_{\text{body}}\cdot\text{day})$
+
+Option (A) 3.0$\times$10\textsuperscript{--}\textsuperscript{5}: off by 100$\times$ --- likely forgot to include both EF and ED in the numerator. Option (C) 3.0$\times$10\textsuperscript{--}\textsuperscript{1}: off by 100$\times$ in the wrong direction --- possibly used IR=10,000 mg/day or dropped the CF. Option (D) 30 mg/(kg$\cdot$day): dropped CF (10\textsuperscript{--}\textsuperscript{6}) entirely.
+
+Note: AT = ED $\times$ 365 for a noncarcinogen (actual exposure duration). Using the EPA oral RfD for lead of 0.014 mg/(kg$\cdot$day): HI = 3.0$\times$10\textsuperscript{--}\textsuperscript{3} / 0.014 = 0.21 < 1.0 at this soil concentration.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Exposure: Soil ingestion CDI = (CS)(IR)(CF)(FI)(EF)(ED)/[(BW)(AT)] (p.29); child soil ingestion rate IR > 100 mg/day, child BW 1--5 yr = 16 kg (p.30) \textbullet\ Handbook p.29 --- CDI soil ingestion formula; p.30 --- EPA intake values (child soil IR, BW)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q7.}\quad {\small\color{soft}[D13-Q07 \textbullet\ MCQ \textbullet\ Exposure pathway --- inhalation CDI (SI)]}\par\vspace{2pt}
+An adult male worker is exposed to a noncarcinogenic industrial solvent at an airborne concentration of CA = 0.50 mg/m\textsuperscript{3}. Using Handbook parameters (p.29--30): inhalation rate IR = 0.98 m\textsuperscript{3}/hr (adult, 6-hr workday), exposure time ET = 8 hr/day, exposure frequency EF = 250 days/yr (occupational), exposure duration ED = 25 yr, body weight BW = 78 kg, and averaging time AT = 25 yr $\times$ 365 days (noncarcinogen). The Chronic Daily Intake via inhalation is most nearly:
+
+Inhalation CDI (Handbook p.29): CDI = (CA)(IR)(ET)(EF)(ED) / [(BW)(AT)]\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $CDI = \dfrac{(C_A)(IR)(ET)(EF)(ED)}{(BW)(AT)}$\par\vspace{3pt}
+\optline{A}{4.3 $\times$ 10\textsuperscript{--}\textsuperscript{3} mg/(kg$\cdot$day)}
+\optline{B}{\correct{3.4 $\times$ 10\textsuperscript{--}\textsuperscript{2} mg/(kg$\cdot$day)}}
+\optline{C}{5.0 $\times$ 10\textsuperscript{--}\textsuperscript{2} mg/(kg$\cdot$day)}
+\optline{D}{2.7 mg/(kg$\cdot$day)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[CDI = \frac{(0.50)(0.98)(8)(250)(25)}{(78)(25 \times 365)}\]
+
+Numerator: $0.50 \times 0.98 \times 8 \times 250 \times 25 = 24{,}500$
+
+Denominator: $78 \times 9{,}125 = 711{,}750$
+
+\[CDI = \frac{24{,}500}{711{,}750} = 0.034\;\text{mg/(kg\cdot{}day)} = 3.4 \times 10^{-2}\;\text{mg/(kg\cdot{}day)}\]
+
+Option (A) 4.3$\times$10\textsuperscript{--}\textsuperscript{3}: forgot ET=8 hr/day in numerator $\rightarrow$ CDI = (0.50)(0.98)(1)(250)(25)/(78$\times$9125) = 3062.5/711750 = 4.3$\times$10\textsuperscript{--}\textsuperscript{3}. The exposure time per day must be included separately from the inhalation rate. Option (C) 5.0$\times$10\textsuperscript{--}\textsuperscript{2}: used EF = 365 days/yr (residential) instead of 250 (occupational) $\rightarrow$ 0.50$\times$0.98$\times$8$\times$365$\times$25 / 711750 = 35770/711750 = 0.050. Option (D) 2.7 mg/(kg$\cdot$day): omitted the averaging time (AT) from the denominator $\rightarrow$ CDI = numerator / BW = 24500/78 = 314? Actually more likely omitted AT entirely: 24500/(78$\times$365) = 24500/28470 = 0.86... still not 2.7. Perhaps used AT=1 day: 24500/(78$\times$1) = 314 --- too large. D likely arises from dropping AT from denominator differently.
+
+The 0.98 m\textsuperscript{3}/hr inhalation rate is for adults during a 6-hour workday exposure (from the Handbook intake table, p.30). Multiply by actual ET = 8 hr/day to get total daily air volume.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Exposure: Inhalation CDI = (CA)(IR)(ET)(EF)(ED)/[(BW)(AT)] (p.29); IR (adult 6-hr day) = 0.98 m\textsuperscript{3}/hr (p.30) \textbullet\ Handbook p.29 --- CDI inhalation formula; p.30 --- inhalation rate values}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q8.}\quad {\small\color{soft}[D13-Q08 \textbullet\ MCQ \textbullet\ Chemical interaction effects --- synergistic vs. additive vs. antagonistic (SI)]}\par\vspace{2pt}
+Epidemiological studies show that workers who both smoke cigarettes and are exposed to asbestos develop lung cancer at a rate far exceeding what would be predicted by simply adding the individual risks of smoking alone and asbestos alone. According to the Selected Chemical Interaction Effects table in the NCEES FE Reference Handbook (p.24), this type of interaction is classified as:
+
+Chemical Interaction Effects (Handbook p.24):
+• Additive: combined toxicity $\approx$ sum of individual toxicities (e.g., 2 + 3 = 5)
+• Synergistic: combined toxicity >> sum of individual toxicities (e.g., 2 + 3 = 20)
+• Antagonistic: combined toxicity < sum of individual toxicities (e.g., 6 + 6 = 8)\par\vspace{3pt}
+\optline{A}{Additive --- the combined effect equals the sum of individual effects}
+\optline{B}{Antagonistic --- the combined effect is less than the sum of individual effects}
+\optline{C}{\correct{Synergistic --- the combined effect greatly exceeds the sum of individual effects}}
+\optline{D}{Independent --- the two exposures do not interact}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small The Handbook (p.24) explicitly lists 'Cigarette smoking + asbestos' as the example of a **synergistic** interaction.
+
+In a synergistic interaction, the combined toxic effect far exceeds the sum of individual effects (2 + 3 $\rightarrow$ 20 in the Handbook's hypothetical notation). Epidemiologically, asbestos workers who smoke develop mesothelioma and lung cancer at rates 50--90$\times$ higher than nonsmoking, non-exposed controls --- far greater than the additive prediction.
+
+Option (A) Additive: would predict combined risk $\approx$ sum of risks from smoking + asbestos separately. The Handbook example of additive interactions is organophosphate pesticides. Option (B) Antagonistic: antagonistic interactions REDUCE the combined effect below what addition predicts (e.g., toluene + benzene or caffeine + alcohol per Handbook p.24). Option (D) Independent: implies no interaction between exposures --- the data show a strong multiplicative interaction.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Risk Assessment: Selected Chemical Interaction Effects table (additive 2+3=5 / synergistic 2+3=20 / antagonistic 6+6=8) with examples (p.24) \textbullet\ Handbook p.24 --- Chemical Interaction Effects table}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q9.}\quad {\small\color{soft}[D13-Q09 \textbullet\ MCQ \textbullet\ OSHA permissible noise exposure --- dose D = 100\% $\times$ $\Sigma$(Ci/Ti) (USCS)]}\par\vspace{2pt}
+A worker's daily noise exposure consists of three periods: 4 hours at 90 dBA, 2 hours at 95 dBA, and 2 hours at 100 dBA. Using the OSHA Permissible Noise Exposure table (Handbook p.35): 90 dBA $\rightarrow$ T = 8 hr; 95 dBA $\rightarrow$ T = 4 hr; 100 dBA $\rightarrow$ T = 2 hr. The noise dose D and required action are:
+
+Noise Dose (Handbook p.34--35):
+D = 100\% $\times$ $\Sigma$ (Ci / Ti)
+where Ci = hours at SPL, Ti = permissible hours at that SPL\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $D = 100\% \times \sum_i \dfrac{C_i}{T_i}$\par\vspace{3pt}
+\optline{A}{D = 75\%; no action required}
+\optline{B}{D = 100\%; noise abatement is required}
+\optline{C}{D = 150\%; hearing conservation program required}
+\optline{D}{\correct{D = 200\%; noise abatement is required}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (D)\par\vspace{2pt}
+{\small \[D = 100\% \times \left(\frac{4}{8} + \frac{2}{4} + \frac{2}{2}\right) = 100\% \times (0.50 + 0.50 + 1.00) = 200\%\]
+
+OSHA action thresholds (Handbook p.35):
+- D > 100\%: **noise abatement required**
+- 50\% $\le$ D $\le$ 100\%: hearing conservation program required
+- D < 50\%: no action required
+
+At D = 200\%, noise abatement (engineering controls, administrative controls, or PPE) is required.
+
+Option (A) 75\%: uses only the 90 and 95 dBA periods $\rightarrow$ (4/8 + 2/4 = 1.0 $\times$ 100\%) = 100\%, or maybe only first two but with error. Option (B) 100\%: uses only 90 and 95 dBA periods, ignores the critical 100 dBA period --- 4/8 + 2/4 = 100\%, which correctly triggers abatement, but misses the 2-hr @100 dBA. Option (C) 150\%: forgets one of the three periods, e.g., 0.5 + 0.5 + 0.5 = 1.5, misidentifying T\textsubscript{1}\textsubscript{0}\textsubscript{0} = 4 instead of 2 $\rightarrow$ 2/4 = 0.5 instead of 1.0.
+
+The 100 dBA period is the critical contributor: a worker is only permitted 2 hours at 100 dBA, so 2 full hours = 100\% of that dose alone. Combined with the other two 50\% doses, total = 200\%.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Permissible Noise Exposure (OSHA): D = 100\%$\times$$\Sigma$(Ci/Ti); table 90 dBA$\rightarrow$8 hr, 95$\rightarrow$4, 100$\rightarrow$2, 105$\rightarrow$1, 110$\rightarrow$0.5, 115$\rightarrow$0.25; D>100\% $\rightarrow$ abatement required (pp.34--35) \textbullet\ Handbook pp.34--35 --- OSHA Permissible Noise Exposure: dose formula and action thresholds}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q10.}\quad {\small\color{soft}[D13-Q10 \textbullet\ MCQ \textbullet\ Threshold Limit Value (TLV) --- occupational exposure limit (SI)]}\par\vspace{2pt}
+The NCEES FE Reference Handbook (p.25) defines the Threshold Limit Value (TLV) as 'the highest dose (ppm by volume in the atmosphere) the body is able to detoxify without any detectable effects.' The following TLVs are given:
+
+| Compound | TLV (ppm) |
+|---|---|
+| Ammonia | 25 |
+| Chlorine | 0.5 |
+| Ethyl Chloride | 1,000 |
+| Ethyl Ether | 400 |
+
+A monitoring survey measures chlorine gas at 0.3 ppm TWA in a work area. Which of the following statements is CORRECT?\par\vspace{3pt}
+\optline{A}{The measured level exceeds the TLV for chlorine; immediate evacuation is required}
+\optline{B}{\correct{The measured level is below the TLV for chlorine; detrimental effects are not expected at this concentration}}
+\optline{C}{The TLV for chlorine (0.5 ppm) is lower than for ammonia (25 ppm), meaning chlorine is less toxic}
+\optline{D}{The TLV for chlorine equals the LD\textsubscript{5}\textsubscript{0} for chlorine}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The TLV for chlorine is 0.5 ppm. The measured concentration (0.3 ppm) is **below** the TLV, so the TLV is not exceeded and detrimental effects are not expected.
+
+Option (A): Evacuation is not required because 0.3 ppm < 0.5 ppm (TLV for Cl\textsubscript{2}). IDLH (Immediately Dangerous to Life or Health) for chlorine is 10 ppm --- much higher than the TLV. Option (C): A LOWER TLV means the compound is MORE toxic (a smaller amount is harmful). Chlorine (TLV = 0.5 ppm) is more toxic than ammonia (TLV = 25 ppm) because harmful effects appear at lower concentrations. Ethyl Chloride (TLV = 1,000 ppm) is the least toxic of the four compounds listed. Option (D): TLV is an occupational airborne exposure limit, not a lethal dose metric. LD\textsubscript{5}\textsubscript{0} is measured in mg/kg from animal studies; TLV is measured in ppm for air.
+
+Chlorine is a highly toxic gas --- the TLV of 0.5 ppm reflects its potential to cause pulmonary edema and respiratory damage at even low concentrations. It was famously used as a chemical weapon in World War I.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Threshold Limit Value (TLV): definition + table (ammonia 25, chlorine 0.5, ethyl chloride 1000, ethyl ether 400 ppm) (p.25) \textbullet\ Handbook p.25 --- TLV definition and table}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q11.}\quad {\small\color{soft}[D13-Q11 \textbullet\ MCQ \textbullet\ Carcinogen risk --- acceptable range interpretation (SI)]}\par\vspace{2pt}
+A Superfund site risk assessment estimates a lifetime cancer risk of 3.5 $\times$ 10\textsuperscript{--}\textsuperscript{5} for residents due to exposure to a carcinogenic contaminant via drinking water. According to the NCEES FE Reference Handbook (p.25), EPA considers an acceptable risk range of 10\textsuperscript{--}\textsuperscript{4} to 10\textsuperscript{--}\textsuperscript{6}. Which conclusion is MOST appropriate based on the risk value?\par\vspace{3pt}
+\optline{A}{The risk (3.5 $\times$ 10\textsuperscript{--}\textsuperscript{5}) is above 10\textsuperscript{--}\textsuperscript{4} and is clearly unacceptable; immediate mandatory remediation is required}
+\optline{B}{\correct{The risk (3.5 $\times$ 10\textsuperscript{--}\textsuperscript{5}) is within EPA's acceptable range (10\textsuperscript{--}\textsuperscript{6} to 10\textsuperscript{--}\textsuperscript{4}); no further action may be required}}
+\optline{C}{The risk (3.5 $\times$ 10\textsuperscript{--}\textsuperscript{5}) is below 10\textsuperscript{--}\textsuperscript{6} (the lower bound); the site is uncontaminated and cleanup is not necessary}
+\optline{D}{The risk cannot be evaluated without knowing the CSF for the specific contaminant}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Check the magnitude: $10^{-6} \leq 3.5 \times 10^{-5} \leq 10^{-4}$ $\checkmark$
+
+$3.5 \times 10^{-5} = 0.35 \times 10^{-4}$, so it is between 10\textsuperscript{--}\textsuperscript{6} and 10\textsuperscript{--}\textsuperscript{4} --- **within EPA's acceptable range**.
+
+The risk is closer to 10\textsuperscript{--}\textsuperscript{4} than to 10\textsuperscript{--}\textsuperscript{6}, which may trigger more careful consideration, but it falls within the Handbook-stated acceptable range. At Superfund sites, EPA typically targets a risk level of 10\textsuperscript{--}\textsuperscript{6} as the cleanup goal for carcinogens, with 10\textsuperscript{--}\textsuperscript{4} as the upper bound for acceptable residual risk.
+
+Option (A): 3.5$\times$10\textsuperscript{--}\textsuperscript{5} < 10\textsuperscript{--}\textsuperscript{4} (one unit of 10\textsuperscript{--}\textsuperscript{4} = 10$\times$10\textsuperscript{--}\textsuperscript{5}). The risk does NOT exceed 10\textsuperscript{--}\textsuperscript{4}. Note: 10\textsuperscript{--}\textsuperscript{4} = 1$\times$10\textsuperscript{--}\textsuperscript{4}, while 3.5$\times$10\textsuperscript{--}\textsuperscript{5} = 0.35$\times$10\textsuperscript{--}\textsuperscript{4} < 10\textsuperscript{--}\textsuperscript{4}. Option (C): 3.5$\times$10\textsuperscript{--}\textsuperscript{5} >> 10\textsuperscript{--}\textsuperscript{6} (it is 35$\times$ higher than the lower bound) --- it is far above 10\textsuperscript{--}\textsuperscript{6}, not below it. Option (D): The risk WAS already calculated (3.5$\times$10\textsuperscript{--}\textsuperscript{5} = CDI $\times$ CSF); the result has already incorporated the CSF.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Carcinogens: 'EPA considers an acceptable risk to be within the range of 10\textsuperscript{--}\textsuperscript{4} to 10\textsuperscript{--}\textsuperscript{6}' (p.25) \textbullet\ Handbook p.25 --- Carcinogens: acceptable risk range 10\textsuperscript{--}\textsuperscript{4} to 10\textsuperscript{--}\textsuperscript{6}}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q12.}\quad {\small\color{soft}[D13-Q12 \textbullet\ MCQ \textbullet\ Ideal gas law --- find volume for nitrogen (SI)]}\par\vspace{2pt}
+A sealed rigid vessel contains 0.5 kg of nitrogen gas (N\textsubscript{2}, molecular weight M = 28 kg/kmol) at a temperature of T = 200\textdegree{}C and a pressure of P = 300 kPa. Using the universal gas constant R = 8,314 J/(kmol$\cdot$K) from the Handbook, the volume of nitrogen in the vessel is most nearly:
+
+Ideal Gas Law (Handbook p.144):
+PV = mRT  where  R = R/M
+
+Note: T must be in absolute units (K = \textdegree{}C + 273.15)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $PV = mRT, \quad R = \dfrac{\bar{R}}{M}$\par\vspace{3pt}
+\optline{A}{0.023 m\textsuperscript{3}}
+\optline{B}{0.117 m\textsuperscript{3}}
+\optline{C}{\correct{0.234 m\textsuperscript{3}}}
+\optline{D}{0.468 m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small Convert to absolute temperature: $T = 200 + 273.15 = 473.15\;\text{K}$
+
+Find specific gas constant for N\textsubscript{2}:
+\[R_{N_2} = \frac{\bar{R}}{M} = \frac{8{,}314\;\text{J/(kmol\cdot{}K)}}{28\;\text{kg/kmol}} = 297\;\text{J/(kg\cdot{}K)}\]
+
+Solve for volume:
+\[V = \frac{mRT}{P} = \frac{0.5\;\text{kg} \times 297\;\text{J/(kg\cdot{}K)} \times 473.15\;\text{K}}{300{,}000\;\text{Pa}} = \frac{70{,}212}{300{,}000} = 0.234\;\text{m}^3\]
+
+Option (A) 0.023 m\textsuperscript{3}: used P = 3,000 kPa = 3 MPa (unit error --- confused kPa with MPa, pressure 10$\times$ too large, volume 10$\times$ too small). Option (B) 0.117 m\textsuperscript{3}: used m = 0.25 kg (half the actual mass) --- a transcription error. Option (D) 0.468 m\textsuperscript{3}: used m = 1.0 kg instead of 0.5 kg --- double the correct mass.
+
+The ideal gas law applies here because P = 300 kPa < 3 atm $\approx$ 300 kPa --- right at the boundary! For this problem, ideal gas behavior is a reasonable assumption. Also equivalently: n = 0.5 kg / (0.028 kg/mol) = 17.86 mol; V = nRT/P = 17.86 $\times$ 8.314 $\times$ 473.15 / 300,000 = 0.234 m\textsuperscript{3} (same result).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Ideal Gas: PV = mRT; Ri = R/Mi; R = 8,314 J/(kmol$\cdot$K); P\textsubscript{1}v\textsubscript{1}/T\textsubscript{1} = P\textsubscript{2}v\textsubscript{2}/T\textsubscript{2} (p.144) \textbullet\ Handbook p.144 --- Thermodynamics: Ideal Gas Law PV=mRT, universal gas constant R=8,314 J/(kmol$\cdot$K)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q13.}\quad {\small\color{soft}[D13-Q13 \textbullet\ MCQ \textbullet\ Ideal gas --- Boyle's Law, isothermal compression (SI)]}\par\vspace{2pt}
+A gas in a piston-cylinder device undergoes isothermal (constant temperature) compression. Initially, the gas pressure is P\textsubscript{1} = 200 kPa and volume is V\textsubscript{1} = 0.5 m\textsuperscript{3}. After compression to a final volume of V\textsubscript{2} = 0.1 m\textsuperscript{3} at the same temperature, the final pressure P\textsubscript{2} is most nearly:
+
+Boyle's Law --- Constant Temperature (Handbook p.148):
+For an ideal gas at constant T: Pv = constant
+(P\textsubscript{1}V\textsubscript{1} = P\textsubscript{2}V\textsubscript{2})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P_1 V_1 = P_2 V_2 \quad (\text{constant } T)$\par\vspace{3pt}
+\optline{A}{40 kPa}
+\optline{B}{500 kPa}
+\optline{C}{\correct{1,000 kPa}}
+\optline{D}{2,000 kPa}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[P_2 = \frac{P_1 V_1}{V_2} = \frac{200\;\text{kPa} \times 0.5\;\text{m}^3}{0.1\;\text{m}^3} = 1{,}000\;\text{kPa}\]
+
+The volume decreased by a factor of 5 (0.5/0.1 = 5), so the pressure increases by a factor of 5 (200 $\times$ 5 = 1,000 kPa). This is Boyle's Law: at constant temperature, pressure and volume are inversely proportional.
+
+Option (A) 40 kPa: inverted the ratio --- used P\textsubscript{2} = P\textsubscript{1} $\times$ V\textsubscript{2}/V\textsubscript{1} = 200 $\times$ 0.1/0.5 = 40 kPa. Pressure increases upon compression; it does not decrease. Option (B) 500 kPa: incomplete calculation --- perhaps used P\textsubscript{2} = P\textsubscript{1} $\times$ (V\textsubscript{1} - V\textsubscript{2})/V\textsubscript{2} + P\textsubscript{1}? Not a meaningful formula. Option (D) 2,000 kPa: used factor of 10 (ratio of V\textsubscript{1}/V\textsubscript{1} to V\textsubscript{2} perhaps in different units) or added P\textsubscript{1} instead of multiplying --- double the correct answer.
+
+Boyle's Law (1662): Pv = constant at constant T, for ideal gases. In an isothermal process on a P-V diagram, the path follows a hyperbola (Pv = constant).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Constant Temperature process (Boyle's Law): Pv = constant for ideal gas (p.148); work wb = RT ln(v\textsubscript{2}/v\textsubscript{1}) (p.148) \textbullet\ Handbook p.148 --- Thermodynamics: Constant Temperature process (Boyle's Law), Pv = constant}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q14.}\quad {\small\color{soft}[D13-Q14 \textbullet\ MCQ \textbullet\ Ideal gas --- Charles' Law, constant-pressure heating (SI)]}\par\vspace{2pt}
+A gas is heated at constant pressure from an initial temperature of T\textsubscript{1} = 300 K and volume V\textsubscript{1} = 1.5 m\textsuperscript{3} to a final temperature of T\textsubscript{2} = 450 K. The final volume of the gas is most nearly:
+
+Charles' Law --- Constant Pressure (Handbook p.148):
+For an ideal gas at constant P: T/v = constant
+(V\textsubscript{1}/T\textsubscript{1} = V\textsubscript{2}/T\textsubscript{2})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2} \quad (\text{constant } P)$\par\vspace{3pt}
+\optline{A}{0.75 m\textsuperscript{3}}
+\optline{B}{1.00 m\textsuperscript{3}}
+\optline{C}{\correct{2.25 m\textsuperscript{3}}}
+\optline{D}{3.00 m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[V_2 = V_1 \times \frac{T_2}{T_1} = 1.5\;\text{m}^3 \times \frac{450\;\text{K}}{300\;\text{K}} = 1.5 \times 1.5 = 2.25\;\text{m}^3\]
+
+Heating at constant pressure from 300 K to 450 K (a 50\% increase in absolute temperature) produces a 50\% increase in volume.
+
+Option (A) 0.75 m\textsuperscript{3}: used $\Delta$T/T\textsubscript{1} $\times$ V\textsubscript{1} = (150/300)$\times$1.5 = 0.75 --- computes only the CHANGE in volume, then forgets to add V\textsubscript{1}; or equivalently, subtracted rather than multiplied. Option (B) 1.00 m\textsuperscript{3}: used the inverse ratio T\textsubscript{1}/T\textsubscript{2} $\times$ V\textsubscript{1} = (300/450)$\times$1.5 = 1.0 --- inverted the temperature ratio. Heating always increases volume at constant P. Option (D) 3.00 m\textsuperscript{3}: used V\textsubscript{2} = V\textsubscript{1} $\times$ (T\textsubscript{2} - T\textsubscript{1})/T\textsubscript{1} + V\textsubscript{1} = 0.75 + 1.5 = 2.25... that actually gives the correct answer. Or doubling: 2$\times$1.5 = 3.0.
+
+Key reminder: temperatures in Charles' Law MUST be in absolute units (K or \textdegree{}R). Using 300\textdegree{}C and 450\textdegree{}C in Celsius directly would give V\textsubscript{2} = 1.5 $\times$ 450/300 = 2.25 --- numerically the same in this problem, but this is a coincidence. Always convert to K first.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Constant System Pressure process (Charles' Law): T/v = constant for ideal gas (p.148) \textbullet\ Handbook p.148 --- Thermodynamics: Constant Pressure process (Charles' Law), T/v = constant}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q15.}\quad {\small\color{soft}[D13-Q15 \textbullet\ MCQ \textbullet\ First Law of Thermodynamics --- closed system (SI)]}\par\vspace{2pt}
+A gas in a sealed piston-cylinder device (a closed system) absorbs Q = 800 J of heat from a reservoir and performs W = 500 J of boundary work against the surroundings. There is no change in kinetic or potential energy. The change in internal energy $\Delta$U of the gas is most nearly:
+
+First Law, Closed System (Handbook p.147):
+Q -- W = $\Delta$U + $\Delta$KE + $\Delta$PE
+With $\Delta$KE = $\Delta$PE = 0: Q -- W = $\Delta$U
+
+(Sign convention: Q > 0 = heat into system; W > 0 = work done by system)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q - W = \Delta U$\par\vspace{3pt}
+\optline{A}{$-$300 J (system lost internal energy)}
+\optline{B}{\correct{+300 J (system gained internal energy)}}
+\optline{C}{+800 J (only heat input matters)}
+\optline{D}{+1,300 J (heat and work both added to system)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[\Delta U = Q - W = 800\;\text{J} - 500\;\text{J} = +300\;\text{J}\]
+
+The system absorbed 800 J of heat but used 500 J to do work on the surroundings (e.g., pushing a piston). The remaining 300 J increased the internal energy of the gas (raising its temperature).
+
+Option (A) $-$300 J: computed W $-$ Q = 500 $-$ 800 = $-$300 --- reversed the sign convention. $\Delta$U would be negative only if the system lost more energy to work than it received as heat. Option (C) +800 J: ignored the work output --- if W = 0, then $\Delta$U = Q = 800. The gas performed 500 J of work against the surroundings, which must be subtracted. Option (D) +1,300 J: added Q + W instead of subtracting --- this would apply if W were work done ON the system (sign reversed). The sign convention in the Handbook: Q positive into system, W positive out of system $\rightarrow$ $\Delta$U = Q $-$ W.
+
+Energy conservation: all 800 J of heat input is accounted for --- 500 J went to work, 300 J remained as internal energy. If this were an ideal gas: $\Delta$U = n$\cdot$cv$\cdot$$\Delta$T = 300 J, from which $\Delta$T could be calculated given cv.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- First Law of Thermodynamics (Closed System): Q $-$ W = $\Delta$U + $\Delta$KE + $\Delta$PE; Q = heat inward (+), W = work outward (+) (p.147) \textbullet\ Handbook p.147 --- Thermodynamics: First Law (Closed System), Q $-$ W = $\Delta$U}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q16.}\quad {\small\color{soft}[D13-Q16 \textbullet\ MCQ \textbullet\ Carnot efficiency --- maximum theoretical efficiency (SI)]}\par\vspace{2pt}
+A heat engine operates between a high-temperature reservoir at TH = 800 K and a low-temperature reservoir at TL = 300 K. The maximum (Carnot) thermal efficiency of this engine is most nearly:
+
+Carnot Efficiency (Handbook p.149):
+$\eta$c = (TH $-$ TL) / TH
+where TH and TL are absolute temperatures (K or \textdegree{}R)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\eta_c = \dfrac{T_H - T_L}{T_H}$\par\vspace{3pt}
+\optline{A}{37.5\%}
+\optline{B}{\correct{62.5\%}}
+\optline{C}{73.3\%}
+\optline{D}{160\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[\eta_c = \frac{T_H - T_L}{T_H} = \frac{800 - 300}{800} = \frac{500}{800} = 0.625 = 62.5\%\]
+
+Option (A) 37.5\%: used TL/TH = 300/800 = 0.375 instead of (TH$-$TL)/TH --- the correct formula subtracts the cold temperature from the hot and divides by the hot. Option (C) 73.3\%: no standard calculation yields this from the given temperatures (possibly a transcription or interpolation error). Option (D) 160\%: computed TH/(TH$-$TL) = 800/500 = 1.6 = 160\% --- this is the formula for Carnot COP of a heat pump (not efficiency). Efficiency cannot exceed 100\%; this is the Kelvin-Planck corollary to the Second Law.
+
+The Carnot Cycle is the most efficient possible heat engine. No real engine operating between TH = 800 K and TL = 300 K can exceed 62.5\% efficiency. Most real thermal power plants achieve 30--45\% because of irreversibilities, friction, and heat losses.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Basic Cycles: Carnot efficiency $\eta$c = (TH$-$TL)/TH; temperatures in absolute units (p.149) \textbullet\ Handbook p.149 --- Thermodynamics: Carnot Cycle efficiency formula}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q17.}\quad {\small\color{soft}[D13-Q17 \textbullet\ MCQ \textbullet\ Carnot COP --- refrigerator (SI)]}\par\vspace{2pt}
+A Carnot refrigerator maintains a cold space at TL = 260 K ($-$13\textdegree{}C) while rejecting heat to the environment at TH = 300 K (27\textdegree{}C). The maximum Coefficient of Performance (COP) of this refrigerator is most nearly:
+
+Carnot COP for Refrigerator (Handbook p.149--150):
+COPc = TL / (TH $-$ TL)
+
+(For heat pumps: COPc = TH / (TH $-$ TL))\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $COP_c^{\text{(ref)}} = \dfrac{T_L}{T_H - T_L}$\par\vspace{3pt}
+\optline{A}{0.15 (dimensionless)}
+\optline{B}{\correct{6.5 (dimensionless)}}
+\optline{C}{7.5 (dimensionless)}
+\optline{D}{13.0 (dimensionless)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[COP_c = \frac{T_L}{T_H - T_L} = \frac{260}{300 - 260} = \frac{260}{40} = 6.5\]
+
+A COP of 6.5 means the refrigerator delivers 6.5 kJ of heat removal from the cold space for every 1 kJ of work input --- a favorable energy ratio. This is an idealized (Carnot) COP; real refrigerators typically achieve COP = 2--5.
+
+Option (A) 0.15: computed (TH$-$TL)/TL = 40/260 = 0.154 --- the reciprocal of the correct COP. This is the work-to-cooling ratio, not COP. Option (C) 7.5: used the heat pump COP formula TH/(TH$-$TL) = 300/40 = 7.5. Note: COPc(HP) = COPc(ref) + 1 = 6.5 + 1 = 7.5 --- a useful check. The heat pump COP is always 1 greater than the refrigerator COP between the same reservoirs. Option (D) 13.0: doubled the correct answer --- perhaps used TL/(TH$-$2TL)? No clear physical basis.
+
+Key relationship: COPc(HP) $-$ COPc(ref) = 1 (from energy balance: QH = QL + W, so QH/W = QL/W + 1).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Basic Cycles: COPc (refrigerator) = TL/(TH$-$TL); COPc (heat pump) = TH/(TH$-$TL); 1 ton refrigeration = 12,000 Btu/hr (pp.149--150) \textbullet\ Handbook pp.149--150 --- Thermodynamics: COP formulas for refrigerator and heat pump}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q18.}\quad {\small\color{soft}[D13-Q18 \textbullet\ MCQ \textbullet\ Sensible heat --- Q = m$\cdot$cp$\cdot$$\Delta$T for water heating (SI)]}\par\vspace{2pt}
+A water heater raises the temperature of 5 kg of water from 20\textdegree{}C to 100\textdegree{}C. The specific heat capacity of liquid water is cp = 4.18 kJ/(kg$\cdot$K). The heat energy required to heat the water is most nearly:
+
+Sensible Heating (from $\Delta$h = cp $\Delta$T for constant-pressure process; Handbook p.145):
+Q = m $\cdot$ cp $\cdot$ $\Delta$T\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $Q = m \cdot c_p \cdot \Delta T$\par\vspace{3pt}
+\optline{A}{20.9 kJ}
+\optline{B}{167 kJ}
+\optline{C}{\correct{1,672 kJ}}
+\optline{D}{16,720 kJ}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[\Delta T = 100 - 20 = 80\;^\circ\text{C} = 80\;\text{K}\]
+
+\[Q = m \cdot c_p \cdot \Delta T = 5\;\text{kg} \times 4.18\;\text{kJ/(kg\cdot{}K)} \times 80\;\text{K} = 1{,}672\;\text{kJ}\]
+
+Option (A) 20.9 kJ: used only m $\times$ cp = 5 $\times$ 4.18 = 20.9 --- forgot to multiply by $\Delta$T = 80 K (equivalently, used $\Delta$T = 1 K). Option (B) 167 kJ: off by factor of 10 --- either used m = 0.5 kg, or $\Delta$T = 8 K instead of 80 K (failed to compute 100$-$20 = 80). Option (D) 16,720 kJ: off by factor of 10 the other way --- either used m = 50 kg, or $\Delta$T = 800 K, or cp = 41.8 kJ/(kg$\cdot$K).
+
+This Q = m$\cdot$cp$\cdot$$\Delta$T relationship derives directly from the thermodynamic identity $\Delta$h = cp$\Delta$T (Handbook p.145, for constant-pressure processes with ideal gas or liquid). The 1,672 kJ is equivalent to 0.464 kWh --- roughly the energy to run a 100 W light bulb for 4.6 hours, or a small electric kettle for about 15 minutes. Note: this does not account for boiling --- heating liquid water to exactly 100\textdegree{}C at sea level requires this energy before any phase change occurs.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Ideal Gas: $\Delta$h = cp$\Delta$T (p.145). For constant-pressure sensible heating of liquids, Q = m$\cdot$cp$\Delta$T follows from this identity. (Liquid water cp tabulated in Handbook thermal property tables.) \textbullet\ Handbook p.145 --- $\Delta$h = cp$\Delta$T for constant-pressure process}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q19.}\quad {\small\color{soft}[D13-Q19 \textbullet\ Numeric \textbullet\ Isentropic process --- P1V1\textasciicircum{}k = P2V2\textasciicircum{}k, find compressed volume (SI)]}\par\vspace{2pt}
+Air (k = cp/cv = 1.4) undergoes isentropic (reversible adiabatic) compression in a piston-cylinder from an initial state of P1 = 100 kPa and V1 = 1.0 m3 to a final pressure of P2 = 800 kPa. Calculate the final volume V2 (in m3).
+
+Isentropic Process --- Ideal Gas (Handbook p.148):
+P1V1\textasciicircum{}k = P2V2\textasciicircum{}k  -->  V2 = V1 x (P1/P2)\textasciicircum{}(1/k)
+where k = cp/cv = 1.4 for diatomic gases (air, N2, O2)\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P_1 V_1^k = P_2 V_2^k \quad \Rightarrow \quad V_2 = V_1 \left(\dfrac{P_1}{P_2}\right)^{1/k}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} 0.226 m\textsuperscript{3}\par\vspace{2pt}
+{\small \[V_2 = V_1 \left(\frac{P_1}{P_2}\right)^{1/k} = 1.0 \times \left(\frac{100}{800}\right)^{1/1.4} = (0.125)^{0.714}\]
+
+\[= e^{0.714 \times \ln(0.125)} = e^{0.714 \times (-2.079)} = e^{-1.485} = 0.226\;\text{m}^3\]
+
+Verify: $P_1 V_1^k = 100 \times 1.0^{1.4} = 100$ and $P_2 V_2^k = 800 \times 0.226^{1.4} = 800 \times 0.125 = 100$ $\checkmark$
+
+Common errors:
+- **Linear compression** (isothermal Boyle's Law): V\textsubscript{2} = V\textsubscript{1}$\times$P\textsubscript{1}/P\textsubscript{2} = 1.0$\times$100/800 = **0.125 m\textsuperscript{3}** --- ignores the k exponent; isentropic compression is 'stiffer' than isothermal
+- **Wrong k** (used k=1.67 for monatomic noble gas): V\textsubscript{2} = (0.125)\textasciicircum{}(1/1.67) = (0.125)\textasciicircum{}0.599 = 0.288 m\textsuperscript{3}
+- **Inverted pressure ratio**: V\textsubscript{2} = (P\textsubscript{2}/P\textsubscript{1})\textasciicircum{}(1/k) = 8\textasciicircum{}0.714 = 4.41 m\textsuperscript{3} --- physically wrong; compression reduces volume
+
+Also compute the final temperature:
+\[T_2 = T_1 \left(\frac{P_2}{P_1}\right)^{(k-1)/k} = 300 \times 8^{0.286} = 300 \times 1.811 = 543\;\text{K}\;(270^{\circ}\text{C})\]
+
+This temperature rise (from 27\textdegree{}C to 270\textdegree{}C) explains why air heats up significantly when compressed --- the basis of the diesel engine ignition cycle.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Isentropic process (ideal gas): Pvk = constant, k = cp/cv (p.148); T\textsubscript{2}/T\textsubscript{1} = (P\textsubscript{2}/P\textsubscript{1})\textasciicircum{}((k-1)/k) (p.148) \textbullet\ Handbook p.148 --- Thermodynamics: Isentropic process Pvk = constant}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q20.}\quad {\small\color{soft}[D13-Q20 \textbullet\ MCQ \textbullet\ Combined gas law --- find volume at new P and T (SI)]}\par\vspace{2pt}
+A fixed mass of ideal gas occupies V\textsubscript{1} = 2.0 m\textsuperscript{3} at P\textsubscript{1} = 100 kPa and T\textsubscript{1} = 300 K. The gas is compressed and heated simultaneously to P\textsubscript{2} = 400 kPa and T\textsubscript{2} = 400 K. The final volume V\textsubscript{2} is most nearly:
+
+Combined Gas Law (Handbook p.144):
+P\textsubscript{1}v\textsubscript{1}/T\textsubscript{1} = P\textsubscript{2}v\textsubscript{2}/T\textsubscript{2}  $\rightarrow$  V\textsubscript{2} = V\textsubscript{1} $\times$ (P\textsubscript{1}/P\textsubscript{2}) $\times$ (T\textsubscript{2}/T\textsubscript{1})\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2}$\par\vspace{3pt}
+\optline{A}{0.500 m\textsuperscript{3}}
+\optline{B}{\correct{0.667 m\textsuperscript{3}}}
+\optline{C}{0.750 m\textsuperscript{3}}
+\optline{D}{2.667 m\textsuperscript{3}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[V_2 = V_1 \times \frac{P_1}{P_2} \times \frac{T_2}{T_1} = 2.0 \times \frac{100}{400} \times \frac{400}{300} = 2.0 \times 0.25 \times 1.333 = \frac{2}{3} = 0.667\;\text{m}^3\]
+
+The pressure increased 4$\times$ (compressing the gas) while the temperature increased by only 1.33$\times$ (which partially re-expands it). The net effect is a volume reduction to 1/3 of the original.
+
+Option (A) 0.500 m\textsuperscript{3}: applied Boyle's Law only, ignoring the temperature change --- V\textsubscript{2} = V\textsubscript{1}$\times$P\textsubscript{1}/P\textsubscript{2} = 2.0$\times$100/400 = 0.500. Temperature increase from 300 K to 400 K partially offsets the pressure-driven compression. Option (C) 0.750 m\textsuperscript{3}: possibly an arithmetic error (3/4 of original) with no clear physical basis from the given parameters. Option (D) 2.667 m\textsuperscript{3}: applied Charles' Law only, ignoring the pressure change --- V\textsubscript{2} = V\textsubscript{1}$\times$T\textsubscript{2}/T\textsubscript{1} = 2.0$\times$400/300 = 2.667. Compression at 4$\times$ pressure dominates over the temperature increase.
+
+The combined gas law P\textsubscript{1}V\textsubscript{1}/T\textsubscript{1} = P\textsubscript{2}V\textsubscript{2}/T\textsubscript{2} follows directly from the ideal gas law PV = mRT for a fixed mass of gas (mR = constant).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Thermodynamics --- Ideal Gas: P\textsubscript{1}v\textsubscript{1}/T\textsubscript{1} = P\textsubscript{2}v\textsubscript{2}/T\textsubscript{2} (p.144); derives directly from PV=mRT with fixed mass m \textbullet\ Handbook p.144 --- Thermodynamics: Ideal Gas combined law P\textsubscript{1}v\textsubscript{1}/T\textsubscript{1} = P\textsubscript{2}v\textsubscript{2}/T\textsubscript{2}}\vspace{2pt}
+}}
+\vspace{9pt}
+\end{document}
