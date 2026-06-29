@@ -138,7 +138,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Composite (area-weighted) runoff coefficient",
-      "stem": "A watershed consists of three sub-areas: 8 acres (C = 0.30), 6 acres (C = 0.70), and 6 acres (C = 0.90). The composite runoff coefficient C_comp for use in the Rational Method is most nearly:",
+      "stem": "A watershed consists of three sub-areas: 8 acres (C = 0.30), 6 acres (C = 0.70), and 6 acres (C = 0.90). The composite runoff coefficient $C_{comp}$ for use in the Rational Method is most nearly:",
       "equations": ["$C_{\\text{comp}} = \\dfrac{\\sum C_i A_i}{\\sum A_i}$"],
       "options": ["0.52", "0.60", "0.65", "0.72"],
       "answer": 1,

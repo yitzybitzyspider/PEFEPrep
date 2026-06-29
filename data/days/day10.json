@@ -214,10 +214,10 @@
         "$\\theta_{\\text{PFR}} = \\dfrac{\\ln(C_0/C_t)}{k}$"
       ],
       "options": [
-        "θ_CMFR < θ_PFR (CMFR is more efficient)",
-        "θ_CMFR ≈ θ_PFR (both reactors perform equally)",
-        "θ_CMFR ≈ 3.9 × θ_PFR (CMFR requires ~4× longer HRT)",
-        "θ_CMFR = 9 × θ_PFR (CMFR requires exactly 9× longer HRT)"
+        "$\\theta_{CMFR} < \\theta_{PFR}$ (CMFR is more efficient)",
+        "$\\theta_{CMFR} \\approx \\theta_{PFR}$ (both reactors perform equally)",
+        "$\\theta_{CMFR} \\approx 3.9 \\times \\theta_{PFR}$ (CMFR requires ~4× longer HRT)",
+        "$\\theta_{CMFR} = 9 \\times \\theta_{PFR}$ (CMFR requires exactly 9× longer HRT)"
       ],
       "answer": 2,
       "solution": "For 90% removal: $C_0/C_t = 10$.\n\n$\\theta_{\\text{CMFR}} = \\dfrac{10-1}{k} = \\dfrac{9}{k}$\n\n$\\theta_{\\text{PFR}} = \\dfrac{\\ln 10}{k} = \\dfrac{2.303}{k}$\n\nRatio: $\\theta_{\\text{CMFR}}/\\theta_{\\text{PFR}} = 9/2.303 = 3.91$\n\nOption (A): wrong — the CMFR is less efficient, not more, because it operates at the (lowest) effluent concentration throughout the entire volume. Option (B): wrong — they differ significantly for first-order kinetics. Option (D): $\\theta_{\\text{CMFR}} = 9/k$ and $\\theta_{\\text{PFR}} = \\ln(10)/k \\approx 2.3/k$, so the ratio is 3.9, not 9. The PFR advantage exists because it maintains a high concentration (high reaction rate) along the length of the reactor.",

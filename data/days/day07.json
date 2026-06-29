@@ -89,7 +89,7 @@
       ],
       "options": ["200 gpd/ft²", "500 gpd/ft²", "796 gpd/ft²", "1,200 gpd/ft²"],
       "answer": 2,
-      "solution": "$A = \\pi D^2/4 = \\pi(80)^2/4 = 5{,}027\\ \\mathrm{ft^2}$.  $Q = 4{,}000{,}000\\ \\mathrm{gpd}$.  $v_o = 4{,}000{,}000/5{,}027 = 796\\ \\mathrm{gpd/ft^2}$. This is within the Handbook primary-clarifier design range of 800–1{,}200 gpd/ft² (average). Option (A) uses $\\pi D^2$ without the $\\div 4$ factor, giving $A = 20{,}106\\ \\mathrm{ft^2}$ and SOR $\\approx 199$ gpd/ft².",
+      "solution": "$A = \\pi D^2/4 = \\pi(80)^2/4 = 5{,}027\\ \\mathrm{ft^2}$.  $Q = 4{,}000{,}000\\ \\mathrm{gpd}$.  $v_o = 4{,}000{,}000/5{,}027 = 796\\ \\mathrm{gpd/ft^2}$. This is within the Handbook primary-clarifier design range of 800–1,200 gpd/ft² (average). Option (A) uses $\\pi D^2$ without the $\\div 4$ factor, giving $A = 20{,}106\\ \\mathrm{ft^2}$ and SOR $\\approx 199$ gpd/ft².",
       "handbook": "Environmental Engineering — Clarifier (Overflow Rate; Design Criteria table) (p. 345)",
       "references": "Ctrl-F: Overflow Rate; Clarifier; Primary",
       "source": "handbook",
@@ -101,7 +101,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Hydraulic residence time in a settling tank",
-      "stem": "A rectangular settling basin has a volume V = 600 m³ and receives a flow Q = 1{,}200 m³/day. The hydraulic residence time θ in hours is:",
+      "stem": "A rectangular settling basin has a volume V = 600 m³ and receives a flow Q = 1,200 m³/day. The hydraulic residence time θ in hours is:",
       "equations": [
         "$\\theta = \\dfrac{V}{Q}$"
       ],
@@ -119,7 +119,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Stokes’ Law — particle settling velocity",
-      "stem": "Estimate the terminal settling velocity of a spherical silica particle (diameter d = 0.10 mm, particle density ρₚ = 2{,}650 kg/m³) settling in water at 20°C (ρf = 1{,}000 kg/m³, μ = 1.0×10⁻³ Pa·s). Stokes’ Law (laminar settling) applies. The terminal velocity vₜ is most nearly:",
+      "stem": "Estimate the terminal settling velocity of a spherical silica particle (diameter d = 0.10 mm, particle density ρₚ = 2,650 kg/m³) settling in water at 20°C (ρf = 1,000 kg/m³, μ = 1.0×10⁻³ Pa·s). Stokes’ Law (laminar settling) applies. The terminal velocity vₜ is most nearly:",
       "equations": [
         "$v_t = \\dfrac{g(\\rho_p - \\rho_f)\\,d^{2}}{18\\mu}$"
       ],
@@ -142,7 +142,7 @@
         "$A = \\dfrac{Q}{v_o}$"
       ],
       "answer": "2,500 ft²",
-      "solution": "$Q = 2.0\\ \\mathrm{MGD} = 2{,}000{,}000\\ \\mathrm{gpd}$.  $A = Q/v_o = 2{,}000{,}000/800 = 2{,}500\\ \\mathrm{ft^2}$. The Handbook design criteria table gives 800–1{,}200 gpd/ft² (average) for primary clarifiers; 800 gpd/ft² is the conservative (lower-end) design value.",
+      "solution": "$Q = 2.0\\ \\mathrm{MGD} = 2{,}000{,}000\\ \\mathrm{gpd}$.  $A = Q/v_o = 2{,}000{,}000/800 = 2{,}500\\ \\mathrm{ft^2}$. The Handbook design criteria table gives 800–1,200 gpd/ft² (average) for primary clarifiers; 800 gpd/ft² is the conservative (lower-end) design value.",
       "handbook": "Environmental Engineering — Clarifier (Design Criteria for Sedimentation Basins table) (p. 345)",
       "references": "Ctrl-F: Primary Clarifier; Overflow Rate; Design Criteria",
       "source": "handbook",
@@ -271,12 +271,12 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Activated sludge — MLSS concentration (SI)",
-      "stem": "A conventional activated-sludge system treats municipal wastewater with the following design parameters: SRT θₐ = 10 days, yield Y = 0.60 kg VSS/kg BOD removed, influent BOD S₀ = 200 mg/L, effluent BOD Sₑ = 20 mg/L, endogenous decay kₙ = 0.05 day⁻¹, and hydraulic retention time θ = 8 hr. Determine the mixed-liquor suspended solids (MLSS) concentration X_A in mg/L.",
+      "stem": "A conventional activated-sludge system treats municipal wastewater with the following design parameters: SRT θₐ = 10 days, yield Y = 0.60 kg VSS/kg BOD removed, influent BOD S₀ = 200 mg/L, effluent BOD Sₑ = 20 mg/L, endogenous decay kₙ = 0.05 day⁻¹, and hydraulic retention time θ = 8 hr. Determine the mixed-liquor suspended solids (MLSS) concentration $X_A$ in mg/L.",
       "equations": [
         "$X_A = \\dfrac{\\theta_c\\,Y\\,(S_0 - S_e)}{\\theta\\,(1 + k_d\\,\\theta_c)}$"
       ],
       "answer": "≈ 2,160 mg/L",
-      "solution": "$\\theta = 8\\ \\mathrm{hr} = 8/24 = 0.3333\\ \\mathrm{day}$.  $S_0-S_e = 200-20 = 180\\ \\mathrm{mg/L}$.  $X_A = \\dfrac{10\\times0.60\\times180}{0.3333\\times(1+0.05\\times10)} = \\dfrac{1{,}080}{0.3333\\times1.50} = \\dfrac{1{,}080}{0.500} = 2{,}160\\ \\mathrm{mg/L}$. This is in the Handbook typical range for conventional activated sludge (1{,}500–3{,}000 mg/L MLSS).",
+      "solution": "$\\theta = 8\\ \\mathrm{hr} = 8/24 = 0.3333\\ \\mathrm{day}$.  $S_0-S_e = 200-20 = 180\\ \\mathrm{mg/L}$.  $X_A = \\dfrac{10\\times0.60\\times180}{0.3333\\times(1+0.05\\times10)} = \\dfrac{1{,}080}{0.3333\\times1.50} = \\dfrac{1{,}080}{0.500} = 2{,}160\\ \\mathrm{mg/L}$. This is in the Handbook typical range for conventional activated sludge (1,500–3,000 mg/L MLSS).",
       "handbook": "Environmental Engineering — Activated Sludge (XA formula) (p. 339)",
       "references": "Ctrl-F: Activated Sludge; MLSS; SRT",
       "source": "handbook",
@@ -288,13 +288,13 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Sludge Volume Index (SVI)",
-      "stem": "A 30-minute settleability test on mixed-liquor from an activated-sludge aeration tank gives a settled-sludge volume of 300 mL/L. The MLSS concentration is 2{,}500 mg/L. The Sludge Volume Index (SVI) is most nearly:",
+      "stem": "A 30-minute settleability test on mixed-liquor from an activated-sludge aeration tank gives a settled-sludge volume of 300 mL/L. The MLSS concentration is 2,500 mg/L. The Sludge Volume Index (SVI) is most nearly:",
       "equations": [
         "$SVI = \\dfrac{\\text{Sludge volume after settling (mL/L)}\\times 1{,}000}{MLSS\\ (\\mathrm{mg/L})}$"
       ],
       "options": ["0.12 mL/g", "8.3 mL/g", "120 mL/g", "830 mL/g"],
       "answer": 2,
-      "solution": "$SVI = (300\\times1{,}000)/2{,}500 = 120\\ \\mathrm{mL/g}$. SVI < 80 is excellent settling; 80–150 is acceptable; > 150 indicates poor settling (bulking). This sludge at SVI = 120 is settling satisfactorily. Option (A) is SV/MLSS without the ×1{,}000 factor (unit mismatch); (B) is MLSS/SV (inverted); (D) is $2{,}500/3 = 833$ (confused units).",
+      "solution": "$SVI = (300\\times1{,}000)/2{,}500 = 120\\ \\mathrm{mL/g}$. SVI < 80 is excellent settling; 80–150 is acceptable; > 150 indicates poor settling (bulking). This sludge at SVI = 120 is settling satisfactorily. Option (A) is SV/MLSS without the ×1,000 factor (unit mismatch); (B) is MLSS/SV (inverted); (D) is $2{,}500/3 = 833$ (confused units).",
       "handbook": "Environmental Engineering — Activated Sludge (Sludge Volume Index SVI) (p. 339)",
       "references": "Ctrl-F: Sludge Volume Index; SVI; MLSS",
       "source": "handbook",
@@ -324,7 +324,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Sludge volume from dry solids mass (SI)",
-      "stem": "A wastewater treatment plant produces 1{,}500 kg/day of dry sludge solids. The sludge has a solids content of s = 4% (by mass) and a specific gravity S = 1.02. Using the Handbook formula for sludge volume with γ (water density) = 1{,}000 kg/m³, the wet sludge volume produced per day is most nearly:",
+      "stem": "A wastewater treatment plant produces 1,500 kg/day of dry sludge solids. The sludge has a solids content of s = 4% (by mass) and a specific gravity S = 1.02. Using the Handbook formula for sludge volume with γ (water density) = 1,000 kg/m³, the wet sludge volume produced per day is most nearly:",
       "equations": [
         "$V = \\dfrac{W_s}{(s/100)\\,\\gamma\\,S}$"
       ],
@@ -358,7 +358,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Per capita BOD loading — wastewater characterization (USCS)",
-      "stem": "A community of 25{,}000 people generates wastewater at a per-capita rate of 100 gallons per capita per day (gpcd) with a per-capita BOD₅ load of 0.20 lb/(person·day). Using the Handbook unit-conversion factor M (lb/day) = C (mg/L) × Q (MGD) × 8.34, determine the BOD₅ concentration C in the raw wastewater (mg/L).",
+      "stem": "A community of 25,000 people generates wastewater at a per-capita rate of 100 gallons per capita per day (gpcd) with a per-capita BOD₅ load of 0.20 lb/(person·day). Using the Handbook unit-conversion factor M (lb/day) = C (mg/L) × Q (MGD) × 8.34, determine the BOD₅ concentration C in the raw wastewater (mg/L).",
       "equations": [
         "$Q\\ (\\mathrm{MGD}) = \\dfrac{\\text{Population}\\times \\text{flow (gpcd)}}{1{,}000{,}000}$",
         "$M\\ (\\mathrm{lb/day}) = \\text{Population}\\times \\text{per-capita BOD (lb/person/day)}$",
@@ -377,13 +377,13 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Water conservation — per-capita demand reduction",
-      "stem": "A water-conservation program reduces per-capita water demand from 150 gpcd to 120 gpcd for a service population of 40{,}000 people. The daily water savings in million gallons per day (MGD) is:",
+      "stem": "A water-conservation program reduces per-capita water demand from 150 gpcd to 120 gpcd for a service population of 40,000 people. The daily water savings in million gallons per day (MGD) is:",
       "equations": [
         "$\\Delta Q = \\Delta\\text{(gpcd)}\\times\\text{Population}/1{,}000{,}000$"
       ],
       "options": ["0.030 MGD", "0.30 MGD", "1.2 MGD", "4.8 MGD"],
       "answer": 2,
-      "solution": "$\\Delta\\text{(gpcd)} = 150-120 = 30\\ \\mathrm{gpcd}$.  $\\Delta Q = 30\\times40{,}000/1{,}000{,}000 = 1{,}200{,}000\\ \\mathrm{gpd} = 1.2\\ \\mathrm{MGD}$. Option (A) = 30 gpcd expressed in MGD without multiplying by population. Option (B) is off by a factor of 4 (perhaps divided by 10{,}000 instead of 1{,}000{,}000). This type of calculation is fundamental to planning infrastructure upgrades, demand forecasting, and justifying reuse projects.",
+      "solution": "$\\Delta\\text{(gpcd)} = 150-120 = 30\\ \\mathrm{gpcd}$.  $\\Delta Q = 30\\times40{,}000/1{,}000{,}000 = 1{,}200{,}000\\ \\mathrm{gpd} = 1.2\\ \\mathrm{MGD}$. Option (A) = 30 gpcd expressed in MGD without multiplying by population. Option (B) is off by a factor of 4 (perhaps divided by 10,000 instead of 1,000,000). This type of calculation is fundamental to planning infrastructure upgrades, demand forecasting, and justifying reuse projects.",
       "handbook": "N/A — Conservation arithmetic; M = CQ relationship (Handbook p. 327)",
       "references": "Ctrl-F: Per Capita; Demand; Conservation",
       "source": "fundamental",
