@@ -29,7 +29,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Carcinogen risk — Risk = CDI × CSF (SI)",
-      "stem": "A risk assessment for a contaminated groundwater plume finds that an adult male receptor has a Chronic Daily Intake (CDI) of benzene of 0.0015 mg/(kg·day) via drinking water. The Cancer Slope Factor (CSF) for benzene is 0.05 (mg/kg·day)⁻¹. The incremental lifetime cancer risk due to this exposure is most nearly:\n\nCarcinogen Risk (Handbook p.25):\nRisk = CDI × CSF",
+      "stem": "A risk assessment for a contaminated groundwater plume finds that an adult male receptor has a Chronic Daily Intake (CDI) of benzene of 0.0015 mg/(kg·day) via drinking water. The Cancer Slope Factor (CSF) for benzene is 0.05 (mg/kg·day)⁻¹. The incremental lifetime cancer risk due to this exposure is most nearly:",
       "equations": [
         "$\\text{Risk} = CDI \\times CSF$"
       ],
@@ -51,7 +51,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Noncarcinogen — Hazard Index HI = CDI/RfD (SI)",
-      "stem": "A chronic daily intake assessment for a noncarcinogenic compound (chromium VI, a regulated noncarcinogen at this pathway) yields CDI = 0.002 mg/(kg·day). The EPA oral Reference Dose (RfD) for this compound is 0.003 mg/(kg·day). The Hazard Index (HI) for this exposure is most nearly, and its regulatory interpretation is:\n\nNoncarcinogen Hazard Index (Handbook p.26):\nHI = CDI / RfD",
+      "stem": "A chronic daily intake assessment for a noncarcinogenic compound (chromium VI, a regulated noncarcinogen at this pathway) yields CDI = 0.002 mg/(kg·day). The EPA oral Reference Dose (RfD) for this compound is 0.003 mg/(kg·day). The Hazard Index (HI) for this exposure is most nearly, and its regulatory interpretation is:",
       "equations": [
         "$HI = \\dfrac{CDI_{\\text{noncarcinogen}}}{RfD}$"
       ],
@@ -73,7 +73,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Reference Dose — RfD = NOAEL/UF (SI)",
-      "stem": "An EPA risk assessment study identifies a NOAEL (No Observable Adverse Effect Level) of 10 mg/(kg·day) for a noncarcinogenic pesticide from animal studies. A total uncertainty factor (UF) of 1,000 is applied (accounting for interspecies extrapolation, human variability, and data gaps). The Reference Dose (RfD) and the Safe Human Dose (SHD) for a 78-kg adult male are:\n\nReference Dose (Handbook p.26):\nRfD = NOAEL / UF\nSHD = RfD × W",
+      "stem": "An EPA risk assessment study identifies a NOAEL (No Observable Adverse Effect Level) of 10 mg/(kg·day) for a noncarcinogenic pesticide from animal studies. A total uncertainty factor (UF) of 1,000 is applied (accounting for interspecies extrapolation, human variability, and data gaps). The Reference Dose (RfD) and the Safe Human Dose (SHD) for a 78-kg adult male are:",
       "equations": [
         "$RfD = \\dfrac{NOAEL}{UF}$",
         "$SHD = RfD \\times W$"
@@ -96,7 +96,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Exposure pathway — drinking water CDI for carcinogen (SI)",
-      "stem": "A residential receptor drinks tap water containing arsenic at a concentration of CW = 5 µg/L = 0.005 mg/L. Using EPA standard values from the Handbook (p.30): ingestion rate IR = 2.3 L/day, exposure frequency EF = 350 days/yr, exposure duration ED = 30 yr (at one residence, 90th percentile), body weight BW = 78 kg (adult male), and averaging time AT = 75 yr × 365 days/yr (carcinogen — use lifetime averaging time). Calculate the Chronic Daily Intake (CDI) in mg/(kg·day).\n\nDrinking Water CDI (Handbook p.29):\nCDI = (CW)(IR)(EF)(ED) / [(BW)(AT)]",
+      "stem": "A residential receptor drinks tap water containing arsenic at a concentration of CW = 5 µg/L = 0.005 mg/L. Using EPA standard values from the Handbook (p.30): ingestion rate IR = 2.3 L/day, exposure frequency EF = 350 days/yr, exposure duration ED = 30 yr (at one residence, 90th percentile), body weight BW = 78 kg (adult male), and averaging time AT = 75 yr × 365 days/yr (carcinogen — use lifetime averaging time). Calculate the Chronic Daily Intake (CDI) in mg/(kg·day).",
       "equations": [
         "$CDI = \\dfrac{(C_W)(IR)(EF)(ED)}{(BW)(AT)}$"
       ],
@@ -112,7 +112,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Exposure pathway — soil ingestion CDI → Hazard Index (SI)",
-      "stem": "A child (age 1–6 years) is exposed to lead in residential soil. Using Handbook EPA standard values (p.29–30): soil concentration CS = 500 mg/kg, soil ingestion rate IR = 100 mg/day (child), conversion factor CF = 10⁻⁶ kg/mg, fraction ingested FI = 1.0, exposure frequency EF = 350 days/yr, exposure duration ED = 6 yr, body weight BW = 16 kg (child 1–5 yr), and averaging time AT = 6 yr × 365 days (noncarcinogen). The Chronic Daily Intake via soil ingestion is most nearly:\n\nSoil CDI (Handbook p.29): CDI = (CS)(IR)(CF)(FI)(EF)(ED) / [(BW)(AT)]",
+      "stem": "A child (age 1–6 years) is exposed to lead in residential soil. Using Handbook EPA standard values (p.29–30): soil concentration CS = 500 mg/kg, soil ingestion rate IR = 100 mg/day (child), conversion factor CF = 10⁻⁶ kg/mg, fraction ingested FI = 1.0, exposure frequency EF = 350 days/yr, exposure duration ED = 6 yr, body weight BW = 16 kg (child 1–5 yr), and averaging time AT = 6 yr × 365 days (noncarcinogen). The Chronic Daily Intake via soil ingestion is most nearly:",
       "equations": [
         "$CDI = \\dfrac{(C_S)(IR)(CF)(FI)(EF)(ED)}{(BW)(AT)}$"
       ],
@@ -134,7 +134,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Exposure pathway — inhalation CDI (SI)",
-      "stem": "An adult male worker is exposed to a noncarcinogenic industrial solvent at an airborne concentration of CA = 0.50 mg/m³. Using Handbook parameters (p.29–30): inhalation rate IR = 0.98 m³/hr (adult, 6-hr workday), exposure time ET = 8 hr/day, exposure frequency EF = 250 days/yr (occupational), exposure duration ED = 25 yr, body weight BW = 78 kg, and averaging time AT = 25 yr × 365 days (noncarcinogen). The Chronic Daily Intake via inhalation is most nearly:\n\nInhalation CDI (Handbook p.29): CDI = (CA)(IR)(ET)(EF)(ED) / [(BW)(AT)]",
+      "stem": "An adult male worker is exposed to a noncarcinogenic industrial solvent at an airborne concentration of CA = 0.50 mg/m³. Using Handbook parameters (p.29–30): inhalation rate IR = 0.98 m³/hr (adult, 6-hr workday), exposure time ET = 8 hr/day, exposure frequency EF = 250 days/yr (occupational), exposure duration ED = 25 yr, body weight BW = 78 kg, and averaging time AT = 25 yr × 365 days (noncarcinogen). The Chronic Daily Intake via inhalation is most nearly:",
       "equations": [
         "$CDI = \\dfrac{(C_A)(IR)(ET)(EF)(ED)}{(BW)(AT)}$"
       ],
@@ -156,7 +156,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Chemical interaction effects — synergistic vs. additive vs. antagonistic (SI)",
-      "stem": "Epidemiological studies show that workers who both smoke cigarettes and are exposed to asbestos develop lung cancer at a rate far exceeding what would be predicted by simply adding the individual risks of smoking alone and asbestos alone. According to the Selected Chemical Interaction Effects table in the NCEES FE Reference Handbook (p.24), this type of interaction is classified as:\n\nChemical Interaction Effects (Handbook p.24):\n• Additive: combined toxicity ≈ sum of individual toxicities (e.g., 2 + 3 = 5)\n• Synergistic: combined toxicity >> sum of individual toxicities (e.g., 2 + 3 = 20)\n• Antagonistic: combined toxicity < sum of individual toxicities (e.g., 6 + 6 = 8)",
+      "stem": "Epidemiological studies show that workers who both smoke cigarettes and are exposed to asbestos develop lung cancer at a rate far exceeding what would be predicted by simply adding the individual risks of smoking alone and asbestos alone. According to the Selected Chemical Interaction Effects table in the NCEES FE Reference Handbook (p.24), this type of interaction is classified as:",
       "equations": [],
       "options": [
         "Additive — the combined effect equals the sum of individual effects",
@@ -176,7 +176,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "OSHA permissible noise exposure — dose D = 100% × Σ(Ci/Ti) (USCS)",
-      "stem": "A worker's daily noise exposure consists of three periods: 4 hours at 90 dBA, 2 hours at 95 dBA, and 2 hours at 100 dBA. Using the OSHA Permissible Noise Exposure table (Handbook p.35): 90 dBA → T = 8 hr; 95 dBA → T = 4 hr; 100 dBA → T = 2 hr. The noise dose D and required action are:\n\nNoise Dose (Handbook p.34–35):\nD = 100% × Σ (Ci / Ti)\nwhere Ci = hours at SPL, Ti = permissible hours at that SPL",
+      "stem": "A worker's daily noise exposure consists of three periods: 4 hours at 90 dBA, 2 hours at 95 dBA, and 2 hours at 100 dBA. The OSHA Permissible Noise Exposure table (Handbook p.35) gives the following maximum permissible durations:\n\n| Sound Level (dBA) | Permissible Hours (*T*) |\n|---|---|\n| 90 | 8 |\n| 95 | 4 |\n| 100 | 2 |\n\nWhat is the total noise dose D, and what action does OSHA require?",
       "equations": [
         "$D = 100\\% \\times \\sum_i \\dfrac{C_i}{T_i}$"
       ],
@@ -238,7 +238,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Ideal gas law — find volume for nitrogen (SI)",
-      "stem": "A sealed rigid vessel contains 0.5 kg of nitrogen gas (N₂, molecular weight M = 28 kg/kmol) at a temperature of T = 200°C and a pressure of P = 300 kPa. Using the universal gas constant R̄ = 8,314 J/(kmol·K) from the Handbook, the volume of nitrogen in the vessel is most nearly:\n\nIdeal Gas Law (Handbook p.144):\nPV = mRT  where  R = R̄/M\n\nNote: T must be in absolute units (K = °C + 273.15)",
+      "stem": "A sealed rigid vessel contains 0.5 kg of nitrogen gas (N₂, molecular weight M = 28 kg/kmol) at a temperature of T = 200°C and a pressure of P = 300 kPa. Using the universal gas constant R̄ = 8,314 J/(kmol·K) from the Handbook, the volume of nitrogen in the vessel is most nearly:",
       "equations": [
         "$PV = mRT, \\quad R = \\dfrac{\\bar{R}}{M}$"
       ],
@@ -260,7 +260,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Ideal gas — Boyle's Law, isothermal compression (SI)",
-      "stem": "A gas in a piston-cylinder device undergoes isothermal (constant temperature) compression. Initially, the gas pressure is P₁ = 200 kPa and volume is V₁ = 0.5 m³. After compression to a final volume of V₂ = 0.1 m³ at the same temperature, the final pressure P₂ is most nearly:\n\nBoyle's Law — Constant Temperature (Handbook p.148):\nFor an ideal gas at constant T: Pv = constant\n(P₁V₁ = P₂V₂)",
+      "stem": "A gas in a piston-cylinder device undergoes isothermal (constant temperature) compression. Initially, the gas pressure is P₁ = 200 kPa and volume is V₁ = 0.5 m³. After compression to a final volume of V₂ = 0.1 m³ at the same temperature, the final pressure P₂ is most nearly:",
       "equations": [
         "$P_1 V_1 = P_2 V_2 \\quad (\\text{constant } T)$"
       ],
@@ -282,7 +282,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Ideal gas — Charles' Law, constant-pressure heating (SI)",
-      "stem": "A gas is heated at constant pressure from an initial temperature of T₁ = 300 K and volume V₁ = 1.5 m³ to a final temperature of T₂ = 450 K. The final volume of the gas is most nearly:\n\nCharles' Law — Constant Pressure (Handbook p.148):\nFor an ideal gas at constant P: T/v = constant\n(V₁/T₁ = V₂/T₂)",
+      "stem": "A gas is heated at constant pressure from an initial temperature of T₁ = 300 K and volume V₁ = 1.5 m³ to a final temperature of T₂ = 450 K. The final volume of the gas is most nearly:",
       "equations": [
         "$\\dfrac{V_1}{T_1} = \\dfrac{V_2}{T_2} \\quad (\\text{constant } P)$"
       ],
@@ -304,7 +304,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "First Law of Thermodynamics — closed system (SI)",
-      "stem": "A gas in a sealed piston-cylinder device (a closed system) absorbs Q = 800 J of heat from a reservoir and performs W = 500 J of boundary work against the surroundings. There is no change in kinetic or potential energy. The change in internal energy ΔU of the gas is most nearly:\n\nFirst Law, Closed System (Handbook p.147):\nQ – W = ΔU + ΔKE + ΔPE\nWith ΔKE = ΔPE = 0: Q – W = ΔU\n\n(Sign convention: Q > 0 = heat into system; W > 0 = work done by system)",
+      "stem": "A gas in a sealed piston-cylinder device (a closed system) absorbs Q = 800 J of heat from a reservoir and performs W = 500 J of boundary work against the surroundings. There is no change in kinetic or potential energy. The change in internal energy ΔU of the gas is most nearly:",
       "equations": [
         "$Q - W = \\Delta U$"
       ],
@@ -326,7 +326,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Carnot efficiency — maximum theoretical efficiency (SI)",
-      "stem": "A heat engine operates between a high-temperature reservoir at TH = 800 K and a low-temperature reservoir at TL = 300 K. The maximum (Carnot) thermal efficiency of this engine is most nearly:\n\nCarnot Efficiency (Handbook p.149):\nηc = (TH − TL) / TH\nwhere TH and TL are absolute temperatures (K or °R)",
+      "stem": "A heat engine operates between a high-temperature reservoir at TH = 800 K and a low-temperature reservoir at TL = 300 K. The maximum (Carnot) thermal efficiency of this engine is most nearly:",
       "equations": [
         "$\\eta_c = \\dfrac{T_H - T_L}{T_H}$"
       ],
@@ -348,7 +348,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Carnot COP — refrigerator (SI)",
-      "stem": "A Carnot refrigerator maintains a cold space at TL = 260 K (−13°C) while rejecting heat to the environment at TH = 300 K (27°C). The maximum Coefficient of Performance (COP) of this refrigerator is most nearly:\n\nCarnot COP for Refrigerator (Handbook p.149–150):\nCOPc = TL / (TH − TL)\n\n(For heat pumps: COPc = TH / (TH − TL))",
+      "stem": "A Carnot refrigerator maintains a cold space at TL = 260 K (−13°C) while rejecting heat to the environment at TH = 300 K (27°C). The maximum Coefficient of Performance (COP) of this refrigerator is most nearly:",
       "equations": [
         "$COP_c^{\\text{(ref)}} = \\dfrac{T_L}{T_H - T_L}$"
       ],
@@ -370,7 +370,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Sensible heat — Q = m·cp·ΔT for water heating (SI)",
-      "stem": "A water heater raises the temperature of 5 kg of water from 20°C to 100°C. The specific heat capacity of liquid water is cp = 4.18 kJ/(kg·K). The heat energy required to heat the water is most nearly:\n\nSensible Heating (from Δh = cp ΔT for constant-pressure process; Handbook p.145):\nQ = m · cp · ΔT",
+      "stem": "A water heater raises the temperature of 5 kg of water from 20°C to 100°C. The specific heat capacity of liquid water is cp = 4.18 kJ/(kg·K). The heat energy required to heat the water is most nearly:",
       "equations": [
         "$Q = m \\cdot c_p \\cdot \\Delta T$"
       ],
@@ -392,7 +392,7 @@
       "set": "B",
       "type": "Numeric",
       "concept": "Isentropic process — P1V1^k = P2V2^k, find compressed volume (SI)",
-      "stem": "Air (k = cp/cv = 1.4) undergoes isentropic (reversible adiabatic) compression in a piston-cylinder from an initial state of P1 = 100 kPa and V1 = 1.0 m3 to a final pressure of P2 = 800 kPa. Calculate the final volume V2 (in m3).\n\nIsentropic Process — Ideal Gas (Handbook p.148):\nP1V1^k = P2V2^k  -->  V2 = V1 x (P1/P2)^(1/k)\nwhere k = cp/cv = 1.4 for diatomic gases (air, N2, O2)",
+      "stem": "Air (k = cp/cv = 1.4) undergoes isentropic (reversible adiabatic) compression in a piston-cylinder from an initial state of P1 = 100 kPa and V1 = 1.0 m3 to a final pressure of P2 = 800 kPa. Calculate the final volume V2 (in m³).",
       "equations": [
         "$P_1 V_1^k = P_2 V_2^k \\quad \\Rightarrow \\quad V_2 = V_1 \\left(\\dfrac{P_1}{P_2}\\right)^{1/k}$"
       ],
@@ -408,7 +408,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Combined gas law — find volume at new P and T (SI)",
-      "stem": "A fixed mass of ideal gas occupies V₁ = 2.0 m³ at P₁ = 100 kPa and T₁ = 300 K. The gas is compressed and heated simultaneously to P₂ = 400 kPa and T₂ = 400 K. The final volume V₂ is most nearly:\n\nCombined Gas Law (Handbook p.144):\nP₁v₁/T₁ = P₂v₂/T₂  →  V₂ = V₁ × (P₁/P₂) × (T₂/T₁)",
+      "stem": "A fixed mass of ideal gas occupies V₁ = 2.0 m³ at P₁ = 100 kPa and T₁ = 300 K. The gas is compressed and heated simultaneously to P₂ = 400 kPa and T₂ = 400 K. The final volume V₂ is most nearly:",
       "equations": [
         "$\\dfrac{P_1 V_1}{T_1} = \\dfrac{P_2 V_2}{T_2}$"
       ],
