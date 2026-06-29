@@ -9,7 +9,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Landfill — clay liner leachate breakthrough time (USCS)",
-      "stem": "A municipal landfill is lined with a 2-ft clay layer (porosity η = 0.25, hydraulic conductivity K = 0.10 ft/yr). The hydraulic head above the liner is h = 3 ft. The time for leachate to penetrate through the clay liner is most nearly:\n\nBreak-Through Time (Handbook p.333):\nt = d²η / [K(d + h)]\nwhere d = liner thickness (ft), η = porosity, K = hydraulic conductivity (ft/yr), h = hydraulic head (ft).",
+      "stem": "A municipal landfill is lined with a 2-ft clay layer (porosity η = 0.25, hydraulic conductivity K = 0.10 ft/yr). The hydraulic head above the liner is h = 3 ft. The time for leachate to penetrate through the clay liner is most nearly:",
       "equations": [
         "$t = \\dfrac{d^2 \\eta}{K(d + h)}$"
       ],
@@ -31,7 +31,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "MSW composition — weighted average moisture content (SI)",
-      "stem": "A solid waste stream consists of three components: 50% food wastes, 30% paper, and 20% glass (all by wet mass). Using typical moisture content values from the Handbook (food wastes 70%, paper 6%, glass 2%), the weighted average moisture content of this mixed solid waste is most nearly:\n\nWeighted average = Σ (mass fraction × moisture content)",
+      "stem": "A solid waste stream consists of three components: 50% food wastes, 30% paper, and 20% glass (all by wet mass). Using typical moisture content values from the Handbook (food wastes 70%, paper 6%, glass 2%), the weighted average moisture content of this mixed solid waste is most nearly:",
       "equations": [
         "$\\overline{MC} = \\sum_i f_i \\cdot MC_i$"
       ],
@@ -53,7 +53,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Landfill — methane gas flux through cover (SI)",
-      "stem": "Methane migrates upward through a landfill soil cover. The cover depth is L = 60 cm, and the gas-filled porosity is η_gas = 0.30. The methane diffusion coefficient is D = 0.20 cm²/s (from Handbook p.333). The methane concentration at the bottom of the cover (landfill side) is C_fill = 2.5 × 10⁻⁴ g/cm³, and the atmospheric concentration is C_atm ≈ 0. The steady-state methane gas flux is most nearly:\n\nGas Flux (Handbook p.333): N_A = D · η_gas · (C_fill − C_atm) / L",
+      "stem": "Methane migrates upward through a landfill soil cover. The cover depth is L = 60 cm, and the gas-filled porosity is η_gas = 0.30. The methane diffusion coefficient is D = 0.20 cm²/s (from Handbook p.333). The methane concentration at the bottom of the cover (landfill side) is C_fill = 2.5 × 10⁻⁴ g/cm³, and the atmospheric concentration is C_atm ≈ 0. The steady-state methane gas flux is most nearly:",
       "equations": [
         "$N_A = \\dfrac{D \\cdot \\eta_{\\text{gas}} \\cdot (C_{\\text{fill}} - C_{\\text{atm}})}{L}$"
       ],
@@ -75,7 +75,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Landfill cover — water balance, solve for percolation (USCS)",
-      "stem": "A landfill cover water balance for a one-year period shows: precipitation P = 42 in, surface runoff R = 16 in, evapotranspiration ET = 18 in, and change in soil moisture storage ΔS_LC = +2 in. Determine the annual percolation through the landfill cover into the waste (PERsw, in inches per year).\n\nSoil Landfill Cover Water Balance (Handbook p.333):\nΔS_LC = P − R − ET − PERsw",
+      "stem": "A landfill cover water balance for a one-year period shows: precipitation P = 42 in, surface runoff R = 16 in, evapotranspiration ET = 18 in, and change in soil moisture storage ΔS_LC = +2 in. Determine the annual percolation through the landfill cover into the waste (PERsw, in inches per year).",
       "equations": [
         "$\\Delta S_{LC} = P - R - ET - PER_{sw}$",
         "$PER_{sw} = P - R - ET - \\Delta S_{LC}$"
@@ -92,7 +92,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Solid waste — volume reduction by compaction (USCS)",
-      "stem": "A packer truck compresses uncompacted residential solid waste from an initial volume of Vi = 800 yd³ to a final volume of Vf = 200 yd³. The volume reduction achieved by compaction is most nearly:\n\nVolume Reduction (Handbook p.334):\nVR(%) = (Vi − Vf) / Vi × 100",
+      "stem": "A packer truck compresses uncompacted residential solid waste from an initial volume of Vi = 800 yd³ to a final volume of Vf = 200 yd³. The volume reduction achieved by compaction is most nearly:",
       "equations": [
         "$VR(\\%) = \\dfrac{V_i - V_f}{V_i} \\times 100$"
       ],
@@ -114,7 +114,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Landfill — effect of overburden pressure on waste specific weight (USCS)",
-      "stem": "The initial compacted specific weight of municipal solid waste in a landfill is SWi = 1,000 lb/yd³. At an overburden pressure of p = 10 lb/in², the empirical constants are a = 0.008 yd³/in² and b = 0.00053 yd³/lb. The specific weight of the waste under this overburden is most nearly:\n\nEffect of Overburden Pressure (Handbook p.333):\nSWp = SWi + p / (a + b·p)\nwhere SWp (lb/yd³), SWi (lb/yd³), p (lb/in²).",
+      "stem": "The initial compacted specific weight of municipal solid waste in a landfill is SWi = 1,000 lb/yd³. At an overburden pressure of p = 10 lb/in², the empirical constants are a = 0.008 yd³/in² and b = 0.00053 yd³/lb. The specific weight of the waste under this overburden is most nearly:",
       "equations": [
         "$SW_p = SW_i + \\dfrac{p}{a + b \\cdot p}$"
       ],
@@ -136,7 +136,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Radioactive waste — effective half-life (SI)",
-      "stem": "Iodine-131 (¹³¹I) has a radioactive half-life τr = 8 days. In the human body, its biological half-life is τb = 120 days (rate of biological excretion). The effective half-life of ¹³¹I in the body is most nearly:\n\nEffective Half-Life (Handbook p.335):\n1/τe = 1/τr + 1/τb",
+      "stem": "Iodine-131 (¹³¹I) has a radioactive half-life τr = 8 days. In the human body, its biological half-life is τb = 120 days (rate of biological excretion). The effective half-life of ¹³¹I in the body is most nearly:",
       "equations": [
         "$\\dfrac{1}{\\tau_e} = \\dfrac{1}{\\tau_r} + \\dfrac{1}{\\tau_b}$"
       ],
@@ -158,7 +158,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Radioactive waste — radioactive decay after multiple half-lives (SI)",
-      "stem": "A hospital receives 1,000 µCi of Iodine-131 (radioactive half-life τ = 8 days). After 24 days of decay in a shielded storage cabinet, the remaining activity is most nearly:\n\nHalf-Life Decay (Handbook p.335):\nN = N₀ · e^(−0.693 t/τ)",
+      "stem": "A hospital receives 1,000 µCi of Iodine-131 (radioactive half-life τ = 8 days). After 24 days of decay in a shielded storage cabinet, the remaining activity is most nearly:",
       "equations": [
         "$N = N_0 \\cdot e^{-0.693\\, t/\\tau}$"
       ],
@@ -180,7 +180,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Radiation — inverse square law for intensity (USCS)",
-      "stem": "A radiation survey meter reads 20 mrem/hr at a distance of R₁ = 1 ft from a point source. The radiation intensity at a distance of R₂ = 4 ft from the same source is most nearly:\n\nInverse Square Law (Handbook p.335):\nI₁/I₂ = (R₂/R₁)²\nor equivalently: I₂ = I₁ × (R₁/R₂)²",
+      "stem": "A radiation survey meter reads 20 mrem/hr at a distance of R₁ = 1 ft from a point source. The radiation intensity at a distance of R₂ = 4 ft from the same source is most nearly:",
       "equations": [
         "$\\dfrac{I_1}{I_2} = \\left(\\dfrac{R_2}{R_1}\\right)^2$"
       ],
@@ -222,7 +222,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Site characterization — coefficient of variation (CV)",
-      "stem": "Soil samples collected from a contaminated site for a Phase II investigation yield an average arsenic concentration of x̄ = 12.0 mg/kg with a standard deviation of s = 2.4 mg/kg. The coefficient of variation (CV) for this data set is most nearly:\n\nCoefficient of Variation (Handbook p.336):\nCV = (100 × s) / x̄",
+      "stem": "Soil samples collected from a contaminated site for a Phase II investigation yield an average arsenic concentration of x̄ = 12.0 mg/kg with a standard deviation of s = 2.4 mg/kg. The coefficient of variation (CV) for this data set is most nearly:",
       "equations": [
         "$CV = \\dfrac{100 \\times s}{\\bar{x}}$"
       ],
@@ -328,7 +328,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "RCRA — minimum DRE standard for hazardous waste incineration",
-      "stem": "Under RCRA (40 CFR 63.1206), a permitted hazardous waste incinerator must meet a minimum Destruction and Removal Efficiency (DRE) for each principal organic hazardous constituent (POHC) in the waste feed. The RCRA minimum DRE standard for POHCs is:\n\nDRE = (Win − Wout) / Win × 100%   [Handbook p.325]",
+      "stem": "Under RCRA (40 CFR 63.1206), a permitted hazardous waste incinerator must meet a minimum Destruction and Removal Efficiency (DRE) for each principal organic hazardous constituent (POHC) in the waste feed. The RCRA minimum DRE standard for POHCs is:",
       "equations": [
         "$\\text{DRE} = \\dfrac{W_{\\text{in}} - W_{\\text{out}}}{W_{\\text{in}}} \\times 100\\%$"
       ],
@@ -350,7 +350,7 @@
       "set": "B",
       "type": "Numeric",
       "concept": "Landfill — clay liner leachate breakthrough time, second scenario (USCS)",
-      "stem": "A proposed industrial solid waste landfill uses a 3-ft compacted clay liner with hydraulic conductivity K = 0.075 ft/yr and porosity η = 0.25. The design hydraulic head above the liner is h = 2 ft. Calculate the leachate breakthrough time for the clay liner (in years).\n\nBreak-Through Time (Handbook p.333):\nt = d²η / [K(d + h)]",
+      "stem": "A proposed industrial solid waste landfill uses a 3-ft compacted clay liner with hydraulic conductivity K = 0.075 ft/yr and porosity η = 0.25. The design hydraulic head above the liner is h = 2 ft. Calculate the leachate breakthrough time for the clay liner (in years).",
       "equations": [
         "$t = \\dfrac{d^2 \\eta}{K(d + h)}$"
       ],
@@ -406,7 +406,7 @@
       "set": "B",
       "type": "MCQ",
       "concept": "Landfill — daily airspace consumption from mass balance (USCS)",
-      "stem": "A municipal solid waste landfill receives 500 tons/day of compacted waste. The as-placed density of the compacted waste in the landfill (including daily cover) is 1,500 lb/yd³. The volume of landfill airspace consumed per day is most nearly:\n\nFundamental mass balance: V = mass / density",
+      "stem": "A municipal solid waste landfill receives 500 tons/day of compacted waste. The as-placed density of the compacted waste in the landfill (including daily cover) is 1,500 lb/yd³. The volume of landfill airspace consumed per day is most nearly:",
       "equations": [
         "$V = \\dfrac{\\dot{m}}{\\rho} = \\dfrac{(\\text{tons/day}\\times 2{,}000\\;\\text{lb/ton})}{\\rho\\;(\\text{lb/yd}^3)}$"
       ],

@@ -9,7 +9,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Population projection — linear (algebraic) model",
-      "stem": "A small city had a population of 25,000 in 2010. Using the linear (algebraic) projection model, the population in 2020 is most nearly:\n\nLinear Projection: Pt = P0 + k∆t\n\nThe growth rate k = 800 persons/year (determined from historical data).",
+      "stem": "A small city had a population of 25,000 in 2010. The growth rate is k = 800 persons/year (determined from historical data). Using the linear (algebraic) projection model, the population in 2020 is most nearly:",
       "equations": [
         "$P_t = P_0 + k\\,\\Delta t$"
       ],
@@ -31,7 +31,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Population projection — geometric (log/exponential) model",
-      "stem": "Census data for a municipality show a population of 50,000 in 2010 and 65,000 in 2020. Assuming geometric (log) growth:\n\nLog Growth = Exponential Growth = Geometric Growth: Pt = P0e^(k∆t)\n\nThe projected population in 2025 is most nearly:",
+      "stem": "Census data for a municipality show a population of 50,000 in 2010 and 65,000 in 2020. Assuming geometric (log) growth, the projected population in 2025 is most nearly:",
       "equations": [
         "$P_t = P_0 e^{k\\Delta t}$",
         "$k = \\dfrac{\\ln(P_t / P_0)}{\\Delta t}$"
@@ -54,7 +54,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Population projection — percent (discrete) growth model",
-      "stem": "A growing town has a current population of 80,000. It is expected to grow at 2.5% per year. Using the percent growth model, the population after 8 years is most nearly:\n\nPercent Growth: Pt = P0(1 + k)^n",
+      "stem": "A growing town has a current population of 80,000. It is expected to grow at 2.5% per year. Using the percent growth model, the population after 8 years is most nearly:",
       "equations": [
         "$P_t = P_0(1 + k)^n$"
       ],
@@ -76,7 +76,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Population projection — ratio-and-correlation method",
-      "stem": "At the last census a city had a population of 40,000 and its surrounding metropolitan region had 500,000. In the new forecast, the region is projected to reach 620,000. Using the ratio-and-correlation method, the projected city population is most nearly:\n\nRatio and Correlation Growth: P2/P2R = P1/P1R",
+      "stem": "At the last census a city had a population of 40,000 and its surrounding metropolitan region had 500,000. In the new forecast, the region is projected to reach 620,000. Using the ratio-and-correlation method, the projected city population is most nearly:",
       "equations": [
         "$\\dfrac{P_2}{P_{2R}} = \\dfrac{P_1}{P_{1R}}$"
       ],
@@ -98,7 +98,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Population projection — decreasing-rate-of-increase (saturation) model",
-      "stem": "A city currently has a population of 30,000. Analysis of historical data indicates a saturation population S = 80,000 and a growth rate constant k = 0.10 yr⁻¹. Using the decreasing-rate-of-increase model, the population 15 years from now is most nearly:\n\nDecreasing-Rate-of-Increase Growth: Pt = P0 + (S − P0)(1 − e^(−k(t−t0)))",
+      "stem": "A city currently has a population of 30,000. Analysis of historical data indicates a saturation population S = 80,000 and a growth rate constant k = 0.10 yr⁻¹. Using the decreasing-rate-of-increase model, the population 15 years from now is most nearly:",
       "equations": [
         "$P_t = P_0 + (S - P_0)\\left(1 - e^{-k(t-t_0)}\\right)$"
       ],
@@ -120,7 +120,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "CMFR — first-order reaction, retention time",
-      "stem": "A completely mixed flow reactor (CMFR) is used to treat an influent with concentration C0 = 200 mg/L. The treatment target is an effluent concentration Ct = 20 mg/L. The first-order rate constant is k = 0.5 d⁻¹. The required mean retention time θ is most nearly:\n\nFor a CMFR with first-order decay (r = −kC): θ = (C0/Ct − 1)/k",
+      "stem": "A completely mixed flow reactor (CMFR) is used to treat an influent with concentration C0 = 200 mg/L. The treatment target is an effluent concentration Ct = 20 mg/L. The first-order rate constant is k = 0.5 d⁻¹. The required mean retention time θ is most nearly:",
       "equations": [
         "$\\theta = \\dfrac{C_0/C_t - 1}{k}$"
       ],
@@ -142,7 +142,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Plug-flow reactor (PFR) — first-order reaction, retention time",
-      "stem": "A plug-flow reactor (PFR) must achieve 90% removal of a contaminant with C0 = 200 mg/L and Ct = 20 mg/L. The first-order rate constant k = 0.5 d⁻¹. The required retention time θ is most nearly:\n\nFor an ideal PFR with first-order decay: θ = ln(C0/Ct)/k",
+      "stem": "A plug-flow reactor (PFR) must achieve 90% removal of a contaminant with C0 = 200 mg/L and Ct = 20 mg/L. The first-order rate constant k = 0.5 d⁻¹. The required retention time θ is most nearly:",
       "equations": [
         "$\\theta = \\dfrac{\\ln(C_0/C_t)}{k}$"
       ],
@@ -164,7 +164,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "CMFR — zero-order reaction, retention time",
-      "stem": "A CMFR is operated with a zero-order reaction rate k = 10 mg/(L·d). The influent concentration is C0 = 100 mg/L and the target effluent is Ct = 40 mg/L. The required mean retention time θ is most nearly:\n\nFor a CMFR (and ideal batch and PFR) with zero-order decay (r = −k): θ = (C0 − Ct)/k",
+      "stem": "A CMFR is operated with a zero-order reaction rate k = 10 mg/(L·d). The influent concentration is C0 = 100 mg/L and the target effluent is Ct = 40 mg/L. The required mean retention time θ is most nearly:",
       "equations": [
         "$\\theta = \\dfrac{C_0 - C_t}{k}$"
       ],
@@ -186,7 +186,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "CMFR — second-order reaction, effluent concentration",
-      "stem": "A CMFR operates with a second-order decay reaction (r = −kC²) with rate constant k = 0.02 L/(mg·d) and a mean retention time θ = 5 d. The influent concentration is C0 = 50 mg/L. The effluent concentration Ct is most nearly:\n\nFor a CMFR with second-order decay: $C_t = \\dfrac{\\sqrt{4k C_0 \\theta + 1} - 1}{2k\\theta}$",
+      "stem": "A CMFR operates with a second-order decay reaction (r = −kC²) with rate constant k = 0.02 L/(mg·d) and a mean retention time θ = 5 d. The influent concentration is C0 = 50 mg/L. The effluent concentration Ct is most nearly:",
       "equations": [
         "$C_t = \\dfrac{\\sqrt{4k C_0 \\theta + 1} - 1}{2k\\theta}$"
       ],
@@ -231,7 +231,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Engineering stress — axial loading (SI)",
-      "stem": "A steel rod with an initial diameter of 20 mm carries an axial tensile load of 40 kN. The engineering stress in the rod is most nearly:\n\nEngineering stress: σ = F/A0",
+      "stem": "A steel rod with an initial diameter of 20 mm carries an axial tensile load of 40 kN. The engineering stress in the rod is most nearly:",
       "equations": [
         "$\\sigma = \\dfrac{F}{A_0}$",
         "$A_0 = \\dfrac{\\pi d^2}{4}$"
@@ -254,7 +254,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Young's modulus — Hooke's Law (SI)",
-      "stem": "A specimen of aluminum alloy is subjected to a uniaxial tensile stress of 140 MPa, producing an elastic strain of 0.002 (dimensionless). The elastic modulus (Young's modulus) of the material is most nearly:\n\nHooke's Law: σ = Eε",
+      "stem": "A specimen of aluminum alloy is subjected to a uniaxial tensile stress of 140 MPa, producing an elastic strain of 0.002 (dimensionless). The elastic modulus (Young's modulus) of the material is most nearly:",
       "equations": [
         "$E = \\dfrac{\\sigma}{\\varepsilon}$"
       ],
@@ -276,7 +276,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Hooke's Law — elastic strain from applied stress (USCS)",
-      "stem": "A structural steel member carries an axial stress of 29,000 psi. The steel has an elastic modulus E = 29 × 10⁶ psi (given). The elastic strain is most nearly:\n\nHooke's Law: σ = Eε",
+      "stem": "A structural steel member carries an axial stress of 29,000 psi. The steel has an elastic modulus E = 29 × 10⁶ psi (given). The elastic strain is most nearly:",
       "equations": [
         "$\\varepsilon = \\dfrac{\\sigma}{E}$"
       ],
@@ -298,7 +298,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "True stress vs engineering stress",
-      "stem": "A tensile test specimen has an initial cross-sectional area A0 = 200 mm² and is loaded with F = 30,000 N. At a point during plastic deformation, the actual (current) cross-sectional area has necked to A = 170 mm². The true stress at this point is most nearly:\n\nTrue stress: σT = F/A  |  Engineering stress: σ = F/A0",
+      "stem": "A tensile test specimen has an initial cross-sectional area A0 = 200 mm² and is loaded with F = 30,000 N. At a point during plastic deformation, the actual (current) cross-sectional area has necked to A = 170 mm². The true stress at this point is most nearly:",
       "equations": [
         "$\\sigma_T = \\dfrac{F}{A}$",
         "$\\sigma = \\dfrac{F}{A_0}$"
@@ -321,7 +321,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Thermal deformation — axial member (SI)",
-      "stem": "A structural steel member is 4.0 m long. It is heated from an initial temperature T0 = 20°C to a final temperature T = 80°C. The thermal expansion coefficient of steel is α = 12 × 10⁻⁶ /°C. The thermal deformation δt is most nearly:\n\nThermal Deformations: δt = αL(T − T0)",
+      "stem": "A structural steel member is 4.0 m long. It is heated from an initial temperature T0 = 20°C to a final temperature T = 80°C. The thermal expansion coefficient of steel is α = 12 × 10⁻⁶ /°C. The thermal deformation δt is most nearly:",
       "equations": [
         "$\\delta_t = \\alpha L (T - T_0)$"
       ],
@@ -343,7 +343,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Thermal expansion coefficient — strain from temperature change",
-      "stem": "The thermal expansion coefficient of an aluminum alloy is α = 23 × 10⁻⁶ /°C. A component is heated by ∆T = 50°C. The resulting thermal engineering strain ε is most nearly:\n\nThermal Properties: ε = α∆T",
+      "stem": "The thermal expansion coefficient of an aluminum alloy is α = 23 × 10⁻⁶ /°C. A component is heated by ∆T = 50°C. The resulting thermal engineering strain ε is most nearly:",
       "equations": [
         "$\\varepsilon = \\alpha\\,\\Delta T$"
       ],
@@ -365,7 +365,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Fire hydrant — rated capacity at 20 psi residual",
-      "stem": "During a fire hydrant flow test, the static pressure is PS = 80 psi and the residual pressure is PR = 45 psi at a total test flow of QF = 1,200 gpm. The rated capacity QR at 20 psi residual is most nearly:\n\nFire Hydrant Rated Capacity (NFPA 291):\nQR = QF × (HR/HF)^0.54\nwhere HR = PS − 20 and HF = PS − PR",
+      "stem": "During a fire hydrant flow test, the static pressure is PS = 80 psi and the residual pressure is PR = 45 psi at a total test flow of QF = 1,200 gpm. The rated capacity QR at 20 psi residual is most nearly:",
       "equations": [
         "$Q_R = Q_F \\times \\left(\\dfrac{H_R}{H_F}\\right)^{0.54}$"
       ],
@@ -387,7 +387,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Fire hydrant — discharge to atmosphere",
-      "stem": "A fire hydrant with a smooth, well-rounded outlet (Cd = 0.90) has an outlet diameter of 2.5 in. A pitot gauge reading at the nozzle indicates P = 36 psi. The flow rate discharged to the atmosphere is most nearly:\n\nFire Hydrant Discharging to Atmosphere (NFPA 291):\nQ = 29.8 D² Cd P^(1/2)",
+      "stem": "A fire hydrant with a smooth, well-rounded outlet (Cd = 0.90) has an outlet diameter of 2.5 in. A pitot gauge reading at the nozzle indicates P = 36 psi. The flow rate discharged to the atmosphere is most nearly:",
       "equations": [
         "$Q = 29.8\\,D^2\\,C_d\\,P^{1/2}$"
       ],

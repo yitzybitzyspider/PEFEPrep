@@ -1,7 +1,17 @@
 {
-  "version": "0.25.0",
+  "version": "0.25.1",
   "updated": "2026-06-29",
   "history": [
+    {
+      "version": "0.25.1",
+      "date": "2026-06-29",
+      "title": "Stems test you — formula hints removed across all days",
+      "changes": [
+        "Swept every day (1–13): removed formula/method hints that were embedded in question stems, so a stem now just poses the problem — the formula stays available on demand via \"Show Equation\". Matches how Day 13 was cleaned.",
+        "Cleaned ~60 stems across Days 10–12 (population/reactor models, air-pollution and stack equations, landfill/radiation formulas) plus stragglers in Days 2B and 9 (an explicit solve-it hint and an inline hydraulic-diameter formula).",
+        "All given data and numbers were kept in each stem; answers, options, worked solutions, and equation lists were left untouched (verified field-by-field). Conceptual questions whose equation IS the subject, and reactivity-code legends, were intentionally preserved."
+      ]
+    },
     {
       "version": "0.25.0",
       "date": "2026-06-29",

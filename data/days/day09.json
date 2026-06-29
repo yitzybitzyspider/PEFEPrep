@@ -400,7 +400,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Air-water equilibrium partition — fraction in each phase",
-      "stem": "A sealed remediation chamber contains 3.0 ft³ of contaminated air and 1.5 ft³ of contaminated water. A volatile organic compound is present at a total mass of M₀ = 45 mg distributed between the two phases. The dimensionless Henry's constant is H_cc = 0.20 (H_cc = C_air/C_water). At equilibrium, the mass of compound residing in the air phase is most nearly: [Hint: write the mass balance C_w·V_w + H_cc·C_w·V_a = M₀ and solve for C_w, then compute mass in air = H_cc·C_w·V_a.]",
+      "stem": "A sealed remediation chamber contains 3.0 ft³ of contaminated air and 1.5 ft³ of contaminated water. A volatile organic compound is present at a total mass of M₀ = 45 mg distributed between the two phases. The dimensionless Henry's constant is H_cc = 0.20 (H_cc = C_air/C_water). At equilibrium, the mass of compound residing in the air phase is most nearly:",
       "equations": [
         "$C_w\\,V_w + H_{cc}\\,C_w\\,V_a = M_0\\quad\\Rightarrow\\quad C_w = \\dfrac{M_0}{V_w + H_{cc}\\,V_a}$",
         "$m_{\\mathrm{air}} = H_{cc}\\,C_w\\,V_a = M_0\\times\\dfrac{H_{cc}\\,V_a}{V_w + H_{cc}\\,V_a}$"
