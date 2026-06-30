@@ -4,6 +4,12 @@ PEFEPrep is a daily-habit FE/PE exam-prep site (first target: **FE Environmental
 exam **2026-07-08**). Product spec: `docs/PRD.md`. Engine→site seam: `docs/engine-integration.md`.
 **Live site: pefeprep.com** (GitHub Pages, auto-deploys on push to `main`).
 
+## How to run this routine — Opus + ultracode, every time
+Run each daily routine on **Opus** with **ultracode** (multi-agent `Workflow` orchestration).
+Decompose the day's work (build → verify math → render → audit) into fan-out + adversarial-verify
+phases rather than doing it single-threaded; token cost is not the constraint, correctness is.
+(The session model is chosen at trigger time; if a run starts on a non-Opus model, say so.)
+
 ## Source of truth — read/update these
 - **`docs/ARCHITECTURE.md`** — how the system is built (layers, data model, flows, file map). Update it when you change how a layer works.
 - **`docs/FEATURES.md`** — the running feature registry. **Update the matching row in the same PR** whenever you ship/change/remove a feature.
@@ -45,6 +51,13 @@ Schedule specials: **Jul 3 / Jul 6** → full 110-question practice exam instead
   prose stems/options, use a plain comma in numbers (`1,200`, not `1{,}200`). Don't hand-write a
   formula in a stem (see the closed-book gate) — but any variable you *do* name must be `$…$`-wrapped.
   Sanity-check by mentally rendering each `_`/`^`/`\text{}` you author. (Fractions: `\dfrac{}{}`.)
+- **Currency `$` must be self-delimited math — never bare.** A bare `$5,400` in prose/tables collides
+  with KaTeX's `$` math delimiter: adjacent amounts pair up and the prose between them renders as
+  garbled math, and table `|` separators get swallowed. **Always write money as a self-contained
+  inline math span** `$\$5{,}400$` (→ "$5,400"), `$\$12{,}000/\text{yr}$`, `$\$0$`. This is the one
+  case where prose numbers use `{,}` not a plain comma (because they live inside `$…$`). Every `$`
+  must be balanced. The same self-delimited form renders identically in the LaTeX PDF. (The PDF
+  builder `scripts/build_day_pdf.py` and the site renderer `app/math.js` both assume this.)
 - **Exam-relevance (do this per question, every build):** map **each** question to a specific
   FE Environmental knowledge-area subtopic in `reference/fe-environmental-spec.md` (e.g. "10.A —
   frequency"). If a question maps to nothing on the spec, **cut it** — only ship questions that

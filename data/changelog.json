@@ -1,7 +1,19 @@
 {
-  "version": "0.27.0",
+  "version": "0.27.1",
   "updated": "2026-06-30",
   "history": [
+    {
+      "version": "0.27.1",
+      "date": "2026-06-30",
+      "title": "Day 14 rendering fixed — currency no longer garbles math or breaks tables",
+      "changes": [
+        "Fixed Day 14 (Engineering Economics): dollar amounts written in prose (e.g. \"$5,400\") were colliding with the KaTeX math delimiter, so adjacent amounts paired up and the text between them rendered as garbled math; the benefit/cost comparison tables (Q12, Q15) lost columns because a currency $ swallowed the | separator",
+        "Every currency amount is now a self-delimited math span ($\\$5{,}400$ → \"$5,400\"), so each $ is balanced and renders cleanly on both the website and the PDF; all numeric values, answers, and metadata verified unchanged",
+        "Hardened the site renderer (app/math.js): math detection is now escape-aware so a literal \\$ inside a span no longer mis-pairs delimiters or breaks GFM table columns (no change to any existing day — verified identical on 564 fields across Days 1–13)",
+        "Rebuilt the PDF generator (scripts/build_day_pdf.py) to render Markdown tables, **bold**/*italic*, and bullet lists, and to escape bare < > (which previously printed as inverted punctuation); the Day 14 PDF now typesets tables, bold callouts, and bulleted lists correctly",
+        "Added a currency-authoring rule to CLAUDE.md so future economics sets write money as self-delimited math from the start"
+      ]
+    },
     {
       "version": "0.27.0",
       "date": "2026-06-30",

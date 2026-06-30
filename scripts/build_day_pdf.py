@@ -128,6 +128,9 @@ SPECIALS = {
     "}": "\\}",
     "~": "\\textasciitilde{}",
     "^": "\\textasciicircum{}",
+    "<": "\\textless{}",
+    ">": "\\textgreater{}",
+    "|": "\\textbar{}",
 }
 
 
@@ -150,35 +153,158 @@ def fix_math(s):
     return "".join(out)
 
 
-def render(s):
-    """Render a mixed text/math string: split on $$...$$ and $...$, escape text, keep math.
-    $$...$$ is converted to displayed math \\[...\\]; $...$ stays inline.
+# Math placeholders use an ASCII token that never occurs in content (no "@@@" in any
+# day file) and is stripped again before LaTeX is emitted, so output stays ASCII.
+_SENT = "@@@%d@@@"
+_SENT_RE = re.compile(r"@@@(\d+)@@@")
+# A balanced $...$ inline-math span, escape-aware so a literal \$ (a dollar sign written
+# inside math, e.g. currency authored as $\$5{,}400$) does not terminate the span.
+_INLINE_MATH = re.compile(r"\$((?:\\.|[^$])+?)\$")
+_DISPLAY_MATH = re.compile(r"\$\$((?:\\.|[^$]|\$(?!\$))+?)\$\$")
+# **bold**  or  *italic*. Italic is boundary-aware (CommonMark-ish): a delimiting * may not
+# touch an alphanumeric, so intraword multiplication like C1*p1+C2*p2 is left as literal text.
+_EMPH = re.compile(r"\*\*(.+?)\*\*|(?<![A-Za-z0-9*])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![A-Za-z0-9*])")
 
-    Currency amounts like $7,500 (dollar-sign followed by a digit) are intentionally
-    excluded from math-span matching so they pass through esc_text as \\$7,500.
-    Only $LETTER/$BACKSLASH/$BRACKET … $ spans are treated as inline math.
-    This prevents stray currency $ signs from breaking \\colorbox arguments.
+
+def render_inline(s):
+    """Inline renderer: math spans kept, **bold**/*italic* -> LaTeX, the rest escaped.
+
+    Currency is authored as self-delimited math (e.g. ``$\\$5{,}400$``) so every ``$`` is
+    balanced; the escape-aware regex keeps the literal ``\\$`` inside the span.
     """
     if s is None:
         return ""
-    # First handle $$...$$ display math (must come before single-$ split)
-    parts = re.split(r"(\$\$[^$]*(?:\$(?!\$)[^$]*)?\$\$)", str(s))
+    bag = []
+
+    def stash(m):
+        bag.append(m.group(1))
+        return _SENT % (len(bag) - 1)
+
+    text = _DISPLAY_MATH.sub(stash, str(s))
+    text = _INLINE_MATH.sub(stash, text)
+
+    # Tokenize bold/italic on the math-free text, escaping surrounding and inner text.
     res = []
-    for p in parts:
-        if p.startswith("$$") and p.endswith("$$") and len(p) >= 4:
-            inner = p[2:-2]
-            res.append("\\[" + fix_math(inner) + "\\]")
+    last = 0
+    for m in _EMPH.finditer(text):
+        res.append(_esc_split(text[last:m.start()]))
+        if m.group(1) is not None:
+            res.append(r"\textbf{" + _esc_split(m.group(1)) + "}")
         else:
-            # Inline $...$: only match when the first char inside $ is a letter,
-            # backslash, or opening bracket — never a digit (which signals currency).
-            subparts = re.split(r"(\$[A-Za-z\\(\[][^$]*\$)", p)
-            for sp in subparts:
-                if (len(sp) >= 3 and sp.startswith("$") and sp.endswith("$")
-                        and sp[1] in set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\\(['")):
-                    res.append("$" + fix_math(sp[1:-1]) + "$")
-                else:
-                    res.append(esc_text(sp))
-    return "".join(res)
+            res.append(r"\emph{" + _esc_split(m.group(2)) + "}")
+        last = m.end()
+    res.append(_esc_split(text[last:]))
+    joined = "".join(res)
+
+    return _SENT_RE.sub(lambda m: "$" + fix_math(bag[int(m.group(1))]) + "$", joined)
+
+
+def _esc_split(text):
+    """LaTeX-escape text while preserving @@@N@@@ math placeholders verbatim."""
+    out = []
+    for i, piece in enumerate(_SENT_RE.split(text)):
+        out.append(_SENT % int(piece) if i % 2 == 1 else esc_text(piece))
+    return "".join(out)
+
+
+def _split_row(line):
+    return [c.strip() for c in line.strip().strip("|").split("|")]
+
+
+def _is_table_sep(line):
+    t = line.strip()
+    return bool(re.fullmatch(r"[\s|:\-]+", t)) and "-" in t and "|" in t
+
+
+def _is_row(line):
+    return line.lstrip().startswith("|")
+
+
+def _is_bullet(line):
+    return bool(re.match(r"\s*[•\-*]\s+", line))
+
+
+def _is_lone_display(line):
+    t = line.strip()
+    return t.startswith("$$") and t.endswith("$$") and len(t) >= 4
+
+
+def render_block(s):
+    """Block renderer for stems/solutions: GFM tables, bullet lists, display-math lines,
+    and paragraphs (each rendered inline). Mirrors the website's renderMarkdown so the PDF
+    and the live site agree."""
+    if s is None:
+        return ""
+    lines = str(s).replace("\r\n", "\n").split("\n")
+    out = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        if lines[i].strip() == "":
+            i += 1
+            continue
+
+        # GFM table: a |...| row followed by a |---|---| separator.
+        if _is_row(lines[i]) and i + 1 < n and _is_table_sep(lines[i + 1]):
+            head = _split_row(lines[i])
+            i += 2
+            body = []
+            while i < n and _is_row(lines[i]) and lines[i].strip() != "":
+                body.append(_split_row(lines[i]))
+                i += 1
+            out.append(_latex_table(head, body))
+            continue
+
+        # Bullet list.
+        if _is_bullet(lines[i]):
+            items = []
+            while i < n and _is_bullet(lines[i]):
+                items.append(re.sub(r"^\s*[•\-*]\s+", "", lines[i]))
+                i += 1
+            out.append(r"\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}")
+            out.extend(r"\item " + render_inline(it) for it in items)
+            out.append(r"\end{itemize}")
+            continue
+
+        # Standalone display-math line.
+        if _is_lone_display(lines[i]):
+            inner = lines[i].strip()[2:-2]
+            out.append("\\[" + fix_math(inner) + "\\]")
+            i += 1
+            continue
+
+        # Paragraph: gather until a blank line or a block element.
+        para = []
+        while (i < n and lines[i].strip() != "" and not _is_row(lines[i])
+               and not _is_bullet(lines[i]) and not _is_lone_display(lines[i])):
+            para.append(lines[i])
+            i += 1
+        out.append(render_inline(" ".join(para)) + r"\par")
+    return "\n".join(out)
+
+
+def _latex_table(head, body):
+    ncol = max(len(head), max((len(r) for r in body), default=0))
+    spec = "|" + "l|" * ncol
+
+    def row(cells, bold=False):
+        cells = list(cells) + [""] * (ncol - len(cells))
+        rendered = []
+        for c in cells:
+            cell = render_inline(c)
+            rendered.append((r"\textbf{" + cell + "}") if bold else cell)
+        return " & ".join(rendered) + r" \\ \hline"
+
+    lines = [r"\par\vspace{3pt}\noindent\begin{tabular}{" + spec + "}", r"\hline",
+             row(head, bold=True)]
+    lines += [row(r) for r in body]
+    lines.append(r"\end{tabular}\par\vspace{3pt}")
+    return "\n".join(lines)
+
+
+def render(s):
+    """Backwards-compatible alias: inline rendering for short fields."""
+    return render_inline(s)
 
 
 PREAMBLE = r"""\documentclass[11pt]{article}
@@ -229,7 +355,7 @@ def build_tex(day):
         L.append(r"\filbreak")
         L.append(r"\textbf{\color{accent}Q%d.}\quad {\small\color{soft}[%s \textbullet\ %s \textbullet\ %s]}\par\vspace{2pt}"
                  % (i, qid, qtype, concept))
-        L.append(render(q.get("stem", "")) + r"\par\vspace{3pt}")
+        L.append(render_block(q.get("stem", "")) + r"\par\vspace{3pt}")
 
         eqs = q.get("equations", []) or []
         if eqs:
@@ -252,7 +378,7 @@ def build_tex(day):
             ans_line = r"\textbf{Answer:} (" + letter + r")"
         else:
             ans_line = r"\textbf{Answer:} " + render(str(q.get("answer", "")))
-        sol = render(q.get("solution", ""))
+        sol = render_block(q.get("solution", ""))
         L.append(r"\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%")
         L.append(r"\vspace{2pt}" + ans_line + r"\par\vspace{2pt}")
         L.append(r"{\small " + sol + r"}\par\vspace{2pt}")
