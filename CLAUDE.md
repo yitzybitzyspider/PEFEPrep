@@ -63,6 +63,12 @@ Schedule specials: **Jul 3 / Jul 6** → full 110-question practice exam instead
   frequency"). If a question maps to nothing on the spec, **cut it** — only ship questions that
   matter for the exam. Spread the set across the day's KA subtopics rather than piling onto one,
   and keep the SI+USCS mix. (Relevance is a separate gate from Handbook fidelity below — both must pass.)
+- **Render-check both surfaces before publishing (don't skip):** rendering bugs hide from
+  author-time review. After building, (1) confirm `pdflatex` exits clean and *read* a few
+  `pdftoppm -png` pages — currency, **bold**, tables, and bullets must render (not raw `**`/`|`/`$`);
+  (2) for any set with tables or currency-heavy prose, sanity-check the live renderer `app/math.js`
+  (KaTeX + Markdown) on a stem/solution (a quick headless-Chromium render catches garbled math and
+  dropped table columns). The self-delimited currency rule above is what keeps both surfaces clean.
 - **Recompute every numeric answer in `python3`** before authoring.
 - **Handbook fidelity:** the real NCEES FE Reference Handbook v10.6 lives in Google Drive
   (text extract file id `15oZdEEaXPVhYwSl2DvlFZntBSPmBzcnP`, PDF `1TwS6okS13YuzlV3Nq_QOxjlaV3SGwKot`).
