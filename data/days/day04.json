@@ -4,7 +4,7 @@
   "topic": "Hydraulics",
   "questions": [
     { "id": "D4-Q01", "set": "A", "type": "MCQ", "concept": "Hydraulic radius (rectangular)",
-      "stem": "A rectangular open channel is 3 m wide and carries water at a flow depth of 1 m. The hydraulic radius R_H is most nearly:",
+      "stem": "A rectangular open channel is 3 m wide and carries water at a flow depth of 1 m. The hydraulic radius $R_H$ is most nearly:",
       "equations": ["$R_H = \\dfrac{A}{P},\\quad A = by,\\ P = b+2y$"],
       "options": ["0.50 m", "0.60 m", "1.00 m", "3.00 m"], "answer": 1,
       "solution": "$A = 3(1) = 3\\ \\mathrm{m^2};\\ P = 3+2(1) = 5\\ \\mathrm{m};\\ R_H = 3/5 = 0.60\\ \\mathrm{m}$.",
@@ -125,7 +125,7 @@
     { "id": "D4-Q18", "set": "A", "type": "MCQ", "concept": "Contracted weir formula",
       "stem": "The discharge over a contracted rectangular weir is given by:",
       "equations": ["$Q = C(L - 0.2H)H^{3/2}$"],
-      "options": ["Q = CLH^{3/2}", "Q = C(L − 0.2H)H^{3/2}", "Q = CH^{5/2}", "Q = CA√(2gh)"], "answer": 1,
+      "options": ["$Q = CLH^{3/2}$", "$Q = C(L − 0.2H)H^{3/2}$", "$Q = CH^{5/2}$", "$Q = CA\\sqrt{2gh}$"], "answer": 1,
       "solution": "End contractions shorten the effective crest, giving $Q = C(L-0.2H)H^{3/2}$.",
       "handbook": "Weir Formulas (p. 303)", "references": "Ctrl-F: Weir" },
 

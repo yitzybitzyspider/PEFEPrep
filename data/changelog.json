@@ -1,7 +1,19 @@
 {
-  "version": "0.25.1",
+  "version": "0.25.2",
   "updated": "2026-06-29",
   "history": [
+    {
+      "version": "0.25.2",
+      "date": "2026-06-29",
+      "title": "Math rendering fixed everywhere — subscripts, superscripts, commas",
+      "changes": [
+        "Swept all 14 days for math that wasn't rendering: bare LaTeX that was never wrapped in $…$ (e.g. weir formula options Q = CLH^{3/2}, variables like X_A, R_H, NPSH_A, K_ow, θ_CMFR) now renders as real subscripts/superscripts.",
+        "Fixed thousands-separators written as the KaTeX {,} trick outside math (1{,}200 → 1,200) while preserving the legitimate {,} inside equations.",
+        "Fixed worked solutions that showed raw red text: \\cdot / · inside \\text{} (units like mg/(kg·day), J/(kmol·K)) and a degree symbol after a spacing command now render correctly.",
+        "Verified by running every one of 1,042 math spans through KaTeX (0 errors) and scanning every rendered field for stray _/^ (0 remaining); all answers and option counts left byte-for-byte unchanged.",
+        "Added a math-formatting rule to CLAUDE.md so future daily sets author $…$-wrapped math from the start."
+      ]
+    },
     {
       "version": "0.25.1",
       "date": "2026-06-29",

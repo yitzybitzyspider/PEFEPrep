@@ -163,7 +163,7 @@
       "concept": "Atmospheric stability — lapse rate comparison",
       "stem": "A radiosonde balloon measures that air temperature decreases by 0.60°C for every 100 m increase in altitude. The dry adiabatic lapse rate is ΓAD = 0.98°C per 100 m. Based on the comparison between the actual lapse rate Γ and ΓAD, the atmosphere is best described as:",
       "equations": [
-        "$\\Gamma_{AD} = 0.98\\,^\\circ\\text{C per 100 m (dry adiabatic)}$",
+        "$\\Gamma_{AD} = 0.98\\,{}^\\circ\\text{C per 100 m (dry adiabatic)}$",
         "$\\text{Stability: }\\Gamma > \\Gamma_{AD}\\text{ (unstable)};\\quad\\Gamma = \\Gamma_{AD}\\text{ (neutral)};\\quad\\Gamma < \\Gamma_{AD}\\text{ (stable)}$"
       ],
       "options": [

@@ -53,7 +53,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Landfill — methane gas flux through cover (SI)",
-      "stem": "Methane migrates upward through a landfill soil cover. The cover depth is L = 60 cm, and the gas-filled porosity is η_gas = 0.30. The methane diffusion coefficient is D = 0.20 cm²/s (from Handbook p.333). The methane concentration at the bottom of the cover (landfill side) is C_fill = 2.5 × 10⁻⁴ g/cm³, and the atmospheric concentration is C_atm ≈ 0. The steady-state methane gas flux is most nearly:",
+      "stem": "Methane migrates upward through a landfill soil cover. The cover depth is L = 60 cm, and the gas-filled porosity is $\\eta_{gas}$ = 0.30. The methane diffusion coefficient is D = 0.20 cm²/s (from Handbook p.333). The methane concentration at the bottom of the cover (landfill side) is $C_{fill}$ = 2.5 × 10⁻⁴ g/cm³, and the atmospheric concentration is $C_{atm}$ ≈ 0. The steady-state methane gas flux is most nearly:",
       "equations": [
         "$N_A = \\dfrac{D \\cdot \\eta_{\\text{gas}} \\cdot (C_{\\text{fill}} - C_{\\text{atm}})}{L}$"
       ],
@@ -64,7 +64,7 @@
         "9.0 × 10⁻⁴ g/(cm²·s)"
       ],
       "answer": 1,
-      "solution": "$$N_A = \\frac{0.20 \\times 0.30 \\times (2.5\\times10^{-4} - 0)}{60} = \\frac{0.060 \\times 2.5\\times10^{-4}}{60} = \\frac{1.5\\times10^{-5}}{60} = 2.5\\times10^{-7}\\;\\text{g/(cm}^2\\text{·s)}$$\n\nOption (A) 8.3×10⁻⁷: omits η_gas — uses NA = D·ΔC/L = 0.20×2.5×10⁻⁴/60 = 8.33×10⁻⁷; the gas-filled porosity reduces the effective diffusivity. Option (C) 2.5×10⁻⁵: uses L=0.60 cm (treats as meters); correct units require L in cm (60 cm, not 0.60 m). Option (D) 9.0×10⁻⁴: multiplies L into numerator instead of dividing → 0.20×0.30×2.5×10⁻⁴×60. Fick's first law modified by gas-filled porosity governs landfill gas transport through the unsaturated cover.",
+      "solution": "$$N_A = \\frac{0.20 \\times 0.30 \\times (2.5\\times10^{-4} - 0)}{60} = \\frac{0.060 \\times 2.5\\times10^{-4}}{60} = \\frac{1.5\\times10^{-5}}{60} = 2.5\\times10^{-7}\\;\\text{g/(cm}^2\\text{}\\cdot \\text{s)}$$\n\nOption (A) 8.3×10⁻⁷: omits $\\eta_{gas}$ — uses NA = D·ΔC/L = 0.20×2.5×10⁻⁴/60 = 8.33×10⁻⁷; the gas-filled porosity reduces the effective diffusivity. Option (C) 2.5×10⁻⁵: uses L=0.60 cm (treats as meters); correct units require L in cm (60 cm, not 0.60 m). Option (D) 9.0×10⁻⁴: multiplies L into numerator instead of dividing → 0.20×0.30×2.5×10⁻⁴×60. Fick's first law modified by gas-filled porosity governs landfill gas transport through the unsaturated cover.",
       "handbook": "Environmental Engineering — Landfill: Gas Flux N_A = D·η_gas·(CAatm − CAfill)/L; D(methane)=0.20 cm²/s, D(CO₂)=0.13 cm²/s (p.333)",
       "references": "Handbook p.333 — Landfill: Gas Flux (Fick's Law with gas-filled porosity)",
       "source": "handbook",
@@ -75,7 +75,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Landfill cover — water balance, solve for percolation (USCS)",
-      "stem": "A landfill cover water balance for a one-year period shows: precipitation P = 42 in, surface runoff R = 16 in, evapotranspiration ET = 18 in, and change in soil moisture storage ΔS_LC = +2 in. Determine the annual percolation through the landfill cover into the waste (PERsw, in inches per year).",
+      "stem": "A landfill cover water balance for a one-year period shows: precipitation P = 42 in, surface runoff R = 16 in, evapotranspiration ET = 18 in, and change in soil moisture storage $\\Delta S_{LC}$ = +2 in. Determine the annual percolation through the landfill cover into the waste (PERsw, in inches per year).",
       "equations": [
         "$\\Delta S_{LC} = P - R - ET - PER_{sw}$",
         "$PER_{sw} = P - R - ET - \\Delta S_{LC}$"

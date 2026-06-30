@@ -55,7 +55,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Return activated sludge (RAS) flow rate — secondary clarifier mass balance",
-      "stem": "An activated-sludge system operates with a plant flow Q = 4.0 MGD, MLSS concentration X_A = 3{,}000 mg/L in the aeration basin, and return sludge concentration X_r = 12{,}000 mg/L. Assuming negligible effluent suspended solids (X_e ≈ 0), the return sludge flow rate Q_r in MGD is most nearly:",
+      "stem": "An activated-sludge system operates with a plant flow Q = 4.0 MGD, MLSS concentration $X_A$ = 3,000 mg/L in the aeration basin, and return sludge concentration $X_r$ = 12,000 mg/L. Assuming negligible effluent suspended solids ($X_e$ ≈ 0), the return sludge flow rate $Q_r$ in MGD is most nearly:",
       "equations": [
         "$\\text{Mass balance on secondary clarifier: }(Q_0+Q_R)X_A = Q_RX_r+Q_wX_w$",
         "$\\dfrac{Q_R}{Q_0} \\approx \\dfrac{X_A}{X_r - X_A}\\quad (X_e\\approx 0,\\ Q_w\\ll Q_R)$"
@@ -79,7 +79,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Waste activated sludge (WAS) flow rate from SRT definition (SI)",
-      "stem": "An activated-sludge aeration basin has volume V = 2{,}500 m³, MLSS X_A = 3{,}000 mg/L, and operates at a target SRT θ_c = 10 days. The waste sludge concentration X_w = 12{,}000 mg/L. Neglecting effluent solids, determine the WAS flow rate Q_w in m³/day.",
+      "stem": "An activated-sludge aeration basin has volume V = 2,500 m³, MLSS $X_A$ = 3,000 mg/L, and operates at a target SRT $\\theta_c$ = 10 days. The waste sludge concentration $X_w$ = 12,000 mg/L. Neglecting effluent solids, determine the WAS flow rate $Q_w$ in m³/day.",
       "equations": [
         "$\\theta_c = \\dfrac{V\\,X_A}{Q_w\\,X_w + Q_e\\,X_e}\\approx\\dfrac{V\\,X_A}{Q_w\\,X_w}\\quad(X_e\\approx 0)$",
         "$Q_w = \\dfrac{V\\,X_A}{\\theta_c\\,X_w}$"
@@ -103,9 +103,9 @@
       ],
       "options": [
         "400 lb/day",
-        "1{,}334 lb/day",
-        "4{,}003 lb/day",
-        "6{,}005 lb/day"
+        "1,334 lb/day",
+        "4,003 lb/day",
+        "6,005 lb/day"
       ],
       "answer": 2,
       "solution": "$\\Delta C = 240 - 80 = 160\\ \\mathrm{mg/L}$.  $M = 160\\times3.0\\times8.34 = 4{,}003\\ \\mathrm{lb/day}$. Option (A) uses $\\Delta C = 80$ (effluent SS only) and ignores the 8.34 factor: $80\\times3.0/2 = 120$... instead, option (A) arises from $\\Delta C\\times Q$ without 8.34: $160\\times3.0 = 480$ or from using 80 mg/L: $80\\times3.0\\times8.34 = 2{,}002 \\approx 2{,}000$. Option (D) uses the influent concentration $240$ mg/L instead of the removed fraction.",
@@ -125,13 +125,13 @@
         "$A = \\dfrac{Q}{v_o}$"
       ],
       "options": [
-        "4{,}167 ft²",
-        "6{,}250 ft²",
-        "8{,}333 ft²",
-        "12{,}500 ft²"
+        "4,167 ft²",
+        "6,250 ft²",
+        "8,333 ft²",
+        "12,500 ft²"
       ],
       "answer": 2,
-      "solution": "$Q = 5.0\\ \\mathrm{MGD} = 5{,}000{,}000\\ \\mathrm{gpd}$.  $A = 5{,}000{,}000/600 = 8{,}333\\ \\mathrm{ft^2}$. The Handbook design-criteria table (p.345) gives overflow rates of 400–700 gpd/ft² (average) for secondary clarifiers following air-activated sludge (not extended aeration). Extended aeration secondary clarifiers use a lower range (200–400 gpd/ft²), so designing at 600 gpd/ft² for a conventional system is appropriate. Option (A) uses 1{,}200 gpd/ft² (the primary clarifier peak value): $5{,}000{,}000/1{,}200 = 4{,}167$ ft². Option (D) uses 400 gpd/ft² (extended aeration criterion): $5{,}000{,}000/400 = 12{,}500$ ft².",
+      "solution": "$Q = 5.0\\ \\mathrm{MGD} = 5{,}000{,}000\\ \\mathrm{gpd}$.  $A = 5{,}000{,}000/600 = 8{,}333\\ \\mathrm{ft^2}$. The Handbook design-criteria table (p.345) gives overflow rates of 400–700 gpd/ft² (average) for secondary clarifiers following air-activated sludge (not extended aeration). Extended aeration secondary clarifiers use a lower range (200–400 gpd/ft²), so designing at 600 gpd/ft² for a conventional system is appropriate. Option (A) uses 1,200 gpd/ft² (the primary clarifier peak value): $5{,}000{,}000/1{,}200 = 4{,}167$ ft². Option (D) uses 400 gpd/ft² (extended aeration criterion): $5{,}000{,}000/400 = 12{,}500$ ft².",
       "handbook": "Environmental Engineering — Design Criteria for Sedimentation Basins (table, p.345)",
       "references": "Ctrl-F: Secondary Clarifier; Overflow Rate; Design Criteria",
       "source": "handbook",
@@ -143,7 +143,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "NRC trickling filter — recirculation factor F",
-      "stem": "A single-stage rock trickling filter operates with a recirculation ratio R = 2.0 (Q_r = 2Q). The National Research Council (NRC) recirculation factor F, which appears in the NRC efficiency equation, is most nearly:",
+      "stem": "A single-stage rock trickling filter operates with a recirculation ratio R = 2.0 ($Q_r$ = 2Q). The National Research Council (NRC) recirculation factor F, which appears in the NRC efficiency equation, is most nearly:",
       "equations": [
         "$F = \\dfrac{1 + R}{\\left(1 + \\dfrac{R}{10}\\right)^{2}}$"
       ],
@@ -251,7 +251,7 @@
       "set": "A",
       "type": "Numeric",
       "concept": "Biotower with recycle — Se from Handbook formula (SI)",
-      "stem": "A biotower (modular plastic media, n = 0.5) treats municipal wastewater with influent BOD₅ S₀ = 150 mg/L. Without recycle, the hydraulic application rate is q = 0.25 m³/(m²·min); the system now operates with recycle ratio R = 1.0 (Q_r = Q). Other parameters: k = 0.06 min⁻¹ at 20°C, media depth D = 5 m. Using the Handbook biotower-with-recycle formula, determine the effluent BOD₅ Se (mg/L).",
+      "stem": "A biotower (modular plastic media, n = 0.5) treats municipal wastewater with influent BOD₅ S₀ = 150 mg/L. Without recycle, the hydraulic application rate is q = 0.25 m³/(m²·min); the system now operates with recycle ratio R = 1.0 ($Q_r$ = Q). Other parameters: k = 0.06 min⁻¹ at 20°C, media depth D = 5 m. Using the Handbook biotower-with-recycle formula, determine the effluent BOD₅ Se (mg/L).",
       "equations": [
         "$\\dfrac{S_e}{S_a} = e^{-kD/q_T^{n}},\\quad S_a = \\dfrac{S_0+R\\,S_e}{1+R},\\quad q_T = \\dfrac{(1+R)\\,Q}{A}=(1+R)\\,q$",
         "$\\Rightarrow S_e = \\dfrac{S_0\\,e^{-kD/q_T^n}}{1+R-R\\,e^{-kD/q_T^n}}$"
@@ -292,7 +292,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Biological denitrification — methanol dose",
-      "stem": "A biological denitrification system receives secondary effluent with nitrate-nitrogen N₀ = 25 mg/L NO₃-N, nitrite-nitrogen N_l = 0 mg/L, and dissolved oxygen D₀ = 2.0 mg/L. Using the Handbook methanol requirement formula for denitrification of biologically treated wastewater, the required methanol concentration C_m in mg/L is most nearly:",
+      "stem": "A biological denitrification system receives secondary effluent with nitrate-nitrogen N₀ = 25 mg/L NO₃-N, nitrite-nitrogen $N_l$ = 0 mg/L, and dissolved oxygen D₀ = 2.0 mg/L. Using the Handbook methanol requirement formula for denitrification of biologically treated wastewater, the required methanol concentration $C_m$ in mg/L is most nearly:",
       "equations": [
         "$C_m = 2.47\\,N_o + 1.53\\,N_l + 0.87\\,D_o$"
       ],
@@ -315,7 +315,7 @@
       "set": "A",
       "type": "MCQ",
       "concept": "Anaerobic digestion — F:M ratio identifies activated-sludge process",
-      "stem": "An activated-sludge aeration basin treats Q = 1.0 MGD with influent BOD₅ S₀ = 200 mg/L. The basin volume is V = 0.8 MG and MLSS concentration is 4{,}500 mg/L. Using the Handbook design table, the F:M ratio and the activated-sludge process type that best match these conditions are:",
+      "stem": "An activated-sludge aeration basin treats Q = 1.0 MGD with influent BOD₅ S₀ = 200 mg/L. The basin volume is V = 0.8 MG and MLSS concentration is 4,500 mg/L. Using the Handbook design table, the F:M ratio and the activated-sludge process type that best match these conditions are:",
       "equations": [
         "$F:M = \\dfrac{Q\\,S_0}{V\\,X_A}\\quad\\left[\\dfrac{\\mathrm{kg\\ BOD_5/day}}{\\mathrm{kg\\ MLSS}}\\right]$"
       ],
@@ -326,7 +326,7 @@
         "F:M = 0.56 → High-rate aeration (F:M 0.4–1.5)"
       ],
       "answer": 1,
-      "solution": "$F:M = (1.0\\times200)/(0.8\\times4{,}500) = 200/3{,}600 = 0.0556\\ \\mathrm{kg\\ BOD_5/(d\\cdot kg\\ MLSS)}$. From the Handbook activated-sludge design table (p.339): Extended aeration operates at F:M = 0.05–0.15, θ = 18–24 h, MLSS = 3{,}000–6{,}000 mg/L, θ_c = 20–30 d. The computed F:M = 0.056 falls in the extended aeration range. Extended aeration treats all endogenous decay products within the process and produces less excess sludge per unit BOD removed compared with conventional activated sludge. Option (A) uses the correct F:M value (0.056) but matches it to the completely mixed range (0.2–0.4), which is 4–7× higher. Options (C) and (D) are off by a factor of 10 (decimal error).",
+      "solution": "$F:M = (1.0\\times200)/(0.8\\times4{,}500) = 200/3{,}600 = 0.0556\\ \\mathrm{kg\\ BOD_5/(d\\cdot kg\\ MLSS)}$. From the Handbook activated-sludge design table (p.339): Extended aeration operates at F:M = 0.05–0.15, θ = 18–24 h, MLSS = 3,000–6,000 mg/L, $\\theta_c$ = 20–30 d. The computed F:M = 0.056 falls in the extended aeration range. Extended aeration treats all endogenous decay products within the process and produces less excess sludge per unit BOD removed compared with conventional activated sludge. Option (A) uses the correct F:M value (0.056) but matches it to the completely mixed range (0.2–0.4), which is 4–7× higher. Options (C) and (D) are off by a factor of 10 (decimal error).",
       "handbook": "Environmental Engineering — Activated Sludge Design Parameters (table, p.339)",
       "references": "Ctrl-F: F:M ratio; Food to Microorganism; Activated Sludge; Extended Aeration",
       "source": "handbook",
@@ -406,7 +406,7 @@
         "365 million gallons/yr",
         "520 million gallons/yr",
         "950 million gallons/yr",
-        "1{,}460 million gallons/yr"
+        "1,460 million gallons/yr"
       ],
       "answer": 2,
       "solution": "$V_{offset} = 0.65\\times4.0\\ \\mathrm{MGD}\\times365 = 949\\ \\mathrm{MG/yr}\\approx950\\ \\mathrm{MG/yr}$. Option (A) uses $Q = 1.0$ MGD (forgot the 65\\% factor and divided instead of multiplied: $1.0\\times365 = 365$). Option (B) uses 200 operating days/year instead of 365. Option (D) applies the full 4.0 MGD without the 65\\% quality constraint: $4.0\\times365 = 1{,}460$ MG/yr. Reclaimed water displacing potable supply is a cornerstone of water conservation under 12.G; at current typical water rates ($\\sim$\\$3–5/1{,}000$ gal) this offset represents $\\sim$\\$3–5 million/year in avoided potable water costs.",

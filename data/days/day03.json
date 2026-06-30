@@ -118,7 +118,7 @@
     { "id": "D3-Q17", "set": "A", "type": "MCQ", "concept": "NPSH / cavitation",
       "stem": "To prevent cavitation at a pump suction, the design requirement is:",
       "equations": ["$NPSH_A > NPSH_R$"],
-      "options": ["NPSH_A < NPSH_R", "NPSH_A > NPSH_R", "NPSH_A = 0", "p_vapor > p_atm"], "answer": 1,
+      "options": ["$NPSH_A < NPSH_R$", "$NPSH_A > NPSH_R$", "$NPSH_A = 0$", "$p_{vapor} > p_{atm}$"], "answer": 1,
       "solution": "Cavitation is avoided when available NPSH exceeds the required value: $NPSH_A > NPSH_R$.",
       "handbook": "NPSH / Cavitation (p. 196)", "references": "Ctrl-F: Net Positive Suction" },
 

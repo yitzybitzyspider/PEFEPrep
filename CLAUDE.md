@@ -37,6 +37,14 @@ Schedule specials: **Jul 3 / Jul 6** → full 110-question practice exam instead
 **Jul 8+** → stop; post a good-luck note.
 
 ## Verification — do not skip
+- **Math formatting (renders via KaTeX on the site):** every formula/variable shown to the student
+  must be wrapped in `$…$` (inline) or `$$…$$` (display) — bare `X_A`, `H^{3/2}`, or a loose `{,}`
+  thousands-separator render as raw text. Inside `$…$`: use plain commas in `\text{}` (the `{,}`
+  tight-comma trick only works in pure math, not text), never put `\cdot`/`·` inside `\text{}`
+  (write `\text{mg/(kg}\cdot\text{day)}`), and give a stray degree an empty base (`{}^\circ`). In
+  prose stems/options, use a plain comma in numbers (`1,200`, not `1{,}200`). Don't hand-write a
+  formula in a stem (see the closed-book gate) — but any variable you *do* name must be `$…$`-wrapped.
+  Sanity-check by mentally rendering each `_`/`^`/`\text{}` you author. (Fractions: `\dfrac{}{}`.)
 - **Exam-relevance (do this per question, every build):** map **each** question to a specific
   FE Environmental knowledge-area subtopic in `reference/fe-environmental-spec.md` (e.g. "10.A —
   frequency"). If a question maps to nothing on the spec, **cut it** — only ship questions that
