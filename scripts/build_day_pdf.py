@@ -153,6 +153,11 @@ def fix_math(s):
 def render(s):
     """Render a mixed text/math string: split on $$...$$ and $...$, escape text, keep math.
     $$...$$ is converted to displayed math \\[...\\]; $...$ stays inline.
+
+    Currency amounts like $7,500 (dollar-sign followed by a digit) are intentionally
+    excluded from math-span matching so they pass through esc_text as \\$7,500.
+    Only $LETTER/$BACKSLASH/$BRACKET … $ spans are treated as inline math.
+    This prevents stray currency $ signs from breaking \\colorbox arguments.
     """
     if s is None:
         return ""
@@ -164,10 +169,12 @@ def render(s):
             inner = p[2:-2]
             res.append("\\[" + fix_math(inner) + "\\]")
         else:
-            # Now handle inline $...$
-            subparts = re.split(r"(\$[^$]*\$)", p)
+            # Inline $...$: only match when the first char inside $ is a letter,
+            # backslash, or opening bracket — never a digit (which signals currency).
+            subparts = re.split(r"(\$[A-Za-z\\(\[][^$]*\$)", p)
             for sp in subparts:
-                if len(sp) >= 2 and sp.startswith("$") and sp.endswith("$"):
+                if (len(sp) >= 3 and sp.startswith("$") and sp.endswith("$")
+                        and sp[1] in set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\\(['")):
                     res.append("$" + fix_math(sp[1:-1]) + "$")
                 else:
                     res.append(esc_text(sp))

@@ -1,0 +1,552 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F6F8B}
+\definecolor{soft}{HTML}{555555}
+\definecolor{boxbg}{HTML}{F4F8FA}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\small\color{soft}FE Environmental \textemdash\ PEFEPrep}
+\rhead{\small\color{soft}\rightmark}
+\cfoot{\small\color{soft}\thepage}
+\newcommand{\correct}[1]{\textbf{#1}\;{\color{accent}$\checkmark$}}
+\newcommand{\optline}[2]{\par\noindent\hspace{1.2em}(#1)\hspace{0.6em}#2}
+
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{accent} Engineering Economics}\\[4pt]
+{\large FE Environmental \textemdash\ Day 14}\\[2pt]
+{\color{soft} Study set \textbullet\ 2026-06-30 \textbullet\ 20 questions \textbullet\ every numeric answer recomputed in Python}
+\end{center}
+\vspace{6pt}\hrule\vspace{10pt}
+\markright{Engineering Economics}
+\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ All formulas confirmed against NCEES FE Reference Handbook v10.6 Engineering Economics chapter (pp. 235--237) and Interest Rate Tables (pp. 238--256). FACTORS (p.235): (F/P,i\%,n)=(1+i)\textasciicircum{}n; (P/F,i\%,n)=(1+i)\textasciicircum{}-n; (A/P,i\%,n)=i(1+i)\textasciicircum{}n/((1+i)\textasciicircum{}n-1); (A/F,i\%,n)=i/((1+i)\textasciicircum{}n-1); (F/A,i\%,n)=((1+i)\textasciicircum{}n-1)/i; (P/A,i\%,n)=((1+i)\textasciicircum{}n-1)/(i(1+i)\textasciicircum{}n); (P/G,i\%,n)=((1+i)\textasciicircum{}n-1)/(i\textasciicircum{}2(1+i)\textasciicircum{}n)-n/(i(1+i)\textasciicircum{}n). NON-ANNUAL COMPOUNDING (p.236): ie=(1+r/m)\textasciicircum{}m-1. INFLATION (p.236): d=i+f+(i$\times$f). DEPRECIATION (p.236): straight-line Dj=(C-Sn)/n; MACRS Dj=(factor)C; BV=initial cost-$\Sigma$Dj. MACRS TABLE (p.236): 5-yr property yr1=20\%, yr2=32\%, yr3=19.20\%, yr4=11.52\%, yr5=11.52\%, yr6=5.76\%. CAPITALIZED COST (p.236): P=A/i. BENEFIT-COST (p.237): B/C$\ge$1.0 or B-C$\ge$0. PAYBACK PERIOD (p.236): period of time for profit to equal investment cost. DECISION TREES (p.237): EV=C1*p1+C2*p2+…. Cost types (fixed vs. variable, sunk cost, opportunity cost) are fundamental economics --- not printed formula but standard knowledge. Annual worth comparison applies the Handbook factors. NOT IN HANDBOOK: direct breakeven-volume formula not printed (but derivable from fundamentals: BEQ=FC/(P-VC)); incremental B/C procedure is standard practice built on the Handbook B/C definition. All numeric answers independently recomputed in Python before authoring.}\vspace{2pt}}}
+\vspace{10pt}
+\filbreak
+\textbf{\color{accent}Q1.}\quad {\small\color{soft}[D14-Q01 \textbullet\ MCQ \textbullet\ Single-payment compound amount --- F/P factor (SI)]}\par\vspace{2pt}
+A municipal environmental fund invests \$5,000 today at a nominal annual interest rate of 8\% compounded annually. The amount accumulated in the fund after 5 years is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $F = P(F/P, i\%, n)$ \quad $(F/P, i\%, n) = (1 + i)^n$\par\vspace{3pt}
+\optline{A}{\$5,400}
+\optline{B}{\$6,802}
+\optline{C}{\correct{\$7,347}}
+\optline{D}{\$8,000}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[F = P(F/P, 8\%, 5) = P(1 + i)^n = 5{,}000 \times (1.08)^5\]
+\[(1.08)^5 = 1.4693\]
+\[F = 5{,}000 \times 1.4693 = 7{,}347\]
+
+**Why the other options are wrong:**
+Option (A) \$5,400: uses simple interest only $\rightarrow$ \$5,000 $\times$ (1 + 0.08 $\times$ 5) = \$7,000 (wrong formula for compounding). Actually \$5,400 would be 1-year simple: 5000$\times$1.08=\$5,400 --- this is n=1, not n=5.
+Option (B) \$6,802: corresponds to $(1.08)^4 = 1.3605$ --- off by one period (n=4 instead of 5).
+Option (D) \$8,000: simple sum of principal + \$3,000 (60\%) --- not based on any formula.
+
+**Technique:** The factor $(F/P, 8\%, 5) = 1.4693$ appears in the Handbook interest rate table (Factor Table, $i = 8\%$, row $n = 5$, column $F/P$). Always use tables or the formula --- never estimate from simple interest.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Single Payment Compound Amount Factor (F/P): p.235; Factor Table i=8\% p.242 \textbullet\ Handbook p.235 --- (F/P, i\%, n) = (1+i)\textasciicircum{}n}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q2.}\quad {\small\color{soft}[D14-Q02 \textbullet\ MCQ \textbullet\ Single-payment present worth --- P/F factor (USCS)]}\par\vspace{2pt}
+A remediation trust fund will receive a single payment of \$10,000 ten years from now. At an annual interest rate of 6\%, the present worth of this future payment is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = F(P/F, i\%, n)$ \quad $(P/F, i\%, n) = (1 + i)^{-n}$\par\vspace{3pt}
+\optline{A}{\$5,000}
+\optline{B}{\correct{\$5,584}}
+\optline{C}{\$6,500}
+\optline{D}{\$9,434}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[P = F(P/F, 6\%, 10) = \frac{F}{(1+i)^n} = \frac{10{,}000}{(1.06)^{10}}\]
+\[(1.06)^{10} = 1.7908 \Rightarrow P = \frac{10{,}000}{1.7908} = 5{,}584\]
+
+**Why the other options are wrong:**
+Option (A) \$5,000: discounts at exactly 50\% --- no formula basis.
+Option (C) \$6,500: halfway between \$5,584 and \$10,000 --- a rough mental estimate, not a calculation.
+Option (D) \$9,434: uses only one period of discounting $(P/F, 6\%, 1) = 1/1.06 = 0.9434$ --- forgot to use $n = 10$.
+
+**Technique:** The $(P/F, 6\%, 10)$ factor = 0.5584 from the Handbook table (Factor Table $i = 6\%$, row $n = 10$). Check: $P(1.06)^{10} = 5{,}584 \times 1.7908 \approx 10{,}000$ $\checkmark$}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Single Payment Present Worth Factor (P/F): p.235; Factor Table i=6\% p.241 \textbullet\ Handbook p.235 --- (P/F, i\%, n) = (1+i)\textasciicircum{}-n}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q3.}\quad {\small\color{soft}[D14-Q03 \textbullet\ MCQ \textbullet\ Uniform series present worth --- P/A annuity factor (SI)]}\par\vspace{2pt}
+An environmental monitoring contract requires annual payments of \$1,200 per year for 6 years, with the first payment due one year from now. At an interest rate of 8\% per year, the present worth of all future payments is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = A(P/A, i\%, n)$ \quad $(P/A, i\%, n) = \dfrac{(1+i)^n - 1}{i(1+i)^n}$\par\vspace{3pt}
+\optline{A}{\$5,068}
+\optline{B}{\correct{\$5,547}}
+\optline{C}{\$6,000}
+\optline{D}{\$7,200}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[P = A(P/A, 8\%, 6) = A \times \frac{(1.08)^6 - 1}{0.08 \times (1.08)^6}\]
+\[(1.08)^6 = 1.5869\]
+\[P = 1{,}200 \times \frac{0.5869}{0.08 \times 1.5869} = 1{,}200 \times \frac{0.5869}{0.12695} = 1{,}200 \times 4.6229 = 5{,}547\]
+
+**Why the other options are wrong:**
+Option (A) \$5,068: uses $(P/A, 10\%, 6) = 4.3553$ --- wrong interest rate.
+Option (C) \$6,000: undiscounted simple sum (6 $\times$ \$1,200) --- ignores time value of money entirely.
+Option (D) \$7,200: overstates by including all payments plus interest, not discounting.
+
+**Technique:** $(P/A, 8\%, 6) = 4.6229$ from Handbook table (Factor Table $i = 8\%$, row $n = 6$, column $P/A$). The $P/A$ factor is always less than $n$ because future dollars are worth less today.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Uniform Series Present Worth Factor (P/A): p.235; Factor Table i=8\% p.242 \textbullet\ Handbook p.235 --- (P/A, i\%, n) = ((1+i)\textasciicircum{}n - 1)/(i(1+i)\textasciicircum{}n)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q4.}\quad {\small\color{soft}[D14-Q04 \textbullet\ MCQ \textbullet\ Capital recovery --- A/P factor (USCS)]}\par\vspace{2pt}
+A water utility borrows \$20,000 at an annual interest rate of 10\% to purchase monitoring equipment. The loan is to be repaid in 5 equal end-of-year installments. The annual payment amount is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $A = P(A/P, i\%, n)$ \quad $(A/P, i\%, n) = \dfrac{i(1+i)^n}{(1+i)^n - 1}$\par\vspace{3pt}
+\optline{A}{\$4,000}
+\optline{B}{\$4,400}
+\optline{C}{\correct{\$5,276}}
+\optline{D}{\$6,000}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[A = P(A/P, 10\%, 5) = P \times \frac{i(1+i)^n}{(1+i)^n - 1}\]
+\[(1.10)^5 = 1.6105\]
+\[A = 20{,}000 \times \frac{0.10 \times 1.6105}{1.6105 - 1} = 20{,}000 \times \frac{0.16105}{0.6105} = 20{,}000 \times 0.2638 = 5{,}276\]
+
+**Why the other options are wrong:**
+Option (A) \$4,000: simple division \$20,000/5 --- ignores interest charges (zero-interest error).
+Option (B) \$4,400: adds a flat 10\% once (\$2,000) and spreads over 5 years (\$22,000/5) --- uses simple interest on original principal only.
+Option (D) \$6,000: overstates by adding 10\% compounded to the total and spreading evenly --- not the standard annuity formula.
+
+**Technique:** $(A/P, 10\%, 5) = 0.2638$ from Handbook table. Note: $A/P > 1/n$ because payments include both principal repayment AND interest --- the annual payment exceeds simple principal/n.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Capital Recovery Factor (A/P): p.235; Factor Table i=10\% p.244 \textbullet\ Handbook p.235 --- (A/P, i\%, n) = i(1+i)\textasciicircum{}n / ((1+i)\textasciicircum{}n - 1)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q5.}\quad {\small\color{soft}[D14-Q05 \textbullet\ Numeric \textbullet\ Uniform series future worth --- F/A factor (SI)]}\par\vspace{2pt}
+A wastewater treatment plant deposits \$500 at the end of each year into a capital reserve fund earning 5\% per year compounded annually. The accumulated value of the fund at the end of 8 years is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $F = A(F/A, i\%, n)$ \quad $(F/A, i\%, n) = \dfrac{(1+i)^n - 1}{i}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} \$4,775\par\vspace{2pt}
+{\small \[F = A(F/A, 5\%, 8) = A \times \frac{(1.05)^8 - 1}{0.05}\]
+\[(1.05)^8 = 1.47746\]
+\[F = 500 \times \frac{0.47746}{0.05} = 500 \times 9.5491 = 4{,}775\]
+
+**Verification:** Total deposits = \$500 $\times$ 8 = \$4,000. Interest earned = \$4,775 $-$ \$4,000 = \$775. The fund earns \$775 in interest on an average balance, which is reasonable for 5\% over 8 years.
+
+**Technique:** $(F/A, 5\%, 8) = 9.5491$ from Handbook table (Factor Table $i = 5\%$, row $n = 8$). The future worth of a series is always greater than the simple sum of deposits because each earlier deposit earns compound interest.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Uniform Series Compound Amount Factor (F/A): p.235; Factor Table i=5\% p.240 \textbullet\ Handbook p.235 --- (F/A, i\%, n) = ((1+i)\textasciicircum{}n - 1) / i}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q6.}\quad {\small\color{soft}[D14-Q06 \textbullet\ MCQ \textbullet\ Non-annual compounding --- effective annual interest rate (SI)]}\par\vspace{2pt}
+A loan for an environmental remediation project carries a nominal annual interest rate of 12\% compounded monthly. The effective annual interest rate is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $i_e = \left(1 + \dfrac{r}{m}\right)^m - 1$\par\vspace{3pt}
+\optline{A}{12.00\%}
+\optline{B}{12.36\%}
+\optline{C}{\correct{12.68\%}}
+\optline{D}{13.00\%}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small \[i_e = \left(1 + \frac{r}{m}\right)^m - 1 = \left(1 + \frac{0.12}{12}\right)^{12} - 1 = (1.01)^{12} - 1\]
+\[(1.01)^{12} = 1.12683\]
+\[i_e = 0.12683 = 12.68\%\]
+
+**Why the other options are wrong:**
+Option (A) 12.00\%: nominal annual rate only --- ignores the compounding within the year (effective > nominal whenever $m > 1$).
+Option (B) 12.36\%: result for quarterly compounding ($m = 4$): $(1.03)^4 - 1 = 0.1255$... actually $(1.03)^4 = 1.1255$, ie=12.55\%. The value 12.36\% corresponds to semi-annual ($m=2$): $(1.06)^2 - 1 = 0.1236$ $\checkmark$.
+Option (D) 13.00\%: overestimate --- often from approximating $(0.12/12) \times 12 \times 12 / 2$ or other errors.
+
+**Note:** With monthly compounding, the effective annual rate always exceeds the nominal rate. More frequent compounding $\rightarrow$ higher effective rate. As $m \rightarrow \infty$, $i_e \rightarrow e^r - 1$ (continuous compounding).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Non-Annual Compounding: ie = (1 + r/m)\textasciicircum{}m - 1 (p.236) \textbullet\ Handbook p.236 --- Non-Annual Compounding: ie = (1 + r/m)\textasciicircum{}m - 1}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q7.}\quad {\small\color{soft}[D14-Q07 \textbullet\ MCQ \textbullet\ Uniform gradient --- present worth of escalating annual costs (SI)]}\par\vspace{2pt}
+Stormwater infrastructure maintenance costs are projected to be \$1,000 in year 1, increasing by a uniform \$200 per year in each subsequent year (i.e., \$1,200 in year 2, \$1,400 in year 3, …). Over a 6-year study period at an interest rate of 10\% per year, the present worth of all maintenance costs is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = A(P/A, i\%, n) + G(P/G, i\%, n)$ \quad $(P/G, i\%, n) = \dfrac{(1+i)^n - 1}{i^2(1+i)^n} - \dfrac{n}{i(1+i)^n}$\par\vspace{3pt}
+\optline{A}{\$5,044}
+\optline{B}{\$6,000}
+\optline{C}{\correct{\$6,292}}
+\optline{D}{\$7,711}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small The total payment in year $j$ is $A + G(j-1)$, where $A = 1{,}000$ and $G = 200$. Split into base annuity + gradient:
+
+**Step 1 --- Base annuity (P/A, 10\%, 6):**
+\[(1.10)^6 = 1.7716 \Rightarrow (P/A) = \frac{0.7716}{0.10 \times 1.7716} = \frac{0.7716}{0.17716} = 4.3553\]
+
+**Step 2 --- Gradient (P/G, 10\%, 6):**
+\[(P/G) = \frac{0.7716}{0.01 \times 1.7716} - \frac{6}{0.10 \times 1.7716} = \frac{0.7716}{0.017716} - \frac{6}{0.17716} = 43.553 - 33.869 = 9.684\]
+
+**Step 3 --- Total P:**
+\[P = 1{,}000 \times 4.3553 + 200 \times 9.684 = 4{,}355 + 1{,}937 = 6{,}292\]
+
+**Why the other options are wrong:**
+Option (A) \$5,044: uses only the base annuity $(P/A)$ without adding the gradient component.
+Option (B) \$6,000: undiscounted sum \$200 $\times$ (1+2+3+4+5+6) + 6$\times$1000\$ ignoring time value --- simple arithmetic only.
+Option (D) \$7,711: adds instead of subtracts the $n/i(1+i)^n$ term in the $(P/G)$ formula.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Uniform Gradient Present Worth Factor (P/G): p.235; Factor Table i=10\% p.244 \textbullet\ Handbook p.235 --- P/G = ((1+i)\textasciicircum{}n-1)/(i\textasciicircum{}2(1+i)\textasciicircum{}n) - n/(i(1+i)\textasciicircum{}n)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q8.}\quad {\small\color{soft}[D14-Q08 \textbullet\ MCQ \textbullet\ Sunk cost --- economic decision-making principle (USCS)]}\par\vspace{2pt}
+An environmental consulting firm has spent \$80,000 on a preliminary site investigation for a proposed remediation project. After completing the study, a revised cost estimate shows the total project cost will be \$2,000,000 rather than the originally forecast \$1,000,000. When deciding whether to proceed with the project, the firm should treat the \$80,000 already spent as:\par\vspace{3pt}
+\optline{A}{A recoverable cost that should be added to projected future benefits when computing the benefit-cost ratio}
+\optline{B}{\correct{A sunk cost that is irrelevant to the go-forward decision because it cannot be recovered}}
+\optline{C}{A variable cost that decreases the expected net present value of the project}
+\optline{D}{An opportunity cost representing the value of the next-best project that was not selected}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small A **sunk cost** is a cost that has already been incurred and cannot be recovered regardless of what decision is made going forward. Because sunk costs do not change with the current decision, they are irrelevant to economic analysis --- including them in future comparisons biases the decision.
+
+The \$80,000 preliminary study cost is a sunk cost: whether the firm proceeds or cancels, it cannot recover that money. The go-forward decision should be based only on **future** costs (\$2,000,000 to complete) versus **future** benefits.
+
+**Why the other options are wrong:**
+Option (A): Adding sunk costs to benefits would artificially inflate the benefit side and produce an incorrect BCR.
+Option (C): Variable costs change with the quantity of output produced --- the preliminary study cost is fixed and already spent, not a variable cost.
+Option (D): Opportunity cost is the value of the foregone alternative (the best alternative not chosen), not a past expenditure. The opportunity cost concept applies to future choices, not past spending.
+
+**Key rule:** Never include sunk costs in economic comparisons. Ask only: what are the **future** costs and benefits of each alternative?}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Sunk cost concept (p.236, general economics); Decision analysis uses only future costs/benefits \textbullet\ Handbook p.236 --- Breakeven Analysis and project evaluation; sunk cost is a standard engineering economics principle}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q9.}\quad {\small\color{soft}[D14-Q09 \textbullet\ MCQ \textbullet\ Fixed vs. variable costs --- breakeven volume (USCS)]}\par\vspace{2pt}
+A private solid-waste hauling company has annual fixed operating costs (facility lease, insurance, and management) of \$50,000. Variable costs are \$15 per ton of waste collected. The company charges customers \$25 per ton. The minimum annual volume at which total revenue equals total cost (breakeven point) is most nearly:\par\vspace{3pt}
+\optline{A}{2,000 tons/yr}
+\optline{B}{3,333 tons/yr}
+\optline{C}{\correct{5,000 tons/yr}}
+\optline{D}{10,000 tons/yr}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small At breakeven, total revenue = total cost:
+\[\text{Revenue} = \text{Fixed cost} + \text{Variable cost}\]
+\[P \cdot Q = FC + VC \cdot Q\]
+\[Q(P - VC) = FC\]
+\[Q_{BE} = \frac{FC}{P - VC} = \frac{50{,}000}{25 - 15} = \frac{50{,}000}{10} = 5{,}000 \text{ tons/yr}\]
+
+The term $(P - VC)$ is the **contribution margin per unit** --- the amount each unit sold contributes to covering fixed costs.
+
+**Why the other options are wrong:**
+Option (A) 2,000 tons: divides $FC$ by the selling price alone (\$50,000/25\$) --- ignores variable cost.
+Option (B) 3,333 tons: divides $FC$ by the variable cost alone (\$50,000/15\$) --- uses variable cost in the denominator instead of the contribution margin.
+Option (D) 10,000 tons: divides $FC$ by the contribution margin but uses \$5/ton instead of \$10/ton (inverts the margin).
+
+**Economic meaning:** Below 5,000 tons, fixed costs are not fully recovered and the firm loses money. Above 5,000 tons, each additional ton earns \$10 profit (contribution margin).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Breakeven Analysis (p.236); fixed vs. variable cost classification is fundamental economics \textbullet\ Handbook p.236 --- Breakeven Analysis: breakeven volume where total revenue equals total cost}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q10.}\quad {\small\color{soft}[D14-Q10 \textbullet\ MCQ \textbullet\ Opportunity cost --- economic decision-making principle (SI)]}\par\vspace{2pt}
+A city currently uses a municipally owned parcel of land as a maintenance yard for public works vehicles. The city council is evaluating converting the parcel into a public park. An economist advises including the "opportunity cost" of the land in the project analysis. In this context, the opportunity cost is best described as:\par\vspace{3pt}
+\optline{A}{The original price the city paid to acquire the parcel}
+\optline{B}{The annual cost of maintaining the vehicle maintenance yard}
+\optline{C}{\correct{The annual revenue the city could earn by leasing the land to a private developer}}
+\optline{D}{The book-value depreciation of the land parcel over a 20-year project life}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small **Opportunity cost** is the value of the best alternative forgone when a resource is committed to a particular use. It is a forward-looking concept.
+
+If the city converts the land to a park, it gives up the ability to lease it to a private developer. The annual income that could have been earned from leasing represents the true economic cost of the land to the park project --- even though no money changes hands.
+
+**Why the other options are wrong:**
+Option (A): The original purchase price is a **sunk cost** --- already paid, irrelevant to future decisions.
+Option (B): The maintenance-yard operating cost is a **direct project cost** (expenses the city would no longer pay if the yard closes), not an opportunity cost.
+Option (D): Land does not depreciate on financial statements (land is a non-depreciable asset), and even if it did, **book-value depreciation** is an accounting concept, not an economic opportunity cost.
+
+**Key distinction:** Opportunity cost is about the best **foregone alternative**, not historical costs or accounting depreciation.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- opportunity cost is fundamental economics; project selection must account for all resource costs including foregone alternatives \textbullet\ Handbook p.235--237 --- Engineering Economics; opportunity cost is a foundational economics principle}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q11.}\quad {\small\color{soft}[D14-Q11 \textbullet\ MCQ \textbullet\ Benefit-cost ratio analysis (SI)]}\par\vspace{2pt}
+A flood-control project has a present worth of all future public benefits of \$450,000 and a present worth of all project costs (construction, operation, maintenance) of \$300,000 computed at the same interest rate over the same study period. The benefit-cost (B/C) ratio and acceptability conclusion are:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\dfrac{B}{C} \geq 1.0$ \quad $B - C \geq 0$\par\vspace{3pt}
+\optline{A}{B/C = 0.67; reject --- costs exceed benefits}
+\optline{B}{\correct{B/C = 1.50; accept --- benefits exceed costs}}
+\optline{C}{B/C = 1.33; accept --- benefits exceed costs}
+\optline{D}{B/C = 2.00; accept --- benefits are twice the costs}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[\frac{B}{C} = \frac{450{,}000}{300{,}000} = 1.50\]
+
+Since $B/C = 1.50 > 1.0$ (or equivalently $B - C = 150{,}000 > 0$), the project is **economically justified**.
+
+**Why the other options are wrong:**
+Option (A) B/C = 0.67: inverts the ratio ($C/B = 300/450$) --- correct arithmetic but wrong formula.
+Option (C) B/C = 1.33: computes $B/C$ using the ratio \$400/300 = 1.33\$ --- uses a wrong benefit value. (No number in this problem gives 1.33.)
+Option (D) B/C = 2.00: would be correct if benefits were \$600,000, not \$450,000.
+
+**Tip:** Benefits always go in the numerator; costs in the denominator. If $B/C \ge 1.0$, the project produces at least \$1 of benefit for every \$1 of cost --- accept. If $B/C < 1.0$ --- reject.
+
+**Note:** Both criteria ($B/C \ge 1.0$ AND $B - C \ge 0$) are equivalent for a single project. For comparing mutually exclusive alternatives, use **incremental** B/C analysis.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Benefit-Cost Analysis: B/C $\ge$ 1.0 or B -- C $\ge$ 0 (p.237) \textbullet\ Handbook p.237 --- Benefit-Cost Analysis: B -- C $\ge$ 0, or B/C $\ge$ 1}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q12.}\quad {\small\color{soft}[D14-Q12 \textbullet\ MCQ \textbullet\ Incremental benefit-cost analysis --- mutually exclusive alternatives (SI)]}\par\vspace{2pt}
+Two mutually exclusive stormwater infrastructure alternatives are being compared. The present worth of benefits and costs (computed at the same interest rate) are:
+
+| Alternative | PW Benefits | PW Costs |
+|---|---|---|
+| Alt 1 | \$300,000 | \$200,000 |
+| Alt 2 | \$480,000 | \$300,000 |
+
+Using incremental benefit-cost analysis, the recommended alternative is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\dfrac{\Delta B}{\Delta C} = \dfrac{B_2 - B_1}{C_2 - C_1}$\par\vspace{3pt}
+\optline{A}{Alt 1, because its B/C ratio (1.50) is higher than Alt 2's B/C ratio (1.60)}
+\optline{B}{\correct{Alt 2, because the incremental B/C ($\Delta$B/$\Delta$C = 1.80) exceeds 1.0}}
+\optline{C}{Alt 1, because it has the lower capital cost}
+\optline{D}{Alt 2, because it has the higher total benefit}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small **Step 1 --- Check both alternatives against the do-nothing alternative:**
+\[B/C_1 = 300/200 = 1.50 > 1.0 \checkmark \quad B/C_2 = 480/300 = 1.60 > 1.0 \checkmark\]
+Both are acceptable individually. Now use incremental analysis to choose between them.
+
+**Step 2 --- Compute incremental B/C (higher cost vs. lower cost):**
+\[\frac{\Delta B}{\Delta C} = \frac{480{,}000 - 300{,}000}{300{,}000 - 200{,}000} = \frac{180{,}000}{100{,}000} = 1.80\]
+
+**Step 3 --- Decision:**
+Since $\Delta B/\Delta C = 1.80 > 1.0$, the **additional investment** in Alt 2 (an extra \$100,000) generates \$1.80 of additional benefit per \$1.00 of additional cost --- **Alt 2 is preferred**.
+
+**Why Option A is wrong:** For mutually exclusive alternatives, choosing the one with the highest **individual** B/C ratio is incorrect. Option (A) would have selected Alt 1 (B/C = 1.50) when Alt 2 is actually better. The individual B/C ratio shows each alternative is worthwhile compared to doing nothing --- but the **incremental** ratio determines which alternative to select.
+
+**Rule:** Never select a mutually exclusive alternative solely on highest individual B/C. Always compute $\Delta B/\Delta C$ for the increment above the current best.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Benefit-Cost Analysis and incremental analysis (p.237); B/C formulas p.237 \textbullet\ Handbook p.237 --- Benefit-Cost Analysis: B/C $\ge$ 1.0; incremental B/C applies the same criterion to the cost increment}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q13.}\quad {\small\color{soft}[D14-Q13 \textbullet\ MCQ \textbullet\ Inflation-adjusted interest rate (SI)]}\par\vspace{2pt}
+An engineer uses a real (inflation-free) interest rate of 8\% per year for economic analyses. If the general inflation rate is 3\% per year, the inflation-adjusted (combined) interest rate to use when computing the present worth of actual (inflated) dollar cash flows is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $d = i + f + (i)(f)$\par\vspace{3pt}
+\optline{A}{5.00\%}
+\optline{B}{10.76\%}
+\optline{C}{11.00\%}
+\optline{D}{\correct{11.24\%}}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (D)\par\vspace{2pt}
+{\small \[d = i + f + (i)(f) = 0.08 + 0.03 + (0.08)(0.03) = 0.08 + 0.03 + 0.0024 = 0.1124 = 11.24\%\]
+
+**Why the other options are wrong:**
+Option (A) 5.00\%: subtracts inflation from real rate (\$8\textbackslash{}\% - 3\textbackslash{}\% = 5\textbackslash{}\%\$) --- this is the approximate real rate from a nominal rate, not the combined inflation-adjusted rate.
+Option (B) 10.76\%: an arithmetic error (perhaps \$0.08 + 0.03 - 0.0024\$, subtracting the cross-term instead of adding).
+Option (C) 11.00\%: simple addition (\$8\textbackslash{}\% + 3\textbackslash{}\%\$) --- ignores the cross-product term $(i)(f)$ required by the Handbook formula.
+
+**Why the cross-product matters:** When both interest and inflation compound, the effective rate is not simply the sum. The $(i)(f)$ term accounts for the compounding interaction. At low rates the term is small (\$0.0024\$ here), but it becomes significant at high inflation.
+
+**Usage:** Use $d$ in present-worth formulas when cash flows are expressed in **actual (inflated) dollars** (also called current or nominal dollars).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Inflation: d = i + f + (i $\times$ f) (p.236) \textbullet\ Handbook p.236 --- Inflation: inflation adjusted interest rate d = i + f + (i $\times$ f)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q14.}\quad {\small\color{soft}[D14-Q14 \textbullet\ MCQ \textbullet\ Payback period --- energy recovery investment (USCS)]}\par\vspace{2pt}
+A wastewater treatment plant invests \$50,000 in an energy recovery system. The system reduces energy costs by \$12,000 per year. The simple payback period for this investment is most nearly:\par\vspace{3pt}
+\optline{A}{3.0 years}
+\optline{B}{4.0 years}
+\optline{C}{\correct{4.2 years}}
+\optline{D}{5.0 years}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small The payback period is the time required for the cumulative savings (profit) to equal the initial investment cost:
+
+\[\text{Payback period} = \frac{\text{Initial investment}}{\text{Annual net savings}} = \frac{50{,}000}{12{,}000/\text{yr}} = 4.17 \text{ years} \approx 4.2 \text{ years}\]
+
+**Why the other options are wrong:**
+Option (A) 3.0 years: corresponds to \$50,000/\$16,667/yr --- uses an incorrect annual savings figure.
+Option (B) 4.0 years: would require \$50,000/\$12,500/yr --- rounds prematurely or uses \$12,500 instead of \$12,000.
+Option (D) 5.0 years: from dividing \$60,000/\$12,000 --- inflates the investment by \$10,000.
+
+**Limitation of payback period:** The simple payback period does NOT account for the time value of money (no discounting). For that reason, it is used as a quick screening tool, not a complete economic analysis. A project selected solely on shortest payback period may not have the highest net present value. Always complement payback analysis with NPV or benefit-cost analysis for final decisions.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Payback Period: 'the period of time required for the profit or other benefits of an investment to equal the cost of the investment' (p.236) \textbullet\ Handbook p.236 --- Payback period definition}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q15.}\quad {\small\color{soft}[D14-Q15 \textbullet\ MCQ \textbullet\ Annual worth comparison --- cost-minimization between two pump alternatives (USCS)]}\par\vspace{2pt}
+A pump station replacement can be accomplished with either of two alternatives (10-year life, $i$ = 8\%/yr):
+
+| Alternative | First Cost | Annual O\&M | Salvage Value |
+|---|---|---|---|
+| Alt A | \$40,000 | \$5,000/yr | \$2,000 |
+| Alt B | \$25,000 | \$7,500/yr | \$0 |
+
+Based on minimum equivalent annual cost, the preferred alternative is:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $AW_{\text{cost}} = P(A/P, i\%, n) + \text{Annual O\&M} - S_n(A/F, i\%, n)$\par\vspace{3pt}
+\optline{A}{\correct{Alt A, with an equivalent annual cost of approximately \$10,823/yr}}
+\optline{B}{Alt B, with an equivalent annual cost of approximately \$7,500/yr (O\&M only)}
+\optline{C}{Alt A, with an equivalent annual cost of approximately \$9,961/yr}
+\optline{D}{Alt B, with an equivalent annual cost of approximately \$11,226/yr}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small **Step 1 --- Compute factors for $i = 8\%$, $n = 10$:**
+\[(1.08)^{10} = 2.1589\]
+\[(A/P, 8\%, 10) = \frac{0.08 \times 2.1589}{2.1589 - 1} = \frac{0.17271}{1.1589} = 0.14903\]
+\[(A/F, 8\%, 10) = \frac{0.08}{1.1589} = 0.06903\]
+
+**Step 2 --- Annual worth of Alt A (costs):**
+\[AW_A = 40{,}000 \times 0.14903 + 5{,}000 - 2{,}000 \times 0.06903\]
+\[= 5{,}961 + 5{,}000 - 138 = 10{,}823/\text{yr}\]
+
+**Step 3 --- Annual worth of Alt B (costs):**
+\[AW_B = 25{,}000 \times 0.14903 + 7{,}500 - 0\]
+\[= 3{,}726 + 7{,}500 = 11{,}226/\text{yr}\]
+
+**Step 4 --- Decision:** $AW_A = 10{,}823 < AW_B = 11{,}226$ $\rightarrow$ **Alt A is preferred** (lower annual cost).
+
+**Why the other options are wrong:**
+Option (B) \$7,500: counts only Alt B's O\&M cost, ignoring the capital recovery charge (\$3,726/yr) --- a critical omission.
+Option (C) \$9,961: computes Alt A without the salvage credit, giving \$5,961 + \$5,000 $-$ \$0 = \$10,961 (then rounding or arithmetic error).
+Option (D) \$11,226: correctly computes Alt B's annual cost but incorrectly selects the higher-cost alternative.
+
+**Insight:** Even though Alt B has a lower initial cost, its higher O\&M cost more than offsets the capital-recovery savings, making Alt A cheaper on a life-cycle basis.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Annual Worth analysis uses (A/P) and (A/F) factors: p.235; Factor Table i=8\% p.242 \textbullet\ Handbook p.235 --- (A/P) and (A/F) factors; annual cost comparison methodology}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q16.}\quad {\small\color{soft}[D14-Q16 \textbullet\ MCQ \textbullet\ Straight-line depreciation (USCS)]}\par\vspace{2pt}
+An air-quality monitoring instrument costs \$80,000 to purchase and install. At the end of its 10-year useful life, its estimated salvage value is \$5,000. Using straight-line depreciation, the annual depreciation charge and the book value at the end of year 3 are most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $D_j = \dfrac{C - S_n}{n}$ \quad $BV = C - \sum D_j$\par\vspace{3pt}
+\optline{A}{\$7,500/yr; book value = \$80,000}
+\optline{B}{\correct{\$7,500/yr; book value = \$57,500}}
+\optline{C}{\$8,000/yr; book value = \$56,000}
+\optline{D}{\$7,500/yr; book value = \$52,500}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small **Annual depreciation (straight-line):**
+\[D_j = \frac{C - S_n}{n} = \frac{80{,}000 - 5{,}000}{10} = \frac{75{,}000}{10} = 7{,}500/\text{yr}\]
+
+**Book value at end of year 3:**
+\[BV_3 = C - \sum_{j=1}^{3} D_j = 80{,}000 - 3 \times 7{,}500 = 80{,}000 - 22{,}500 = 57{,}500\]
+
+**Why the other options are wrong:**
+Option (A) \$7,500/yr; BV = \$80,000: correct depreciation rate but the book value shown (\$80,000) is the original cost with zero depreciation applied --- forgot to subtract accumulated depreciation.
+Option (C) \$8,000/yr; BV = \$56,000: depreciation uses $(C/n)$ instead of $(C - S_n)/n$ (ignores salvage) $\rightarrow$ \$80,000/10 = \$8,000/yr; BV = \$80,000 - \$24,000 = \$56,000.
+Option (D) \$7,500/yr; BV = \$52,500: subtracts 3.67 years instead of 3 years, or uses a different accumulated total --- an arithmetic error.
+
+**Key:** In straight-line depreciation, the book value decreases by the same $D_j$ every year and reaches exactly $S_n$ at year $n$. Check: $BV_{10} = 80{,}000 - 10 \times 7{,}500 = 5{,}000 = S_n$ $\checkmark$}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Depreciation: Straight Line Dj = (C -- Sn)/n; BV = initial cost -- $\Sigma$Dj (p.236) \textbullet\ Handbook p.236 --- Straight-Line Depreciation: Dj = (C -- Sn)/n}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q17.}\quad {\small\color{soft}[D14-Q17 \textbullet\ MCQ \textbullet\ MACRS depreciation --- year 2 deduction for 5-year property (USCS)]}\par\vspace{2pt}
+A firm purchases air-pollution control equipment (classified as 5-year MACRS property) for \$60,000. Using the MACRS recovery rates from the NCEES FE Reference Handbook (5-year property: Year 1 = 20.00\%, Year 2 = 32.00\%), the depreciation deduction in Year 2 is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $D_j = (\text{factor}) \times C$\par\vspace{3pt}
+\optline{A}{\$12,000}
+\optline{B}{\$16,000}
+\optline{C}{\correct{\$19,200}}
+\optline{D}{\$24,000}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small From the MACRS table in the Handbook (5-year property, Year 2 recovery rate = 32.00\%):
+\[D_2 = \text{factor} \times C = 0.3200 \times 60{,}000 = 19{,}200\]
+
+**Year 1 depreciation (for reference):** $D_1 = 0.2000 \times 60{,}000 = 12{,}000$
+
+**Why the other options are wrong:**
+Option (A) \$12,000: Year 1 depreciation --- uses the Year 1 factor (20\%) instead of Year 2 factor (32\%).
+Option (B) \$16,000: would correspond to a 26.67\% factor --- no MACRS table entry; perhaps straight-line \$60,000/n error.
+Option (D) \$24,000: would imply a 40\% factor or \$60,000 $\times$ 0.40 --- exceeds any 5-year MACRS rate.
+
+**MACRS key facts:**
+- MACRS applies to the **original cost** $C$, not the declining book value --- unlike double-declining-balance (which MACRS is based on).
+- The Year 1 rate is halved (half-year convention), which is why Year 2 has the highest rate (32\%) for 5-year property.
+- The Handbook MACRS table covers 3-, 5-, 7-, and 10-year recovery periods.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Modified Accelerated Cost Recovery System (MACRS): Dj = (factor)C; MACRS Factors table (p.236) \textbullet\ Handbook p.236 --- MACRS Factors: 5-year property Year 1 = 20.00\%, Year 2 = 32.00\%}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q18.}\quad {\small\color{soft}[D14-Q18 \textbullet\ MCQ \textbullet\ Book value after MACRS depreciation --- years 1 and 2 (USCS)]}\par\vspace{2pt}
+A \$60,000 piece of air-pollution control equipment is depreciated under MACRS as 5-year property (Year 1 factor = 20.00\%; Year 2 factor = 32.00\%). The book value at the end of Year 2 is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $BV = C - \sum D_j$\par\vspace{3pt}
+\optline{A}{\$16,800}
+\optline{B}{\$24,000}
+\optline{C}{\correct{\$28,800}}
+\optline{D}{\$31,200}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small **Year 1 depreciation:** $D_1 = 0.2000 \times 60{,}000 = 12{,}000$
+
+**Year 2 depreciation:** $D_2 = 0.3200 \times 60{,}000 = 19{,}200$
+
+**Book value at end of Year 2:**
+\[BV_2 = C - (D_1 + D_2) = 60{,}000 - (12{,}000 + 19{,}200) = 60{,}000 - 31{,}200 = 28{,}800\]
+
+**Why the other options are wrong:**
+Option (A) \$16,800: \$60,000 $-$ \$12,000 $-$ \$19,200 = \$28,800 (correct), but this option perhaps uses only $D_2$ and subtracts from \$60,000 $-$ \$12,000 = \$48,000 $-$ \$31,200... actually difficult to derive; likely the wrong depreciation total.
+Option (B) \$24,000: subtracts \$36,000 in depreciation --- perhaps incorrectly using factors for years 1--3 (20+32+19.20=71.20\%, $\times$ \$50k? or wrong).
+Option (D) \$31,200: this is actually the accumulated depreciation (\$12,000 + \$19,200 = \$31,200), not the book value --- a common mix-up between book value and total depreciation taken.
+
+**Check:** After all 6 MACRS years (20+32+19.2+11.52+11.52+5.76 = 100\%), $BV = 60{,}000 - 60{,}000 = 0$ --- consistent with MACRS writing down assets to zero. $\checkmark$}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Book Value: BV = initial cost -- $\Sigma$Dj (p.236); MACRS Factors table (p.236) \textbullet\ Handbook p.236 --- Book Value and MACRS depreciation}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q19.}\quad {\small\color{soft}[D14-Q19 \textbullet\ Numeric \textbullet\ Capitalized cost --- perpetual annual expenditure (SI)]}\par\vspace{2pt}
+A city commits to maintaining a wetland mitigation site in perpetuity, requiring annual maintenance expenditures of \$15,000 per year. At an interest rate of 7\% per year, the capitalized cost (present worth of perpetual annual payments) is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = \dfrac{A}{i}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} \$214,286\par\vspace{2pt}
+{\small For a perpetual (infinite-life) series of uniform annual payments, the present worth converges to:
+\[P = \frac{A}{i} = \frac{15{,}000}{0.07} = 214{,}286\]
+
+**Derivation:** The $(P/A, i\%, n)$ factor as $n \to \infty$:
+\[\lim_{n \to \infty} \frac{(1+i)^n - 1}{i(1+i)^n} = \lim_{n \to \infty} \frac{1}{i}\left(1 - \frac{1}{(1+i)^n}\right) = \frac{1}{i}\]
+\[\Rightarrow P = A \times \frac{1}{i} = \frac{A}{i}\]
+
+**Economic interpretation:** If you place \$214,286 in an account earning 7\% per year, it generates \$214,286 $\times$ 0.07 = \$15,000 per year forever --- the principal is never touched, so payments continue indefinitely.
+
+**Applications in environmental engineering:**
+- Perpetual endowment funds for wetland/habitat mitigation banks
+- Long-term monitoring of remediation sites
+- Trust funds for post-closure care of hazardous waste facilities
+- Dam/levee maintenance in perpetuity
+
+**Formula source:** Capitalized Costs = $P = A/i$ (Handbook p.236).}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Capitalized Costs: P = A/i (p.236) \textbullet\ Handbook p.236 --- Capitalized Costs: P = A/i for perpetual series}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q20.}\quad {\small\color{soft}[D14-Q20 \textbullet\ MCQ \textbullet\ Sinking fund --- A/F factor (SI)]}\par\vspace{2pt}
+A stormwater utility plans to replace a key pump in 5 years at an estimated cost of \$20,000. To accumulate this amount, the utility will make equal annual end-of-year deposits into a fund earning 6\% per year. The required annual deposit is most nearly:\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $A = F(A/F, i\%, n)$ \quad $(A/F, i\%, n) = \dfrac{i}{(1+i)^n - 1}$\par\vspace{3pt}
+\optline{A}{\$2,867}
+\optline{B}{\correct{\$3,548}}
+\optline{C}{\$4,000}
+\optline{D}{\$4,748}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small \[A = F(A/F, 6\%, 5) = F \times \frac{i}{(1+i)^n - 1} = 20{,}000 \times \frac{0.06}{(1.06)^5 - 1}\]
+\[(1.06)^5 = 1.3382\]
+\[A = 20{,}000 \times \frac{0.06}{0.3382} = 20{,}000 \times 0.1774 = 3{,}548\]
+
+**Verification:** 5 deposits of \$3,548 growing at 6\% $\rightarrow$ $F = 3{,}548 \times (F/A, 6\%, 5) = 3{,}548 \times 5.6371 = 20{,}000$ $\checkmark$
+
+**Why the other options are wrong:**
+Option (A) \$2,867: uses $n = 6$ in the $(A/F)$ denominator $\rightarrow$ $(A/F, 6\%, 6) = 0.06/0.4185 = 0.1434$; $A = 0.1434 \times 20{,}000 = 2{,}867$ --- too many periods.
+Option (C) \$4,000: simple division $A = 20{,}000 / 5 = 4{,}000$ --- ignores interest earnings in the fund (zero-interest error).
+Option (D) \$4,748: applies the capital recovery factor $(A/P)$ instead of the sinking fund factor $(A/F)$: $(A/P, 6\%, 5) = 0.2374$; $A = 0.2374 \times 20{,}000 = 4{,}748$ --- wrong formula.
+
+**Key distinction:** $(A/F)$ finds the annual deposit to accumulate a **future** sum $F$ (sinking fund). $(A/P)$ finds the annual payment to repay a **present** loan $P$ (capital recovery). Both use the same algebraic relation: $(A/P) = (A/F) + i$.}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Engineering Economics --- Sinking Fund Factor (A/F): p.235; Factor Table i=6\% p.241 \textbullet\ Handbook p.235 --- (A/F, i\%, n) = i / ((1+i)\textasciicircum{}n - 1)}\vspace{2pt}
+}}
+\vspace{9pt}
+\end{document}

@@ -996,6 +996,90 @@
       "section": "Thermodynamics \u2014 Isentropic Process",
       "term": "Isentropic (Adiabatic Reversible)",
       "eq": "$P_1 V_1^k = P_2 V_2^k$,  $V_2 = V_1(P_1/P_2)^{1/k}$,  $k = c_p/c_v$  (air k\u22481.4, monatomic k\u22481.67) \u2014 Handbook p.148"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Compound Amount (F/P)",
+      "term": "Compound Amount F/P",
+      "eq": "$F = P(F/P, i\\%, n) = P(1+i)^n$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Present Worth (P/F)",
+      "term": "Present Worth P/F",
+      "eq": "$P = F(P/F, i\\%, n) = F(1+i)^{-n}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Annuity Present Worth (P/A)",
+      "term": "Uniform Series Present Worth P/A",
+      "eq": "$P = A(P/A, i\\%, n),\\quad (P/A) = \\dfrac{(1+i)^n-1}{i(1+i)^n}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Capital Recovery (A/P)",
+      "term": "Capital Recovery A/P",
+      "eq": "$A = P(A/P, i\\%, n),\\quad (A/P) = \\dfrac{i(1+i)^n}{(1+i)^n-1}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Future Worth of Series (F/A)",
+      "term": "Uniform Series Compound Amount F/A",
+      "eq": "$F = A(F/A, i\\%, n),\\quad (F/A) = \\dfrac{(1+i)^n-1}{i}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Sinking Fund (A/F)",
+      "term": "Sinking Fund A/F",
+      "eq": "$A = F(A/F, i\\%, n),\\quad (A/F) = \\dfrac{i}{(1+i)^n-1}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Gradient Present Worth (P/G)",
+      "term": "Uniform Gradient Present Worth P/G",
+      "eq": "$P = A(P/A)+G(P/G),\\quad (P/G) = \\dfrac{(1+i)^n-1}{i^2(1+i)^n} - \\dfrac{n}{i(1+i)^n}$ \u2014 Handbook p.235"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Effective Interest Rate",
+      "term": "Non-Annual Compounding effective rate",
+      "eq": "$i_e = \\left(1 + \\dfrac{r}{m}\\right)^m - 1$ ($r$ = nominal annual rate, $m$ = compoundings/yr) \u2014 Handbook p.236"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Inflation-Adjusted Rate",
+      "term": "Inflation adjusted rate d",
+      "eq": "$d = i + f + (i)(f)$ ($i$ = real rate, $f$ = inflation rate; use $d$ with actual-dollar cash flows) \u2014 Handbook p.236"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Straight-Line Depreciation",
+      "term": "Straight-Line Depreciation",
+      "eq": "$D_j = \\dfrac{C - S_n}{n},\\quad BV = C - \\sum D_j$ \u2014 Handbook p.236"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 MACRS Depreciation",
+      "term": "MACRS Depreciation",
+      "eq": "$D_j = (\\text{factor}) \\times C$; 5-yr: Y1=20%, Y2=32%, Y3=19.20%, Y4=11.52%, Y5=11.52%, Y6=5.76% \u2014 Handbook p.236"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Capitalized Cost",
+      "term": "Capitalized Cost (perpetuity)",
+      "eq": "$P = \\dfrac{A}{i}$ (present worth of perpetual uniform annual series) \u2014 Handbook p.236"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Benefit-Cost Analysis",
+      "term": "Benefit-Cost Ratio B/C",
+      "eq": "$\\dfrac{B}{C} \\geq 1.0$ or $B - C \\geq 0$; incremental: $\\dfrac{\\Delta B}{\\Delta C} \\geq 1.0$ \u2014 Handbook p.237"
+    },
+    {
+      "topic": "Engineering Economics",
+      "section": "Engineering Economics \u2014 Expected Value",
+      "term": "Expected Value decision tree",
+      "eq": "$EV = C_1 p_1 + C_2 p_2 + \\cdots$ \u2014 Handbook p.237"
     }
   ]
 }
