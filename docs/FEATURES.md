@@ -22,7 +22,7 @@
 | Feature | Status | Where | Files | Tier | Notes |
 |---|---|---|---|---|---|
 | Leitner spaced repetition | ✅ | Today, Plan | `store.js`, `sb.js` | Engine | Boxes 1–5; due-date scheduling; resurfaces misses |
-| Section mastery | ✅ | Progress | `store.js`, `progress.js` | Engine | Coverage × depth per KA → green/amber/red |
+| Section mastery | ✅ | Progress | `store.js`, `progress.js` | Engine | Accuracy (% of tried questions currently right) per section → green/amber/red; coverage shown separately |
 | Due-review resurfacing (signed-in) | ✅ | My Plan | `sb.js`, `dashboard.js` | Engine | `review_state` drives the dashboard's due set |
 | Per-question history (got/missed dots) | ✅ | Bank, Live, Progress | `store.js`, `sb.js` | Engine | "blue-dot"-style status |
 
