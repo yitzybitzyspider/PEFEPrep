@@ -1,7 +1,22 @@
 {
-  "version": "0.25.2",
-  "updated": "2026-06-29",
+  "version": "0.26.0",
+  "updated": "2026-06-30",
   "history": [
+    {
+      "version": "0.26.0",
+      "date": "2026-06-30",
+      "title": "Day 14 added — Engineering Economics",
+      "changes": [
+        "Engineering Economics (Day 14, 20 questions) added — KA 4 subtopics A–D: time value of money, cost types, economic analyses, and project selection",
+        "KA 4.A Time Value of Money (7 questions): single-payment compound amount (F/P) and present worth (P/F) factors; uniform series present worth (P/A) and capital recovery (A/P) annuity factors; uniform series future worth (F/A); non-annual compounding effective annual rate ie=(1+r/m)^m−1; uniform gradient present worth P/G",
+        "KA 4.B Cost Types (3 questions): sunk cost identification (irrelevant to go-forward decisions); fixed vs. variable cost breakeven volume BEQ=FC/(P−VC); opportunity cost concept (value of the best foregone alternative)",
+        "KA 4.C Economic Analyses (5 questions): benefit-cost ratio B/C=1.5 ≥ 1.0 → accept; incremental B/C analysis for mutually exclusive alternatives (ΔB/ΔC=1.80); inflation-adjusted rate d=i+f+(i)(f)=11.24%; simple payback period (50k/12k=4.2 yr); annual worth comparison cost-minimization with (A/P) and (A/F) factors",
+        "KA 4.D Project Selection (5 questions): straight-line depreciation Dj=(C−Sn)/n=$7,500/yr; MACRS 5-year property year-2 deduction (32%×$60k=$19,200); book value BV=C−ΣDj=$28,800; capitalized cost P=A/i=$214,286 (perpetual maintenance endowment); sinking fund (A/F,6%,5)=$3,548/yr",
+        "Bank now holds 302 questions spanning Days 1–14; every numeric answer recomputed and verified in Python before authoring",
+        "Cheat sheet extended with 14 new Engineering Economics equations: all 6 time-value factors (F/P, P/F, P/A, A/P, F/A, A/F), P/G gradient, ie non-annual, d inflation-adjusted, straight-line and MACRS depreciation, capitalized cost P=A/i, B/C criterion, and EV decision tree",
+        "All Day-14 formulas confirmed against NCEES FE Reference Handbook v10.6 Engineering Economics chapter pp.235–237 and Interest Rate Tables pp.238–256; KA 4 (5–8 exam questions) fully covered across all 4 subtopics A–D; SI + USCS mix throughout"
+      ]
+    },
     {
       "version": "0.25.2",
       "date": "2026-06-29",
