@@ -36,9 +36,12 @@ window.renderMath = function (el) {
   }
 
   function stash(text, bag) {
+    // Escape-aware: a literal \$ (a dollar sign written inside math, e.g. currency authored
+    // as $\$5{,}400$) must NOT terminate the span, or the closing $ and any following | get
+    // mis-paired (which silently breaks table columns and runs prose together).
     return String(text)
-      .replace(/\$\$[\s\S]+?\$\$/g, function (m) { bag.push(m); return STX + (bag.length - 1) + STX; })
-      .replace(/\$[^$\n]+?\$/g, function (m) { bag.push(m); return STX + (bag.length - 1) + STX; });
+      .replace(/\$\$(?:\\.|[^$]|\$(?!\$))+?\$\$/g, function (m) { bag.push(m); return STX + (bag.length - 1) + STX; })
+      .replace(/\$(?:\\.|[^$\n])+?\$/g, function (m) { bag.push(m); return STX + (bag.length - 1) + STX; });
   }
   function restore(html, bag) {
     return html.replace(RESTORE_RE, function (_, n) { return bag[+n]; });
