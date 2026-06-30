@@ -1,7 +1,18 @@
 {
-  "version": "0.25.0",
-  "updated": "2026-06-29",
+  "version": "0.26.0",
+  "updated": "2026-06-30",
   "history": [
+    {
+      "version": "0.26.0",
+      "date": "2026-06-30",
+      "title": "Section mastery now measures accuracy, not reps",
+      "changes": [
+        "Section mastery is now your ACCURACY — of the questions you've tried in a section, how many you currently have right — instead of coverage × spaced-repetition depth. Get a set right and the bar reflects it immediately; you no longer have to re-drill each question 3–4× to move the needle",
+        "A wrong answer dips the section until you get it right on a later review; 'Questions seen' tracks how much you've covered, separately",
+        "Sections you haven't started now read 'not started' instead of 0% red; each bar shows 'X/Y right' plus how many are left to try",
+        "The exam-readiness headline and the 'Section Cleared' badge key off accuracy (70%+ right)"
+      ]
+    },
     {
       "version": "0.25.0",
       "date": "2026-06-29",

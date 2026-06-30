@@ -6,12 +6,12 @@
   <title>Progress — PEFEPrep</title>
   <meta name="description" content="Readiness, per-section mastery, publish status, and your full study schedule." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>" />
-  <link rel="stylesheet" href="./app/style.css?v=0.25.0" />
+  <link rel="stylesheet" href="./app/style.css?v=0.26.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <script src="./app/theme.js?v=0.25.0"></script>
-  <script src="./app/config.js?v=0.25.0"></script>
+  <script src="./app/theme.js?v=0.26.0"></script>
+  <script src="./app/config.js?v=0.26.0"></script>
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfaf7">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
@@ -46,7 +46,7 @@
 
     <section class="card">
       <h1>Your progress</h1>
-      <p class="sub">Mastery = coverage (how much you've seen) × depth (how well you remember it), from the spaced-repetition boxes.</p>
+      <p class="sub">Mastery = accuracy: of the questions you've tried in a section, how many you currently have right. Miss one and it dips until you get it right on a later review. (“Questions seen” tracks how much you've covered.)</p>
       <div class="stat-grid">
         <div class="stat"><div class="num" id="stReady">0%</div><div class="lbl">Exam readiness</div></div>
         <div class="stat"><div class="num" id="stStreak">0</div><div class="lbl">Day streak 🔥</div></div>
@@ -110,9 +110,10 @@
       <h2>Section mastery</h2>
       <div id="bars"></div>
       <div class="legend">
-        <span><i class="dot-green"></i>Exam-ready (70%+)</span>
+        <span><i class="dot-green"></i>Strong (70%+ right)</span>
         <span><i class="dot-amber"></i>Getting there (35–69%)</span>
         <span><i class="dot-red"></i>Needs work (&lt;35%)</span>
+        <span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;background:var(--muted)"></i>Not started</span>
       </div>
     </section>
 
@@ -144,14 +145,14 @@
     </div>
   </div>
 
-  <script src="./app/store.js?v=0.25.0"></script>
-  <script src="./app/celebrate.js?v=0.25.0"></script>
-  <script src="./app/data.js?v=0.25.0"></script>
-  <script src="./app/progress.js?v=0.25.0"></script>
-  <script src="./app/version.js?v=0.25.0"></script>
+  <script src="./app/store.js?v=0.26.0"></script>
+  <script src="./app/celebrate.js?v=0.26.0"></script>
+  <script src="./app/data.js?v=0.26.0"></script>
+  <script src="./app/progress.js?v=0.26.0"></script>
+  <script src="./app/version.js?v=0.26.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="./app/sb.js?v=0.25.0"></script>
-  <script src="./app/sync.js?v=0.25.0"></script>
-  <script src="./app/pwa.js?v=0.25.0"></script>
+  <script src="./app/sb.js?v=0.26.0"></script>
+  <script src="./app/sync.js?v=0.26.0"></script>
+  <script src="./app/pwa.js?v=0.26.0"></script>
 </body>
 </html>

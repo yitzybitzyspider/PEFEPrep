@@ -157,21 +157,25 @@ window.PFP = (function () {
     var by = {};
     all.forEach(function (q) {
       var k = q.topic || "—";
-      by[k] = by[k] || { total: 0, seen: 0, boxSum: 0, mastered: 0 };
+      by[k] = by[k] || { total: 0, seen: 0, correct: 0, missed: 0, boxSum: 0, mastered: 0 };
       by[k].total++;
       var c = s.cards[q.id];
-      if (c) {
+      if (c && c.seen) {
         by[k].seen++;
         by[k].boxSum += c.box;
         if (c.box >= 4) by[k].mastered++;
+        // latest outcome for this question (prefer the explicit flag; fall back for old cards)
+        var ok = (typeof c.lastCorrect === "boolean") ? c.lastCorrect : (c.wrong > 0 ? false : true);
+        if (ok) by[k].correct++; else by[k].missed++;
       }
     });
     Object.keys(by).forEach(function (k) {
       var v = by[k];
-      var coverage = v.total ? v.seen / v.total : 0;
-      var depth = v.seen ? (v.boxSum / v.seen) / 5 : 0;
-      v.readiness = Math.round(coverage * depth * 100);
-      v.level = v.readiness >= 70 ? "green" : v.readiness >= 35 ? "amber" : "red";
+      // Mastery = ACCURACY: of the questions you've TRIED in this section, how many you
+      // currently have right (latest answer). Wrong answers pull it down; reps aren't required.
+      v.started = v.seen > 0;
+      v.readiness = v.seen ? Math.round(v.correct / v.seen * 100) : 0;
+      v.level = !v.started ? "new" : (v.readiness >= 70 ? "green" : v.readiness >= 35 ? "amber" : "red");
     });
     return by;
   }

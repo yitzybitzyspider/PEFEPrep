@@ -20,10 +20,14 @@
 
   function render(ALL, S) {
     var m = PFP.sectionMastery(ALL);
-    var topics = Object.keys(m).sort(function (a, b) { return m[a].readiness - m[b].readiness; });
-    var tot = 0, seen = 0, boxSum = 0;
-    topics.forEach(function (k) { tot += m[k].total; seen += m[k].seen; boxSum += m[k].boxSum; });
-    var overall = tot ? Math.round(boxSum / (tot * 5) * 100) : 0;
+    // Started sections first (weakest accuracy on top); not-started fall to the bottom.
+    var topics = Object.keys(m).sort(function (a, b) {
+      if (m[a].started !== m[b].started) return m[a].started ? -1 : 1;
+      return m[a].readiness - m[b].readiness;
+    });
+    var tot = 0, seen = 0, correct = 0;
+    topics.forEach(function (k) { tot += m[k].total; seen += m[k].seen; correct += m[k].correct; });
+    var overall = seen ? Math.round(correct / seen * 100) : 0;
 
     $("stReady").textContent = overall + "%";
     $("stStreak").textContent = PFP.getStreak();
@@ -32,12 +36,16 @@
 
     $("bars").innerHTML = topics.length ? topics.map(function (k) {
       var v = m[k];
+      var mv = v.started
+        ? (v.readiness + "% · " + v.correct + "/" + v.seen + " right"
+            + (v.seen < v.total ? ' · <span style="color:var(--muted)">' + (v.total - v.seen) + ' to try</span>' : ''))
+        : '<span style="color:var(--muted)">not started · ' + v.total + ' Q</span>';
       return '<div class="mrow"><div class="mtop"><span class="mname">' + k + "</span>" +
-        '<span class="mval">' + v.readiness + "% · " + v.seen + "/" + v.total + "</span></div>" +
-        '<div class="mbar"><div class="' + v.level + '" style="width:' + Math.max(4, v.readiness) + '%"></div></div></div>';
+        '<span class="mval">' + mv + "</span></div>" +
+        '<div class="mbar"><div class="' + v.level + '" style="width:' + (v.started ? Math.max(4, v.readiness) : 0) + '%"></div></div></div>';
     }).join("") : "<p class='sub'>No questions loaded yet.</p>";
 
-    var weak = topics.filter(function (k) { return m[k].seen > 0; }).slice(0, 3);
+    var weak = topics.filter(function (k) { return m[k].started; }).slice(0, 3);
     $("weak").textContent = weak.length ? weak.join(" · ") : "Finish a session and your weakest sections show up here.";
 
     renderGoal();
