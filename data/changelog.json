@@ -1,7 +1,19 @@
 {
-  "version": "0.27.1",
-  "updated": "2026-06-30",
+  "version": "0.28.0",
+  "updated": "2026-07-01",
   "history": [
+    {
+      "version": "0.28.0",
+      "date": "2026-07-01",
+      "title": "Day 15 live — Ethics & Energy/Environment (22 questions)",
+      "changes": [
+        "Added Day 15: 22 questions spanning FE Environmental KA 3 (Ethics & Professional Practice) and KA 15 (Energy & Environment) — 13 ethics + 9 energy, 17 MCQ + 5 numeric",
+        "Ethics: NCEES Model Rules of Professional Conduct (obligations to public / employer-clients / other licensees), Responsible Charge, sustainability triple bottom line, life-cycle analysis, Risk = Hazard × Probability, NFPA fire/hazard diamond, and CWA/SDWA/NEPA statute-matching",
+        "Energy: hydropower P = 10·Q·H, wind kinetic energy ½mv², biomass conversion pathways, nuclear reactor efficiency, stoichiometric CO₂ from methane combustion, and the Kaya carbon-emission identity",
+        "All 19 handbook-sourced questions cross-checked against NCEES FE Reference Handbook v10.6 (Ethics pp.3-16, Energy pp.354-360); the 3 environmental-statute questions tagged as fundamental regulatory knowledge; every numeric answer independently recomputed in Python",
+        "Appended Day 15 formulas to the handbook equation index; drafted and adversarially verified by independent Opus subagents"
+      ]
+    },
     {
       "version": "0.27.1",
       "date": "2026-06-30",

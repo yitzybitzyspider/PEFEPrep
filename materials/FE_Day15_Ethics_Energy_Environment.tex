@@ -1,0 +1,417 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F6F8B}
+\definecolor{soft}{HTML}{555555}
+\definecolor{boxbg}{HTML}{F4F8FA}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\small\color{soft}FE Environmental \textemdash\ PEFEPrep}
+\rhead{\small\color{soft}\rightmark}
+\cfoot{\small\color{soft}\thepage}
+\newcommand{\correct}[1]{\textbf{#1}\;{\color{accent}$\checkmark$}}
+\newcommand{\optline}[2]{\par\noindent\hspace{1.2em}(#1)\hspace{0.6em}#2}
+
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{accent} Ethics \& Energy/Environment}\\[4pt]
+{\large FE Environmental \textemdash\ Day 15}\\[2pt]
+{\color{soft} Study set \textbullet\ 2026-07-01 \textbullet\ 22 questions \textbullet\ every numeric answer recomputed in Python}
+\end{center}
+\vspace{6pt}\hrule\vspace{10pt}
+\markright{Ethics \& Energy/Environment}
+\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}{\small\textbf{\color{accent}Handbook fidelity.}\ Ethics questions verified against NCEES FE Reference Handbook v10.6, Ethics and Professional Practice chapter (pp.3-16): 2025-26 Model Rules of Professional Conduct Section 240.15 --- Obligations to the Public (A.1 first-and-foremost public H/S/W; A.3 notify when judgment overruled; A.5 opinions only on adequate knowledge; A.6 disclose interested-party statements), Obligations to Employer/Clients (B.2 seal only work under responsible charge; B.5 no gratuities from contractors; B.6 disclose conflicts of interest), Obligations to Other Licensees (C.3 no indiscriminate reputational injury; C.4 inform licensee of material error affecting public H/S/W); Model Law 110.20.E Responsible Charge; Societal Considerations (p.14) --- sustainability triple bottom line and Life-cycle analysis (cradle to grave); Safety and Prevention (pp.15-16) --- Risk = Hazard x Probability (and Risk = Hazard x Exposure for disease agents) and the NFPA fire/hazard diamond (Health/Flammability/Instability 0-4, Special-hazard W/OX/SA). The environmental statutes (CWA/NPDES, SDWA/MCL, NEPA/EIS) are NOT printed as such in v10.6 (only the RCRA/OSHA acronym table on p.15) and are tagged source=fundamental --- foundational regulatory knowledge, not a Handbook-formula lookup. Energy questions verified against the Environmental Engineering chapter, Energy section (pp.354-360): Energy Sources and Conversion Processes diagram (p.354); Combustion mass-balance table (p.354, CH4 + 2 O2 -\textgreater{} CO2 + 2 H2O, 16+64=44+36); Biomass as an Energy Source pathways (p.355); Hydropower P = 10 x Q x H (p.355, P in kW, Q in m\textasciicircum{}3/s, H in m); Nuclear Power Reactor Characteristics table (p.356); Wind kinetic energy KE = (1/2) m v\textasciicircum{}2 (p.356); Noise-comparison table (p.357); Kaya emission equation E\_carbon = P x (GDP/P) x (E/GDP) x (CO2/E) (p.360). All numeric answers independently recomputed in Python before authoring (hydropower 2,000 kW; wind KE 250 kJ; v\textasciicircum{}2 sensitivity 2.25x; combustion 2,750 kg/hr CO2; Kaya 8.1e7 tonnes CO2/yr; guarded risk index 0.24). Drafted and adversarially verified by independent Opus subagents against this Handbook text extract.}\vspace{2pt}}}
+\vspace{10pt}
+\filbreak
+\textbf{\color{accent}Q1.}\quad {\small\color{soft}[D15-Q01 \textbullet\ MCQ \textbullet\ NCEES Model Rules --- obligation to the public (overruled judgment)]}\par\vspace{2pt}
+During construction oversight of a municipal wastewater outfall, a licensed environmental engineer's professional judgment that a discharge diffuser must be redesigned is overruled by the client's project manager, and the engineer believes the as-built configuration endangers public health. Under the 2025-26 NCEES Model Rules of Professional Conduct (Section 240.15.A, Obligations to the Public), the engineer's required action is to:\par\par\vspace{3pt}
+\optline{A}{Quietly resign from the project to avoid any association with the decision}
+\optline{B}{\correct{Notify the employer or client and such other authority as may be appropriate that public health, safety, or welfare is endangered}}
+\optline{C}{Comply with the project manager's directive without further action, since the client bears final responsibility}
+\optline{D}{Issue a public statement to the local newspaper before informing the client}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Model Rule 240.15.A.3 states that licensees shall notify their employer or client, and such other authority as may be appropriate, when their professional judgment is overruled under circumstances where the health, safety, or welfare of the public is endangered. That is exactly option (B).\par
+\textbf{Why the other options are wrong:} (A) Resigning silently does not discharge the duty to \emph{notify} the appropriate authority; the endangerment persists and the public is not protected. The rule requires affirmative notification, not withdrawal. (C) Simply complying and deferring to the client directly violates 240.15.A.1, which makes safeguarding public health, safety, and welfare the licensee's \emph{first and foremost} responsibility --- it cannot be waived by the client's preference. (D) Going to the press \emph{first} inverts the rule's order: the licensee must notify the employer/client and appropriate authority. Rule 240.15.A.6 also cautions against public statements that do not disclose interests; a newspaper broadside before internal notification is not what the rule prescribes.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Model Rules 240.15.A.3 (Obligations to the Public): p.4 \textbullet\ Model Rules 240.15.A.3 --- professional judgment overruled / notify}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q2.}\quad {\small\color{soft}[D15-Q02 \textbullet\ MCQ \textbullet\ NCEES Model Rules --- public statements founded on adequate knowledge]}\par\vspace{2pt}
+An environmental engineer is asked by a citizens' group to testify publicly that a proposed landfill 'will certainly contaminate the town's aquifer,' though the engineer has not reviewed the site's hydrogeologic data or liner design. Under NCEES Model Rule 240.15.A, the most defensible course of action is to:\par\par\vspace{3pt}
+\optline{A}{Give the requested testimony, because opposing a landfill always serves the public interest}
+\optline{B}{\correct{Express a professional opinion publicly only when it is founded upon adequate knowledge of the facts and a competent evaluation of the subject matter}}
+\optline{C}{Decline to comment on any public matter at all, to avoid liability}
+\optline{D}{Provide the statement as long as the citizens' group, not the engineer, is publicly credited}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Model Rule 240.15.A.5 requires that licensees express a professional opinion publicly \emph{only when it is founded upon an adequate knowledge of the facts and a competent evaluation of the subject matter}. Without reviewing the hydrogeologic data and liner design, the engineer lacks the adequate knowledge the rule demands, so option (B) is the correct standard.\par
+\textbf{Why the other options are wrong:} (A) 'Always serves the public interest' substitutes a predetermined conclusion for a competent evaluation; issuing a categorical 'will certainly contaminate' opinion without the facts violates 240.15.A.5 regardless of the cause. (C) The rule does not forbid public comment; it conditions it on adequate knowledge. Refusing to ever comment is not required and would understate the engineer's legitimate role in informing the public (240.15.A.4 favors truthful, pertinent information). (D) Attribution does not cure the underlying defect --- the opinion is still unfounded. Separately, 240.15.A.6 bars statements inspired or paid for by interested parties unless the interest is disclosed; hiding behind the group's name does not satisfy the knowledge requirement.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Model Rules 240.15.A.5 (Obligations to the Public): p.5 \textbullet\ Model Rules 240.15.A.5 --- professional opinion / adequate knowledge}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q3.}\quad {\small\color{soft}[D15-Q03 \textbullet\ MCQ \textbullet\ NCEES Model Rules --- obligations to employer/clients (gratuities \& competence)]}\par\vspace{2pt}
+A licensed engineer at a consulting firm is offered a weekend hunting-lodge trip by a pipe-supply contractor whose products the engineer is currently specifying for a client's stormwater project. Which single action best conforms to NCEES Model Rule 240.15.B (Obligations to Employer and Clients)?\par\par\vspace{3pt}
+\optline{A}{Accept the trip, since it is a personal gift unrelated to the specification decision}
+\optline{B}{\correct{Decline the trip, because licensees shall not solicit or accept gratuities from contractors or their agents in connection with work for clients}}
+\optline{C}{Accept the trip but specify a competitor's pipe to remain neutral}
+\optline{D}{Accept the trip and simply keep it confidential from the client}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Model Rule 240.15.B.5 states that licensees shall not solicit or accept gratuities, directly or indirectly, from contractors, their agents, or other parties in connection with work for employers or clients. A lodge trip from a contractor whose products the engineer is actively specifying is precisely such a gratuity, so declining (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) Framing it as a 'personal gift' does not change that it comes from a contractor 'in connection with' current work --- the rule reaches indirect and personal-appearing gratuities alike. (C) Specifying a competitor's product does not cleanse the acceptance; the prohibition is on accepting the gratuity itself, not merely on being swayed. It also risks a poorer design choice made to mask a favor. (D) Concealment makes it worse: 240.15.B.6 requires disclosure of anything that could appear to influence the engineer's judgment. Hiding the trip both accepts a prohibited gratuity and violates the conflict-of-interest disclosure duty.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Model Rules 240.15.B.5-6 (Obligations to Employer and Clients): p.5 \textbullet\ Model Rules 240.15.B.5 --- gratuities from contractors}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q4.}\quad {\small\color{soft}[D15-Q04 \textbullet\ MCQ \textbullet\ NCEES Model Rules --- obligations to other licensees (material error affecting public H/S/W)]}\par\vspace{2pt}
+While reviewing a peer firm's drawings for a drinking-water booster station, a licensed engineer discovers a valve-sizing error that could cause a hazardous pressure transient endangering the public. Under NCEES Model Rule 240.15.C (Obligations to Other Licensees), the engineer's obligation is to:\par\par\vspace{3pt}
+\optline{A}{Say nothing, to avoid injuring the other licensee's professional reputation}
+\optline{B}{\correct{Make a reasonable effort to inform the other licensee whose work is believed to contain the material error affecting public health, safety, or welfare}}
+\optline{C}{Publicly and indiscriminately criticize the other firm's competence to warn future clients}
+\optline{D}{Correct the drawings and re-seal them under the reviewing engineer's own seal without notice}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small Model Rule 240.15.C.4 requires a licensee to make a reasonable effort to inform another licensee whose work is believed to contain a material discrepancy, error, or omission that may impact public health, safety, or welfare (unless such reporting is legally prohibited). That maps directly to option (B).\par
+\textbf{Why the other options are wrong:} (A) Silence to protect reputation subordinates public safety to collegial courtesy; 240.15.A.1 and 240.15.C.4 both require action when public H/S/W is at stake. Protecting reputation is addressed by \emph{how} you report (240.15.C.3), not by staying silent. (C) 'Indiscriminate' public criticism violates 240.15.C.3, which bars maliciously or indiscriminately injuring another licensee's reputation. The duty is to inform the licensee, not to launch a public attack. (D) Re-sealing another's work under your own seal without their preparation/responsible charge violates 240.15.B.2 (do not seal work not prepared under your responsible charge) and bypasses the required notification of the original licensee.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Model Rules 240.15.C.3-4 (Obligations to Other Licensees): p.5 \textbullet\ Model Rules 240.15.C.4 --- inform licensee of material error affecting public H/S/W}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q5.}\quad {\small\color{soft}[D15-Q05 \textbullet\ Numeric \textbullet\ Hazard vs. risk and the effect of controls (SI, dimensionless index)]}\par\vspace{2pt}
+A wastewater plant uses an in-channel comminutor whose rotating cutter has a health-harm severity rating (its inherent hazard) of $H = 4$ on a 0-4 scale. With no guard, the probability of an operator making injurious contact during a routine cleaning task is $P = 0.30$ per event. Management installs a physical guard and lockout procedure that lowers the contact probability to $P = 0.06$ per event, while the cutter's inherent hazard is unchanged. Using the Handbook risk relation, compute the guarded task's risk index (dimensionless). Report the numeric value.\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{Risk} = \text{Hazard} \times \text{Probability}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} 0.24\par\vspace{2pt}
+{\small The Handbook (Safety and Prevention) gives $\text{Risk} = \text{Hazard} \times \text{Probability}$. The guard does \textbf{not} change the cutter's inherent hazard --- a rotating blade retains its capacity to cause harm --- it lowers the \emph{probability} of injurious contact.\par
+\[\text{Risk}_{\text{guarded}} = H \times P = 4 \times 0.06 = 0.24\]
+For context, the unguarded risk was $4 \times 0.30 = 1.20$, so the control reduced the risk index by $\dfrac{1.20 - 0.24}{1.20} = 80\%$ --- entirely through the probability term.\par
+\textbf{Key conceptual point:} A common error is to reduce the \emph{hazard} value after guarding (e.g., using $H = 1$), which would misrepresent the physics --- the inherent hazard of the rotating cutter is unchanged. Another error is to multiply the two probabilities or to add rather than multiply. The Handbook explicitly notes that installing a guard reduces the probability of causing harm, and thus the risk, while the hazard continues to exist.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Safety and Prevention (Risk = Hazard $\times$ Probability): p.15 \textbullet\ Safety and Prevention --- Risk = Hazard $\times$ Probability}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q6.}\quad {\small\color{soft}[D15-Q06 \textbullet\ MCQ \textbullet\ Risk for disease-causing agents (Risk = Hazard $\times$ Exposure)]}\par\vspace{2pt}
+A public-health engineer is assessing the risk posed by a pathogenic protozoan in a community's untreated surface water. The Handbook notes that for disease-causing agents the risk relation is $\text{Risk} = \text{Hazard} \times \text{Exposure}$. Compared with the risk to a resident who drinks the untreated water daily, installing a filtration barrier that keeps the pathogen's toxicity the same but cuts each resident's contact with the organism most directly reduces risk by lowering the:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{Risk} = \text{Hazard} \times \text{Exposure}$\par\vspace{3pt}
+\optline{A}{Hazard term, because filtration makes the pathogen less inherently toxic}
+\optline{B}{\correct{Exposure term, because filtration reduces the degree to which residents contact or ingest the organism}}
+\optline{C}{Risk to zero, because any barrier eliminates all disease-causing potential}
+\optline{D}{Probability term, which for disease agents replaces both hazard and exposure}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Handbook states that for disease-causing agents, the term \emph{exposure} is used rather than probability, giving $\text{Risk} = \text{Hazard} \times \text{Exposure}$, and that risk rises with the degree to which the agent contacts the body or enters the lungs. A filtration barrier reduces contact/ingestion --- the \emph{exposure} term --- while the pathogen's inherent toxicity (hazard) is unchanged. Option (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) Filtration does not make the organism less inherently toxic; the hazard (its capacity to cause illness) is an inherent quality of the pathogen and is unchanged by a physical barrier. (C) No barrier drives risk to exactly zero --- filtration reduces but does not perfectly eliminate exposure, and the Handbook frames risk as a product that is reduced, not annihilated, by controls. (D) The Handbook uses \emph{exposure} in place of \emph{probability} specifically for disease agents; it does not replace \emph{both} factors. Hazard remains a separate multiplicative term in the equation.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Safety and Prevention (Risk = Hazard $\times$ Exposure): p.15 \textbullet\ Safety and Prevention --- Risk = Hazard $\times$ Exposure (disease agents)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q7.}\quad {\small\color{soft}[D15-Q07 \textbullet\ MCQ \textbullet\ NFPA fire/hazard diamond interpretation]}\par\vspace{2pt}
+A drum of solvent at a remediation site bears an NFPA fire/hazard diamond with the following quadrant ratings: Blue (health) = 2, Red (flammability) = 3, Yellow (instability) = 0, and the white quadrant shows the symbol $\text{W}$. Based on the Handbook's fire/hazard diamond definitions, which statement correctly interprets this label?\par\par\vspace{3pt}
+\optline{A}{\correct{The material is normally stable, ignites readily in ambient conditions, and is water-reactive}}
+\optline{B}{The material may detonate on shock, is a mild irritant only, and is an oxidizer}
+\optline{C}{The material requires preheating to ignite, is immediately lethal on contact, and is a simple asphyxiant}
+\optline{D}{The white 'W' means the drum should be flushed with water in an emergency}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small Reading the diamond against the Handbook definitions: Yellow instability = 0 means 'normally stable'; Red flammability = 3 means 'ignite readily in ambient conditions'; the white-quadrant symbol $\text{W}$ denotes a \emph{water reactive} material. Blue health = 2 means 'temporary incapacitation or residual injury.' Option (A) matches all of these.\par
+\textbf{Why the other options are wrong:} (B) 'May detonate on shock' would require an instability (yellow) rating near 4, but the yellow value is 0 (normally stable). $\text{OX}$, not $\text{W}$, is the oxidizer symbol, and health = 2 is more than a 'mild irritant' (that would be health = 1). (C) Flammability = 3 means ignites readily in ambient conditions, not that it 'requires preheating' (that is flammability = 1). Health = 2 is temporary incapacitation, not 'immediately lethal' (lethal is health = 4). $\text{SA}$, not $\text{W}$, marks a simple asphyxiant. (D) The white $\text{W}$ specifically warns the material is \emph{water reactive} --- a caution \emph{against} using water --- the opposite of an instruction to flush with water. Misreading this symbol could cause a dangerous water-application response.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Safety --- Hazard Assessment, fire/hazard diamond (Positions A-D): p.16 \textbullet\ NFPA fire/hazard diamond --- Health/Flammability/Instability/Special (W, OX, SA)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q8.}\quad {\small\color{soft}[D15-Q08 \textbullet\ MCQ \textbullet\ Clean Water Act --- NPDES discharge permitting]}\par\vspace{2pt}
+A consulting firm is helping a municipal wastewater treatment plant obtain authorization to discharge treated effluent into a river. Which federal statute establishes the permit program (NPDES) that governs the discharge of pollutants from a point source into surface waters of the United States?\par\par\vspace{3pt}
+\optline{A}{Safe Drinking Water Act (SDWA)}
+\optline{B}{\correct{Clean Water Act (CWA)}}
+\optline{C}{Resource Conservation and Recovery Act (RCRA)}
+\optline{D}{Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Clean Water Act establishes the National Pollutant Discharge Elimination System (NPDES), which regulates the discharge of pollutants from point sources (such as a treatment-plant outfall) into surface waters of the United States. Obtaining an NPDES permit is exactly the authorization the plant needs, so (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) The SDWA governs \emph{drinking water} supplied to the public --- it sets Maximum Contaminant Levels (MCLs) at the tap and regulates underground injection --- not the discharge of treated effluent to a river. (C) RCRA governs the generation, transport, treatment, storage, and disposal of solid and hazardous waste ('cradle to grave'), not surface-water discharge permitting. (D) CERCLA (Superfund) addresses cleanup liability for releases of hazardous substances at contaminated sites; it does not issue discharge permits for ongoing point-source effluent.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Not printed in Handbook v10.6 --- CWA/NPDES is federal regulatory knowledge (the Safety/Regulatory Agencies table on p.15 lists USEPA and RCRA but not the CWA or NPDES program itself) \textbullet\ Clean Water Act --- NPDES point-source discharge permit}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q9.}\quad {\small\color{soft}[D15-Q09 \textbullet\ MCQ \textbullet\ Safe Drinking Water Act --- MCLs at the tap]}\par\vspace{2pt}
+A water utility must demonstrate that the arsenic concentration delivered to its customers' taps does not exceed the federal Maximum Contaminant Level (MCL). Which federal statute sets enforceable drinking-water contaminant limits (MCLs) for public water systems?\par\par\vspace{3pt}
+\optline{A}{National Environmental Policy Act (NEPA)}
+\optline{B}{Clean Air Act (CAA)}
+\optline{C}{\correct{Safe Drinking Water Act (SDWA)}}
+\optline{D}{Occupational Safety and Health Act (OSHA)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (C)\par\vspace{2pt}
+{\small The Safe Drinking Water Act authorizes the USEPA to set enforceable Maximum Contaminant Levels (MCLs) for contaminants (such as arsenic) in water delivered by public water systems. Demonstrating compliance with the arsenic MCL at the tap is an SDWA obligation, so (C) is correct.\par
+\textbf{Why the other options are wrong:} (A) NEPA requires federal agencies to assess the environmental impacts of major federal actions (via Environmental Assessments and Environmental Impact Statements); it sets no drinking-water contaminant limits. (B) The CAA regulates emissions to the atmosphere and sets National Ambient Air Quality Standards (NAAQS) for outdoor air pollutants --- not limits for contaminants in drinking water. (D) OSHA regulates worker safety and health in the \emph{workplace} (e.g., permissible exposure limits for employees), not the quality of drinking water delivered to the public.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Not printed in Handbook v10.6 --- SDWA/MCL is federal regulatory knowledge (the Safety/Regulatory Agencies table on p.15 lists USEPA and OSHA but not the SDWA or MCL program) \textbullet\ Safe Drinking Water Act --- MCL / public water system}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q10.}\quad {\small\color{soft}[D15-Q10 \textbullet\ MCQ \textbullet\ NEPA vs. CERCLA --- matching statute to scenario]}\par\vspace{2pt}
+A federal agency proposes to build a new interstate highway interchange through a wetland, and the project team must prepare a document analyzing the action's environmental impacts and alternatives before the agency decides whether to proceed. Which federal statute imposes this requirement?\par\par\vspace{3pt}
+\optline{A}{Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)}
+\optline{B}{\correct{National Environmental Policy Act (NEPA)}}
+\optline{C}{Resource Conservation and Recovery Act (RCRA)}
+\optline{D}{Clean Air Act (CAA)}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small NEPA requires federal agencies to evaluate the environmental impacts of, and alternatives to, major federal actions significantly affecting the environment --- typically through an Environmental Assessment (EA) and, where warranted, a full Environmental Impact Statement (EIS) --- \emph{before} deciding whether to proceed. A federally sponsored interchange through a wetland is a classic NEPA-triggering action, so (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) CERCLA (Superfund) governs liability and cleanup for releases of hazardous substances at contaminated sites; it does not require impact analysis of a new construction project that is not a hazardous-release remediation. (C) RCRA governs solid and hazardous waste management from generation to disposal; it does not impose the environmental-impact-analysis-and-alternatives requirement for federal actions. (D) The CAA addresses air emissions and NAAQS. While air-quality conformity may be \emph{one input} to a NEPA analysis, the statute that \emph{requires the impact analysis and alternatives document itself} is NEPA, not the CAA.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Not printed in Handbook v10.6 --- NEPA/EIS is federal regulatory knowledge (the Safety/Regulatory Agencies table on p.15 lists federal agencies such as USEPA but not the NEPA statute or the EIS/EA requirement) \textbullet\ National Environmental Policy Act --- EIS / EA for federal actions}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q11.}\quad {\small\color{soft}[D15-Q11 \textbullet\ MCQ \textbullet\ Engineer's role in society --- sustainability and triple bottom line]}\par\vspace{2pt}
+The Handbook's Societal Considerations section states that engineers 'must deliver solutions that are technically viable, [economically] feasible, and environmentally and socially sustainable.' An environmental engineer evaluating options for a regional water-reuse system is applying this principle most completely when the selected design is:\par\par\vspace{3pt}
+\optline{A}{The lowest first-cost option, regardless of long-term environmental or social effects}
+\optline{B}{\correct{Technically workable, affordable over its life, and protective of both the environment and the affected community}}
+\optline{C}{The most technically advanced option available, even if it is unaffordable and disrupts the community}
+\optline{D}{Whichever option maximizes the consulting firm's fee on the project}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Handbook frames sustainable engineering around solutions that are simultaneously technically viable, economically feasible, and environmentally \emph{and} socially sustainable --- often called the 'triple bottom line.' A design that is technically workable, affordable across its life, and protective of both environment and community satisfies all three legs, so (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) Minimizing first cost while ignoring long-term environmental and social effects captures only the economic leg and abandons the environmental and social ones --- the opposite of the balanced mandate. (C) Maximizing technical sophistication at the expense of affordability and community well-being sacrifices the economic and social legs; 'technically viable' is only one of three simultaneous requirements. (D) Maximizing the firm's fee is a self-interest objective that appears nowhere in the sustainability principle and would conflict with the engineer's paramount duty to public welfare (Model Rule 240.15.A.1).\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Societal Considerations (sustainability / triple bottom line): p.14 \textbullet\ Societal Considerations --- technically viable, economically feasible, environmentally \& socially sustainable}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q12.}\quad {\small\color{soft}[D15-Q12 \textbullet\ MCQ \textbullet\ Engineer's role in society --- life-cycle analysis (cradle to grave)]}\par\vspace{2pt}
+In selecting between two competing membrane materials for a desalination plant, an engineer wants to account for environmental consequences from raw-material extraction through manufacture, operation, and ultimate disposal. Per the Handbook's Societal Considerations, this 'cradle to grave' evaluation is known as:\par\par\vspace{3pt}
+\optline{A}{A job safety analysis (JSA)}
+\optline{B}{\correct{A life-cycle analysis}}
+\optline{C}{A trade-secret assessment}
+\optline{D}{A comity review}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Handbook defines life-cycle analysis (cradle to grave) as assessing the potential environmental consequences associated with a project or product from design and development through utilization and disposal. Evaluating a membrane 'from raw-material extraction through disposal' is precisely a life-cycle analysis, so (B) is correct.\par
+\textbf{Why the other options are wrong:} (A) A JSA (job safety analysis, also AHA/JHA) breaks a \emph{task} into steps to identify and control worker-safety hazards; it is a workplace-safety tool, not an assessment of a product's environmental impacts over its lifetime. (C) A trade-secret assessment concerns protecting proprietary formulas, methods, or processes as intellectual property --- unrelated to cradle-to-grave environmental evaluation. (D) 'Comity' refers to licensure reciprocity between jurisdictions (Model Law), not to any environmental or product-impact evaluation.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Societal Considerations (Life-cycle analysis, cradle to grave): p.14 \textbullet\ Societal Considerations --- Life-cycle analysis (cradle to grave)}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q13.}\quad {\small\color{soft}[D15-Q13 \textbullet\ MCQ \textbullet\ Engineer's role in society --- 'responsible charge' and sealing work]}\par\vspace{2pt}
+A licensed environmental engineer is asked to sign and seal a set of air-permit calculations that were prepared entirely by a separate contractor the engineer has never supervised and whose inputs the engineer cannot review or change. Under the Handbook's Model Law definition of 'Responsible Charge' and Model Rule 240.15.B, the engineer should:\par\par\vspace{3pt}
+\optline{A}{Seal the work, because a licensed engineer may seal any competent-looking engineering document}
+\optline{B}{\correct{Decline to seal, because a licensee must not seal documents not prepared under their responsible charge}}
+\optline{C}{Seal the work provided the contractor also signs it}
+\optline{D}{Seal the work only if it is in a discipline other than the engineer's own}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Model Law defines 'Responsible Charge' as exercising full professional knowledge of and control over the work --- including authority to review, change, reject, or approve it, personal awareness of the project's scope, and full acceptance of responsibility. Model Rule 240.15.B.2 forbids affixing a seal to any document not prepared under the licensee's responsible charge. Because the engineer never supervised the work and cannot review or change it, they are not in responsible charge and must decline to seal --- option (B).\par
+\textbf{Why the other options are wrong:} (A) A 'competent-looking' appearance is irrelevant; sealing requires responsible charge, i.e., actual authority and control over the work, not a surface impression of quality. Rubber-stamping ('plan stamping') is a classic ethics violation. (C) The contractor also signing does not place the \emph{licensee} in responsible charge; the licensee still lacks review/change authority and personal awareness of the project's parameters. (D) This inverts the competence rule --- 240.15.B.1 requires the licensee be \emph{qualified in the specific technical field} and 240.15.B.2 bars sealing work in subject matter in which they lack competence. Sealing specifically because it is \emph{outside} one's own discipline is exactly what the rules prohibit.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Ethics and Professional Practice --- Model Law 110.20.E (Responsible Charge): p.7; Model Rules 240.15.B.2: p.5 \textbullet\ Responsible Charge (110.20.E) / Model Rule 240.15.B.2 --- sealing only work under responsible charge}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q14.}\quad {\small\color{soft}[D15-Q14 \textbullet\ MCQ \textbullet\ Energy sources and conversion processes --- matching source to process]}\par\vspace{2pt}
+A renewable-energy consultant is classifying generation options for a rural utility. According to the NCEES Handbook's Energy Sources and Conversion Processes diagram, which conversion process converts the energy in solar radiation \textbf{directly} into electricity (rather than first into heat or chemical energy)?\par\par\vspace{3pt}
+\optline{A}{\correct{Photovoltaics}}
+\optline{B}{Solar thermal}
+\optline{C}{Photosynthesis}
+\optline{D}{Anaerobic digestion}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small In the Handbook's Energy Sources and Conversion Processes diagram (p.354), the SUN is the energy source and several distinct conversion processes branch from it. \textbf{Photovoltaics} convert incident sunlight directly into electricity (the photovoltaic effect in a semiconductor), with no intermediate heat or chemical step --- this is the defining feature of a PV cell.\par
+\textbf{Why the other options are wrong:}\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \textbf{Solar thermal} converts sunlight into \emph{heat} first (energy form = HEAT); that heat must then drive a turbine/generator to make electricity, so it is not a direct sunlight-to-electricity path.
+\item \textbf{Photosynthesis} converts solar energy into \emph{chemical} energy stored in biomass fuels (energy form = CHEMICAL) --- this is the biomass branch, not electricity.
+\item \textbf{Anaerobic digestion} is a biochemical process that converts biomass into \emph{gaseous fuel} (chemical energy); it does not act on solar radiation at all.
+\end{itemize}
+\textbf{Technique:} Read the diagram by tracing an ENERGY SOURCE (left) through a CONVERSION PROCESS to an ENERGY FORM (right). Only photovoltaics land on ELECTRICITY directly from the sun.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Energy Sources and Conversion Processes diagram: p.354 \textbullet\ Handbook p.354 --- Energy Sources and Conversion Processes; photovoltaics}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q15.}\quad {\small\color{soft}[D15-Q15 \textbullet\ Numeric \textbullet\ Hydropower --- power delivered by falling water (SI)]}\par\vspace{2pt}
+A run-of-river hydroelectric plant on a municipal water-supply aqueduct passes a flow of $Q = 8\ \text{m}^3/\text{s}$ through its turbines under an effective head of $H = 25\ \text{m}$. Using the Handbook hydropower relation, the power delivered by the water is most nearly:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $P = 10 \times Q \times H$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $2{,}000$ kW\par\vspace{2pt}
+{\small The Handbook gives the hydropower relation (p.355):\par
+\[P = 10 \times Q \times H\]
+where $P$ is in kW, $Q$ in $\text{m}^3/\text{s}$, and $H$ in m. Substituting:\par
+\[P = 10 \times 8 \times 25 = 2{,}000\ \text{kW}\]
+\textbf{Common errors to avoid:} Dropping the factor of 10 gives $Q \times H = 200$ (wrong --- the constant 10 embeds water density, gravity, and an assumed efficiency in SI units). Adding instead of multiplying ($Q + H = 33$) or forgetting to convert would also be wrong. The relation only holds with $Q$ in $\text{m}^3/\text{s}$ and $H$ in meters, so no unit conversion is needed here.\par
+\textbf{Answer:} $P \approx 2{,}000\ \text{kW}$ (2.0 MW).\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Hydropower: p.355 \textbullet\ Handbook p.355 --- Hydropower P = 10 $\times$ Q $\times$ H}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q16.}\quad {\small\color{soft}[D15-Q16 \textbullet\ Numeric \textbullet\ Wind energy --- kinetic energy of an air parcel (SI)]}\par\vspace{2pt}
+A wind-resource assessment models a discrete parcel of moving air with mass $m = 5{,}000\ \text{kg}$ passing a proposed turbine site at a wind speed $v = 10\ \text{m/s}$. Using the Handbook expression for the energy contained in the wind, the kinetic energy of this air parcel is most nearly:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{Kinetic energy} = \dfrac{1}{2}\,m v^2$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $250$ kJ\par\vspace{2pt}
+{\small The Handbook states that the energy contained in the wind is its kinetic energy (p.356):\par
+\[\text{KE} = \frac{1}{2}\,m v^2\]
+with $m$ in kilograms and $v$ in m/s, giving KE in joules. Substituting:\par
+\[\text{KE} = \frac{1}{2}\,(5{,}000)(10)^2 = \frac{1}{2}\,(5{,}000)(100) = 250{,}000\ \text{J} = 250\ \text{kJ}\]
+\textbf{Common errors to avoid:} Forgetting to square the velocity gives $\frac{1}{2}(5{,}000)(10) = 25{,}000$ J (wrong). Omitting the factor $\frac{1}{2}$ gives 500 kJ (wrong). Because KE scales with $v^2$, wind power is extremely sensitive to wind speed --- the physical reason siting is dominated by finding high-mean-wind-speed locations.\par
+\textbf{Answer:} $\text{KE} \approx 250\ \text{kJ}$ ($2.5 \times 10^5\ \text{J}$).\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Wind: p.356 \textbullet\ Handbook p.356 --- Wind kinetic energy = (1/2) m v\textasciicircum{}2}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q17.}\quad {\small\color{soft}[D15-Q17 \textbullet\ MCQ \textbullet\ Wind energy --- sensitivity of kinetic energy to wind speed]}\par\vspace{2pt}
+During a wind-farm feasibility study, an engineer compares two candidate sites. The mean wind speed at Site B is 1.5 times the mean wind speed at Site A, but the air density and swept mass flow are treated as identical. Based on the Handbook expression for the kinetic energy of the wind, the kinetic energy at Site B relative to Site A is most nearly:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{Kinetic energy} = \dfrac{1}{2}\,m v^2$\par\vspace{3pt}
+\optline{A}{1.5 times as large}
+\optline{B}{\correct{2.25 times as large}}
+\optline{C}{3.0 times as large}
+\optline{D}{4.5 times as large}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (B)\par\vspace{2pt}
+{\small The Handbook gives the kinetic energy of the wind as (p.356):\par
+\[\text{KE} = \frac{1}{2}\,m v^2\]
+With mass $m$ held constant, KE is proportional to $v^2$. If $v_B = 1.5\,v_A$, then:\par
+\[\frac{\text{KE}_B}{\text{KE}_A} = \left(\frac{v_B}{v_A}\right)^2 = (1.5)^2 = 2.25\]
+\textbf{Why the other options are wrong:}\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \textbf{1.5$\times$} treats KE as linear in $v$ --- it ignores the square on the velocity term.
+\item \textbf{3.0$\times$} doubles the 1.5 factor (as if KE $\propto 2v$), which has no basis in the formula.
+\item \textbf{4.5$\times$} multiplies 1.5 by 3, or confuses this with the cube dependence of \emph{power} on wind speed (power adds a further factor of $v$ through mass flow rate); the question fixes mass, so only the $v^2$ energy term applies.
+\end{itemize}
+\textbf{Technique:} The $v^2$ dependence of wind kinetic energy (and the even stronger $v^3$ dependence of wind \emph{power}) is why small changes in mean wind speed dominate site selection.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Wind: p.356 \textbullet\ Handbook p.356 --- Wind kinetic energy = (1/2) m v\textasciicircum{}2}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q18.}\quad {\small\color{soft}[D15-Q18 \textbullet\ MCQ \textbullet\ Biomass energy --- conversion pathways to fuel form]}\par\vspace{2pt}
+A wastewater treatment plant wants to capture usable energy from the organic solids in its sludge. According to the Handbook's Biomass as an Energy Source diagram, which conversion process acts on that biomass to produce a \textbf{gaseous} fuel (biogas)?\par\par\vspace{3pt}
+\optline{A}{\correct{Anaerobic digestion}}
+\optline{B}{Fermentation}
+\optline{C}{Direct combustion}
+\optline{D}{Extraction}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small In the Handbook's Biomass as an Energy Source diagram (p.355), biomass inputs pass through conversion processes that yield solid, gaseous, or liquid fuels. \textbf{Anaerobic digestion} (a biochemical process) breaks down organic material in the absence of oxygen to produce a \textbf{GASEOUS FUEL} (biogas, chiefly methane) --- exactly the pathway a wastewater plant uses to capture energy from sludge.\par
+\textbf{Why the other options are wrong:}\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \textbf{Fermentation} is a biochemical process that produces a \textbf{LIQUID FUEL} (e.g., ethanol) from starch/sugary plant materials --- not a gas.
+\item \textbf{Direct combustion} (with size reduction/pelleting) yields \textbf{HEAT} directly, not a fuel to be stored/transported; it is on the direct-combustion branch, not a fuel-producing conversion.
+\item \textbf{Extraction} is a physical process that yields a \textbf{LIQUID FUEL} (e.g., plant oils/biodiesel feedstock) from oily plant material --- again a liquid, not a gas.
+\end{itemize}
+\textbf{Technique:} Trace each biomass input through its process to the fuel-form output (SOLID / GASEOUS / LIQUID). Gasification and anaerobic digestion are the two paths that terminate at GASEOUS FUELS.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Biomass as an Energy Source diagram: p.355 \textbullet\ Handbook p.355 --- Biomass energy pathways; anaerobic digestion}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q19.}\quad {\small\color{soft}[D15-Q19 \textbullet\ MCQ \textbullet\ Nuclear power --- reactor thermal efficiency comparison]}\par\vspace{2pt}
+An energy planner is reviewing the Handbook's Nuclear Power Reactor Characteristics table to compare reactor technologies. Of the reactor types listed, which has the \textbf{highest} typical thermal efficiency?\par\par\vspace{3pt}
+\optline{A}{\correct{Pressurized-water reactor}}
+\optline{B}{Boiling-water reactor}
+\optline{C}{Gas-cooled reactor}
+\optline{D}{Fluid-fueled reactor}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small Reading the Typical Thermal Efficiency column of the Handbook's Nuclear Power Reactor Characteristics table (p.356):\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item Pressurized-water (PWR): \textbf{36\%}
+\item Boiling-water (BWR): 22--30\%
+\item Gas-cooled: 30\%
+\item Liquid-metal: 33\%
+\item Fast-breeder: 32\%
+\item Fluid-fueled: 30\%
+\end{itemize}
+The \textbf{pressurized-water reactor} has the highest listed typical thermal efficiency at \textbf{36\%}.\par
+\textbf{Why the other options are wrong:}\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \textbf{Boiling-water reactor} is listed at 22--30\% --- the lowest of the group and below the PWR.
+\item \textbf{Gas-cooled reactor} is listed at 30\%, below the PWR.
+\item \textbf{Fluid-fueled reactor} is also listed at 30\%, below the PWR.
+\end{itemize}
+\textbf{Technique:} This is a direct table-reading question --- locate the correct column (Typical Thermal Efficiency) and compare the printed values. The PWR's 36\% is the clear maximum.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Nuclear Power Reactor Characteristics table: p.356 \textbullet\ Handbook p.356 --- Nuclear Power Reactor Characteristics; thermal efficiency}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q20.}\quad {\small\color{soft}[D15-Q20 \textbullet\ Numeric \textbullet\ Combustion --- CO2 produced per unit fuel burned (SI)]}\par\vspace{2pt}
+A landfill flares captured methane ($\text{CH}_4$) to control emissions, burning $1{,}000\ \text{kg}$ of methane per hour. Using the stoichiometric combustion reaction and molecular-weight mass balance in the Handbook combustion table, the mass of carbon dioxide ($\text{CO}_2$) produced per hour is most nearly:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $\text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $2{,}750$ kg/hr\par\vspace{2pt}
+{\small The Handbook combustion table (p.354) gives the methane reaction and its mass balance:\par
+\[\text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O}\]
+\[\underbrace{16}_{\text{CH}_4} + \underbrace{64}_{2\,\text{O}_2} = \underbrace{44}_{\text{CO}_2} + \underbrace{36}_{2\,\text{H}_2\text{O}} \quad (80 = 80\ \checkmark)\]
+Each 16 kg of $\text{CH}_4$ (MW = 16) produces 44 kg of $\text{CO}_2$ (MW = 44). The mass ratio is therefore $44/16 = 2.75$ kg $\text{CO}_2$ per kg $\text{CH}_4$:\par
+\[m_{\text{CO}_2} = 1{,}000\ \text{kg} \times \frac{44}{16} = 2{,}750\ \text{kg/hr}\]
+\textbf{Common errors to avoid:} Using a 1:1 mass ratio gives 1,000 kg (ignores the molecular-weight change). Using the water-mass ratio $36/16$ gives 2,250 kg (wrong product). Using the total-product ratio $80/16$ gives 5,000 kg (counts both $\text{CO}_2$ and $\text{H}_2\text{O}$). Always base the ratio on the molecular weights of the specific reactant and product.\par
+\textbf{Answer:} $m_{\text{CO}_2} \approx 2{,}750\ \text{kg/hr}$.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Combustion table (methane): p.354 \textbullet\ Handbook p.354 --- Combustion; CH4 + 2O2 = CO2 + 2H2O; 16+64=44+36}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q21.}\quad {\small\color{soft}[D15-Q21 \textbullet\ Numeric \textbullet\ Sustainability --- carbon emissions from the Kaya identity (SI)]}\par\vspace{2pt}
+An environmental policy analyst estimates the annual carbon emissions of a region using the Handbook's Kaya emission equation. The region has population $P = 3 \times 10^6$ persons, per-capita GDP of $\$45{,}000$ per person-yr, energy intensity $E/\text{GDP} = 6{,}000\ \text{Btu}/\$$, and a carbon emission factor $\text{CO}_2/E = 1.0 \times 10^{-7}$ tonnes $\text{CO}_2$ per Btu. The region's total annual carbon emissions are most nearly:\par\par\vspace{3pt}
+{\small\color{soft}Relevant:}\ $E_{\text{carbon}} = P \times \dfrac{\text{GDP}}{P} \times \dfrac{E}{\text{GDP}} \times \dfrac{\text{CO}_2}{E}$\par\vspace{3pt}
+{\small\color{soft}Numeric entry.}\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} $8.1 \times 10^{7}$ tonnes $\text{CO}_2$/yr\par\vspace{2pt}
+{\small The Handbook's Kaya emission equation (p.360) chains four factors so that the intermediate quantities cancel and leave carbon emitted per year:\par
+\[E_{\text{carbon}} = P \times \frac{\text{GDP}}{P} \times \frac{E}{\text{GDP}} \times \frac{\text{CO}_2}{E}\]
+Substituting the four factors (the intermediate dollar and Btu units cancel, leaving tonnes of $\text{CO}_2$ per year):\par
+\[E_{\text{carbon}} = (3\times10^6)(45{,}000)(6{,}000)(1.0\times10^{-7})\]
+Work it in steps:\par
+\[(3\times10^6)(45{,}000) = 1.35\times10^{11}\ \$/\text{yr (regional GDP)}\]
+\[\times\,6{,}000\ \text{Btu}/\$ = 8.1\times10^{14}\ \text{Btu/yr (total energy)}\]
+\[\times\,1.0\times10^{-7}\ \text{tonnes/Btu} = 8.1\times10^{7}\ \text{tonnes CO}_2/\text{yr}\]
+\textbf{Common errors to avoid:} Omitting the population factor gives only the per-capita emissions ($45{,}000 \times 6{,}000 \times 10^{-7} = 27$ tonnes/person-yr) --- three orders of magnitude short of the regional total. A single order-of-magnitude slip on the carbon factor ($10^{-6}$ instead of $10^{-7}$) gives $8.1\times10^8$ --- always track the powers of ten explicitly. Stopping after the energy term ($8.1\times10^{14}$ Btu) reports energy, not carbon.\par
+\textbf{Answer:} $E_{\text{carbon}} \approx 8.1\times10^{7}$ tonnes $\text{CO}_2$/yr (81 million tonnes/yr).\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Sustainability: Kaya's emission equation: p.360 \textbullet\ Handbook p.360 --- Kaya emission equation; carbon emission factors}\vspace{2pt}
+}}
+\vspace{9pt}
+\filbreak
+\textbf{\color{accent}Q22.}\quad {\small\color{soft}[D15-Q22 \textbullet\ MCQ \textbullet\ Environmental impact of wind energy --- noise as a siting consideration]}\par\vspace{2pt}
+A community group opposes a proposed wind farm on the grounds that it will be unacceptably loud at a residence 350 m away. Using the Handbook's table comparing the noise of different activities with wind turbines, the sound level of a wind farm at 350 m is most nearly comparable to which of the following?\par\par\vspace{3pt}
+\optline{A}{\correct{A quiet rural background / quiet bedroom (roughly 20--45 dB(A))}}
+\optline{B}{A busy general office (about 60 dB(A))}
+\optline{C}{A pneumatic drill at 7 m (about 95 dB(A))}
+\optline{D}{A jet aircraft at 250 m (about 105 dB(A))}
+\par\vspace{3pt}
+\vspace{2pt}\par\noindent\colorbox{boxbg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\vspace{2pt}\textbf{Answer:} (A)\par\vspace{2pt}
+{\small The Handbook's 'Noise of Different Activities Compared with Wind Turbines' table (p.357) lists a \textbf{wind farm at 350 m at 35--45 dB(A)}. On that same table:\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item Quiet bedroom = 20 dB(A); rural night-time background = 20--40 dB(A).
+\end{itemize}
+So a wind farm at 350 m falls in the same low range as quiet rural/bedroom background sound --- the correct comparison. This is why the table is used in siting and land-use analysis: at typical setback distances the turbine noise is near ambient background levels.\par
+\textbf{Why the other options are wrong:}\par
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \textbf{Busy general office (60 dB(A))} is well above the 35--45 dB(A) wind-farm value.
+\item \textbf{Pneumatic drill at 7 m (95 dB(A))} and \textbf{jet aircraft at 250 m (105 dB(A))} are far louder --- these are near the upper end of the table, an order of magnitude higher in loudness perception, and not representative of a wind farm at 350 m.
+\end{itemize}
+\textbf{Technique:} Read the wind-farm-at-350 m row (35--45 dB(A)) and find the other table entries in that band. Noise is a real environmental-impact and siting constraint, but the Handbook data place typical wind-farm levels near background, not near industrial or aircraft noise.\par}\par\vspace{2pt}
+{\footnotesize\color{soft}Handbook: Environmental Engineering --- Energy: Noise of Different Activities Compared with Wind Turbines table: p.357 \textbullet\ Handbook p.357 --- wind turbine noise table; dB(A) levels}\vspace{2pt}
+}}
+\vspace{9pt}
+\end{document}
